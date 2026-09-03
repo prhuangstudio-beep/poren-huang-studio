@@ -835,3 +835,82 @@ body:not(.home) .page h1{
     height:calc(100vw - 44px)!important;
   }
 }
+
+/* Artist page: tighten first screen so image and text begin above the fold */
+.about-page .page{
+  padding-top:clamp(28px,3.8vw,58px)!important;
+  padding-bottom:clamp(56px,7vw,104px)!important;
+}
+
+.about-page .page .eyebrow{
+  margin-bottom:clamp(8px,1.1vw,14px)!important;
+}
+
+.about-page .page h1{
+  margin:0 0 clamp(14px,1.8vw,24px)!important;
+  font-size:clamp(42px,5.6vw,82px)!important;
+  line-height:.94!important;
+  letter-spacing:-.055em!important;
+}
+
+.about-page .page h1 i{
+  font-size:42%!important;
+  line-height:1.05!important;
+}
+
+.about-page .artist-switch{
+  margin:0 0 clamp(16px,2.2vw,28px)!important;
+}
+
+.about-page .bio,
+.about-page .artist-cv{
+  margin-top:0!important;
+}
+
+/* Home sharing section */
+.shares{
+  max-width:1200px;
+}
+
+.shares article{
+  display:grid;
+  grid-template-columns:140px minmax(0,1fr);
+  gap:28px;
+  border-top:1px solid var(--line);
+  padding:28px 0;
+}
+
+.shares article:last-child{
+  border-bottom:1px solid var(--line);
+}
+
+.shares time{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.shares h3{
+  margin:0;
+  font-size:19px;
+  font-weight:700;
+  line-height:1.25;
+}
+
+.shares p{
+  margin:4px 0 0;
+  color:var(--muted);
+}
+
+@media(max-width:700px){
+  .about-page .page h1{
+    font-size:clamp(38px,13vw,58px)!important;
+  }
+
+  .shares article{
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+}
