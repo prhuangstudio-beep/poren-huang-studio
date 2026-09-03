@@ -19,14 +19,27 @@
   <main class="page">
     <p class="eyebrow">ARTIST · 藝術家</p>
     <h1>Poren Huang<br><i>黃柏仁</i></h1>
+    <div class="artist-switch" role="tablist" aria-label="Artist content">
+      <button class="active" type="button" data-artist-tab="intro" role="tab" aria-selected="true">Introduction</button>
+      <button type="button" data-artist-tab="cv" role="tab" aria-selected="false">CV</button>
+    </div>
+    <section class="artist-tab-panel active" data-artist-panel="intro">
     <div class="bio">
-      <div class="portrait placeholder"><span>Artist portrait<br>to be added</span></div>
+      <figure class="portrait image-carousel artist-photo-carousel" aria-label="Artist photo carousel">
+        <img class="active" src="assets/media/artist-slides/artist-01.jpg" alt="Poren Huang studio view">
+        <img src="assets/media/artist-slides/artist-02.jpg" alt="Poren Huang studio view">
+        <img src="assets/media/artist-slides/artist-03.jpg" alt="Poren Huang studio view">
+        <img src="assets/media/artist-slides/artist-04.jpg" alt="Poren Huang studio view">
+        <img src="assets/media/artist-slides/artist-05.jpg" alt="Poren Huang studio view">
+      </figure>
       <div>
         <p>Born in Taichung in 1970, Poren Huang graduated from the sculpture program at Fu-Hsin Trade & Arts School. Since the 1990s, he has developed a distinct sculptural language through concise lines, structured planes and a playful, animated sensibility.</p>
         <p>Dogs have been the recurring heart of Huang’s practice since 2003. In bronze and stainless steel, they become companions and mirrors: direct, humorous figures through which the artist considers human behaviour and emotion.</p>
         <p>黃柏仁生於1970年台中，畢業於復興商工雕塑組。自2003年起以「狗」為創作核心，透過銅與不鏽鋼發展《狗札記》系列；作品以幽默而溫厚的視角，邀請觀者重新凝視人性與情感。</p>
       </div>
     </div>
+    </section>
+    <section class="artist-tab-panel" data-artist-panel="cv">
     <section class="artist-cv">
       <h2>Selected CV</h2>
       <article><time>2026</time><p><span>Art Taichung; Millennium Hotel Taichung exhibition; Art Taipei.</span><small>台中國際藝術博覽會；台中日月千禧展覽；台北國際藝術博覽會。</small></p></article>
@@ -51,6 +64,7 @@
       <article><time>1999</time><p><span>First Prize in Sculpture and Mayor's Award, Central Taiwan Art Exhibition; Art Taipei.</span><small>中部美展雕塑類第一名及市長獎；台北國際藝術博覽會。</small></p></article>
       <article><time>1989</time><p><span>Graduated from the Sculpture Department, Fu-Hsin Trade & Arts School.</span><small>復興商工雕塑組畢業。</small></p></article>
       <article><time>1970</time><p><span>Born in Taichung, Taiwan.</span><small>生於台灣台中。</small></p></article>
+    </section>
     </section>
   </main>
   <footer>
