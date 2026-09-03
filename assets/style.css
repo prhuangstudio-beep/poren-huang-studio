@@ -318,7 +318,6 @@ body{transition:opacity .68s cubic-bezier(.76,0,.24,1),transform .68s cubic-bezi
   position:static;
   display:flex;
   align-items:baseline;
-  gap:14px;
   min-height:34px;
 }
 
