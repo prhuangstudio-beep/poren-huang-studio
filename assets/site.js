@@ -104,7 +104,7 @@ const hero=document.querySelector('.hero');
 if(hero){
   document.body.classList.add('home');
   document.body.classList.add('intro-active');
-  hero.insertAdjacentHTML('beforebegin','<div class="video-spacer" aria-hidden="true"></div><section class="video-banner" aria-label="Poren Huang studio film"><video autoplay muted loop playsinline preload="metadata"><source src="assets/media/hero-banner-lite.mp4" type="video/mp4"></video></section>');
+  hero.insertAdjacentHTML('beforebegin','<div class="video-spacer" aria-hidden="true"></div><section class="video-banner" aria-label="Poren Huang studio film"><video autoplay muted loop playsinline preload="auto"><source src="assets/media/hero-banner-hd.mp4" type="video/mp4"></video></section>');
   window.scrollTo(0,0);
   const intro=document.createElement('div');
   intro.className='intro-screen';
