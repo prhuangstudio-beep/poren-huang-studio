@@ -991,3 +991,19 @@ body:not(.home) .page h1 i{
     font-size:34px!important;
   }
 }
+
+/* Flip every home vertical section title to the opposite reading direction */
+.home main > .side-section > .side-title,
+.home main > .side-section > .side-title span,
+.home main > .intro.side-section > .side-title,
+.home main > .intro.side-section > .side-title span,
+.home main > .news.side-section > .side-title,
+.home main > .news.side-section > .side-title span,
+.home main > .shares.side-section > .side-title,
+.home main > .shares.side-section > .side-title span{
+  transform:rotate(0deg)!important;
+}
+
+.home .contact-title{
+  transform:translate(-50%,-50%) rotate(0deg)!important;
+}
