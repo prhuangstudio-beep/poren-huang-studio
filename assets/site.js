@@ -5,8 +5,15 @@ if(matchMedia('(pointer:fine)').matches){
   const cursor=document.createElement('i');
   cursor.className='site-cursor';
   document.body.append(cursor);
+  let cursorX=0,cursorY=0,cursorFrame=0;
+  const renderCursor=()=>{
+    cursorFrame=0;
+    cursor.style.transform=`translate3d(${cursorX}px,${cursorY}px,0)`;
+  };
   const moveCursor=e=>{
-    cursor.style.transform=`translate3d(${e.clientX}px,${e.clientY}px,0)`;
+    cursorX=e.clientX;
+    cursorY=e.clientY;
+    if(!cursorFrame)cursorFrame=requestAnimationFrame(renderCursor);
     cursor.classList.add('is-visible');
   };
   window.addEventListener('onpointerrawupdate'in window?'pointerrawupdate':'pointermove',moveCursor,{passive:true});
@@ -104,7 +111,7 @@ const hero=document.querySelector('.hero');
 if(hero){
   document.body.classList.add('home');
   document.body.classList.add('intro-active');
-  hero.insertAdjacentHTML('beforebegin','<div class="video-spacer" aria-hidden="true"></div><section class="video-banner" aria-label="Poren Huang studio film"><video autoplay muted loop playsinline preload="auto"><source src="assets/media/hero-banner-hd.mp4" type="video/mp4"></video></section>');
+  hero.insertAdjacentHTML('beforebegin','<div class="video-spacer" aria-hidden="true"></div><section class="video-banner" aria-label="Poren Huang studio film"><video autoplay muted loop playsinline preload="metadata"><source src="assets/media/hero-banner-hd.mp4" type="video/mp4"></video></section>');
   window.scrollTo(0,0);
   const intro=document.createElement('div');
   intro.className='intro-screen';
