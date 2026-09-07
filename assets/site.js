@@ -5,6 +5,12 @@ window.addEventListener('pageshow',()=>{
   window.scrollTo(0,0);
 });
 
+const themeStore={
+  get:()=>{try{return localStorage.getItem('poren-theme')}catch{return null}},
+  set:value=>{try{localStorage.setItem('poren-theme',value)}catch{}}
+};
+if(themeStore.get()==='dark')document.documentElement.classList.add('dark-mode');
+
 if(matchMedia('(pointer:fine)').matches){
   const cursor=document.createElement('i');
   cursor.className='site-cursor';
@@ -47,7 +53,7 @@ if(header&&nav){
   const navLinks=[...nav.children].filter(item=>item.tagName==='A');
   const social=document.createElement('div');
   social.className='menu-socials';
-  social.innerHTML='<a href="https://www.instagram.com/porenhuang" target="_blank" aria-label="Instagram">IG</a><a href="https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">f</a><a href="https://youtube.com/@porenhuang" target="_blank" aria-label="YouTube">▶</a><a href="mailto:pr_dogs@yahoo.com.tw" aria-label="Email">✉</a><a href="https://www.threads.com/@porenhuang" target="_blank" aria-label="Threads">@</a>';
+  social.innerHTML='<a href="https://www.instagram.com/porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a><a href="https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a><a href="https://youtube.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a><a href="mailto:pr_dogs@yahoo.com.tw" aria-label="Email">✉</a><a href="https://www.threads.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Threads">@</a>';
   nav.append(social);
   const searchButton=document.createElement('button');
   searchButton.className='site-search-toggle';
@@ -55,6 +61,17 @@ if(header&&nav){
   searchButton.setAttribute('aria-label','Search site');
   searchButton.innerHTML='<span aria-hidden="true"></span>';
   header.append(searchButton);
+  const themeButton=document.createElement('button');
+  themeButton.className='theme-toggle';
+  themeButton.type='button';
+  themeButton.setAttribute('aria-label','Toggle dark mode');
+  themeButton.setAttribute('aria-pressed',String(document.documentElement.classList.contains('dark-mode')));
+  header.append(themeButton);
+  themeButton.addEventListener('click',()=>{
+    const dark=document.documentElement.classList.toggle('dark-mode');
+    themeButton.setAttribute('aria-pressed',String(dark));
+    themeStore.set(dark?'dark':'light');
+  });
   const searchPanel=document.createElement('div');
   searchPanel.className='site-search-panel';
   searchPanel.innerHTML='<div class="site-search-box"><input type="search" placeholder="Search" aria-label="Search site"><div class="site-search-shortcuts"><div class="site-search-pages">'+navLinks.map(link=>'<a href="'+link.getAttribute('href')+'">'+link.textContent+'</a>').join('')+'</div><div class="site-search-icons">'+social.innerHTML+'</div></div><div class="site-search-results" aria-live="polite"></div></div>';
@@ -137,6 +154,14 @@ if(page){
   else if(location.pathname.includes('works'))page.dataset.label='WORKS';
   else page.dataset.label='';
 }
+
+[
+  ['2026-art-taichung','UPCOMING'],
+  ['2026-exquisite','CURRENT']
+].forEach(([id,label])=>{
+  const target=document.querySelector('#'+id+' .eyebrow');
+  if(target&&!target.querySelector('.status-badge'))target.insertAdjacentHTML('beforeend',' <span class="status-badge">'+label+'</span>');
+});
 
 const form=document.querySelector('.contact-form'),email=document.querySelector('.socials a:last-child');
 if(form&&email){
@@ -250,6 +275,25 @@ if(artistSwitch){
   };
   panels.forEach(panel=>panel.toggleAttribute('hidden',!panel.classList.contains('active')));
   buttons.forEach(button=>button.addEventListener('click',()=>showPanel(button.dataset.artistTab)));
+}
+
+const cv=document.querySelector('.artist-cv');
+if(cv){
+  const articles=[...cv.querySelectorAll('article')];
+  if(articles.length>8){
+    cv.classList.add('is-collapsed');
+    articles.slice(8).forEach(article=>article.hidden=true);
+    const button=document.createElement('button');
+    button.className='cv-toggle';
+    button.type='button';
+    button.textContent='View full timeline →';
+    cv.append(button);
+    button.addEventListener('click',()=>{
+      const collapsed=cv.classList.toggle('is-collapsed');
+      articles.slice(8).forEach(article=>article.hidden=collapsed);
+      button.textContent=collapsed?'View full timeline →':'Hide full timeline ↑';
+    });
+  }
 }
 
 const labels=['ARTIST','WORKS','NEWS','PRESS'];

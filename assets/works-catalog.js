@@ -98,6 +98,16 @@
   const coverIndexes={'power-food':[1,3]};
   const coverImages=work=>(coverIndexes[work[2]]||[1]).map(index=>image(work,index));
   const imageSequence=work=>imageOrders[work[2]]||Array.from({length:work[5]},(_,i)=>i+1);
+  const publicUrl='https://prhuangstudio-beep.github.io/poren-huang-studio/';
+  const setMeta=(selector,attr,value)=>{
+    let tag=document.head.querySelector(selector);
+    if(!tag){
+      tag=document.createElement('meta');
+      selector.includes('property=')?tag.setAttribute('property',attr):tag.setAttribute('name',attr);
+      document.head.append(tag);
+    }
+    tag.setAttribute('content',value);
+  };
   const visibleInfo=work=>{
     const source=details[work[2]]||['Available on request',work[3],work[4]];
     const rows=[(dimensions[work[2]]||[source[0]]).join('<br>'),source[1]];
@@ -147,9 +157,13 @@
       overview.innerHTML=groups.map(group=>{
         const first=group[0];
         const covers=group.flatMap(coverImages).join('|');
-        return '<a href="work.html?work='+first[2]+'"><figure class="works-cover" data-covers="'+covers+'" data-cover="0"><img class="active" src="'+image(first)+'" alt="'+first[0]+'" loading="lazy" decoding="async"><img alt="'+first[0]+'" loading="lazy" decoding="async"></figure><div class="works-card-meta"><strong>'+first[0]+'</strong><span>'+first[1]+'</span></div></a>';
+        return '<a href="work.html?work='+first[2]+'" data-material="'+first[3]+'"><figure class="works-cover" data-covers="'+covers+'" data-cover="0"><img class="active" src="'+image(first)+'" alt="'+first[0]+'" loading="lazy" decoding="async"><img alt="'+first[0]+'" loading="lazy" decoding="async"></figure><div class="works-card-meta"><strong>'+first[0]+'</strong><span>'+first[1]+'</span><em>'+first[3]+'</em></div></a>';
       }).join('');
       indexList.innerHTML=groups.map(group=>'<a href="work.html?work='+group[0][2]+'"><strong>'+group[0][0]+'</strong><span>'+group[0][1]+'</span></a>').join('');
+      overview.querySelectorAll('.works-cover img.active').forEach(img=>{
+        const setCover=()=>img.closest('.works-cover')?.style.setProperty('--cover-image','url("'+img.src+'")');
+        img.complete?setCover():img.addEventListener('load',setCover,{once:true});
+      });
     };
     render();
     const coverObserver='IntersectionObserver'in window?new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.classList.toggle('is-visible',entry.isIntersecting)),{rootMargin:'260px 0px'}):null;
@@ -196,6 +210,14 @@
     const selected=catalog.find(work=>work[2]===new URLSearchParams(location.search).get('work'))||catalog[0];
     const sequence=imageSequence(selected);
     const firstImage=image(selected,sequence[0]);
+    const title=selected[0]+' | Poren Huang Studio';
+    const description=selected[0]+' ('+selected[1]+') by Poren Huang. '+selected[3]+(selected[4]&&selected[4]!=='To be confirmed'?', '+selected[4]+'.':'.');
+    const absoluteImage=new URL(firstImage,publicUrl).href;
+    document.title=title;
+    setMeta('meta[property="og:title"]','og:title',title);
+    setMeta('meta[property="og:description"]','og:description',description);
+    setMeta('meta[property="og:image"]','og:image',absoluteImage);
+    setMeta('meta[name="twitter:card"]','twitter:card','summary_large_image');
     const {previous,next}=adjacentWorks(selected);
     const thumbnails=sequence.map((i,index)=>'<button class="'+(index===0?'active':'')+'" data-image="'+image(selected,i)+'"><img src="'+image(selected,i)+'" alt="'+selected[0]+' view '+(index+1)+'" loading="lazy" decoding="async"></button>').join('');
     const infoRows=visibleInfo(selected).map(row=>'<p>'+row+'</p>').join('');
@@ -207,6 +229,10 @@
     const toggle=detail.querySelector('.concept-toggle');toggle.addEventListener('click',()=>{const copy=toggle.nextElementSibling,expanded=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!expanded));copy.hidden=expanded});
     const variants=catalog.filter(work=>work[0]===selected[0]);
     if(variants.length>1)detail.insertAdjacentHTML('afterend','<section class="work-variants" aria-label="Material and colour variations">'+variants.map(work=>'<a class="'+(work===selected?'active':'')+'" href="work.html?work='+work[2]+'"><img src="'+image(work,imageSequence(work)[0])+'" alt="'+work[0]+' variation" loading="lazy" decoding="async"><span>'+work[3]+'</span>'+(visibleInfo(work)[2]?'<small>'+visibleInfo(work)[2]+'</small>':'')+'</a>').join('')+'</section>');
-    const related=document.querySelector('.related-works>div');related.innerHTML=catalog.filter(work=>work!==selected).slice(0,6).map(work=>'<a href="work.html?work='+work[2]+'"><img src="'+image(work)+'" alt="'+work[0]+'" loading="lazy" decoding="async"><span>'+work[0]+' · '+work[1]+'</span></a>').join('');
+    const related=document.querySelector('.related-works>div');related.innerHTML=catalog.filter(work=>work!==selected).sort((a,b)=>Math.abs(a[1]-selected[1])-Math.abs(b[1]-selected[1])||b[1]-a[1]).slice(0,6).map(work=>'<a href="work.html?work='+work[2]+'"><span class="square-media"><img src="'+image(work)+'" alt="'+work[0]+'" loading="lazy" decoding="async"></span><span>'+work[0]+' · '+work[1]+'</span></a>').join('');
+    related.querySelectorAll('.square-media img').forEach(img=>{
+      const setCover=()=>img.closest('.square-media')?.style.setProperty('--cover-image','url("'+img.src+'")');
+      img.complete?setCover():img.addEventListener('load',setCover,{once:true});
+    });
   }
 })();
