@@ -975,7 +975,7 @@ body:not(.home) .page h1 i{
   line-height:1!important;
   letter-spacing:-.02em!important;
   writing-mode:vertical-rl!important;
-  transform:rotate(0deg)!important;
+  transform:rotate(180deg)!important;
   transform-origin:center center!important;
   text-align:center!important;
 }
@@ -992,7 +992,7 @@ body:not(.home) .page h1 i{
   top:50%!important;
   width:var(--home-side-label-width)!important;
   writing-mode:vertical-rl!important;
-  transform:translate(-50%,-50%) rotate(0deg)!important;
+  transform:translate(-50%,-50%) rotate(180deg)!important;
   transform-origin:center center!important;
 }
 
