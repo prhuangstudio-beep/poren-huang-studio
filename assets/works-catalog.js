@@ -58,10 +58,72 @@
     '2011-big-nose-stainless-steel':['M','Stainless steel','To be confirmed'],
     '2011-enraptured-bronze-black-gold':['S','Bronze, baking paint','Black, gold']
   };
+  const dimensions={
+    '2005-mission-bronze-black':['SS 23x10x20cm','L 100x47x82cm'],
+    '2005-territory-bronze-black':['SS 21x9x21cm','S 32x15x30cm','XL 132x57x112cm'],
+    '2005-absorption-bronze-black':['SS 27x11x15cm','XL 150x55x85cm'],
+    '2005-continuation-bronze-black':['SS 30x11x20cm','S 45x17x30cm','L 90x28x58cm'],
+    '2005-going-home-bronze-black':['SS 27x15x10cm','S 40x15x22cm','XL 167x54x81cm'],
+    '2005-waiting-bronze-black':['SS 21x12x8cm','S 38x25x17cm','L 126x72x51cm'],
+    '2005-lackey-bronze-black':['SS 10x8x25cm','XL 50x49x130cm'],
+    '2005-security-guard-bronze-black':['SS 24x38x21cm','M 60x66x114cm'],
+    '2005-looking-down-bronze-black':['SS 10x9x28cm','S 17x23x40cm'],
+    '2005-man-and-woman-bronze-black':['S 38x10x16cm'],
+    '2006-no-entry-bronze-black':['M 64x32x60cm','L 96x48x90cm'],
+    '2006-warm-winter-bronze-black':['M 24x26x62cm'],
+    '2006-banquet-bronze-black-gold':['M 37x37x90cm'],
+    '2006-territory-ii-bronze-black':['M 48x45x84cm'],
+    '2007-holding-the-line-bronze-gold-leaf':['M 33x42x52cm'],
+    '2007-every-day-bronze-gold-leaf':['S 38x23x30cm'],
+    '2007-embrace-of-love-bronze-black-gold':['S 26x21x26cm','XL 148x177x176cm'],
+    '2007-dream-911-bronze-black':['M 45x27x44cm'],
+    '2008-night-patrol-stainless-steel':['S 34x30x44cm'],
+    '2008-world-so-big-bronze-black-white':['S 31x22x36cm','XL 124x84x145cm'],
+    '2008-wise-mind-bronze-black-gold':['S 30x23x36cm','M 45x34x54cm'],
+    '2008-21st-century-bronze-black-white':['S 27x28x46cm','M 40x42x69cm'],
+    '2009-father-and-son-bronze-black':['M 43x26x62cm'],
+    '2010-encore-stainless-steel':['M 41x43x66cm'],
+    '2010-target-bronze-black':['M 50x55x68cm'],
+    '2010-top-speed-bronze-black':['S 38x23x42cm'],
+    '2011-satisfaction-bronze-black-gold':['S 43x36x23cm'],
+    '2011-big-nose-stainless-steel':['M 24x38x67cm'],
+    '2011-enraptured-bronze-black-gold':['S 40x26x45cm']
+  };
   catalog.forEach(work=>{if(englishTitles[work[2]])work[0]=englishTitles[work[2]]});
   const image=(work,index=1)=>'assets/catalog/'+work[2]+'/'+String(index).padStart(2,'0')+'.jpg?v=20260902pf';
+  const imageOrders={
+    'baby-grey-black':[2,1,3,4,5],
+    'baby-pink':[2,1,3,4,5]
+  };
   const coverIndexes={'power-food':[1,3]};
   const coverImages=work=>(coverIndexes[work[2]]||[1]).map(index=>image(work,index));
+  const imageSequence=work=>imageOrders[work[2]]||Array.from({length:work[5]},(_,i)=>i+1);
+  const visibleInfo=work=>{
+    const source=details[work[2]]||['Available on request',work[3],work[4]];
+    const rows=[(dimensions[work[2]]||[source[0]]).join('<br>'),source[1]];
+    const color=work[2]==='power-food'?'Colorway':source[2];
+    if(color&&color!=='To be confirmed')rows.push(color);
+    return rows.filter(Boolean);
+  };
+  const adjacentWorks=work=>{
+    const groups=[];
+    catalog.forEach(item=>{
+      if(!groups.some(group=>group[0][0]===item[0]))groups.push(catalog.filter(candidate=>candidate[0]===item[0]));
+    });
+    const groupIndex=groups.findIndex(group=>group.includes(work));
+    return {
+      previous:groups[(groupIndex-1+groups.length)%groups.length][0],
+      next:groups[(groupIndex+1)%groups.length][0]
+    };
+  };
+  const fitWorkTitle=()=>{
+    const heading=document.querySelector('.work-detail-info .work-heading');
+    const title=heading?.querySelector('h1');
+    if(!heading||!title)return;
+    title.style.fontSize='';
+    let size=parseFloat(getComputedStyle(title).fontSize);
+    while(title.scrollWidth>title.clientWidth&&size>18){size-=1;title.style.fontSize=size+'px'}
+  };
   const overview=document.querySelector('.works-image-grid');
   if(overview){
     const indexList=document.querySelector('.works-index');
@@ -132,17 +194,19 @@
   const detail=document.querySelector('.work-detail');
   if(detail){
     const selected=catalog.find(work=>work[2]===new URLSearchParams(location.search).get('work'))||catalog[0];
-    const selectedIndex=catalog.indexOf(selected);
-    const previous=catalog[(selectedIndex-1+catalog.length)%catalog.length];
-    const next=catalog[(selectedIndex+1)%catalog.length];
-    const thumbnails=Array.from({length:selected[5]},(_,i)=>i+1).map(i=>'<button class="'+(i===1?'active':'')+'" data-image="'+image(selected,i)+'"><img src="'+image(selected,i)+'" alt="'+selected[0]+' view '+i+'" loading="lazy" decoding="async"></button>').join('');
-    const info=details[selected[2]]||['Available on request',selected[3],selected[4]];
-    detail.innerHTML='<div class="work-gallery"><figure class="work-main"><img src="'+image(selected)+'" alt="'+selected[0]+' artwork" decoding="async"></figure><div class="work-thumbnails">'+thumbnails+'</div></div><div class="work-detail-info"><div class="work-heading"><h1>'+selected[0]+'</h1><span>'+selected[1]+'</span></div><div class="work-data"><p>'+info[0]+'</p><p>'+info[1]+'</p><p>'+info[2]+'</p></div><button class="concept-toggle" aria-expanded="false">Statement...</button><p class="concept-copy" hidden>Statement to be added.</p><div class="work-neighbor-nav" aria-label="Adjacent works"><a href="work.html?work='+previous[2]+'"><span>Prev</span><strong>'+previous[0]+'</strong></a><a href="work.html?work='+next[2]+'"><span>Next</span><strong>'+next[0]+'</strong></a></div></div>';
+    const sequence=imageSequence(selected);
+    const firstImage=image(selected,sequence[0]);
+    const {previous,next}=adjacentWorks(selected);
+    const thumbnails=sequence.map((i,index)=>'<button class="'+(index===0?'active':'')+'" data-image="'+image(selected,i)+'"><img src="'+image(selected,i)+'" alt="'+selected[0]+' view '+(index+1)+'" loading="lazy" decoding="async"></button>').join('');
+    const infoRows=visibleInfo(selected).map(row=>'<p>'+row+'</p>').join('');
+    detail.innerHTML='<div class="work-gallery"><figure class="work-main"><img src="'+firstImage+'" alt="'+selected[0]+' artwork" decoding="async"></figure><div class="work-thumbnails">'+thumbnails+'</div></div><div class="work-detail-info"><div class="work-heading"><h1>'+selected[0]+'</h1><span>'+selected[1]+'</span></div><div class="work-data">'+infoRows+'</div><button class="concept-toggle" aria-expanded="false">Statement...</button><p class="concept-copy" hidden>Statement to be added.</p><div class="work-neighbor-nav" aria-label="Adjacent works"><a href="work.html?work='+previous[2]+'"><span>Prev</span><strong>'+previous[0]+'</strong></a><a href="work.html?work='+next[2]+'"><span>Next</span><strong>'+next[0]+'</strong></a></div></div>';
+    fitWorkTitle();
+    window.addEventListener('resize',fitWorkTitle,{passive:true});
     const main=detail.querySelector('.work-main img');
     detail.querySelectorAll('.work-thumbnails button').forEach(button=>button.addEventListener('click',()=>{main.src=button.dataset.image;detail.querySelectorAll('.work-thumbnails button').forEach(item=>item.classList.toggle('active',item===button))}));
     const toggle=detail.querySelector('.concept-toggle');toggle.addEventListener('click',()=>{const copy=toggle.nextElementSibling,expanded=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!expanded));copy.hidden=expanded});
     const variants=catalog.filter(work=>work[0]===selected[0]);
-    if(variants.length>1)detail.insertAdjacentHTML('afterend','<section class="work-variants" aria-label="Material and colour variations">'+variants.map(work=>'<a class="'+(work===selected?'active':'')+'" href="work.html?work='+work[2]+'"><img src="'+image(work)+'" alt="'+work[0]+' variation" loading="lazy" decoding="async"><span>'+work[3]+'</span><small>'+work[4]+'</small></a>').join('')+'</section>');
+    if(variants.length>1)detail.insertAdjacentHTML('afterend','<section class="work-variants" aria-label="Material and colour variations">'+variants.map(work=>'<a class="'+(work===selected?'active':'')+'" href="work.html?work='+work[2]+'"><img src="'+image(work,imageSequence(work)[0])+'" alt="'+work[0]+' variation" loading="lazy" decoding="async"><span>'+work[3]+'</span>'+(visibleInfo(work)[2]?'<small>'+visibleInfo(work)[2]+'</small>':'')+'</a>').join('')+'</section>');
     const related=document.querySelector('.related-works>div');related.innerHTML=catalog.filter(work=>work!==selected).slice(0,6).map(work=>'<a href="work.html?work='+work[2]+'"><img src="'+image(work)+'" alt="'+work[0]+'" loading="lazy" decoding="async"><span>'+work[0]+' · '+work[1]+'</span></a>').join('');
   }
 })();

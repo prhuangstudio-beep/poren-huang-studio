@@ -1,5 +1,9 @@
 if('scrollRestoration' in history)history.scrollRestoration='manual';
-window.addEventListener('pageshow',()=>window.scrollTo(0,0));
+window.addEventListener('pageshow',()=>{
+  document.body.classList.remove('page-entering','page-leaving');
+  document.querySelectorAll('#year').forEach(x=>x.textContent=new Date().getFullYear());
+  window.scrollTo(0,0);
+});
 
 if(matchMedia('(pointer:fine)').matches){
   const cursor=document.createElement('i');
@@ -39,7 +43,7 @@ if(header&&nav){
     document.head.append(searchData);
   };
   document.body.append(nav);
-  [...nav.querySelectorAll('a')].forEach((a,i)=>a.textContent=['About','Works','News','Shares','Contact'][i]||a.textContent);
+  [...nav.querySelectorAll('a')].forEach((a,i)=>a.textContent=['About','Works','News','Press','Contact'][i]||a.textContent);
   const navLinks=[...nav.children].filter(item=>item.tagName==='A');
   const social=document.createElement('div');
   social.className='menu-socials';
@@ -248,7 +252,7 @@ if(artistSwitch){
   buttons.forEach(button=>button.addEventListener('click',()=>showPanel(button.dataset.artistTab)));
 }
 
-const labels=['ARTIST','WORKS','NEWS','SHARES'];
+const labels=['ARTIST','WORKS','NEWS','PRESS'];
 document.querySelectorAll('.side-title span').forEach((label,i)=>label.textContent=labels[i]||label.textContent);
 
 const footer=document.querySelector('footer');
@@ -257,7 +261,7 @@ if(footer&&hero){
   footer.insertAdjacentHTML('afterend','<div class="end-spacer" aria-hidden="true"></div>');
 }
 
-const revealItems=document.querySelectorAll('h1,h2,h3,.hero p,.hero .image,.artist-portrait,.portrait,.intro p,.artist-detail p,.bio p,.artist-cv article,.news article,.shares article,.timeline article,.series-entry,.series-hero figure,.series-hero p,.series-hero .link,.works-image-grid>a,.works-index a,.work-detail,.work-variants,.related-works a,.work-panel,.artist-switch,.artist-tab-panel');
+const revealItems=document.querySelectorAll('h1,h2,h3,.hero p,.hero .image,.artist-portrait,.portrait,.intro p,.artist-detail p,.bio p,.artist-cv article,.news article,.press article,.timeline article,.series-entry,.series-hero figure,.series-hero p,.series-hero .link,.works-image-grid>a,.works-index a,.work-detail,.work-variants,.related-works a,.work-panel,.artist-switch,.artist-tab-panel');
 revealItems.forEach(item=>item.classList.add('scroll-reveal'));
 if('IntersectionObserver'in window){
   const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
