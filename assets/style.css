@@ -910,90 +910,12 @@ body:not(.home) .page h1 i{
   }
 }
 
-/* Shared polish: theme, motion, cards and compact content states */
+/* Shared polish: motion, cards and compact content states */
 :root{
   --ease-soft:cubic-bezier(.22,1,.36,1);
   --ease-panel:cubic-bezier(.76,0,.24,1);
   --motion-medium:.72s;
   --motion-slow:1.05s;
-}
-
-html.dark-mode{
-  --ink:#f4f4ef;
-  --muted:#aaa9a2;
-  --line:rgba(244,244,239,.2);
-  --soft:#242424;
-  --glass:rgba(26,26,26,.78);
-}
-
-html.dark-mode body,
-html.dark-mode .work-list article,
-html.dark-mode .work-stage .work-panel,
-html.dark-mode .video-banner,
-html.dark-mode .image-carousel,
-html.dark-mode .series-hero figure.image-carousel,
-html.dark-mode .intro-screen{
-  background:#1a1a1a!important;
-}
-
-html.dark-mode .placeholder,
-html.dark-mode .works-cover,
-html.dark-mode .work-main,
-html.dark-mode .work-thumbnails button,
-html.dark-mode .square-media{
-  background:#242424!important;
-}
-
-html.dark-mode img,
-html.dark-mode video{
-  border-color:rgba(244,244,239,.18)!important;
-}
-
-html.dark-mode .artist-switch,
-html.dark-mode .site-search-panel,
-html.dark-mode .email-modal .contact-form{
-  background:rgba(26,26,26,.82)!important;
-}
-
-html.dark-mode .intro-screen span,
-html.dark-mode .menu-toggle span,
-html.dark-mode .site-search-toggle span,
-html.dark-mode .site-search-toggle span::after{
-  color:#fff!important;
-  border-color:#fff!important;
-  background:#fff!important;
-}
-
-html.dark-mode .site-cursor{
-  border-color:#fff!important;
-  background:#1a1a1a!important;
-}
-
-.theme-toggle{
-  position:relative;
-  z-index:3;
-  width:46px;
-  height:46px;
-  border:0;
-  background:transparent;
-  cursor:pointer;
-}
-
-.theme-toggle::before{
-  content:"";
-  display:block;
-  width:18px;
-  height:18px;
-  margin:auto;
-  border:1.5px solid var(--ink);
-  border-radius:50%;
-  box-shadow:inset -6px -4px 0 var(--ink);
-  transition:box-shadow var(--motion-medium) var(--ease-soft),transform var(--motion-medium) var(--ease-soft);
-}
-
-.theme-toggle[aria-pressed="true"]::before{
-  box-shadow:inset 0 0 0 var(--ink);
-  transform:scale(1.06);
 }
 
 .hero-translation{
@@ -1132,10 +1054,6 @@ html.dark-mode .site-cursor{
 .press time,
 .press article>div{
   grid-column:2;
-}
-
-html.dark-mode .press article::before{
-  background:linear-gradient(135deg,#242424,#333);
 }
 
 .cv-toggle{

@@ -5,12 +5,6 @@ window.addEventListener('pageshow',()=>{
   window.scrollTo(0,0);
 });
 
-const themeStore={
-  get:()=>{try{return localStorage.getItem('poren-theme')}catch{return null}},
-  set:value=>{try{localStorage.setItem('poren-theme',value)}catch{}}
-};
-if(themeStore.get()==='dark')document.documentElement.classList.add('dark-mode');
-
 if(matchMedia('(pointer:fine)').matches){
   const cursor=document.createElement('i');
   cursor.className='site-cursor';
@@ -61,17 +55,6 @@ if(header&&nav){
   searchButton.setAttribute('aria-label','Search site');
   searchButton.innerHTML='<span aria-hidden="true"></span>';
   header.append(searchButton);
-  const themeButton=document.createElement('button');
-  themeButton.className='theme-toggle';
-  themeButton.type='button';
-  themeButton.setAttribute('aria-label','Toggle dark mode');
-  themeButton.setAttribute('aria-pressed',String(document.documentElement.classList.contains('dark-mode')));
-  header.append(themeButton);
-  themeButton.addEventListener('click',()=>{
-    const dark=document.documentElement.classList.toggle('dark-mode');
-    themeButton.setAttribute('aria-pressed',String(dark));
-    themeStore.set(dark?'dark':'light');
-  });
   const searchPanel=document.createElement('div');
   searchPanel.className='site-search-panel';
   searchPanel.innerHTML='<div class="site-search-box"><input type="search" placeholder="Search" aria-label="Search site"><div class="site-search-shortcuts"><div class="site-search-pages">'+navLinks.map(link=>'<a href="'+link.getAttribute('href')+'">'+link.textContent+'</a>').join('')+'</div><div class="site-search-icons">'+social.innerHTML+'</div></div><div class="site-search-results" aria-live="polite"></div></div>';
