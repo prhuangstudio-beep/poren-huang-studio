@@ -103,29 +103,6 @@ if(header&&nav){
   searchInput.addEventListener('input',renderSearch);
   searchPanel.addEventListener('click',event=>{if(event.target===searchPanel)closeSearch()});
   document.addEventListener('keydown',event=>{if(event.key==='Escape')closeSearch()});
-  const aiGuide=document.createElement('button');
-  aiGuide.className='ai-guide';
-  aiGuide.type='button';
-  aiGuide.setAttribute('aria-label','Open AI guide');
-  aiGuide.innerHTML='<img src="assets/media/ai-guide.jpg" alt="">';
-  document.body.append(aiGuide);
-  const aiPanel=document.createElement('div');
-  aiPanel.className='ai-guide-panel';
-  aiPanel.innerHTML='<p>AI Guide</p><button type="button" data-action="search">Search site</button><a href="works.html">Browse works</a><a href="works.html?focus=year">Search by year</a><a href="mailto:pr_dogs@yahoo.com.tw">Contact</a>';
-  document.body.append(aiPanel);
-  const closeAiPanel=()=>aiPanel.classList.remove('open');
-  aiGuide.addEventListener('click',event=>{
-    event.stopPropagation();
-    aiPanel.classList.toggle('open');
-  });
-  aiPanel.querySelector('[data-action="search"]').addEventListener('click',()=>{
-    closeAiPanel();
-    openSearch();
-  });
-  document.addEventListener('click',event=>{
-    if(!event.target.closest('.ai-guide,.ai-guide-panel'))closeAiPanel();
-  });
-  document.addEventListener('keydown',event=>{if(event.key==='Escape')closeAiPanel()});
 }
 
 const hero=document.querySelector('.hero');
@@ -247,13 +224,16 @@ document.querySelectorAll('.image-carousel').forEach(carousel=>{
   const slides=[...carousel.querySelectorAll('img')];
   if(slides.length<2)return;
   let index=Math.max(0,slides.findIndex(slide=>slide.classList.contains('active')));
+  const setCarouselCover=()=>carousel.style.setProperty('--cover-image','url("'+slides[index].src+'")');
   slides.forEach((slide,i)=>slide.classList.toggle('active',i===index));
+  slides[index].complete?setCarouselCover():slides[index].addEventListener('load',setCarouselCover,{once:true});
   setInterval(()=>{
     if(document.hidden)return;
     const next=(index+1)%slides.length;
     slides[next].classList.add('active');
     slides[index].classList.remove('active');
     index=next;
+    setCarouselCover();
   },4200);
 });
 

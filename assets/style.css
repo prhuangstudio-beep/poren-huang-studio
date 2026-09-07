@@ -344,106 +344,6 @@ body{transition:opacity .68s cubic-bezier(.76,0,.24,1),transform .68s cubic-bezi
   line-height:1.1;
 }
 
-.ai-guide{
-  position:fixed;
-  right:clamp(18px,2.6vw,38px);
-  bottom:clamp(18px,2.6vw,38px);
-  z-index:1500;
-  width:clamp(54px,5vw,82px);
-  height:clamp(54px,5vw,82px);
-  padding:0;
-  border:0;
-  border-radius:50%;
-  background:transparent;
-  cursor:pointer;
-  overflow:hidden;
-  filter:drop-shadow(0 10px 24px rgba(17,17,17,.12));
-  transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1);
-}
-
-.intro-active .ai-guide{
-  opacity:0;
-  transform:translateY(12px) scale(.92);
-  pointer-events:none;
-}
-
-.intro-active .ai-guide-panel{
-  opacity:0;
-  pointer-events:none;
-}
-
-.ai-guide-panel{
-  position:fixed;
-  right:clamp(18px,2.6vw,38px);
-  bottom:calc(clamp(18px,2.6vw,38px) + clamp(66px,6.2vw,102px));
-  z-index:1501;
-  display:grid;
-  gap:8px;
-  min-width:190px;
-  padding:15px;
-  border:1px solid rgba(17,17,17,.12);
-  border-radius:20px;
-  background:rgba(255,255,255,.88);
-  box-shadow:0 18px 46px rgba(17,17,17,.12);
-  backdrop-filter:blur(18px);
-  opacity:0;
-  transform:translateY(10px) scale(.97);
-  transform-origin:right bottom;
-  pointer-events:none;
-  transition:opacity .45s ease,transform .55s cubic-bezier(.22,1,.36,1);
-}
-
-.ai-guide-panel.open{
-  opacity:1;
-  transform:translateY(0) scale(1);
-  pointer-events:auto;
-}
-
-.ai-guide-panel p{
-  margin:0 0 4px;
-  color:#767670;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-}
-
-.ai-guide-panel a,
-.ai-guide-panel button{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  min-height:34px;
-  border:0;
-  border-radius:999px;
-  background:transparent;
-  color:#111;
-  padding:0 6px;
-  font:800 12px/1 Manrope,Arial,sans-serif;
-  text-align:left;
-  cursor:pointer;
-  transition:color .28s ease,transform .35s cubic-bezier(.22,1,.36,1);
-}
-
-.ai-guide-panel a::after,
-.ai-guide-panel button::after{
-  content:"→";
-  color:#ff5a1f;
-}
-
-.ai-guide-panel a:hover,
-.ai-guide-panel button:hover{
-  color:#ff5a1f;
-  transform:translateX(3px);
-}
-
-.ai-guide img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
 .artist-cv{
   display:grid;
   gap:0;
@@ -1031,7 +931,8 @@ html.dark-mode .work-list article,
 html.dark-mode .work-stage .work-panel,
 html.dark-mode .video-banner,
 html.dark-mode .image-carousel,
-html.dark-mode .series-hero figure.image-carousel{
+html.dark-mode .series-hero figure.image-carousel,
+html.dark-mode .intro-screen{
   background:#1a1a1a!important;
 }
 
@@ -1052,6 +953,20 @@ html.dark-mode .artist-switch,
 html.dark-mode .site-search-panel,
 html.dark-mode .email-modal .contact-form{
   background:rgba(26,26,26,.82)!important;
+}
+
+html.dark-mode .intro-screen span,
+html.dark-mode .menu-toggle span,
+html.dark-mode .site-search-toggle span,
+html.dark-mode .site-search-toggle span::after{
+  color:#fff!important;
+  border-color:#fff!important;
+  background:#fff!important;
+}
+
+html.dark-mode .site-cursor{
+  border-color:#fff!important;
+  background:#1a1a1a!important;
 }
 
 .theme-toggle{
@@ -1119,7 +1034,9 @@ html.dark-mode .email-modal .contact-form{
 }
 
 .works-cover::before,
-.square-media::before{
+.square-media::before,
+.image-carousel::before,
+.work-variants a::before{
   content:"";
   position:absolute;
   inset:-18px;
@@ -1130,7 +1047,9 @@ html.dark-mode .email-modal .contact-form{
 }
 
 .works-cover img,
-.square-media img{
+.square-media img,
+.image-carousel img,
+.work-variants img{
   position:relative;
   z-index:1;
   transition:opacity 2.9s var(--ease-panel),transform var(--motion-slow) var(--ease-soft);
@@ -1170,6 +1089,22 @@ html.dark-mode .email-modal .contact-form{
   aspect-ratio:1/1;
   background:#fff;
   margin-bottom:9px;
+}
+
+.image-carousel,
+.work-variants a{
+  position:relative;
+  isolation:isolate;
+}
+
+.image-carousel img,
+.work-variants img{
+  object-fit:contain!important;
+  background:transparent!important;
+}
+
+.work-variants a{
+  overflow:hidden;
 }
 
 .square-media img{

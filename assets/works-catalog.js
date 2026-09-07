@@ -201,6 +201,7 @@
       incoming.addEventListener('load',()=>{
         incoming.classList.add('active');
         current.classList.remove('active');
+        cover.style.setProperty('--cover-image','url("'+incoming.src+'")');
       },{once:true});
       incoming.src=covers[next];
     })},5600);
@@ -229,6 +230,11 @@
     const toggle=detail.querySelector('.concept-toggle');toggle.addEventListener('click',()=>{const copy=toggle.nextElementSibling,expanded=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!expanded));copy.hidden=expanded});
     const variants=catalog.filter(work=>work[0]===selected[0]);
     if(variants.length>1)detail.insertAdjacentHTML('afterend','<section class="work-variants" aria-label="Material and colour variations">'+variants.map(work=>'<a class="'+(work===selected?'active':'')+'" href="work.html?work='+work[2]+'"><img src="'+image(work,imageSequence(work)[0])+'" alt="'+work[0]+' variation" loading="lazy" decoding="async"><span>'+work[3]+'</span>'+(visibleInfo(work)[2]?'<small>'+visibleInfo(work)[2]+'</small>':'')+'</a>').join('')+'</section>');
+    document.querySelectorAll('.work-variants a').forEach(card=>{
+      const img=card.querySelector('img');
+      const setCover=()=>card.style.setProperty('--cover-image','url("'+img.src+'")');
+      img.complete?setCover():img.addEventListener('load',setCover,{once:true});
+    });
     const related=document.querySelector('.related-works>div');related.innerHTML=catalog.filter(work=>work!==selected).sort((a,b)=>Math.abs(a[1]-selected[1])-Math.abs(b[1]-selected[1])||b[1]-a[1]).slice(0,6).map(work=>'<a href="work.html?work='+work[2]+'"><span class="square-media"><img src="'+image(work)+'" alt="'+work[0]+'" loading="lazy" decoding="async"></span><span>'+work[0]+' · '+work[1]+'</span></a>').join('');
     related.querySelectorAll('.square-media img').forEach(img=>{
       const setCover=()=>img.closest('.square-media')?.style.setProperty('--cover-image','url("'+img.src+'")');
