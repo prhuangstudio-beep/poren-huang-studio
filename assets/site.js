@@ -25,8 +25,22 @@ if(matchMedia('(pointer:fine)').matches){
 }
 
 document.querySelectorAll('#year').forEach(x=>x.textContent=new Date().getFullYear());
+document.querySelectorAll('[data-press-list]').forEach(list=>{
+  const limit=list.dataset.pressLimit==='all'?Infinity:5;
+  list.replaceChildren(...(window.pressItems||[]).slice(0,limit).map(item=>{
+    const card=document.createElement('a'),meta=[item.source,item.date,item.category].filter(Boolean).join('．');
+    card.className='press-card';
+    card.href=item.url;
+    card.target='_blank';
+    card.rel='noopener noreferrer';
+    card.innerHTML='<h3></h3><p></p>';
+    card.querySelector('h3').textContent=item.title;
+    card.querySelector('p').textContent=meta;
+    return card;
+  }));
+});
 document.querySelectorAll('img:not([loading])').forEach(image=>{
-  if(!image.closest('.hero,.video-banner,.work-main'))image.loading='lazy';
+  if(!image.closest('.hero,.video-banner,.work-main,.work-stage'))image.loading='lazy';
   image.decoding='async';
 });
 
@@ -43,7 +57,12 @@ if(header&&nav){
     document.head.append(searchData);
   };
   document.body.append(nav);
-  [...nav.querySelectorAll('a')].forEach((a,i)=>a.textContent=['About','Works','News','Press','Contact'][i]||a.textContent);
+  [...nav.querySelectorAll('a')].forEach(link=>{
+    if(link.getAttribute('href')?.includes('#contact'))link.remove();
+    else if(link.getAttribute('href')?.includes('#press'))link.href='press.html';
+    else if(link.getAttribute('href')?.includes('about.html'))link.textContent='Artist';
+    else if(link.getAttribute('href')?.includes('exhibitions.html'))link.textContent='News';
+  });
   const navLinks=[...nav.children].filter(item=>item.tagName==='A');
   const social=document.createElement('div');
   social.className='menu-socials';
@@ -106,6 +125,49 @@ if(hero){
     }
   });
   setTimeout(()=>document.body.classList.remove('intro-active'),3800);
+  const homeNav=document.createElement('div');
+  homeNav.className='home-section-nav';
+  homeNav.setAttribute('role','navigation');
+  homeNav.setAttribute('aria-label','Home sections');
+  homeNav.innerHTML=[
+    ['Top','#top'],
+    ['Artist','#artist'],
+    ['Series','#series'],
+    ['Works','#works'],
+    ['News','#news'],
+    ['Press','#press'],
+    ['Contact','#contact']
+  ].map(([label,target])=>'<a href="'+target+'">'+label+'</a>').join('');
+  document.body.append(homeNav);
+  const homeNavLinks=[...homeNav.querySelectorAll('a')];
+  homeNavLinks.forEach(link=>{
+    link.addEventListener('click',event=>{
+      const selector=link.getAttribute('href');
+      if(selector==='#top'){
+        event.preventDefault();
+        window.scrollTo({top:0,behavior:'smooth'});
+        return;
+      }
+      const target=document.querySelector(selector);
+      if(target){
+        event.preventDefault();
+        target.scrollIntoView({block:'start',behavior:'smooth'});
+      }
+    });
+  });
+  const homeSections=homeNavLinks.map(link=>({
+    link,
+    target:link.getAttribute('href')==='#top'?document.body:document.querySelector(link.getAttribute('href'))
+  })).filter(item=>item.target);
+  const updateHomeNav=()=>{
+    const current=homeSections.reduce((active,item)=>{
+      const top=item.target===document.body?0:item.target.getBoundingClientRect().top;
+      return top<=innerHeight*.42?item:active;
+    },homeSections[0]);
+    homeNavLinks.forEach(link=>link.classList.toggle('active',link===current.link));
+  };
+  updateHomeNav();
+  addEventListener('scroll',updateHomeNav,{passive:true});
 }
 
 const page=document.querySelector('.page');
@@ -113,14 +175,32 @@ if(page){
   if(location.pathname.includes('about'))page.dataset.label='';
   else if(location.pathname.includes('works'))page.dataset.label='WORKS';
   else page.dataset.label='';
+  if(!page.querySelector('.page-back,.back-to-works')){
+    const back=document.createElement('a');
+    back.className='page-back';
+    back.href=location.pathname.includes('/works/')?'../works.html':'index.html';
+    back.setAttribute('aria-label','Back');
+    back.textContent='←';
+    page.prepend(back);
+  }
 }
 
-[
-  ['2026-art-taichung','UPCOMING'],
-  ['2026-exquisite','CURRENT']
-].forEach(([id,label])=>{
-  const target=document.querySelector('#'+id+' .eyebrow');
-  if(target&&!target.querySelector('.status-badge'))target.insertAdjacentHTML('beforeend',' <span class="status-badge">'+label+'</span>');
+document.querySelectorAll('.news article[data-start],.timeline article[data-start]').forEach(article=>{
+  const start=new Date(article.dataset.start+'T00:00:00');
+  const end=new Date(article.dataset.end+'T23:59:59');
+  const now=new Date();
+  const label=now<start?'UPCOMING':now>end?'ENDED':'CURRENT';
+  const existing=article.querySelector('.status-badge,.news-status');
+  existing?.remove();
+  if(article.closest('.news')){
+    const status=document.createElement('span');
+    status.className='news-status status-'+label.toLowerCase();
+    status.textContent=label;
+    article.append(status);
+  }else{
+    const target=article.querySelector('.eyebrow');
+    if(target)target.insertAdjacentHTML('beforeend',' <span class="status-badge status-'+label.toLowerCase()+'">'+label+'</span>');
+  }
 });
 
 const form=document.querySelector('.contact-form'),email=document.querySelector('.socials a:last-child');
@@ -136,6 +216,20 @@ if(form&&email){
   modal.addEventListener('click',e=>{
     if(e.target===modal)modal.classList.remove('open');
   });
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const data=new FormData(form);
+    const name=(data.get('name')||'').toString().trim();
+    const sender=(data.get('email')||'').toString().trim();
+    const message=(data.get('message')||'').toString().trim();
+    const body=[
+      name&&'Name: '+name,
+      sender&&'Email: '+sender,
+      '',
+      message
+    ].filter(line=>line!==false).join('\n');
+    location.href='mailto:pr_dogs@yahoo.com.tw?subject='+encodeURIComponent('Poren Huang Studio enquiry')+'&body='+encodeURIComponent(body);
+  });
 }
 
 const stage=document.querySelector('.work-stage');
@@ -150,21 +244,24 @@ if(stage){
   let stageVelocity=0,stageFrame=0;
   const glideStage=()=>{
     stage.scrollLeft+=stageVelocity;
-    stageVelocity*=.84;
-    if(Math.abs(stageVelocity)>.18)stageFrame=requestAnimationFrame(glideStage);
+    stageVelocity*=.88;
+    if(Math.abs(stageVelocity)>.12)stageFrame=requestAnimationFrame(glideStage);
     else{
       stageVelocity=0;
       stageFrame=0;
     }
   };
   stage.addEventListener('wheel',e=>{
-    if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){
+    const wheelMove=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;
+    if(wheelMove){
       e.preventDefault();
-      stageVelocity+=e.deltaY*(e.deltaMode===1?8:.36);
+      const unit=e.deltaMode===1?18:1;
+      stageVelocity+=wheelMove*unit*.72;
+      stageVelocity=Math.max(-90,Math.min(90,stageVelocity));
       if(!stageFrame)stageFrame=requestAnimationFrame(glideStage);
     }
   },{passive:false});
-  let pointerDown=false,dragging=false,startX=0,startLeft=0,startLink=null;
+  let pointerDown=false,dragging=false,suppressStageClick=false,startX=0,startLeft=0,startLink=null;
   stage.addEventListener('pointerdown',e=>{
     pointerDown=true;
     dragging=false;
@@ -172,7 +269,7 @@ if(stage){
     startX=e.clientX;
     startLeft=stage.scrollLeft;
     startLink=e.target.closest('a[href]');
-    stage.setPointerCapture(e.pointerId);
+    if(e.pointerId&&stage.setPointerCapture)stage.setPointerCapture(e.pointerId);
   });
   stage.addEventListener('pointermove',e=>{
     if(!pointerDown)return;
@@ -184,14 +281,13 @@ if(stage){
     if(dragging)stage.scrollLeft=startLeft-delta;
   });
   const stopDrag=e=>{
-    if(pointerDown&&!dragging&&startLink){
-      e.preventDefault();
-      location.href=startLink.href;
-    }
+    if(stage.releasePointerCapture&&e.pointerId)try{stage.releasePointerCapture(e.pointerId)}catch{}
+    suppressStageClick=dragging&&Math.abs(e.clientX-startX)>7;
     pointerDown=false;
     dragging=false;
     startLink=null;
     stage.classList.remove('dragging');
+    if(suppressStageClick)setTimeout(()=>suppressStageClick=false,0);
   };
   stage.addEventListener('pointerup',stopDrag);
   stage.addEventListener('pointercancel',()=>{
@@ -200,8 +296,22 @@ if(stage){
     startLink=null;
     stage.classList.remove('dragging');
   });
-  stage.insertAdjacentHTML('beforeend','<a class="more-panel" href="works.html">More… <span aria-hidden="true">→</span></a>');
+  stage.addEventListener('click',event=>{
+    const link=event.target.closest('a[href]');
+    if(!link||link.classList.contains('more-panel'))return;
+    if(suppressStageClick){
+      event.preventDefault();
+      return;
+    }
+  });
+  stage.insertAdjacentHTML('beforeend','<a class="more-panel" href="works.html">view more...</a>');
 }
+
+document.querySelectorAll('.home .news article').forEach(article=>{
+  article.addEventListener('click',()=>{ location.href='exhibitions.html'; });
+  article.setAttribute('role','link');
+  article.tabIndex=0;
+});
 
 document.querySelectorAll('.image-carousel').forEach(carousel=>{
   const slides=[...carousel.querySelectorAll('img')];
@@ -268,7 +378,7 @@ if(footer&&hero){
   footer.insertAdjacentHTML('afterend','<div class="end-spacer" aria-hidden="true"></div>');
 }
 
-const revealItems=document.querySelectorAll('h1,h2,h3,.hero p,.hero .image,.artist-portrait,.portrait,.intro p,.artist-detail p,.bio p,.artist-cv article,.news article,.press article,.timeline article,.series-entry,.series-hero figure,.series-hero p,.series-hero .link,.works-image-grid>a,.works-index a,.work-detail,.work-variants,.related-works a,.work-panel,.artist-switch,.artist-tab-panel');
+const revealItems=document.querySelectorAll('h1,h2,h3,.hero p,.hero .image,.artist-portrait,.portrait,.intro p,.artist-detail p,.bio p,.artist-cv article,.news article,.press-card,.timeline article,.series-entry,.home-image-break,.press-side-image,.series-hero figure,.series-hero p,.series-hero .link,.works-image-grid>a,.works-index a,.work-detail,.work-variants,.related-works a,.work-panel,.artist-switch,.artist-tab-panel');
 revealItems.forEach(item=>item.classList.add('scroll-reveal'));
 if('IntersectionObserver'in window){
   const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
@@ -307,8 +417,8 @@ if(homeStage){
   });
   homeStage.querySelectorAll('.home-work-image').forEach(image=>{
     const covers=homeCovers[image.alt];
-    if(!covers||covers.length<2)return;
     image.classList.add('active');
+    if(!covers||covers.length<2)return;
     const clone=image.cloneNode();
     clone.classList.remove('active');
     clone.removeAttribute('src');
@@ -353,7 +463,7 @@ if(homeStage){
 }
 
 if(hero){
-  ['about.html','works.html','exhibitions.html'].forEach((destination,index)=>{
+  ['about.html','works.html','exhibitions.html','press.html'].forEach((destination,index)=>{
     const label=document.querySelectorAll('.side-title span')[index];
     if(label&&!label.closest('a')){
       const link=document.createElement('a');
