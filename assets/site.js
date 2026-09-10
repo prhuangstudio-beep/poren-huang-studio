@@ -209,20 +209,22 @@ if(form&&emailLinks.length){
   modal.className='email-modal';
   document.body.append(modal);
   modal.append(form);
+  const openGmailCompose=body=>{
+    const url='https://mail.google.com/mail/?view=cm&fs=1&to=pr_dogs@yahoo.com.tw&su='+encodeURIComponent('Poren Huang Studio enquiry')+'&body='+encodeURIComponent(body||'');
+    window.open(url,'poren-gmail-compose','width=720,height=680,noopener');
+  };
   form.addEventListener('submit',e=>{
     e.preventDefault();
     const name=form.elements.name?.value.trim()||'';
     const email=form.elements.email?.value.trim()||'';
     const message=form.elements.message?.value.trim()||'';
-    const subject='Poren Huang Studio enquiry';
     const body=['Name: '+name,'Email: '+email,'','Message:',message].join('\n');
-    const gmail='https://mail.google.com/mail/?view=cm&fs=1&to=pr_dogs@yahoo.com.tw&su='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-    window.open(gmail,'_blank','noopener');
+    openGmailCompose(body);
   });
   emailLinks.forEach(email=>{
     email.addEventListener('click',e=>{
       e.preventDefault();
-      modal.classList.add('open');
+      openGmailCompose('');
     });
   });
   modal.addEventListener('click',e=>{
