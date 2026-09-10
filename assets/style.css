@@ -1895,3 +1895,69 @@ body:not(.home) .page h1 i{
 .home footer .socials a:nth-child(4)::after{
   content:none!important;
 }
+
+/* Mobile home: one final, isolated layout and icon rule set. */
+body.home .menu-socials a,
+body.home footer .socials a,
+body.home .site-search-icons a{
+  display:grid!important;
+  place-items:center!important;
+  width:30px!important;
+  height:30px!important;
+  padding:0!important;
+  border:0!important;
+  color:#111!important;
+  font-size:0!important;
+}
+
+body.home .menu-socials a::before,
+body.home .menu-socials a::after,
+body.home footer .socials a::before,
+body.home footer .socials a::after,
+body.home .site-search-icons a::before,
+body.home .site-search-icons a::after{
+  content:none!important;
+}
+
+body.home .social-label{
+  color:#111;
+  font:700 14px/1 Arial,sans-serif;
+}
+
+body.home .menu-socials svg,
+body.home footer .socials svg,
+body.home .site-search-icons svg{
+  width:18px;
+  height:18px;
+  fill:none;
+  stroke:#111;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+@media(max-width:900px){
+  body.home .series-entry-section{
+    padding-left:calc(var(--pad) + 44px)!important;
+    padding-right:var(--pad)!important;
+  }
+
+  body.home .series-entry{
+    height:44vh!important;
+    min-height:0!important;
+  }
+
+  body.home .series-entry img{
+    width:130%!important;
+    max-width:none!important;
+    height:calc(100% - 44px)!important;
+    transform:none!important;
+  }
+
+  body.home .series-entry span{
+    width:auto!important;
+    justify-self:start!important;
+    transform:none!important;
+  }
+
+}

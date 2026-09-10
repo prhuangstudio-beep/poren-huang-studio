@@ -66,7 +66,13 @@ if(header&&nav){
   const navLinks=[...nav.children].filter(item=>item.tagName==='A');
   const social=document.createElement('div');
   social.className='menu-socials';
-  social.innerHTML='<a href="https://www.instagram.com/porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a><a href="https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a><a href="https://youtube.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a><a href="mailto:pr_dogs@yahoo.com.tw" aria-label="Email">✉</a><a href="https://www.threads.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Threads">@</a>';
+  social.innerHTML='<a href="https://www.instagram.com/porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-label">IG</span></a><a href="https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-label">f</span></a><a href="https://youtube.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a><a href="mailto:pr_dogs@yahoo.com.tw" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg></a><a href="https://www.threads.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Threads"><span class="social-label">@</span></a>';
+  const footerIcons=['<span class="social-label">IG</span>','<span class="social-label">f</span>','<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg>','<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg>','<span class="social-label">@</span>'];
+  document.querySelectorAll('footer .socials a').forEach((link,index)=>{
+    if(!footerIcons[index])return;
+    link.setAttribute('aria-label',['Instagram','Facebook','YouTube','Email','Threads'][index]);
+    link.innerHTML=footerIcons[index];
+  });
   nav.append(social);
   const searchButton=document.createElement('button');
   searchButton.className='site-search-toggle';
@@ -117,7 +123,7 @@ const hero=document.querySelector('.hero');
 if(hero){
   document.body.classList.add('home');
   document.body.classList.add('intro-active');
-  hero.insertAdjacentHTML('beforebegin','<div class="video-spacer" aria-hidden="true"></div><section class="video-banner" aria-label="Poren Huang studio film"><video autoplay muted loop playsinline preload="auto"><source src="assets/media/hero-banner-hd.mp4" type="video/mp4"></video></section>');
+  hero.insertAdjacentHTML('beforebegin','<div class="video-spacer" aria-hidden="true"></div><section class="video-banner" aria-label="Poren Huang studio film"><video autoplay muted loop playsinline preload="auto" poster="assets/media/home-image-break.jpg"><source src="assets/media/hero-banner-lite.mp4" media="(max-width: 900px)" type="video/mp4"><source src="assets/media/hero-banner-hd.mp4" type="video/mp4"></video></section>');
   const heroVideo=document.querySelector('.video-banner video');
   const warmHeroVideo=()=>{
     if(!heroVideo)return;
