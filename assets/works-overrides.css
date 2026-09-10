@@ -25,10 +25,27 @@
 .work-detail-info .work-heading h1 {
   min-width: 0 !important;
   max-width: 100% !important;
-  white-space: nowrap !important;
+  display: grid !important;
+  gap: 0.1em !important;
+  white-space: normal !important;
   overflow: visible !important;
   overflow-wrap: normal !important;
   text-overflow: clip !important;
+  color: #111 !important;
+  font-size: clamp(17px, 1.5vw, 26px) !important;
+  font-weight: 800 !important;
+  line-height: 1.08 !important;
+}
+
+.work-title-en,
+.work-title-zh {
+  display: block !important;
+  max-width: 100% !important;
+  color: #111 !important;
+  font: inherit !important;
+  font-weight: 800 !important;
+  line-height: 1.08 !important;
+  white-space: nowrap !important;
 }
 
 .work-detail-info .work-heading h1:hover {

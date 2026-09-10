@@ -85,9 +85,14 @@ body{
   overflow-x:clip;
 }
 header{
-  position:sticky!important;
+  position:fixed!important;
   top:0!important;
+  left:50%!important;
+  width:min(100%,1600px)!important;
+  transform:translateX(-50%)!important;
 }
+body{padding-top:92px;}
+@media(max-width:700px){body{padding-top:76px;}}
 .work-detail-info .work-heading{min-width:0;}
 .work-detail-info .work-heading h1{min-width:0;max-width:100%;white-space:nowrap!important;overflow:visible!important;overflow-wrap:normal!important;line-height:1!important;}
 .work-detail-info .work-heading span{align-self:end!important;line-height:1!important;padding-bottom:.02em!important;}
