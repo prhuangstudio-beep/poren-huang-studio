@@ -385,10 +385,31 @@ if(footer&&hero){
   footer.insertAdjacentHTML('afterend','<div class="end-spacer" aria-hidden="true"></div>');
 }
 
+document.querySelectorAll('.work-detail-info .work-heading h1').forEach(title=>{
+  if(title.querySelector('.work-title-en'))return;
+  const raw=title.textContent.trim().replace(/\s+/g,' ');
+  const zhFirst=raw.match(/^([^A-Za-z]+?)\s+(.+)$/);
+  const enFirst=raw.match(/^(.+?)\s+([\u4e00-\u9fff].*)$/);
+  const en=zhFirst?zhFirst[2]:(enFirst?enFirst[1]:raw);
+  const zh=zhFirst?zhFirst[1]:(enFirst?enFirst[2]:'');
+  title.replaceChildren();
+  const enLine=document.createElement('span');
+  enLine.className='work-title-en';
+  enLine.textContent=en;
+  title.append(enLine);
+  if(zh){
+    const zhLine=document.createElement('span');
+    zhLine.className='work-title-zh';
+    zhLine.textContent=zh;
+    title.append(zhLine);
+  }
+});
+
 const fitWorkHeadings=()=>{
   document.querySelectorAll('.work-detail-info .work-heading').forEach(heading=>{
     const title=heading.querySelector('h1'),year=heading.querySelector('span');
     if(!title)return;
+    if(title.querySelector('.work-title-en'))return;
     title.style.fontSize='';
     title.style.width='auto';
     title.style.maxWidth='';
