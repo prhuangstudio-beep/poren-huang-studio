@@ -147,7 +147,7 @@
   const coverIndexes={'power-food':[1,3]};
   const coverImages=work=>(coverIndexes[work[2]]||[1]).map(index=>image(work,index));
   const imageSequence=work=>imageOrders[work[2]]||Array.from({length:work[5]},(_,i)=>i+1);
-  const pageUrl=work=>'works/'+work[2]+'.html';
+  const pageUrl=work=>'works/'+work[2];
   const overview=document.querySelector('.works-image-grid');
   if(overview){
     const indexList=document.querySelector('.works-index');

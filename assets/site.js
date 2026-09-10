@@ -59,9 +59,9 @@ if(header&&nav){
   document.body.append(nav);
   [...nav.querySelectorAll('a')].forEach(link=>{
     if(link.getAttribute('href')?.includes('#contact'))link.remove();
-    else if(link.getAttribute('href')?.includes('#press'))link.href='press.html';
-    else if(link.getAttribute('href')?.includes('about.html'))link.textContent='Artist';
-    else if(link.getAttribute('href')?.includes('exhibitions.html'))link.textContent='News';
+    else if(link.getAttribute('href')?.includes('#press'))link.href='press';
+    else if(link.getAttribute('href')?.includes('about'))link.textContent='Artist';
+    else if(link.getAttribute('href')?.includes('exhibitions'))link.textContent='News';
   });
   const navLinks=[...nav.children].filter(item=>item.tagName==='A');
   const social=document.createElement('div');
@@ -178,7 +178,7 @@ if(page){
   if(!page.querySelector('.page-back,.back-to-works')){
     const back=document.createElement('a');
     back.className='page-back';
-    back.href=location.pathname.includes('/works/')?'../works.html':'index.html';
+    back.href=location.pathname.includes('/works/')?'../works':'';
     back.setAttribute('aria-label','Back');
     back.textContent='←';
     page.prepend(back);
@@ -293,11 +293,11 @@ if(stage){
       if(suppressStageClick)event.preventDefault();
     });
   });
-  stage.insertAdjacentHTML('beforeend','<a class="more-panel" href="works.html">查看作品列表</a>');
+  stage.insertAdjacentHTML('beforeend','<a class="more-panel" href="works">查看作品列表</a>');
 }
 
 document.querySelectorAll('.home .news article').forEach(article=>{
-  article.addEventListener('click',()=>{ location.href='exhibitions.html'; });
+  article.addEventListener('click',()=>{ location.href='exhibitions'; });
   article.setAttribute('role','link');
   article.tabIndex=0;
 });
@@ -452,7 +452,7 @@ if(homeStage){
 }
 
 if(hero){
-  ['about.html','works.html','exhibitions.html','press.html'].forEach((destination,index)=>{
+  ['about','works','exhibitions','press'].forEach((destination,index)=>{
     const label=document.querySelectorAll('.side-title span')[index];
     if(label&&!label.closest('a')){
       const link=document.createElement('a');

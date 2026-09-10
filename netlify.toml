@@ -4,3 +4,38 @@
 
 [build.environment]
   PUBLIC_URL = "https://porenhuang.com/"
+
+[[redirects]]
+  from = "http://porenhuang.com/*"
+  to = "https://porenhuang.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.porenhuang.com/*"
+  to = "https://porenhuang.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.porenhuang.com/*"
+  to = "https://porenhuang.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/works/:slug"
+  to = "/works/:slug.html"
+  status = 200
+
+[[redirects]]
+  from = "/:page"
+  to = "/:page.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
