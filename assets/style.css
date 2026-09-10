@@ -1360,6 +1360,13 @@ body:not(.home) .page h1 i{
   font-size:12px;
 }
 
+.form-honeypot{
+  position:absolute!important;
+  left:-9999px!important;
+  opacity:0!important;
+  pointer-events:none!important;
+}
+
 .email-modal .contact-form textarea{
   border-top:0;
   border-bottom:1px solid var(--line);

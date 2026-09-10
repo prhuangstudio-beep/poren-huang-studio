@@ -216,20 +216,6 @@ if(form&&email){
   modal.addEventListener('click',e=>{
     if(e.target===modal)modal.classList.remove('open');
   });
-  form.addEventListener('submit',e=>{
-    e.preventDefault();
-    const data=new FormData(form);
-    const name=(data.get('name')||'').toString().trim();
-    const sender=(data.get('email')||'').toString().trim();
-    const message=(data.get('message')||'').toString().trim();
-    const body=[
-      name&&'Name: '+name,
-      sender&&'Email: '+sender,
-      '',
-      message
-    ].filter(line=>line!==false).join('\n');
-    location.href='mailto:pr_dogs@yahoo.com.tw?subject='+encodeURIComponent('Poren Huang Studio enquiry')+'&body='+encodeURIComponent(body);
-  });
 }
 
 const stage=document.querySelector('.work-stage');
