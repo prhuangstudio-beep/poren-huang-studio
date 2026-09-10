@@ -304,6 +304,16 @@ if(stage){
       return;
     }
   });
+  stage.querySelectorAll('.work-panel[href]').forEach(panel=>{
+    panel.addEventListener('click',event=>{
+      if(suppressStageClick){
+        event.preventDefault();
+        return;
+      }
+      event.preventDefault();
+      location.href=panel.href;
+    });
+  });
   stage.insertAdjacentHTML('beforeend','<a class="more-panel" href="works.html">view more...</a>');
 }
 
