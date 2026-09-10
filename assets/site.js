@@ -203,15 +203,17 @@ document.querySelectorAll('.news article[data-start],.timeline article[data-star
   }
 });
 
-const form=document.querySelector('.contact-form'),email=document.querySelector('.socials a:last-child');
-if(form&&email){
+const form=document.querySelector('.contact-form'),emailLinks=document.querySelectorAll('a[href^="mailto:pr_dogs@yahoo.com.tw"]');
+if(form&&emailLinks.length){
   const modal=document.createElement('div');
   modal.className='email-modal';
   document.body.append(modal);
   modal.append(form);
-  email.addEventListener('click',e=>{
-    e.preventDefault();
-    modal.classList.add('open');
+  emailLinks.forEach(email=>{
+    email.addEventListener('click',e=>{
+      e.preventDefault();
+      modal.classList.add('open');
+    });
   });
   modal.addEventListener('click',e=>{
     if(e.target===modal)modal.classList.remove('open');
