@@ -81,9 +81,8 @@ body{transition:opacity .68s cubic-bezier(.76,0,.24,1),transform .68s cubic-bezi
 .home .hero h1{writing-mode:horizontal-tb!important;transform:none!important;}
 .work-detail-info .work-heading h1{white-space:nowrap!important;overflow:visible!important;overflow-wrap:normal!important;line-height:1!important;}
 .work-detail-info .work-heading span{align-self:end!important;line-height:1!important;padding-bottom:.02em!important;}
-.artist-cv ol{margin:0;padding-left:1.4em;display:grid;gap:10px;}
-.artist-cv li{padding-left:.25em;}
-.artist-cv li::marker{font-weight:700;color:#111;}
+.artist-cv ol{margin:0;padding-left:0;display:grid;gap:10px;list-style:none;}
+.artist-cv li{padding-left:0;}
 .artist-cv li span{display:block;}
 .artist-cv li small{display:block;}
 
