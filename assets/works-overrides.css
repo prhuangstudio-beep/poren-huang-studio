@@ -48,6 +48,10 @@
   white-space: nowrap !important;
 }
 
+.work-title-zh {
+  font-size: 60% !important;
+}
+
 .work-detail-info .work-heading h1:hover {
   letter-spacing: -0.045em !important;
   transform: none !important;
