@@ -293,7 +293,7 @@ if(stage){
       if(suppressStageClick)event.preventDefault();
     });
   });
-  stage.insertAdjacentHTML('beforeend','<a class="more-panel" href="works.html">view more...</a>');
+  stage.insertAdjacentHTML('beforeend','<a class="more-panel" href="works.html">查看作品列表</a>');
 }
 
 document.querySelectorAll('.home .news article').forEach(article=>{
