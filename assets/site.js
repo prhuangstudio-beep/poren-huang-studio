@@ -283,6 +283,10 @@ if(stage){
   const stopDrag=e=>{
     if(stage.releasePointerCapture&&e.pointerId)try{stage.releasePointerCapture(e.pointerId)}catch{}
     suppressStageClick=dragging&&Math.abs(e.clientX-startX)>7;
+    if(!suppressStageClick&&startLink){
+      e.preventDefault();
+      window.location.assign(startLink.href);
+    }
     pointerDown=false;
     dragging=false;
     startLink=null;
@@ -298,12 +302,7 @@ if(stage){
   });
   stage.querySelectorAll('.work-panel[href]').forEach(panel=>{
     panel.addEventListener('click',event=>{
-      if(suppressStageClick){
-        event.preventDefault();
-        return;
-      }
-      event.preventDefault();
-      window.location.assign(panel.href);
+      if(suppressStageClick)event.preventDefault();
     });
   });
   stage.insertAdjacentHTML('beforeend','<a class="more-panel" href="works.html">view more...</a>');

@@ -19,7 +19,7 @@
     ['Kiddo',2015,'2015-little-dog-bronze-white-black','Bronze, paint, stainless steel base','White, black',3],
     ['Little Rascal',2014,'2014-little-mischief-stainless-steel','Stainless steel','To be confirmed',3],['Hello',2014,'2014-hello-bronze-black','Bronze','Black',4],
     ['Big Nose',2011,'2011-big-nose-stainless-steel','Stainless steel','To be confirmed',4],['Enraptured',2011,'2011-enraptured-bronze-black-gold','Bronze','Black, gold',2],['Satisfaction',2011,'2011-satisfaction-bronze-black-gold','Bronze','Black, gold',3],
-    ['Encore',2010,'2010-encore-stainless-steel','Stainless steel','To be confirmed',4],['Wow',2010,'2010-wow-stainless-steel','Stainless steel','To be confirmed',2],['Target',2010,'2010-target-bronze-black','Bronze','Black',1],['Top Speed',2010,'2010-top-speed-bronze-black','Bronze','Black',1],
+    ['Encore',2010,'2010-encore-stainless-steel','Stainless steel','To be confirmed',4],['What the Heck!',2010,'2010-wow-stainless-steel','Stainless steel','To be confirmed',2],['Target',2010,'2010-target-bronze-black','Bronze','Black',1],['Top Speed',2010,'2010-top-speed-bronze-black','Bronze','Black',1],
     ['The Loved One',2009,'2009-pride-of-heaven-bronze-black-gold-leaf','Bronze','Black, gold leaf',4],['Father and Son',2009,'2009-father-and-son-bronze-black','Bronze','Black',5],['Information',2009,'2009-message-bronze-gold-leaf','Bronze','Gold leaf',5],['New World',2009,'2009-new-continent-bronze-black-white','Bronze','Black, white',5],['Dreams',2009,'2009-dream-stainless-steel','Stainless steel','To be confirmed',3],
     ['21st Century',2008,'2008-21st-century-bronze-black-white','Bronze','Black, white',2],['999.9',2008,'2008-999-9-bronze-black-white-gold-leaf','Bronze','Black, white, gold leaf',5],['The World Is So Big',2008,'2008-world-so-big-bronze-black-white','Bronze','Black, white',5],['Night Patrol',2008,'2008-night-patrol-stainless-steel','Stainless steel','To be confirmed',3],['A Wise Mind',2008,'2008-wise-mind-bronze-black-gold','Bronze','Black, gold',3],
     ['Big Ears',2007,'2007-big-ears-bronze-black','Bronze','Black',2],['Territory III',2007,'2007-territory-iii-bronze-black','Bronze','Black',3],['Every Day',2007,'2007-every-day-bronze-gold-leaf','Bronze','Gold leaf',3],['Holding the Line',2007,'2007-holding-the-line-bronze-gold-leaf','Bronze','Gold leaf',3],['Embrace of Love',2007,'2007-embrace-of-love-bronze-black-gold','Bronze','Black, gold',3],['Dream 911',2007,'2007-dream-911-bronze-black','Bronze','Black',3],
@@ -221,3 +221,4 @@
     })},5600);
   }
 })();
+
