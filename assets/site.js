@@ -214,8 +214,10 @@ if(form&&emailLinks.length){
     const name=form.elements.name?.value.trim()||'';
     const email=form.elements.email?.value.trim()||'';
     const message=form.elements.message?.value.trim()||'';
+    const subject='Poren Huang Studio enquiry';
     const body=['Name: '+name,'Email: '+email,'','Message:',message].join('\n');
-    location.href='mailto:pr_dogs@yahoo.com.tw?subject='+encodeURIComponent('Poren Huang Studio enquiry')+'&body='+encodeURIComponent(body);
+    const gmail='https://mail.google.com/mail/?view=cm&fs=1&to=pr_dogs@yahoo.com.tw&su='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    window.open(gmail,'_blank','noopener');
   });
   emailLinks.forEach(email=>{
     email.addEventListener('click',e=>{
