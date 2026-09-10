@@ -390,17 +390,21 @@ const fitWorkHeadings=()=>{
     const title=heading.querySelector('h1'),year=heading.querySelector('span');
     if(!title)return;
     title.style.fontSize='';
-    title.style.width='';
+    title.style.width='auto';
     title.style.maxWidth='';
     const style=getComputedStyle(heading);
     const gap=parseFloat(style.columnGap||style.gap)||0;
     const available=heading.clientWidth-(year?.offsetWidth||0)-gap;
     if(available<=0)return;
-    let size=parseFloat(getComputedStyle(title).fontSize);
+    const baseSize=parseFloat(getComputedStyle(title).fontSize);
+    const fullWidth=title.scrollWidth;
+    let size=fullWidth>available?Math.floor(baseSize*(available/fullWidth)):baseSize;
+    size=Math.max(8,Math.min(baseSize,size));
+    title.style.fontSize=size+'px';
     title.style.width=available+'px';
     title.style.maxWidth=available+'px';
-    while(title.scrollWidth>available&&size>12){
-      size-=1;
+    while(title.scrollWidth>available&&size>8){
+      size-=.5;
       title.style.fontSize=size+'px';
     }
   });
@@ -409,6 +413,7 @@ fitWorkHeadings();
 requestAnimationFrame(fitWorkHeadings);
 document.fonts?.ready.then(fitWorkHeadings);
 addEventListener('resize',fitWorkHeadings);
+addEventListener('load',fitWorkHeadings);
 
 const revealItems=document.querySelectorAll('h1,h2,h3,.hero p,.hero .image,.artist-portrait,.portrait,.intro p,.artist-detail p,.bio p,.artist-cv article,.news article,.press-card,.timeline article,.series-entry,.home-image-break,.press-side-image,.series-hero figure,.series-hero p,.series-hero .link,.works-image-grid>a,.works-index a,.work-detail,.work-variants,.related-works a,.work-panel,.artist-switch,.artist-tab-panel');
 revealItems.forEach(item=>item.classList.add('scroll-reveal'));

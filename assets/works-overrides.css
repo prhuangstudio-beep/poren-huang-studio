@@ -19,14 +19,14 @@
   width: 100% !important;
   min-width: 0 !important;
   max-width: 100% !important;
-  overflow: hidden !important;
+  overflow: visible !important;
 }
 
 .work-detail-info .work-heading h1 {
   min-width: 0 !important;
   max-width: 100% !important;
   white-space: nowrap !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   overflow-wrap: normal !important;
   text-overflow: clip !important;
 }
