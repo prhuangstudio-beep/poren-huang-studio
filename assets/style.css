@@ -1271,6 +1271,7 @@ body:not(.home) .page h1 i{
 .link,
 .all-works,
 .news-archive,
+.press-more,
 .more-panel,
 .series-entry strong{
   color:#ff5a1f!important;
@@ -1434,6 +1435,13 @@ body:not(.home) .page h1 i{
 
 .press-side-image{
   width:100%;
+}
+
+.press-more{
+  display:inline-block;
+  margin-top:26px;
+  border-bottom:1px solid currentColor;
+  padding-bottom:3px;
 }
 
 .home .work-stage .work-panel span{

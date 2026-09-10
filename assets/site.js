@@ -296,14 +296,6 @@ if(stage){
     startLink=null;
     stage.classList.remove('dragging');
   });
-  stage.addEventListener('click',event=>{
-    const link=event.target.closest('a[href]');
-    if(!link||link.classList.contains('more-panel'))return;
-    if(suppressStageClick){
-      event.preventDefault();
-      return;
-    }
-  });
   stage.querySelectorAll('.work-panel[href]').forEach(panel=>{
     panel.addEventListener('click',event=>{
       if(suppressStageClick){
@@ -311,7 +303,7 @@ if(stage){
         return;
       }
       event.preventDefault();
-      location.href=panel.href;
+      window.location.assign(panel.href);
     });
   });
   stage.insertAdjacentHTML('beforeend','<a class="more-panel" href="works.html">view more...</a>');
