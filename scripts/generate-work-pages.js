@@ -45,7 +45,6 @@ const absolute=url=>new URL(url,publicUrl).href;
 const pageAbsolute=work=>absolute(pageUrl(work));
 const imageSequence=work=>imageOrders[work[2]]||Array.from({length:work[5]},(_,i)=>i+1);
 const chineseTitles={
-  'power-food':'權力食物',
   '2019-awoooooo-stainless-steel':'啊嗚',
   '2015-little-dog-bronze-white-black':'小狗',
   '2014-little-mischief-stainless-steel':'小淘氣',
