@@ -1595,6 +1595,25 @@ body:not(.home) .page h1 i{
 }
 
 @media(max-width:900px){
+  body.home footer .socials a>*{
+    display:none!important;
+  }
+
+  body.home footer .socials a::before{
+    display:block!important;
+    color:#111!important;
+    font-family:Arial,sans-serif!important;
+    font-size:14px!important;
+    font-weight:800!important;
+    line-height:1!important;
+  }
+
+  body.home footer .socials a:nth-child(1)::before{content:"IG"!important}
+  body.home footer .socials a:nth-child(2)::before{content:"f"!important;font-size:17px!important}
+  body.home footer .socials a:nth-child(3)::before{content:"▶"!important;font-weight:400!important}
+  body.home footer .socials a:nth-child(4)::before{content:"✉︎"!important;font-size:17px!important;font-weight:400!important}
+  body.home footer .socials a:nth-child(5)::before{content:"@"!important;font-size:17px!important}
+
   body.home .series-entry-section{
     padding-left:calc(var(--pad) + 88px)!important;
     padding-right:var(--pad)!important;
