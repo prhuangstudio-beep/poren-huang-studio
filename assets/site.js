@@ -51,7 +51,7 @@ if(header&&nav){
     if(window.POREN_SEARCH_ENTRIES||searchDataLoading)return;
     searchDataLoading=true;
     const searchData=document.createElement('script');
-    searchData.src='assets/search-data.js';
+    searchData.src='assets/search-data.js?v=20260910k';
     searchData.defer=true;
     searchData.addEventListener('load',()=>searchPanel.classList.contains('open')&&renderSearch());
     document.head.append(searchData);
@@ -390,19 +390,24 @@ const fitWorkHeadings=()=>{
     const title=heading.querySelector('h1'),year=heading.querySelector('span');
     if(!title)return;
     title.style.fontSize='';
+    title.style.width='';
+    title.style.maxWidth='';
     const style=getComputedStyle(heading);
     const gap=parseFloat(style.columnGap||style.gap)||0;
     const available=heading.clientWidth-(year?.offsetWidth||0)-gap;
     if(available<=0)return;
     let size=parseFloat(getComputedStyle(title).fontSize);
+    title.style.width=available+'px';
     title.style.maxWidth=available+'px';
-    while(title.scrollWidth>available&&size>18){
+    while(title.scrollWidth>available&&size>12){
       size-=1;
       title.style.fontSize=size+'px';
     }
   });
 };
 fitWorkHeadings();
+requestAnimationFrame(fitWorkHeadings);
+document.fonts?.ready.then(fitWorkHeadings);
 addEventListener('resize',fitWorkHeadings);
 
 const revealItems=document.querySelectorAll('h1,h2,h3,.hero p,.hero .image,.artist-portrait,.portrait,.intro p,.artist-detail p,.bio p,.artist-cv article,.news article,.press-card,.timeline article,.series-entry,.home-image-break,.press-side-image,.series-hero figure,.series-hero p,.series-hero .link,.works-image-grid>a,.works-index a,.work-detail,.work-variants,.related-works a,.work-panel,.artist-switch,.artist-tab-panel');

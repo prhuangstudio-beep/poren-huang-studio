@@ -168,16 +168,16 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "Baby Baby 2023 Stainless steel, pillow 不鏽鋼、枕頭 Pink 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "Black Buster",
+    "title": "黑旋風 Black Buster",
     "type": "Work",
     "url": "works/black-buster-black-red",
-    "text": "Black Buster Black Buster 2022 Bronze 銅雕 Black, red 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "黑旋風 Black Buster Black Buster 黑旋風 2022 Bronze 銅雕 Black, red 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "Black Buster",
+    "title": "黑旋風 Black Buster",
     "type": "Work",
     "url": "works/black-buster-grey-red",
-    "text": "Black Buster Black Buster 2022 Bronze 銅雕 Grey, red 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "黑旋風 Black Buster Black Buster 黑旋風 2022 Bronze 銅雕 Grey, red 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
     "title": "Here",
@@ -192,10 +192,10 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "So Cute So Cute 2021 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "Cowboy",
+    "title": "牛仔 Cowboy",
     "type": "Work",
     "url": "works/2020-cowboy-bronze-gold-leaf-grey",
-    "text": "Cowboy Cowboy 2020 Bronze 銅雕 Gold leaf, grey 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "牛仔 Cowboy Cowboy 牛仔 2020 Bronze 銅雕 Gold leaf, grey 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
     "title": "Heart",
@@ -546,10 +546,10 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "赴宴 Attending a Banquet Attending a Banquet 赴宴 2006 Bronze, gold foil 銅雕、金箔 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "Memory",
+    "title": "記憶 Memory",
     "type": "Work",
     "url": "works/2006-memory-bronze-black",
-    "text": "Memory Memory 2006 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "記憶 Memory Memory 記憶 2006 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
     "title": "暖冬 Taking Care of You",
