@@ -1916,7 +1916,8 @@ body.home footer .socials a::before,
 body.home footer .socials a::after,
 body.home .site-search-icons a::before,
 body.home .site-search-icons a::after{
-  content:none!important;
+  content:""!important;
+  display:none!important;
 }
 
 body.home .social-label{
