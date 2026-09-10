@@ -178,7 +178,7 @@ if(page){
   if(!page.querySelector('.page-back,.back-to-works')){
     const back=document.createElement('a');
     back.className='page-back';
-    back.href=location.pathname.includes('/works/')?'../works':'';
+    back.href=location.pathname.includes('/works/')?'../works':'/';
     back.setAttribute('aria-label','Back');
     back.textContent='←';
     page.prepend(back);
