@@ -46,12 +46,48 @@ const absolute=url=>new URL(url,publicUrl).href;
 const pageAbsolute=work=>absolute(pageUrl(work));
 const imageSequence=work=>imageOrders[work[2]]||Array.from({length:work[5]},(_,i)=>i+1);
 const chineseTitles={
-  '2019-awoooooo-stainless-steel':'啊嗚',
-  '2015-little-dog-bronze-white-black':'小狗',
-  '2014-little-mischief-stainless-steel':'小淘氣',
-  '2010-wow-stainless-steel':'哇靠',
-  '2009-pride-of-heaven-bronze-black-gold-leaf':'天之驕子',
+  '2005-mission-bronze-black':'任務',
+  '2005-territory-bronze-black':'地盤',
+  '2005-absorption-bronze-black':'吸收',
+  '2005-continuation-bronze-black':'延續',
+  '2005-going-home-bronze-black':'回家',
+  '2005-waiting-bronze-black':'等待',
+  '2005-lackey-bronze-black':'狗腿子',
+  '2005-security-guard-bronze-black':'保全',
+  '2005-looking-down-bronze-black':'狗眼看人低',
+  '2005-man-and-woman-bronze-black':'男&女',
+  '2005-unhappy-bronze-black':'不爽',
+  '2005-unhappy-stainless-steel':'不爽',
+  '2006-no-entry-bronze-black':'禁區',
   '2006-happy-time-bronze-black':'快樂時光',
+  '2006-warm-winter-bronze-black':'暖冬',
+  '2006-banquet-bronze-black-gold':'赴宴',
+  '2006-territory-ii-bronze-black':'地盤(二)',
+  '2007-big-ears-bronze-black':'大耳朵',
+  '2007-territory-iii-bronze-black':'地盤(三)',
+  '2007-every-day-bronze-gold-leaf':'每一天',
+  '2007-holding-the-line-bronze-gold-leaf':'堅守岡位',
+  '2007-embrace-of-love-bronze-black-gold':'愛的擁抱',
+  '2007-dream-911-bronze-black':'夢想911',
+  '2008-21st-century-bronze-black-white':'21世紀',
+  '2008-night-patrol-stainless-steel':'夜巡',
+  '2008-wise-mind-bronze-black-gold':'智者的思維',
+  '2008-world-so-big-bronze-black-white':'世界那麼大',
+  '2009-father-and-son-bronze-black':'父子',
+  '2009-pride-of-heaven-bronze-black-gold-leaf':'天之驕子',
+  '2009-message-bronze-gold-leaf':'訊息',
+  '2009-new-continent-bronze-black-white':'新大陸',
+  '2009-dream-stainless-steel':'夢想',
+  '2010-encore-stainless-steel':'安可',
+  '2010-target-bronze-black':'目標',
+  '2010-top-speed-bronze-black':'極速',
+  '2010-wow-stainless-steel':'哇靠',
+  '2011-big-nose-stainless-steel':'大鼻子',
+  '2011-enraptured-bronze-black-gold':'出神',
+  '2011-satisfaction-bronze-black-gold':'滿足',
+  '2014-hello-bronze-black':'你好',
+  '2014-little-mischief-stainless-steel':'小淘氣',
+  '2015-little-dog-bronze-white-black':'小犬',
   '2017-bad-temper-bronze-black-gold':'臭脾氣',
   '2018-spirit-bronze-black':'骨氣',
   '2018-spirit-bronze-black-silver':'骨氣',
@@ -59,9 +95,16 @@ const chineseTitles={
   '2018-spirit-bronze-white':'骨氣',
   '2018-spirit-bronze-white-gold':'骨氣',
   '2018-spirit-stainless-steel':'骨氣',
-  '2009-message-bronze-gold-leaf':'訊息',
-  '2009-new-continent-bronze-black-white':'新大陸',
-  '2009-dream-stainless-steel':'夢想'
+  '2019-small-bronze-black':'小黑 / 獵物',
+  '2019-small-stainless-steel':'小黑 / 獵物',
+  '2022-black-buster-black-red':'黑旋風',
+  '2022-black-buster-grey-red':'黑旋風',
+  'speedy-black':'咻……',
+  'speedy-gold-leaf':'咻……',
+  'speedy-stainless-steel':'咻……',
+  'super-power-lake-green':'超動力',
+  'super-power-neon-orange':'超動力',
+  'super-power-stainless-steel':'超動力'
 };
 const materialZhMap=[
   [/stainless steel/i,'不鏽鋼'],
@@ -173,7 +216,7 @@ const renderWork=work=>{
   const thumbnails=sequence.map((item,index)=>`<button class="${index===0?'active':''}" data-image="${image(work,item)}"><img src="${image(work,item)}" alt="${esc(imageAlt(work,`第 ${index+1} 張角度`))}" loading="lazy" decoding="async"></button>`).join('');
   const variantHtml=variants.length>1?`<section class="work-variants" aria-label="Material and colour variations">${variants.map(item=>`<a class="${item===work?'active':''}" href="${pageUrl(item)}"><img src="${image(item,imageSequence(item)[0])}" alt="${esc(imageAlt(item,'材質與色彩版本'))}" loading="lazy" decoding="async"><span>${esc(item[3])}</span>${visibleInfo(item)[2]?`<small>${esc(visibleInfo(item)[2])}</small>`:''}</a>`).join('')}</section>`:'';
   const related=relatedWorks(work).map(item=>`<a href="${pageUrl(item)}"><span class="square-media"><img src="${image(item)}" alt="${esc(imageAlt(item))}" loading="lazy" decoding="async"></span><span>${esc(item[0])} · ${item[1]}</span></a>`).join('');
-  return `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="../"><title>${esc(title)}</title><meta name="description" content="${esc(description)}"><meta name="keywords" content="${esc("黃柏仁雕塑, 狗札記, The Dog's Notes, contemporary sculpture, bronze, stainless steel, Taiwanese sculptor")}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:image" content="${absolute(firstImage)}"><meta property="og:url" content="${canonical}"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="${canonical}"><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/works-overrides.css"><script type="application/ld+json">${JSON.stringify(schema)}</script></head><body><header><a class="brand" href="/">POREN HUANG <small>STUDIO</small></a><nav><a href="about">Artist</a><a class="active" href="works">Works</a><a href="exhibitions">Exhibitions & News</a><a href="press">Press</a><a href="/#contact">Contact</a></nav></header><main class="page work-detail-page static-work-page"><a class="back-to-works" href="works" aria-label="Back to works">←</a><section class="work-detail"><div class="work-gallery"><figure class="work-main"><img src="${firstImage}" alt="${esc(imageAlt(work))}" decoding="async"></figure><div class="work-thumbnails">${thumbnails}</div></div><div class="work-detail-info"><div class="work-heading"><h1>${esc(displayTitle(work))}</h1><span>${work[1]}</span></div><div class="work-data">${visibleInfo(work).map(row=>`<p>${row}</p>`).join('')}</div><button class="concept-toggle" aria-expanded="false">Statement...</button><p class="concept-copy" hidden>Statement to be added.</p><div class="work-neighbor-nav" aria-label="Adjacent works"><a href="${pageUrl(previous)}"><span>Prev</span><strong>${esc(previous[0])}</strong></a><a href="${pageUrl(next)}"><span>Next</span><strong>${esc(next[0])}</strong></a></div></div></section>${variantHtml}<section class="related-works"><p class="eyebrow">MORE WORKS</p><div>${related}</div></section></main><footer><p>POREN HUANG STUDIO</p><small>© <span id="year"></span> Poren Huang Studio</small></footer><script src="assets/site.js?v=20260910i"></script><script src="assets/work-page.js"></script></body></html>`;
+  return `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="../"><title>${esc(title)}</title><meta name="description" content="${esc(description)}"><meta name="keywords" content="${esc("黃柏仁雕塑, 狗札記, The Dog's Notes, contemporary sculpture, bronze, stainless steel, Taiwanese sculptor")}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:image" content="${absolute(firstImage)}"><meta property="og:url" content="${canonical}"><meta name="twitter:card" content="summary_large_image"><link rel="canonical" href="${canonical}"><link rel="stylesheet" href="assets/style.css"><link rel="stylesheet" href="assets/works-overrides.css"><script type="application/ld+json">${JSON.stringify(schema)}</script></head><body><header><a class="brand" href="/">POREN HUANG <small>STUDIO</small></a><nav><a href="about">Artist</a><a class="active" href="works">Works</a><a href="exhibitions">Exhibitions & News</a><a href="press">Press</a><a href="/#contact">Contact</a></nav></header><main class="page work-detail-page static-work-page"><a class="back-to-works" href="works" aria-label="Back to works">←</a><section class="work-detail"><div class="work-gallery"><figure class="work-main"><img src="${firstImage}" alt="${esc(imageAlt(work))}" decoding="async"></figure><div class="work-thumbnails">${thumbnails}</div></div><div class="work-detail-info"><div class="work-heading"><h1>${esc(displayTitle(work))}</h1><span>${work[1]}</span></div><div class="work-data">${visibleInfo(work).map(row=>`<p>${row}</p>`).join('')}</div><button class="concept-toggle" aria-expanded="false">Statement...</button><p class="concept-copy" hidden>Statement to be added.</p><div class="work-neighbor-nav" aria-label="Adjacent works"><a href="${pageUrl(previous)}"><span>Prev</span><strong>${esc(previous[0])}</strong></a><a href="${pageUrl(next)}"><span>Next</span><strong>${esc(next[0])}</strong></a></div></div></section>${variantHtml}<section class="related-works"><p class="eyebrow">MORE WORKS</p><div>${related}</div></section></main><footer><p>POREN HUANG STUDIO</p><small>© <span id="year"></span> Poren Huang Studio</small></footer><script src="assets/site.js?v=20260910j"></script><script src="assets/work-page.js"></script></body></html>`;
 };
 
 fs.mkdirSync(outDir,{recursive:true});

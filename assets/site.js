@@ -385,6 +385,26 @@ if(footer&&hero){
   footer.insertAdjacentHTML('afterend','<div class="end-spacer" aria-hidden="true"></div>');
 }
 
+const fitWorkHeadings=()=>{
+  document.querySelectorAll('.work-detail-info .work-heading').forEach(heading=>{
+    const title=heading.querySelector('h1'),year=heading.querySelector('span');
+    if(!title)return;
+    title.style.fontSize='';
+    const style=getComputedStyle(heading);
+    const gap=parseFloat(style.columnGap||style.gap)||0;
+    const available=heading.clientWidth-(year?.offsetWidth||0)-gap;
+    if(available<=0)return;
+    let size=parseFloat(getComputedStyle(title).fontSize);
+    title.style.maxWidth=available+'px';
+    while(title.scrollWidth>available&&size>18){
+      size-=1;
+      title.style.fontSize=size+'px';
+    }
+  });
+};
+fitWorkHeadings();
+addEventListener('resize',fitWorkHeadings);
+
 const revealItems=document.querySelectorAll('h1,h2,h3,.hero p,.hero .image,.artist-portrait,.portrait,.intro p,.artist-detail p,.bio p,.artist-cv article,.news article,.press-card,.timeline article,.series-entry,.home-image-break,.press-side-image,.series-hero figure,.series-hero p,.series-hero .link,.works-image-grid>a,.works-index a,.work-detail,.work-variants,.related-works a,.work-panel,.artist-switch,.artist-tab-panel');
 revealItems.forEach(item=>item.classList.add('scroll-reveal'));
 if('IntersectionObserver'in window){
