@@ -1,7 +1,7 @@
 (()=>{
   const workStyle=document.createElement('link');workStyle.rel='stylesheet';workStyle.href='assets/works-overrides.css';document.head.append(workStyle);
   const catalog=[
-    ['Power Food',2026,'power-food','To be confirmed','To be confirmed',5],
+    ['Power Food',2026,'power-food','To be confirmed','Colorway',5],
     ['Super Power',2025,'super-power-lake-green','Bronze','Lake green',5],['Super Power',2025,'super-power-neon-orange','Bronze','Neon orange',5],['Super Power',2025,'super-power-stainless-steel','Stainless steel','To be confirmed',5],
     ['Speedy',2025,'speedy-black','Bronze','Black',5],['Speedy',2025,'speedy-gold-leaf','Bronze','Gold leaf',5],['Speedy',2025,'speedy-stainless-steel','Stainless steel','To be confirmed',5],
     ['Shake Shake',2025,'shake-shake-black','Bronze','Black',5],['Shake Shake',2025,'shake-shake-lake-green','Bronze','Lake green',4],['Shake Shake',2025,'shake-shake-stainless-steel','Stainless steel','To be confirmed',5],
@@ -13,14 +13,14 @@
     ['Here',2021,'2021-here-bronze-black','Bronze','Black',5],['So Cute',2021,'2021-so-cute-stainless-steel','Stainless steel','To be confirmed',5],
     ['Cowboy',2020,'2020-cowboy-bronze-gold-leaf-grey','Bronze','Gold leaf, grey',5],['Heart',2020,'2020-heart-bronze-gold-leaf','Bronze','Gold leaf',5],['Heart + For You',2020,'2020-heart-for-you-bronze-pink-blue','Bronze','Pink, blue',5],['Relax',2020,'2020-relax-bronze-black','Bronze','Black',5],['Relax',2020,'2020-relax-bronze-yellow','Bronze','Yellow',4],
     ['Small',2019,'2019-small-bronze-black','Bronze','Black',5],['Small',2019,'2019-small-stainless-steel','Stainless steel','To be confirmed',5],['AWOOOOOO!',2019,'2019-awoooooo-stainless-steel','Stainless steel','To be confirmed',5],['Sweet',2019,'2019-sweet-bronze-grey-pillow-silver','Bronze, pillow','Grey, silver',5],['Sweet',2019,'2019-sweet-stainless-steel-pillow-gold','Stainless steel, pillow','Gold',3],
-    ['Spirit',2018,'2018-spirit-bronze-black','Bronze','Black',2],['Spirit',2018,'2018-spirit-bronze-black-silver','Bronze','Black, silver',2],['Spirit',2018,'2018-spirit-bronze-lake-green','Bronze','Lake green',2],['Spirit',2018,'2018-spirit-bronze-white','Bronze','White',2],['Spirit',2018,'2018-spirit-bronze-white-gold','Bronze','White, gold',2],['Spirit',2018,'2018-spirit-stainless-steel','Stainless steel','To be confirmed',2],
+    ['Backbone',2018,'2018-spirit-bronze-black','Bronze','Black',2],['Backbone',2018,'2018-spirit-bronze-black-silver','Bronze','Black, silver',2],['Backbone',2018,'2018-spirit-bronze-lake-green','Bronze','Lake green',2],['Backbone',2018,'2018-spirit-bronze-white','Bronze','White',2],['Backbone',2018,'2018-spirit-bronze-white-gold','Bronze','White, gold',2],['Backbone',2018,'2018-spirit-stainless-steel','Stainless steel','To be confirmed',2],
     ['Comma',2018,'2018-comma-bronze-black','Bronze','Black',3],['Comma',2018,'2018-comma-bronze-colorway','Bronze','Colorway',3],['Comma',2018,'2018-comma-bronze-silver','Bronze','Silver',4],['Enjoy',2018,'2018-enjoy-bronze-black','Bronze','Black',3],['Enjoy',2018,'2018-enjoy-bronze-yellow','Bronze','Yellow',3],['Gelato',2018,'2018-gelato-bronze-black-silver','Bronze','Black, silver',4],['Gelato',2018,'2018-gelato-bronze-black-white','Bronze','Black, white',4],['Gelato',2018,'2018-gelato-bronze-white-gold','Bronze','White, gold',4],['SWAG',2018,'2018-swag-bronze-gold-leaf','Bronze','Gold leaf',2],['SWAG',2018,'2018-swag-stainless-steel','Stainless steel','To be confirmed',2],['Wonderful',2018,'2018-wonderful-bronze-black-silver','Bronze','Black, silver',2],
-    ['Bad Temper',2017,'2017-bad-temper-bronze-black-gold','Bronze','Black, gold',3],['Boom!',2017,'2017-boom-bronze-black-stainless-steel','Bronze, stainless steel','Black',5],['For You',2017,'2017-for-you-stainless-steel','Stainless steel','To be confirmed',2],
+    ['Grumpy',2017,'2017-bad-temper-bronze-black-gold','Bronze','Black, gold',3],['Boom!',2017,'2017-boom-bronze-black-stainless-steel','Bronze, stainless steel','Black',5],['For You',2017,'2017-for-you-stainless-steel','Stainless steel','To be confirmed',2],
     ['Kiddo',2015,'2015-little-dog-bronze-white-black','Bronze, paint, stainless steel base','White, black',3],
-    ['Little Mischief',2014,'2014-little-mischief-stainless-steel','Stainless steel','To be confirmed',3],['Hello',2014,'2014-hello-bronze-black','Bronze','Black',4],
+    ['Little Rascal',2014,'2014-little-mischief-stainless-steel','Stainless steel','To be confirmed',3],['Hello',2014,'2014-hello-bronze-black','Bronze','Black',4],
     ['Big Nose',2011,'2011-big-nose-stainless-steel','Stainless steel','To be confirmed',4],['Enraptured',2011,'2011-enraptured-bronze-black-gold','Bronze','Black, gold',2],['Satisfaction',2011,'2011-satisfaction-bronze-black-gold','Bronze','Black, gold',3],
     ['Encore',2010,'2010-encore-stainless-steel','Stainless steel','To be confirmed',4],['Wow',2010,'2010-wow-stainless-steel','Stainless steel','To be confirmed',2],['Target',2010,'2010-target-bronze-black','Bronze','Black',1],['Top Speed',2010,'2010-top-speed-bronze-black','Bronze','Black',1],
-    ['Pride of Heaven',2009,'2009-pride-of-heaven-bronze-black-gold-leaf','Bronze','Black, gold leaf',4],['Father and Son',2009,'2009-father-and-son-bronze-black','Bronze','Black',5],['Message',2009,'2009-message-bronze-gold-leaf','Bronze','Gold leaf',5],['New Continent',2009,'2009-new-continent-bronze-black-white','Bronze','Black, white',5],['Dream',2009,'2009-dream-stainless-steel','Stainless steel','To be confirmed',3],
+    ['The Loved One',2009,'2009-pride-of-heaven-bronze-black-gold-leaf','Bronze','Black, gold leaf',4],['Father and Son',2009,'2009-father-and-son-bronze-black','Bronze','Black',5],['Information',2009,'2009-message-bronze-gold-leaf','Bronze','Gold leaf',5],['New World',2009,'2009-new-continent-bronze-black-white','Bronze','Black, white',5],['Dreams',2009,'2009-dream-stainless-steel','Stainless steel','To be confirmed',3],
     ['21st Century',2008,'2008-21st-century-bronze-black-white','Bronze','Black, white',2],['999.9',2008,'2008-999-9-bronze-black-white-gold-leaf','Bronze','Black, white, gold leaf',5],['The World Is So Big',2008,'2008-world-so-big-bronze-black-white','Bronze','Black, white',5],['Night Patrol',2008,'2008-night-patrol-stainless-steel','Stainless steel','To be confirmed',3],['A Wise Mind',2008,'2008-wise-mind-bronze-black-gold','Bronze','Black, gold',3],
     ['Big Ears',2007,'2007-big-ears-bronze-black','Bronze','Black',2],['Territory III',2007,'2007-territory-iii-bronze-black','Bronze','Black',3],['Every Day',2007,'2007-every-day-bronze-gold-leaf','Bronze','Gold leaf',3],['Holding the Line',2007,'2007-holding-the-line-bronze-gold-leaf','Bronze','Gold leaf',3],['Embrace of Love',2007,'2007-embrace-of-love-bronze-black-gold','Bronze','Black, gold',3],['Dream 911',2007,'2007-dream-911-bronze-black','Bronze','Black',3],
     ['Territory II',2006,'2006-territory-ii-bronze-black','Bronze','Black',2],['Happy Time',2006,'2006-happy-time-bronze-black','Bronze','Black',2],['Banquet',2006,'2006-banquet-bronze-black-gold','Bronze','Black, gold',2],['Memory',2006,'2006-memory-bronze-black','Bronze','Black',4],['Warm Winter',2006,'2006-warm-winter-bronze-black','Bronze','Black',2],['No Entry',2006,'2006-no-entry-bronze-black','Bronze','Black',4],
@@ -105,6 +105,7 @@
     '2018-comma-bronze-silver':['12x14x17cm'],
     '2019-sweet-bronze-grey-pillow-silver':['S 26x26x14cm'],
     '2019-sweet-stainless-steel-pillow-gold':['S 26x26x14cm'],
+    '2019-awoooooo-stainless-steel':['46x25x67cm'],
     '2020-relax-bronze-black':['S 23x19x19cm'],
     '2020-relax-bronze-yellow':['S 23x19x19cm'],
     '2020-cowboy-bronze-gold-leaf-grey':['S 25x16x15cm'],
@@ -115,6 +116,17 @@
     '2021-so-cute-stainless-steel':['38x32x41cm'],
     'black-buster-black-red':['48x31x26cm'],
     'black-buster-grey-red':['48x31x26cm'],
+    'baby-grey-black':['26x26x16cm'],
+    'baby-pink':['26x26x16cm'],
+    'fist-bump-stainless-steel':['23x27x33cm'],
+    'go-up-black-red':['25x20x48cm'],
+    'go-up-pink':['25x20x48cm'],
+    'go-up-yellow':['25x20x48cm'],
+    'heart-bronze-green':['24x23x33cm'],
+    'heart-stainless-steel':['24x23x33cm'],
+    'bubble-black-pink':['56x28x85cm'],
+    'bubble-green':['56x28x85cm'],
+    'bubble-pink':['56x28x85cm'],
     'speedy-stainless-steel':['S 28x20x21cm'],
     'speedy-gold-leaf':['S 28x20x21cm'],
     'speedy-black':['S 28x20x21cm'],
@@ -123,7 +135,8 @@
     'shake-shake-black':['S 25x13x22cm'],
     'super-power-stainless-steel':['S 32x25x22cm'],
     'super-power-lake-green':['S 32x25x22cm'],
-    'super-power-neon-orange':['S 52x25x22cm']
+    'super-power-neon-orange':['S 52x25x22cm'],
+    'power-food':['○ 5.5x2.5cm','△ 5.5x5.5x2.5cm']
   };
   catalog.forEach(work=>{if(englishTitles[work[2]])work[0]=englishTitles[work[2]]});
   const image=(work,index=1)=>'assets/catalog/'+work[2]+'/'+String(index).padStart(2,'0')+'.jpg?v=20260902pf';
