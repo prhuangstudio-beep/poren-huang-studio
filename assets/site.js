@@ -79,14 +79,20 @@ if(header&&nav){
   searchPanel.innerHTML='<div class="site-search-box"><input type="search" placeholder="Search" aria-label="Search site"><div class="site-search-shortcuts"><div class="site-search-pages">'+navLinks.map(link=>'<a href="'+link.getAttribute('href')+'">'+link.textContent+'</a>').join('')+'</div><div class="site-search-icons">'+social.innerHTML+'</div></div><div class="site-search-results" aria-live="polite"></div></div>';
   document.body.append(searchPanel);
   const searchInput=searchPanel.querySelector('input'),searchResults=searchPanel.querySelector('.site-search-results');
+  const normalizeSearch=value=>String(value||'').toLowerCase().replace(/[’'`]/g,'').replace(/[^a-z0-9\u4e00-\u9fff]+/g,' ').trim();
   const renderSearch=()=>{
-    const term=searchInput.value.trim().toLowerCase();
+    const term=normalizeSearch(searchInput.value);
     const entries=window.POREN_SEARCH_ENTRIES||[];
     if(!term){
       searchResults.innerHTML='';
       return;
     }
-    const results=entries.filter(entry=>(entry.title+' '+entry.type+' '+entry.text).toLowerCase().includes(term)).slice(0,12);
+    const terms=term.split(/\s+/).filter(Boolean);
+    const results=entries
+      .map(entry=>({entry,haystack:normalizeSearch([entry.title,entry.type,entry.text].join(' '))}))
+      .filter(item=>terms.every(word=>item.haystack.includes(word)))
+      .slice(0,18)
+      .map(item=>item.entry);
     searchResults.innerHTML=results.length?results.map(entry=>'<a href="'+entry.url+'"><span>'+entry.type+'</span><strong>'+entry.title+'</strong></a>').join(''):'<p>No results</p>';
   };
   const openSearch=()=>{
