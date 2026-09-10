@@ -1,5 +1,5 @@
 (()=>{
-  const workStyle=document.createElement('link');workStyle.rel='stylesheet';workStyle.href='assets/works-overrides.css?v=20260910t';document.head.append(workStyle);
+  const workStyle=document.createElement('link');workStyle.rel='stylesheet';workStyle.href='assets/works-overrides.css?v=20260910v';document.head.append(workStyle);
   const catalog=[
     ['Power Food',2026,'power-food','To be confirmed','Colorway',5],
     ['Super Power',2025,'super-power-lake-green','Bronze','Lake green',5],['Super Power',2025,'super-power-neon-orange','Bronze','Neon orange',5],['Super Power',2025,'super-power-stainless-steel','Stainless steel','To be confirmed',5],
@@ -147,7 +147,7 @@
   const coverIndexes={'power-food':[1,3]};
   const coverImages=work=>(coverIndexes[work[2]]||[1]).map(index=>image(work,index));
   const imageSequence=work=>imageOrders[work[2]]||Array.from({length:work[5]},(_,i)=>i+1);
-  const pageUrl=work=>'works/'+work[2]+'.html?v=20260910t';
+  const pageUrl=work=>'works/'+work[2]+'.html?v=20260910v';
   const overview=document.querySelector('.works-image-grid');
   if(overview){
     const indexList=document.querySelector('.works-index');

@@ -1803,3 +1803,95 @@ body:not(.home) .page h1 i{
     font-weight:700!important;
   }
 }
+
+@media(max-width:900px){
+  body.home .series-entry-section{
+    padding-left:calc(var(--pad) + 56px)!important;
+  }
+
+  body.home .series-entry span{
+    justify-self:start!important;
+    width:auto!important;
+    transform:translateX(calc((var(--pad) + 56px) * -1))!important;
+  }
+
+  .site-search-icons{
+    display:flex!important;
+    align-items:center!important;
+    gap:18px!important;
+  }
+
+  .site-search-icons a{
+    position:relative!important;
+    display:grid!important;
+    place-items:center!important;
+    width:30px!important;
+    height:30px!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    color:#111!important;
+    font-size:0!important;
+    line-height:1!important;
+    text-decoration:none!important;
+  }
+
+  .site-search-icons a::before{
+    position:static!important;
+    display:block!important;
+    margin:0!important;
+    color:#111!important;
+    font-family:Arial,sans-serif!important;
+    font-size:14px!important;
+    font-weight:800!important;
+    line-height:1!important;
+    transform:none!important;
+    border:0!important;
+  }
+
+  .site-search-icons a::after{
+    content:none!important;
+  }
+
+  .site-search-icons a[aria-label="Instagram"]::before{
+    content:"IG"!important;
+  }
+
+  .site-search-icons a[aria-label="Facebook"]::before{
+    content:"f"!important;
+    font-size:17px!important;
+  }
+
+  .site-search-icons a[aria-label="YouTube"]::before{
+    content:"▶"!important;
+    font-size:15px!important;
+    font-weight:400!important;
+  }
+
+  .site-search-icons a[aria-label="Email"]::before{
+    content:"✉︎"!important;
+    font-size:17px!important;
+    font-weight:400!important;
+  }
+
+  .site-search-icons a[aria-label="Threads"]::before{
+    content:"@"!important;
+    font-size:17px!important;
+    font-weight:700!important;
+  }
+}
+
+.home footer .socials a:nth-child(4)::before{
+  content:"✉︎"!important;
+  border:0!important;
+  width:auto!important;
+  height:auto!important;
+  font-size:17px!important;
+  font-weight:400!important;
+  line-height:1!important;
+}
+
+.home footer .socials a:nth-child(4)::after{
+  content:none!important;
+}
