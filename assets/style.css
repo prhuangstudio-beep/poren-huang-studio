@@ -1480,3 +1480,116 @@ body:not(.home) .page h1 i{
 .email-modal .contact-form::before{
   content:'CONTACT'!important;
 }
+
+@media(max-width:700px){
+  .home .series-entry-section{
+    padding-left:calc(var(--pad) + 56px)!important;
+    padding-right:var(--pad)!important;
+  }
+
+  .home .series-entry{
+    height:42vh!important;
+    overflow:visible!important;
+  }
+
+  .home .series-entry img{
+    width:130%!important;
+    max-width:none!important;
+    height:calc(100% - 48px)!important;
+    justify-self:center;
+  }
+
+  .home .series-entry span{
+    width:100%;
+  }
+
+  .home .work-stage{
+    height:39vh!important;
+  }
+
+  .home .work-panel,
+  .home .work-panel.active{
+    flex-basis:82%!important;
+  }
+
+  .home .press-layout{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:28px!important;
+  }
+
+  .home .press-side-image{
+    order:1;
+    position:static!important;
+    width:100%!important;
+    aspect-ratio:4/5!important;
+    max-height:52vh;
+  }
+
+  .home .press-list{
+    order:2;
+  }
+
+  .home .press-more{
+    display:inline-block;
+    margin-top:24px;
+  }
+
+  .menu-socials a,
+  .home footer .socials a{
+    color:#111!important;
+    border:0!important;
+    background:transparent!important;
+    font-size:0!important;
+    width:34px!important;
+    height:34px!important;
+    padding:0!important;
+  }
+
+  .menu-socials a::before,
+  .home footer .socials a::before{
+    color:#111!important;
+    font-size:15px!important;
+    font-weight:800!important;
+    line-height:1!important;
+  }
+
+  .menu-socials a[aria-label="YouTube"]::before,
+  .home footer .socials a:nth-child(3)::before{
+    content:"";
+    width:0;
+    height:0;
+    border-top:7px solid transparent;
+    border-bottom:7px solid transparent;
+    border-left:11px solid #111;
+  }
+
+  .menu-socials a[aria-label="Email"]::before,
+  .home footer .socials a:nth-child(4)::before{
+    content:"";
+    width:17px;
+    height:12px;
+    border:2px solid #111;
+    border-radius:1px;
+  }
+
+  .menu-socials a[aria-label="Email"]::after,
+  .home footer .socials a:nth-child(4)::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:11px;
+    height:11px;
+    border-left:2px solid #111;
+    border-bottom:2px solid #111;
+    transform:translate(-50%,-62%) rotate(-45deg);
+  }
+
+  .menu-socials a,
+  .home footer .socials a{
+    position:relative!important;
+    display:grid!important;
+    place-items:center!important;
+  }
+}

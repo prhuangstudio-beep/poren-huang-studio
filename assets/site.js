@@ -118,6 +118,13 @@ if(hero){
   document.body.classList.add('home');
   document.body.classList.add('intro-active');
   hero.insertAdjacentHTML('beforebegin','<div class="video-spacer" aria-hidden="true"></div><section class="video-banner" aria-label="Poren Huang studio film"><video autoplay muted loop playsinline preload="metadata"><source src="assets/media/hero-banner-hd.mp4" type="video/mp4"></video></section>');
+  const heroVideo=document.querySelector('.video-banner video');
+  const warmHeroVideo=()=>{
+    if(!heroVideo)return;
+    heroVideo.preload='auto';
+    heroVideo.load();
+    heroVideo.play().catch(()=>{});
+  };
   window.scrollTo(0,0);
   const intro=document.createElement('div');
   intro.className='intro-screen';
@@ -128,9 +135,10 @@ if(hero){
       window.scrollTo(0,0);
       document.body.classList.remove('intro-active');
       intro.remove();
+      warmHeroVideo();
     }
   });
-  setTimeout(()=>document.body.classList.remove('intro-active'),3800);
+  setTimeout(()=>{document.body.classList.remove('intro-active');warmHeroVideo();},3800);
   const homeNav=document.createElement('div');
   homeNav.className='home-section-nav';
   homeNav.setAttribute('role','navigation');
