@@ -1766,6 +1766,13 @@ body:not(.home) .page h1 i{
   }
 }
 
+/* One shared, self-contained footer icon row for every page. */
+footer .socials{display:flex;align-items:center;gap:20px}
+footer .socials a{display:grid!important;place-items:center!important;width:30px!important;height:30px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#111!important;font-size:0!important}
+footer .socials .social-label{font:700 14px/1 Arial,sans-serif;color:#111}
+footer .socials svg{width:18px;height:18px;fill:none;stroke:#111;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+footer .socials a::before,footer .socials a::after{content:none!important;display:none!important}
+
 @media(max-width:900px){
   .menu-socials{
     gap:18px!important;

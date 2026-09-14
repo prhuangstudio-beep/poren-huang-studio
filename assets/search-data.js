@@ -690,6 +690,12 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "天之驕子 – 黃柏仁 留白計畫展出介紹 留白計畫 2022.8.13 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
   },
   {
+    "title": "2021 MINI車主故事〈MINI TALKS〉第二集",
+    "type": "Video",
+    "url": "https://www.facebook.com/share/v/1CA7MJPR4V/?mibextid=wwXIfr",
+    "text": "2021 MINI車主故事〈MINI TALKS〉第二集 MINI Taiwan 2021 影片 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
+  },
+  {
     "title": "Artist Huang Poren - The loyalty pure black dog sculpture in Taiwan I Tingmember",
     "type": "Video",
     "url": "https://youtu.be/c92PJ5Oasqg?si=piTDopakc5EIA8k0",

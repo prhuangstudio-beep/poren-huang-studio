@@ -4,6 +4,7 @@ window.pressItems=[
   {title:'出神｜臺中市立美術館典藏',source:'臺中市立美術館',category:'文章',url:'https://collections.culture.tw/tcam_collectionsweb/collection.aspx?GID=MBMLM2'},
   {title:'人與動物的對照記：黃柏仁雕塑中對人性的探詢',source:'非池中',date:'2023.1.6',category:'文章',url:'https://artemperor.tw/focus/5211'},
   {title:'天之驕子 – 黃柏仁 留白計畫展出介紹',source:'留白計畫',date:'2022.8.13',category:'文章',url:'https://www.facebook.com/share/p/19bmotk7zY/'},
+  {title:'2021 MINI車主故事〈MINI TALKS〉第二集',source:'MINI Taiwan',date:'2021',category:'影片',url:'https://www.facebook.com/share/v/1CA7MJPR4V/?mibextid=wwXIfr'},
   {title:'Artist Huang Poren - The loyalty pure black dog sculpture in Taiwan I Tingmember',source:'Tingmember',date:'2021.2.6',category:'影片',url:'https://youtu.be/c92PJ5Oasqg?si=piTDopakc5EIA8k0'},
   {title:'台灣土狗精神 - 黃柏仁雕塑闖世界《狗札記》系列說人的故事',source:'中國時報',date:'2018.3.22',category:'文章',url:'https://www.chinatimes.com/newspapers/20180322000902-260508?chdtv'},
   {title:'黃柏仁終於回台灣啦！新光三越展出「狗札記」',source:'典藏 ARTouch',date:'2018.1.2',category:'文章',url:'https://artouch.com/art-views/content-2378.html'},
