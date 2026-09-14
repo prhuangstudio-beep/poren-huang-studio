@@ -1786,6 +1786,15 @@ footer .socials a::before,footer .socials a::after{content:none!important;displa
   body.home #works .work-panel{scroll-snap-align:start!important}
 }
 
+@media(max-width:700px){
+  .menu-socials a,.site-search-icons a,footer .socials a{display:grid!important;place-items:center!important;width:30px!important;height:30px!important;padding:0!important;border:0!important;background:transparent!important;font-size:0!important}
+  .menu-socials a::before,.menu-socials a::after,.site-search-icons a::before,.site-search-icons a::after,footer .socials a::before,footer .socials a::after{content:none!important;display:none!important}
+  .menu-socials .social-label,.site-search-icons .social-label,footer .socials .social-label{display:block!important;color:#111!important;font:700 14px/1 Arial,sans-serif!important}
+  .menu-socials svg,.site-search-icons svg,footer .socials svg{display:block!important;width:18px!important;height:18px!important;fill:none!important;stroke:#111!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+}
+
+.works-overview .works-intro h1{justify-self:start!important;text-align:left!important}
+
 @media(max-width:900px){
   .menu-socials{
     gap:18px!important;
@@ -2010,10 +2019,30 @@ body.home .site-search-icons svg{
     transform:none!important;
   }
 
-  body.home .series-entry span{
+body.home .series-entry span{
     width:auto!important;
     justify-self:start!important;
     transform:none!important;
   }
 
 }
+
+/* Final mobile-only overrides: keep social icons to their real SVG/text marks. */
+@media(max-width:700px){
+  .menu-socials a,.site-search-icons a,footer .socials a{
+    display:grid!important;place-items:center!important;width:30px!important;height:30px!important;
+    padding:0!important;border:0!important;background:transparent!important;font-size:0!important;
+  }
+  .menu-socials a::before,.menu-socials a::after,.site-search-icons a::before,.site-search-icons a::after,
+  footer .socials a::before,footer .socials a::after{content:none!important;display:none!important;}
+  .menu-socials .social-label,.site-search-icons .social-label,footer .socials .social-label{
+    display:block!important;color:#111!important;font:700 14px/1 Arial,sans-serif!important;
+  }
+  .menu-socials svg,.site-search-icons svg,footer .socials svg{
+    display:block!important;width:18px!important;height:18px!important;fill:none!important;stroke:#111!important;
+    stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important;
+  }
+  .work-detail-page .work-main{touch-action:pan-y;}
+}
+
+.works-overview .works-intro h1{justify-self:start!important;text-align:left!important;margin-right:auto!important;}
