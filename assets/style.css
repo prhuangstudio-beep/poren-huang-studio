@@ -2046,3 +2046,20 @@ body.home .series-entry span{
 }
 
 .works-overview .works-intro h1{justify-self:start!important;text-align:left!important;margin-right:auto!important;}
+
+@media(max-width:700px){
+  body.home .menu-socials a,body.home .site-search-icons a,body.home footer .socials a{
+    display:grid!important;place-items:center!important;width:30px!important;height:30px!important;
+    padding:0!important;border:0!important;background:transparent!important;font-size:0!important;
+  }
+  body.home .menu-socials a::before,body.home .menu-socials a::after,
+  body.home .site-search-icons a::before,body.home .site-search-icons a::after,
+  body.home footer .socials a::before,body.home footer .socials a::after{content:none!important;display:none!important;}
+  body.home .menu-socials .social-label,body.home .site-search-icons .social-label,body.home footer .socials .social-label{
+    display:block!important;color:#111!important;font:700 14px/1 Arial,sans-serif!important;
+  }
+  body.home .menu-socials svg,body.home .site-search-icons svg,body.home footer .socials svg{
+    display:block!important;width:18px!important;height:18px!important;fill:none!important;stroke:#111!important;
+    stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important;
+  }
+}
