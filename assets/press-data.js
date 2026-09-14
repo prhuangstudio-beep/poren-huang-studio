@@ -1,9 +1,12 @@
 window.pressItems=[
   {title:'台中日月千禧黃柏仁雕塑個展',source:'台中日月千禧',date:'2026.9.2',category:'文章',url:'https://www.millenniumtaichung.com.tw/news/ins.php?index_id=1175'},
+  {title:'黃柏仁作品典藏資料',source:'文化部典藏網',category:'文章',url:'https://collections.culture.tw/Object?SYSUID=12&RNO=MDk3MDA0MDQ='},
+  {title:'黃柏仁作品典藏資料',source:'臺中市立美術館',category:'文章',url:'https://collections.culture.tw/tcam_collectionsweb/collection.aspx?GID=MBMLM2'},
   {title:'人與動物的對照記：黃柏仁雕塑中對人性的探詢',source:'非池中',date:'2023.1.6',category:'文章',url:'https://artemperor.tw/focus/5211'},
   {title:'天之驕子 – 黃柏仁 留白計畫展出介紹',source:'留白計畫',date:'2022.8.13',category:'文章',url:'https://www.facebook.com/share/p/19bmotk7zY/'},
   {title:'Artist Huang Poren - The loyalty pure black dog sculpture in Taiwan I Tingmember',source:'Tingmember',date:'2021.2.6',category:'影片',url:'https://youtu.be/c92PJ5Oasqg?si=piTDopakc5EIA8k0'},
   {title:'台灣土狗精神 - 黃柏仁雕塑闖世界《狗札記》系列說人的故事',source:'中國時報',date:'2018.3.22',category:'文章',url:'https://www.chinatimes.com/newspapers/20180322000902-260508?chdtv'},
+  {title:'黃柏仁終於回台灣啦！新光三越展出「狗札記」',source:'典藏 ARTouch',date:'2018.1.2',category:'文章',url:'https://artouch.com/art-views/content-2378.html'},
   {title:'「我在做的，是一種純真度」黃柏仁狗狗雕塑簡單不簡單',source:'非池中',date:'2018.1.4',category:'文章',url:'https://artemperor.tw/focus/1917'},
   {title:'黃柏仁專訪',source:'藝術家雜誌 Artist Magazine',date:'2018年1月．第512期',category:'文章',url:'https://www.artist-magazine.com/edcontent_d.php?lang=tw&tb=9&id=2815&srsltid=AfmBOopmkNb1ZsJkqiTcTKBMCxZJHlKYFAaswDbnZ05AsX8FsRIqG1-N'},
   {title:'台灣藝術家 – 黃柏仁「狗札記」站上國際舞台',source:'典藏雜誌 Arttouch',date:'2015.11.25',category:'文章',url:'https://artouch.com/art-news/content-5186.html'},

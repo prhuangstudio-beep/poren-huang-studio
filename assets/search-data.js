@@ -666,6 +666,18 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "台中日月千禧黃柏仁雕塑個展 台中日月千禧 2026.9.2 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
   },
   {
+    "title": "黃柏仁作品典藏資料",
+    "type": "Press",
+    "url": "https://collections.culture.tw/Object?SYSUID=12&RNO=MDk3MDA0MDQ=",
+    "text": "黃柏仁作品典藏資料 文化部典藏網 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
+  },
+  {
+    "title": "黃柏仁作品典藏資料",
+    "type": "Press",
+    "url": "https://collections.culture.tw/tcam_collectionsweb/collection.aspx?GID=MBMLM2",
+    "text": "黃柏仁作品典藏資料 臺中市立美術館 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
+  },
+  {
     "title": "人與動物的對照記：黃柏仁雕塑中對人性的探詢",
     "type": "Press",
     "url": "https://artemperor.tw/focus/5211",
@@ -688,6 +700,12 @@ window.POREN_SEARCH_ENTRIES=[
     "type": "Press",
     "url": "https://www.chinatimes.com/newspapers/20180322000902-260508?chdtv",
     "text": "台灣土狗精神 - 黃柏仁雕塑闖世界《狗札記》系列說人的故事 中國時報 2018.3.22 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
+  },
+  {
+    "title": "黃柏仁終於回台灣啦！新光三越展出「狗札記」",
+    "type": "Press",
+    "url": "https://artouch.com/art-views/content-2378.html",
+    "text": "黃柏仁終於回台灣啦！新光三越展出「狗札記」 典藏 ARTouch 2018.1.2 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
   },
   {
     "title": "「我在做的，是一種純真度」黃柏仁狗狗雕塑簡單不簡單",
