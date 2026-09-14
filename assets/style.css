@@ -1773,6 +1773,19 @@ footer .socials .social-label{font:700 14px/1 Arial,sans-serif;color:#111}
 footer .socials svg{width:18px;height:18px;fill:none;stroke:#111;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 footer .socials a::before,footer .socials a::after{content:none!important;display:none!important}
 
+@media(max-width:700px){
+  body.home #works .work-stage{
+    overflow-x:auto!important;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    touch-action:pan-x!important;
+    scroll-snap-type:x mandatory!important;
+    scrollbar-width:none;
+  }
+  body.home #works .work-stage::-webkit-scrollbar{display:none}
+  body.home #works .work-panel{scroll-snap-align:start!important}
+}
+
 @media(max-width:900px){
   .menu-socials{
     gap:18px!important;

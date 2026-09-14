@@ -199,11 +199,11 @@ if(page){
   }
 }
 
-document.querySelectorAll('.news article[data-start],.timeline article[data-start],.timeline article[data-ended]').forEach(article=>{
+document.querySelectorAll('.news article[data-start],.timeline article[data-start],.timeline article[data-ended],.timeline article[data-permanent]').forEach(article=>{
   const start=new Date(article.dataset.start+'T00:00:00');
   const end=new Date(article.dataset.end+'T23:59:59');
   const now=new Date();
-  const label=article.hasAttribute('data-ended')?'ENDED':now<start?'UPCOMING':now>end?'ENDED':'CURRENT';
+  const label=article.hasAttribute('data-permanent')?'PERMANENT':article.hasAttribute('data-ended')?'ENDED':now<start?'UPCOMING':now>end?'ENDED':'CURRENT';
   const existing=article.querySelector('.status-badge,.news-status');
   existing?.remove();
   if(article.closest('.news')){
