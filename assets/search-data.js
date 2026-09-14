@@ -690,6 +690,12 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "天之驕子 – 黃柏仁 留白計畫展出介紹 留白計畫 2022.8.13 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
   },
   {
+    "title": "《黃柏仁雕塑展》",
+    "type": "Press",
+    "url": "https://www.facebook.com/share/p/14oGsu5hCfq/",
+    "text": "《黃柏仁雕塑展》 Taiwan Art Bank 藝術銀行 2025.1.20 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
+  },
+  {
     "title": "2021 MINI車主故事〈MINI TALKS〉第二集",
     "type": "Video",
     "url": "https://www.facebook.com/share/v/1CA7MJPR4V/?mibextid=wwXIfr",
