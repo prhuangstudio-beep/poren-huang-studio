@@ -78,6 +78,22 @@ body{transition:opacity .68s cubic-bezier(.76,0,.24,1),transform .68s cubic-bezi
   font-size:66.666%;
   line-height:1.05;
 }
+
+/* Fluid sizing is handled by CSS media queries, not device-specific scripts. */
+img,video{max-width:100%}
+.intro-screen small{display:block;margin-top:.18em;color:#111;font:700 clamp(16px,2.3vw,34px)/1 Manrope,Arial,sans-serif;letter-spacing:.12em;text-align:center}
+.contact-details{display:grid;gap:3px;margin:0;color:var(--muted);font-size:11px;font-style:normal;line-height:1.55}.contact-details a{width:max-content}.home footer .contact-details{align-self:center;margin-left:auto;margin-right:auto;text-align:center}.home footer .contact-details a{margin:auto}
+
+/* Restore one original footer icon per link on every screen size. */
+body.home footer .socials a::before{display:block!important;color:#111!important;font-family:Arial,sans-serif!important;font-size:14px!important;font-weight:800!important;line-height:1!important}
+body.home footer .socials a::after{content:""!important;display:none!important}
+body.home footer .socials a:nth-child(1)::before{content:"IG"!important}
+body.home footer .socials a:nth-child(2)::before{content:"f"!important;font-size:17px!important}
+body.home footer .socials a:nth-child(3)::before{content:"▶"!important;font-weight:400!important}
+body.home footer .socials a:nth-child(4)::before{content:"✉︎"!important;font-size:17px!important;font-weight:400!important}
+body.home footer .socials a:nth-child(5)::before{content:"@"!important;font-size:17px!important}
+
+@media(max-width:700px){.contact-details{font-size:10px;max-width:280px}.home footer .contact-details{margin-top:8px}}
 .home .hero h1{writing-mode:horizontal-tb!important;transform:none!important;}
 html,
 body{

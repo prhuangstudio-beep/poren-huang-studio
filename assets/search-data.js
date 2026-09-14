@@ -666,12 +666,6 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "台中日月千禧黃柏仁雕塑個展 台中日月千禧 2026.9.2 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
   },
   {
-    "title": "大雋畫廊 RICH ART GALLERY 藝術家黃柏仁介紹",
-    "type": "Press",
-    "url": "https://dajungallery.com/artists_detail.php?id=1296",
-    "text": "大雋畫廊 RICH ART GALLERY 藝術家黃柏仁介紹 大雋畫廊 Rich Art Gallery 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
-  },
-  {
     "title": "人與動物的對照記：黃柏仁雕塑中對人性的探詢",
     "type": "Press",
     "url": "https://artemperor.tw/focus/5211",

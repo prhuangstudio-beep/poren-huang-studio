@@ -1,6 +1,5 @@
 window.pressItems=[
   {title:'台中日月千禧黃柏仁雕塑個展',source:'台中日月千禧',date:'2026.9.2',category:'文章',url:'https://www.millenniumtaichung.com.tw/news/ins.php?index_id=1175'},
-  {title:'大雋畫廊 RICH ART GALLERY 藝術家黃柏仁介紹',source:'大雋畫廊 Rich Art Gallery',category:'文章',url:'https://dajungallery.com/artists_detail.php?id=1296'},
   {title:'人與動物的對照記：黃柏仁雕塑中對人性的探詢',source:'非池中',date:'2023.1.6',category:'文章',url:'https://artemperor.tw/focus/5211'},
   {title:'天之驕子 – 黃柏仁 留白計畫展出介紹',source:'留白計畫',date:'2022.8.13',category:'文章',url:'https://www.facebook.com/share/p/19bmotk7zY/'},
   {title:'Artist Huang Poren - The loyalty pure black dog sculpture in Taiwan I Tingmember',source:'Tingmember',date:'2021.2.6',category:'影片',url:'https://youtu.be/c92PJ5Oasqg?si=piTDopakc5EIA8k0'},

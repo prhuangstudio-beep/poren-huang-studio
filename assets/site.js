@@ -67,12 +67,6 @@ if(header&&nav){
   const social=document.createElement('div');
   social.className='menu-socials';
   social.innerHTML='<a href="https://www.instagram.com/porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-label">IG</span></a><a href="https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-label">f</span></a><a href="https://youtube.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a><a href="mailto:pr_dogs@yahoo.com.tw" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg></a><a href="https://www.threads.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Threads"><span class="social-label">@</span></a>';
-  const footerIcons=['<span class="social-label">IG</span>','<span class="social-label">f</span>','<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg>','<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg>','<span class="social-label">@</span>'];
-  document.querySelectorAll('footer .socials a').forEach((link,index)=>{
-    if(!footerIcons[index])return;
-    link.setAttribute('aria-label',['Instagram','Facebook','YouTube','Email','Threads'][index]);
-    link.innerHTML=footerIcons[index];
-  });
   nav.append(social);
   const searchButton=document.createElement('button');
   searchButton.className='site-search-toggle';
@@ -134,7 +128,7 @@ if(hero){
   window.scrollTo(0,0);
   const intro=document.createElement('div');
   intro.className='intro-screen';
-  intro.innerHTML='<span>POREN HUANG</span>';
+  intro.innerHTML='<span>POREN HUANG<small>SCULPTURE</small></span>';
   document.body.prepend(intro);
   intro.addEventListener('animationend',e=>{
     if(e.animationName==='intro-out'){
@@ -396,6 +390,7 @@ document.querySelectorAll('.side-title span').forEach((label,i)=>label.textConte
 const footer=document.querySelector('footer');
 if(footer&&hero){
   footer.insertAdjacentHTML('afterbegin','<p class="contact-title">CONTACT</p>');
+  footer.querySelector('small').insertAdjacentHTML('beforebegin','<address class="contact-details"><a href="mailto:pr_dogs@yahoo.com.tw">pr_dogs@yahoo.com.tw</a><a href="tel:+886926776431">+886 926 776 431</a><span>台中市大甲區甲埔大道800號<br>No. 800, Jiapu Blvd., Dajia Dist., Taichung City 437, Taiwan</span></address>');
   footer.insertAdjacentHTML('afterend','<div class="end-spacer" aria-hidden="true"></div>');
 }
 
