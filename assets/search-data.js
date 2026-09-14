@@ -666,16 +666,16 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "台中日月千禧黃柏仁雕塑個展 台中日月千禧 2026.9.2 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
   },
   {
-    "title": "黃柏仁作品典藏資料",
+    "title": "智者的思維｜文化部典藏網典藏",
     "type": "Press",
     "url": "https://collections.culture.tw/Object?SYSUID=12&RNO=MDk3MDA0MDQ=",
-    "text": "黃柏仁作品典藏資料 文化部典藏網 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
+    "text": "智者的思維｜文化部典藏網典藏 文化部典藏網 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
   },
   {
-    "title": "黃柏仁作品典藏資料",
+    "title": "出神｜臺中市立美術館典藏",
     "type": "Press",
     "url": "https://collections.culture.tw/tcam_collectionsweb/collection.aspx?GID=MBMLM2",
-    "text": "黃柏仁作品典藏資料 臺中市立美術館 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
+    "text": "出神｜臺中市立美術館典藏 臺中市立美術館 文章 報導 影音 article video media press 黃柏仁 Poren Huang sculpture"
   },
   {
     "title": "人與動物的對照記：黃柏仁雕塑中對人性的探詢",
