@@ -482,3 +482,25 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/* Detail pages use the full content width: titles wrap only between complete words. */
+.work-detail-page {
+  padding-left: var(--pad) !important;
+}
+
+.work-detail-page .work-detail-info .work-heading {
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 8px !important;
+}
+
+.work-detail-page .work-detail-info .work-heading h1,
+.work-detail-page .work-detail-info .work-heading h1 .work-title-en,
+.work-detail-page .work-detail-info .work-heading h1 .work-title-zh {
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+.work-detail-page .work-detail-info .work-heading > span {
+  justify-self: start;
+}
