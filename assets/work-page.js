@@ -4,7 +4,7 @@
     if(!title)return;
     title.style.fontSize='';
     let size=parseFloat(getComputedStyle(title).fontSize);
-    while(title.scrollWidth>title.clientWidth&&size>18){size-=1;title.style.fontSize=size+'px'}
+    while(title.scrollWidth>title.clientWidth&&size>12){size-=1;title.style.fontSize=size+'px'}
   };
   const setMediaCover=container=>{
     const img=container.querySelector('img');

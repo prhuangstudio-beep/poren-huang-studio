@@ -1,5 +1,5 @@
 (()=>{
-  const workStyle=document.createElement('link');workStyle.rel='stylesheet';workStyle.href='assets/works-overrides.css?v=20260914b';document.head.append(workStyle);
+  const workStyle=document.createElement('link');workStyle.rel='stylesheet';workStyle.href='assets/works-overrides.css?v=20260915b';document.head.append(workStyle);
   const catalog=[
     ['Power Food',2026,'power-food','To be confirmed','Colorway',5],
     ['Super Power',2025,'super-power-lake-green','Bronze','Lake green',5],['Super Power',2025,'super-power-neon-orange','Bronze','Neon orange',5],['Super Power',2025,'super-power-stainless-steel','Stainless steel','To be confirmed',5],
@@ -28,6 +28,31 @@
   ];
   const englishTitles={
     '2005-unhappy-bronze-black':"I'm Not Happy Now!",'2005-unhappy-stainless-steel':"I'm Not Happy Now!",'2005-mission-bronze-black':'On Duty','2005-going-home-bronze-black':'Home','2005-territory-bronze-black':'My Territory','2005-continuation-bronze-black':'Generation to Generation','2005-lackey-bronze-black':'The Flunky','2005-security-guard-bronze-black':'The Guard','2005-looking-down-bronze-black':'Snobbery','2005-man-and-woman-bronze-black':'Man & Woman','2006-no-entry-bronze-black':'You Can Not Pass!','2006-warm-winter-bronze-black':'Taking Care of You','2006-banquet-bronze-black-gold':'Attending a Banquet','2006-territory-ii-bronze-black':'My Territory (2)','2007-big-ears-bronze-black':'Spying','2007-territory-iii-bronze-black':'My Territory (3)','2007-every-day-bronze-gold-leaf':'Everyday Is a New Start.','2007-holding-the-line-bronze-gold-leaf':'Holding the Post','2007-embrace-of-love-bronze-black-gold':'Loving Hug','2008-night-patrol-stainless-steel':'Night Watch','2008-world-so-big-bronze-black-white':'Friends','2008-wise-mind-bronze-black-gold':'Wise Man','2010-top-speed-bronze-black':'High Speed','2011-satisfaction-bronze-black-gold':'Well','2011-enraptured-bronze-black-gold':'Lost in Contemplation'
+  };
+  const concepts={
+    '2005-waiting-bronze-black':'Poised in quiet readiness, Waiting turns stillness into alert focus. It suggests that true preparation gives courage to move when opportunity arrives.',
+    '2005-security-guard-bronze-black':'The Guard stands quietly but firmly at the threshold. Its presence asks who is ready to take the next step.',
+    '2005-lackey-bronze-black':'The Flunky contrasts flattery with self-reliance. It reminds us that lasting opportunity is earned through strength and preparation.',
+    '2005-looking-down-bronze-black':'Snobbery transforms the sting of being underestimated into a mirror for growth. Its reply to judgment is not argument, but forward movement.',
+    '2005-continuation-bronze-black':'Generation to Generation uses humour to reveal life at its most tender and serious. New life appears in succession beneath a watchful presence.',
+    '2005-man-and-woman-bronze-black':'Man & Woman is a metaphor for attraction, compatibility and connection across difference. The work asks whether two hearts can find the same rhythm.',
+    '2005-absorption-bronze-black':'Absorption sees knowledge and experience as nourishment. Quietly gathering energy, it suggests that strength grows from what we take in.',
+    '2005-territory-bronze-black':'My Territory holds its ground without retreat. It considers boundaries as a way to protect one’s principles and inner world.',
+    '2005-going-home-bronze-black':'Home waits beside an empty bowl with the devotion of a family member. It turns longing into a quiet wish for a loved one’s safe return.',
+    '2005-mission-bronze-black':'On Duty keeps a steady gaze and a clear mind amid uncertainty. It considers alertness and sound judgment as the way to find the right direction.',
+    '2005-unhappy-bronze-black':'I’m Not Happy Now! refuses to linger on a problem. With a raised leg and an easy turn of the head, it marks a boundary and moves toward the next challenge.',
+    '2005-unhappy-stainless-steel':'I’m Not Happy Now! refuses to linger on a problem. With a raised leg and an easy turn of the head, it marks a boundary and moves toward the next challenge.',
+    '2006-no-entry-bronze-black':'You Can Not Pass! is a vigilant declaration of the final boundary. Its arched back and planted claws make clear that some lines cannot be crossed.',
+    '2006-warm-winter-bronze-black':'Taking Care of You holds love as warmth, companionship and trust. It suggests that even in a distant world, sincere closeness can warm us from within.',
+    '2006-memory-bronze-black':'Memory gathers the tenderness held within our deepest recollections. It suggests that beautiful moments never disappear, but continue to live within us.',
+    '2006-banquet-bronze-black-gold':'Attending a Banquet enters the room with poise and quiet confidence. It celebrates knowing who you are even when every eye is upon you.',
+    '2006-happy-time-bronze-black':'Happy Time treats rest as the beginning of renewed exploration. Its understated joy carries curiosity into the unknown.',
+    '2006-territory-ii-bronze-black':'My Territory (2) protects dignity through a clearly drawn line. The raised claw asks others to respect where they may and may not step.',
+    '2007-embrace-of-love-bronze-black-gold':'Loving Hug captures the rush of greeting a beloved family member. It is an image of warmth, trust and wholehearted welcome.',
+    '2007-big-ears-bronze-black':'Spying listens closely while moving through the world. Its alert ears suggest that attention and information keep us prepared.',
+    '2007-territory-iii-bronze-black':'My Territory (3) defends a personal boundary without compromise. It insists on the right to protect one’s own ground.',
+    '2007-holding-the-line-bronze-gold-leaf':'Holding the Post remains watchful even in fatigue. Like a radar, its raised ears search for the next signal.',
+    '2007-every-day-bronze-gold-leaf':'Everyday Is a New Start meets the unknown with joy and optimism. It invites us to treat each day as a new challenge to explore.'
   };
   const details={
     '2005-mission-bronze-black':['SS / L','Bronze','Black'],
