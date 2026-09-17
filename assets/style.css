@@ -2218,3 +2218,28 @@ body.home .series-entry span{
   .home .artist-detail>div{min-width:0!important;padding-top:0!important}
   .home .artist-detail h2{font-size:clamp(27px,8vw,38px)!important;line-height:1.18!important;max-width:100%!important;min-width:0!important;margin:0 0 24px!important}
 }
+
+/* Editorial pages: only the card is transformed by the depth effect. */
+.news article h3,.press-card h3,.timeline article h2{position:relative;z-index:1;transform:none!important;filter:none!important}
+
+/* Artist page: a quieter gallery/editorial composition. */
+.about-page .page{max-width:1440px!important}
+.about-page .bio{grid-template-columns:minmax(300px,.82fr) minmax(360px,1fr)!important;align-items:center!important;gap:clamp(46px,8vw,150px)!important;max-width:1240px!important}
+.about-page .portrait{aspect-ratio:4/5!important;background:#f5f5f2!important}
+.about-page .bio>div{max-width:58ch;padding:clamp(20px,3vw,42px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-page .bio p{margin:0 0 1.15em!important;font-size:clamp(15px,1.2vw,18px)!important;line-height:1.8!important;letter-spacing:-.012em!important}
+.about-page .bio p:last-child{margin-bottom:0!important}
+.home .artist-detail{max-width:1180px!important;gap:clamp(34px,7vw,110px)!important}
+.home .artist-detail h2{letter-spacing:-.045em!important;line-height:1.13!important}
+.home .artist-detail>div p{line-height:1.75!important;letter-spacing:-.01em!important}
+
+@media(max-width:700px){
+  .about-page .bio{grid-template-columns:1fr!important;gap:28px!important}
+  .about-page .portrait{width:100%!important;aspect-ratio:1/1!important}
+  .about-page .bio>div{width:100%;max-width:none!important;padding:22px 0!important}
+  .about-page .bio p{font-size:16px!important;line-height:1.78!important}
+  .home .artist-detail{gap:32px!important}
+  .home .artist-detail h2{line-height:1.2!important;margin-bottom:22px!important}
+  .work-detail-page .work-main{overscroll-behavior-x:contain}
+  .work-detail-page .work-main img{transition:opacity .26s cubic-bezier(.22,1,.36,1)!important}
+}

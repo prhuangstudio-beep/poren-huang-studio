@@ -17,8 +17,11 @@
   const showImage=index=>{
     const button=thumbnails[index];
     if(!button||!main)return;
+    if(main.src===new URL(button.dataset.image,location.href).href)return;
+    main.animate([{opacity:.18},{opacity:1}],{duration:260,easing:'cubic-bezier(.22,1,.36,1)'});
     main.src=button.dataset.image;
     thumbnails.forEach(item=>item.classList.toggle('active',item===button));
+    button.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
   };
   thumbnails.forEach((button,index)=>button.addEventListener('click',()=>showImage(index)));
   if(main&&thumbnails.length>1&&matchMedia('(pointer:coarse)').matches){
@@ -32,7 +35,7 @@
     gallery?.addEventListener('pointerup',event=>{
       if(event.pointerType!=='touch')return;
       const distance=event.clientX-startX;
-      if(Math.abs(distance)<40)return;
+      if(Math.abs(distance)<28)return;
       const current=Math.max(0,thumbnails.findIndex(item=>item.classList.contains('active')));
       showImage((current+(distance<0?1:-1)+thumbnails.length)%thumbnails.length);
     });

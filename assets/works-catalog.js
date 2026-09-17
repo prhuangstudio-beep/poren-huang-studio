@@ -1,5 +1,5 @@
 (()=>{
-  const workStyle=document.createElement('link');workStyle.rel='stylesheet';workStyle.href='assets/works-overrides.css?v=20260915d';document.head.append(workStyle);
+  const workStyle=document.createElement('link');workStyle.rel='stylesheet';workStyle.href='assets/works-overrides.css?v=20260915e';document.head.append(workStyle);
   const catalog=[
     ['Power Food',2026,'power-food','To be confirmed','Colorway',5],
     ['Super Power',2025,'super-power-lake-green','Bronze','Lake green',5],['Super Power',2025,'super-power-neon-orange','Bronze','Neon orange',5],['Super Power',2025,'super-power-stainless-steel','Stainless steel','To be confirmed',5],
