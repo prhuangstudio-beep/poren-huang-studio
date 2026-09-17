@@ -581,7 +581,9 @@ document.addEventListener('click',event=>{
 (()=>{
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 
-  const settings={damping:.11,influence:.7,maxScaleDrop:.18,maxBlur:8};
+  const compact=matchMedia('(max-width: 700px)').matches;
+  const mobileHome=compact&&document.body.classList.contains('home');
+  const settings={damping:.11,influence:.77,maxScaleDrop:mobileHome ? .24 : .18,maxBlur:mobileHome ? 11 : 8};
   const selector=[
     '.work-list article','.works-image-grid > a','.works-index > a',
     '.news article','.press-card','.timeline article','.artist-cv article',
@@ -612,7 +614,15 @@ document.addEventListener('click',event=>{
     if(Math.abs(target-current)<.1)current=target;
     const center=innerHeight*.5;
     const range=innerHeight*settings.influence;
+    const atPageEdge=target<2||target>maxScroll()-2;
     cards.forEach(card=>{
+      if(atPageEdge){
+        const base=baseTransforms.get(card);
+        card.style.setProperty('transform',base&&base!=='none'?base:'none','important');
+        card.style.setProperty('filter','none','important');
+        card.style.setProperty('opacity','1','important');
+        return;
+      }
       const rect=card.getBoundingClientRect();
       const distance=Math.abs(rect.top+rect.height*.5-center);
       if(distance>range*2.1)return;
