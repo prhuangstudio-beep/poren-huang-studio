@@ -17,6 +17,7 @@
     ['Comma',2018,'2018-comma-bronze-black','Bronze','Black',3],['Comma',2018,'2018-comma-bronze-colorway','Bronze','Colorway',3],['Comma',2018,'2018-comma-bronze-silver','Bronze','Silver',4],['Enjoy',2018,'2018-enjoy-bronze-black','Bronze','Black',3],['Enjoy',2018,'2018-enjoy-bronze-yellow','Bronze','Yellow',3],['Gelato',2018,'2018-gelato-bronze-black-silver','Bronze','Black, silver',4],['Gelato',2018,'2018-gelato-bronze-black-white','Bronze','Black, white',4],['Gelato',2018,'2018-gelato-bronze-white-gold','Bronze','White, gold',4],['SWAG',2018,'2018-swag-bronze-gold-leaf','Bronze','Gold leaf',2],['SWAG',2018,'2018-swag-stainless-steel','Stainless steel','To be confirmed',2],['Wonderful',2018,'2018-wonderful-bronze-black-silver','Bronze','Black, silver',2],
     ['Grumpy',2017,'2017-bad-temper-bronze-black-gold','Bronze','Black, gold',3],['Boom!',2017,'2017-boom-bronze-black-stainless-steel','Bronze, stainless steel','Black',5],['For You',2017,'2017-for-you-stainless-steel','Stainless steel','To be confirmed',2],
     ['Kiddo',2015,'2015-little-dog-bronze-white-black','Bronze, paint, stainless steel base','White, black',3],
+    ['Shh….',2015,'2015-shh-stainless-steel','Stainless steel','',4],['Chu',2015,'2015-chu-copper-foil-stainless-steel','Copper foil, stainless steel','',2],
     ['Little Rascal',2014,'2014-little-mischief-stainless-steel','Stainless steel','To be confirmed',3],['Hello',2014,'2014-hello-bronze-black','Bronze','Black',4],
     ['Big Nose',2011,'2011-big-nose-stainless-steel','Stainless steel','To be confirmed',4],['Enraptured',2011,'2011-enraptured-bronze-black-gold','Bronze','Black, gold',2],['Satisfaction',2011,'2011-satisfaction-bronze-black-gold','Bronze','Black, gold',3],
     ['Encore',2010,'2010-encore-stainless-steel','Stainless steel','To be confirmed',4],['What the Heck!',2010,'2010-wow-stainless-steel','Stainless steel','To be confirmed',2],['Target',2010,'2010-target-bronze-black','Bronze','Black',1],['Top Speed',2010,'2010-top-speed-bronze-black','Bronze','Black',1],
@@ -82,7 +83,9 @@
     '2011-satisfaction-bronze-black-gold':['S','Bronze, baking paint','Black, gold'],
     '2011-big-nose-stainless-steel':['M','Stainless steel','To be confirmed'],
     '2011-enraptured-bronze-black-gold':['S','Bronze, baking paint','Black, gold'],
-    '2015-little-dog-bronze-white-black':['M','Bronze, paint, stainless steel base','White, black']
+    '2015-little-dog-bronze-white-black':['M','Bronze, paint, stainless steel base','White, black'],
+    '2015-shh-stainless-steel':['S','Stainless steel',''],
+    '2015-chu-copper-foil-stainless-steel':['M','Copper foil, stainless steel','']
   };
   const dimensions={
     '2005-mission-bronze-black':['SS 23x10x20cm','L 100x47x82cm'],
@@ -158,6 +161,8 @@
     '2020-heart-for-you-bronze-pink-blue':['Heart 19x21x29cm','For You 20x14x28cm'],
     '2005-unhappy-stainless-steel':['S 48×20×32cm'],
     '2015-little-dog-bronze-white-black':['M 50x45x66cm'],
+    '2015-shh-stainless-steel':['25x17x27cm'],
+    '2015-chu-copper-foil-stainless-steel':['81x22x26cm'],
     '2021-here-bronze-black':['31x21x43cm'],
     '2021-so-cute-stainless-steel':['38x32x41cm'],
     'black-buster-black-red':['48x31x26cm'],

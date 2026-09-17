@@ -378,6 +378,18 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "小犬 Kiddo Kiddo 小犬 2015 Bronze, paint, stainless steel base 不鏽鋼、銅雕、烤漆 White, black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
+    "title": "噓 Shh….",
+    "type": "Work",
+    "url": "works/2015-shh-stainless-steel",
+    "text": "噓 Shh…. Shh…. 噓 2015 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+  },
+  {
+    "title": "啾咪 Chu",
+    "type": "Work",
+    "url": "works/2015-chu-copper-foil-stainless-steel",
+    "text": "啾咪 Chu Chu 啾咪 2015 Copper foil, stainless steel 銅箔、不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+  },
+  {
     "title": "小淘氣 Little Rascal",
     "type": "Work",
     "url": "works/2014-little-mischief-stainless-steel",

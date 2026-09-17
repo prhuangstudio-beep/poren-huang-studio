@@ -90,6 +90,8 @@ const chineseTitles={
   '2014-hello-bronze-black':'你好',
   '2014-little-mischief-stainless-steel':'小淘氣',
   '2015-little-dog-bronze-white-black':'小犬',
+  '2015-shh-stainless-steel':'噓',
+  '2015-chu-copper-foil-stainless-steel':'啾咪',
   '2017-bad-temper-bronze-black-gold':'臭脾氣',
   '2018-spirit-bronze-black':'骨氣',
   '2018-spirit-bronze-black-silver':'骨氣',
@@ -110,6 +112,7 @@ const chineseTitles={
   'super-power-stainless-steel':'超動力'
 };
 const materialZhMap=[
+  [/copper foil/i,'銅箔'],
   [/stainless steel/i,'不鏽鋼'],
   [/bronze/i,'銅雕'],
   [/baking paint|paint/i,'烤漆'],
