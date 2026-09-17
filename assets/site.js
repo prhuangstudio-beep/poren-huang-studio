@@ -585,7 +585,8 @@ document.addEventListener('click',event=>{
   const selector=[
     '.work-list article','.works-image-grid > a','.works-index > a',
     '.news article','.press-card','.timeline article','.artist-cv article',
-    '.series-entry','.series-hero figure','.work-detail','.work-variants',
+    '.series-entry','.series-hero figure','.artist-portrait,.image-carousel',
+    '.home-image-break,.press-side-image','.work-detail','.work-variants',
     '.related-works > div > a','.work-panel'
   ].join(',');
   const cards=[...document.querySelectorAll(selector)];
