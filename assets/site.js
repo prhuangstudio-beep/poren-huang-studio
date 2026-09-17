@@ -243,13 +243,13 @@ document.querySelectorAll('.news article[data-start],.timeline article[data-star
 });
 
 const form=document.querySelector('.contact-form'),emailLinks=document.querySelectorAll('a[href^="mailto:pr_dogs@yahoo.com.tw"]');
-if(form&&emailLinks.length){
+if(form){
   const modal=document.createElement('div');
   modal.className='email-modal';
   document.body.append(modal);
   modal.append(form);
-  const openGmailCompose=body=>{
-    const url='https://mail.google.com/mail/?view=cm&fs=1&to=pr_dogs@yahoo.com.tw&su='+encodeURIComponent('Poren Huang Studio enquiry')+'&body='+encodeURIComponent(body||'');
+  const openGmailCompose=(body,subject='Poren Huang Studio enquiry')=>{
+    const url='https://mail.google.com/mail/?view=cm&fs=1&to=pr_dogs@yahoo.com.tw&su='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body||'');
     window.open(url,'poren-gmail-compose','width=720,height=680,noopener');
   };
   form.addEventListener('submit',e=>{
@@ -257,8 +257,9 @@ if(form&&emailLinks.length){
     const name=form.elements.name?.value.trim()||'';
     const email=form.elements.email?.value.trim()||'';
     const message=form.elements.message?.value.trim()||'';
-    const body=['Name: '+name,'Email: '+email,'','Message:',message].join('\n');
-    openGmailCompose(body);
+    const reference=form.elements.work_reference?.value.trim()||'';
+    const body=[reference?'Work: '+reference:'','Name: '+name,'Email: '+email,'','Message:',message].filter(Boolean).join('\n');
+    openGmailCompose(body,reference?`[洽詢] ${reference} — 來自 ${name||'訪客'}`:'Poren Huang Studio enquiry');
   });
   emailLinks.forEach(email=>{
     email.addEventListener('click',e=>{
@@ -268,6 +269,13 @@ if(form&&emailLinks.length){
   });
   modal.addEventListener('click',e=>{
     if(e.target===modal)modal.classList.remove('open');
+  });
+  document.querySelectorAll('.work-inquiry-trigger').forEach(trigger=>{
+    trigger.addEventListener('click',()=>{
+      if(form.elements.work_reference)form.elements.work_reference.value=trigger.dataset.workReference||'';
+      modal.classList.add('open');
+      setTimeout(()=>form.elements.name?.focus(),200);
+    });
   });
 }
 

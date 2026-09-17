@@ -74,6 +74,7 @@ const works = catalog.map((row, index) => {
       alt_zh: `黃柏仁雕塑作品《${title_en}》第${number}視角`
     })),
     slug,
+    availability: 'available',
     featured: index < 6,
     order: index + 1
   };
