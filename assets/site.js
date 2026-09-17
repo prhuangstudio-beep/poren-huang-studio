@@ -621,8 +621,8 @@ document.addEventListener('click',event=>{
   const settings={
     damping:desktopWorks ? .16 : (primaryBrowse ? .13 : .11),
     influence:mobileHome ? .98 : ((desktopWorks||mobileWorks) ? .74 : .91),
-    maxScaleDrop:mobileWorks ? .28 : (desktopWorks ? .22 : (mobileHome ? .20 : .15)),
-    maxBlur:mobileWorks ? 13 : (desktopWorks ? 10 : (mobileHome ? 9 : 7))
+    maxScaleDrop:mobileWorks ? .24 : (desktopWorks ? .18 : (mobileHome ? .12 : .10)),
+    maxBlur:mobileWorks ? 10 : (desktopWorks ? 8 : (mobileHome ? 5 : 4))
   };
   const selector=[
     '.work-list article','.works-image-grid > a','.works-index > a',
