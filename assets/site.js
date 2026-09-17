@@ -631,6 +631,7 @@ document.addEventListener('click',event=>{
       // independently and overlapping.
       const nestedEditorialHeading=card.matches('h1,h2,h3')&&card.closest('.timeline,.news,.press-list');
       const keepClear=nestedEditorialHeading||
+        (compact&&document.body.classList.contains('about-page')&&card.matches('.page h1'))||
         (mobileHome&&card.matches('.hero h1,.artist-detail,.artist-detail h2'));
       if(atPageEdge||keepClear){
         const base=baseTransforms.get(card);
