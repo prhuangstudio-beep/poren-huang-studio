@@ -591,12 +591,17 @@ document.addEventListener('click',event=>{
     '.work-detail','.work-variants',
     '.related-works > div > a','.work-panel'
   ].join(',');
-  const cards=[...document.querySelectorAll(selector)];
-  if(!cards.length)return;
+  let cards=[];
 
   let target=window.scrollY,current=window.scrollY,frame=0;
   const baseTransforms=new WeakMap();
-  cards.forEach(card=>baseTransforms.set(card,getComputedStyle(card).transform));
+  const collectCards=()=>{
+    cards=[...document.querySelectorAll(selector)];
+    cards.forEach(card=>{
+      if(!baseTransforms.has(card))baseTransforms.set(card,getComputedStyle(card).transform);
+    });
+  };
+  collectCards();
   const maxScroll=()=>Math.max(0,document.documentElement.scrollHeight-innerHeight);
   const clamp=value=>Math.max(0,Math.min(maxScroll(),value));
   const isInteractive=element=>element.closest('a,button,input,select,textarea,label,[contenteditable]');
@@ -613,9 +618,9 @@ document.addEventListener('click',event=>{
       const t=Math.max(0,Math.min(1,distance/range));
       const ease=t*t;
       const base=baseTransforms.get(card);
-      card.style.transform=(base&&base!=='none'?base+' ':'')+'scale('+(1-ease*settings.maxScaleDrop)+')';
-      card.style.filter='blur('+(ease*settings.maxBlur)+'px)';
-      card.style.opacity=String(1-ease*.4);
+      card.style.setProperty('transform',(base&&base!=='none'?base+' ':'')+'scale('+(1-ease*settings.maxScaleDrop)+')','important');
+      card.style.setProperty('filter','blur('+(ease*settings.maxBlur)+'px)','important');
+      card.style.setProperty('opacity',String(1-ease*.4),'important');
     });
     if(current!==target)frame=requestAnimationFrame(render);
   };
@@ -626,5 +631,9 @@ document.addEventListener('click',event=>{
   },{passive:true});
   addEventListener('resize',()=>{target=clamp(target);current=clamp(current);requestRender();},{passive:true});
   document.body.classList.add('virtual-card-scroll');
+  new MutationObserver(()=>{
+    collectCards();
+    requestRender();
+  }).observe(document.body,{childList:true,subtree:true});
   requestRender();
 })();
