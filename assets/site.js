@@ -305,8 +305,8 @@ if(stage){
     if(wheelMove){
       e.preventDefault();
       const unit=e.deltaMode===1?18:1;
-      stageVelocity+=wheelMove*unit*.72;
-      stageVelocity=Math.max(-90,Math.min(90,stageVelocity));
+      stageVelocity+=wheelMove*unit*.42;
+      stageVelocity=Math.max(-58,Math.min(58,stageVelocity));
       if(!stageFrame)stageFrame=requestAnimationFrame(glideStage);
     }
   },{passive:false});
