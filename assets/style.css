@@ -2211,6 +2211,9 @@ body.home .series-entry span{
 .menu-socials .social-label,.site-search-icons .social-label{display:block!important;color:#111!important;font:700 14px/1 Arial,sans-serif!important}
 .menu-socials svg,.site-search-icons svg{display:block!important;width:18px!important;height:18px!important;fill:none!important;stroke:#111!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 
+/* Series is intentionally placed after the primary menu wording. */
+nav .menu-series-link{margin-top:10px!important;padding-top:15px!important;border-top:1px solid rgba(17,17,17,.18)!important}
+
 @media(max-width:700px){
   /* Keep the two bilingual home headings in their own measured space. */
   .home .hero h1{font-size:clamp(29px,9vw,46px)!important;line-height:1.16!important;max-width:100%!important;min-width:0!important;margin-bottom:24px!important}

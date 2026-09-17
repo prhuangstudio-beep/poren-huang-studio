@@ -63,6 +63,20 @@ if(header&&nav){
     else if(link.getAttribute('href')?.includes('about'))link.textContent='Artist';
     else if(link.getAttribute('href')?.includes('exhibitions'))link.textContent='News';
   });
+  // Keep the complete site map available from every overlay menu.
+  if(!nav.querySelector('a[href="/"]')){
+    const homeLink=document.createElement('a');
+    homeLink.href='/';
+    homeLink.textContent='Home';
+    nav.prepend(homeLink);
+  }
+  if(!nav.querySelector('a[href="series"]')){
+    const seriesLink=document.createElement('a');
+    seriesLink.href='series';
+    seriesLink.textContent='Series';
+    seriesLink.className='menu-series-link';
+    nav.append(seriesLink);
+  }
   const navLinks=[...nav.children].filter(item=>item.tagName==='A');
   const social=document.createElement('div');
   social.className='menu-socials';
@@ -144,7 +158,7 @@ if(hero){
   homeNav.setAttribute('role','navigation');
   homeNav.setAttribute('aria-label','Home sections');
   homeNav.innerHTML=[
-    ['Top','#top'],
+    ['Home','#top'],
     ['Artist','#artist'],
     ['Series','#series'],
     ['Works','#works'],
