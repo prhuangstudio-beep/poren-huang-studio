@@ -272,13 +272,7 @@ if(form){
   modal.addEventListener('click',e=>{
     if(e.target===modal)modal.classList.remove('open');
   });
-  document.querySelectorAll('.work-inquiry-trigger').forEach(trigger=>{
-    trigger.addEventListener('click',()=>{
-      if(form.elements.work_reference)form.elements.work_reference.value=trigger.dataset.workReference||'';
-      modal.classList.add('open');
-      setTimeout(()=>form.elements.name?.focus(),200);
-    });
-  });
+
 }
 
 const stage=document.querySelector('.work-stage');

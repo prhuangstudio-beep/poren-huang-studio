@@ -70,12 +70,12 @@ works.forEach((work, index) => {
   ].filter(Boolean).join('');
   const thumbnails = work.images.map((image, imageIndex) => `<button type="button" class="${imageIndex === 0 ? 'active' : ''}" data-work-image="${esc(image.filename)}" data-work-alt="${esc(image.alt_zh || image.alt_en)}">${picture(image)}</button>`).join('');
   const description = [work.description_en, work.description_zh].filter(Boolean).join('\n');
-  const relatedWorks = [...works.slice(index + 1), ...works.slice(0, index)].slice(0, 4).map(item => `<a href="works/${esc(item.slug)}">${picture(item.images[0])}<strong lang="en">${esc(item.title_en)}</strong>${item.title_zh ? `<span>${esc(item.title_zh)}</span>` : ''}</a>`).join('');
+  const relatedWorks = [...works.slice(index + 1), ...works.slice(0, index)].slice(0, 4).map(item => `<a href="works/${esc(item.slug)}"><span class="square-media">${picture(item.images[0])}</span><span lang="en">${esc(item.title_en)} · ${esc(item.year)}</span></a>`).join('');
   const values = {
     title: esc(`${title(work)} | Poren Huang Studio 黃柏仁`), description: esc(workDescription(work)), canonical: `${site}/works/${work.slug}`,
     ogImage: imageUrl(work.images[0]), schema: JSON.stringify(artworkSchema(work)), mainImage: picture(work.images[0], { lazy: false }), mainAlt: esc(work.images[0].alt_zh || work.images[0].alt_en), hreflang: hreflang(`${site}/works/${work.slug}`),
     thumbnails, heading: `<span lang="en">${esc(work.title_en)}</span>${work.title_zh ? `<small>${esc(work.title_zh)}</small>` : ''}`, year: esc(work.year), metadata,
-    availability: work.availability || 'available', availabilityBadge: `<span class="work-availability status-${work.availability || 'available'}">${availabilityZh[work.availability || 'available'] || '可洽詢'} / ${availabilityLabels[work.availability || 'available'] || 'Available'}</span>`, workReference: esc(`${work.title_en} (${work.year}) — ${work.slug}`), inquiryZh: (['sold','collected'].includes(work.availability) ? '詢問類似作品' : '洽詢這件作品'), inquiryEn: (['sold','collected'].includes(work.availability) ? 'Inquire About Similar Works' : 'Inquire About This Work'), inquiryLabel: ['sold','collected'].includes(work.availability) ? '詢問類似作品' : '洽詢這件作品',
+    availability: work.availability || 'available', availabilityBadge: `<span class="work-availability status-${work.availability || 'available'}">${availabilityZh[work.availability || 'available'] || '可洽詢'} / ${availabilityLabels[work.availability || 'available'] || 'Available'}</span>`,
     descriptionBlock: description ? `<div class="work-description"><p>${esc(description).replace(/\n/g, '<br>')}</p></div>` : '', relatedWorks,
     neighbors: `<a href="works/${esc(previous.slug)}"><span>Prev</span><strong>${esc(previous.title_en)}</strong></a><a href="works/${esc(next.slug)}"><span>Next</span><strong>${esc(next.title_en)}</strong></a>`
   };
