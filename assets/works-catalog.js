@@ -234,38 +234,6 @@
       overview.querySelectorAll('.works-cover').forEach(cover=>coverObserver.observe(cover));
     };
     observeCovers();
-    let depthFrame=0;
-    const updateOverviewDepth=()=>{
-      depthFrame=0;
-      const center=innerHeight*.5;
-      const range=innerHeight*.77;
-      const compact=matchMedia('(max-width: 700px)').matches;
-      const atPageEdge=scrollY<2||scrollY>=document.documentElement.scrollHeight-innerHeight-2;
-      overview.querySelectorAll('a').forEach(card=>{
-        if(atPageEdge){
-          card.style.setProperty('opacity','1','important');
-          const clearFigure=card.querySelector('figure');
-          clearFigure?.style.setProperty('transform','none','important');
-          clearFigure?.style.setProperty('filter','none','important');
-          return;
-        }
-        const rect=card.getBoundingClientRect();
-        const t=Math.max(0,Math.min(1,Math.abs(rect.top+rect.height*.5-center)/range));
-        const ease=t*t;
-        const figure=card.querySelector('figure');
-        const media=figure?.querySelector('img.active')||figure?.querySelector('img');
-        const scale=1-ease*(compact ? .08 : .18);
-        card.style.setProperty('opacity',String(1-ease*.4),'important');
-        figure?.style.setProperty('transform','scale('+scale+')','important');
-        figure?.style.setProperty('filter','blur('+(ease*(compact?3:8))+'px)','important');
-        media?.style.setProperty('transform','scale('+(1-ease*.06)+')','important');
-      });
-    };
-    const queueOverviewDepth=()=>{if(!depthFrame)depthFrame=requestAnimationFrame(updateOverviewDepth)};
-    addEventListener('scroll',queueOverviewDepth,{passive:true});
-    addEventListener('resize',queueOverviewDepth,{passive:true});
-    new MutationObserver(queueOverviewDepth).observe(overview,{childList:true,subtree:true});
-    queueOverviewDepth();
     if(new URLSearchParams(location.search).get('focus')==='year')setTimeout(()=>yearFilter?.focus(),420);
     yearFilter?.addEventListener('change',render);
     yearFilter?.addEventListener('change',observeCovers);
