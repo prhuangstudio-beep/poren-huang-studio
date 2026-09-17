@@ -233,6 +233,29 @@
       overview.querySelectorAll('.works-cover').forEach(cover=>coverObserver.observe(cover));
     };
     observeCovers();
+    let depthFrame=0;
+    const updateOverviewDepth=()=>{
+      depthFrame=0;
+      const center=innerHeight*.5;
+      const range=innerHeight*.7;
+      overview.querySelectorAll('a').forEach(card=>{
+        const rect=card.getBoundingClientRect();
+        const t=Math.max(0,Math.min(1,Math.abs(rect.top+rect.height*.5-center)/range));
+        const ease=t*t;
+        const figure=card.querySelector('figure');
+        const media=figure?.querySelector('img.active')||figure?.querySelector('img');
+        const scale=1-ease*.18;
+        card.style.setProperty('opacity',String(1-ease*.4),'important');
+        figure?.style.setProperty('transform','scale('+scale+')','important');
+        figure?.style.setProperty('filter','blur('+(ease*8)+'px)','important');
+        media?.style.setProperty('transform','scale('+(1-ease*.06)+')','important');
+      });
+    };
+    const queueOverviewDepth=()=>{if(!depthFrame)depthFrame=requestAnimationFrame(updateOverviewDepth)};
+    addEventListener('scroll',queueOverviewDepth,{passive:true});
+    addEventListener('resize',queueOverviewDepth,{passive:true});
+    new MutationObserver(queueOverviewDepth).observe(overview,{childList:true,subtree:true});
+    queueOverviewDepth();
     if(new URLSearchParams(location.search).get('focus')==='year')setTimeout(()=>yearFilter?.focus(),420);
     yearFilter?.addEventListener('change',render);
     yearFilter?.addEventListener('change',observeCovers);

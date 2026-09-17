@@ -581,12 +581,13 @@ document.addEventListener('click',event=>{
 (()=>{
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 
-  const settings={damping:.11,influence:.7,maxScaleDrop:.34,maxBlur:16};
+  const settings={damping:.11,influence:.7,maxScaleDrop:.18,maxBlur:8};
   const selector=[
     '.work-list article','.works-image-grid > a','.works-index > a',
     '.news article','.press-card','.timeline article','.artist-cv article',
     '.series-entry','.series-hero figure','.artist-portrait,.image-carousel',
     '.home-image-break,.press-side-image,.video-banner,.artist-film',
+    '.home .artist-detail,.home .series-entry-section,.home .press-layout',
     '.home .work-panel img,.works-image-grid img,.work-main img',
     '.work-detail','.work-variants','h1,h2,h3',
     '.related-works > div > a','.work-panel'
