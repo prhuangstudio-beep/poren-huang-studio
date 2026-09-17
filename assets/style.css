@@ -2279,3 +2279,31 @@ nav .menu-series-link{margin-top:10px!important;padding-top:15px!important;borde
   }
   .about-page .artist-tab-panel{position:relative!important;z-index:1!important;clear:both!important}
 }
+
+/* Home Works: the horizontal gesture is indicated by a compact icon instead
+   of a permanent enclosing frame. */
+.home .work-stage{
+  border:0!important;
+  border-radius:0!important;
+  padding:0 0 42px!important;
+  position:relative!important;
+}
+.home .work-stage::after{
+  content:"↔"!important;
+  position:sticky!important;
+  right:0!important;
+  bottom:0!important;
+  align-self:end!important;
+  display:grid!important;
+  place-items:center!important;
+  width:28px!important;
+  height:28px!important;
+  margin:0 10px 0 -38px!important;
+  border:1px solid rgba(17,17,17,.45)!important;
+  border-radius:50%!important;
+  background:#fff!important;
+  color:#111!important;
+  font:600 15px/1 Arial,sans-serif!important;
+  letter-spacing:0!important;
+  opacity:.82!important;
+}
