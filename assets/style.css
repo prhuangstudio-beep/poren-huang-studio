@@ -153,6 +153,24 @@ body{padding-top:92px;}
   }
 }
 
+/* One reliable icon treatment for the menu on every page and viewport. */
+.menu-socials a{
+  display:grid!important;
+  place-items:center!important;
+  width:30px!important;
+  height:30px!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#111!important;
+  font-size:0!important;
+}
+
+.menu-socials a::before,.menu-socials a::after{content:none!important;display:none!important}
+.menu-socials .social-label{display:block!important;color:#111!important;font:700 14px/1 Arial,sans-serif!important}
+.menu-socials svg{display:block!important;width:18px!important;height:18px!important;fill:none!important;stroke:#111!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+
 .site-search-toggle{
   position:relative;
   z-index:3;
@@ -2076,6 +2094,29 @@ body.home .series-entry span{
   .works-year-filter{min-width:156px;padding:12px 44px 12px 18px;font-size:14px}
   .home .hero h1,.home .artist-detail h2{line-height:1.16!important;overflow-wrap:normal!important;word-break:normal!important}
   .home .artist-detail>div{position:relative;z-index:1;padding-top:12px!important}
+
+  .page .timeline article{
+    grid-template-columns:1fr!important;
+    gap:12px!important;
+    padding:26px 0 38px!important;
+  }
+
+  .page .timeline article>div{min-width:0}
+  .page .timeline time{display:block;margin:0}
+  .page .timeline h2{
+    margin:8px 0 10px!important;
+    font-size:clamp(24px,7.2vw,32px)!important;
+    line-height:1.2!important;
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+  }
+
+  .page .timeline article,
+  .page .timeline h2{
+    transform:none!important;
+    filter:none!important;
+    opacity:1!important;
+  }
 }
 
 /* Shared depth cards: position is calculated by the virtual scroll controller. */
@@ -2156,3 +2197,9 @@ body.home .series-entry span{
     stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important;
   }
 }
+
+/* Final menu icon reset: kept last so all pages render the same marks. */
+.menu-socials a{display:grid!important;place-items:center!important;width:30px!important;height:30px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#111!important;font-size:0!important}
+.menu-socials a::before,.menu-socials a::after{content:none!important;display:none!important}
+.menu-socials .social-label{display:block!important;color:#111!important;font:700 14px/1 Arial,sans-serif!important}
+.menu-socials svg{display:block!important;width:18px!important;height:18px!important;fill:none!important;stroke:#111!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
