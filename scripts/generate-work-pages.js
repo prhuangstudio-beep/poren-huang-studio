@@ -124,7 +124,7 @@ const clean=value=>String(value||'').replace(/To be confirmed/gi,'').trim();
 const materialText=work=>clean((details[work[2]]||[])[1]||work[3]);
 const colorText=work=>clean((details[work[2]]||[])[2]||work[4]);
 const zhMaterial=value=>materialZhMap.filter(([pattern])=>pattern.test(value)).map(([,label])=>label).filter((label,index,list)=>list.indexOf(label)===index).join('、');
-const displayTitle=work=>chineseTitles[work[2]]?`${chineseTitles[work[2]]} ${work[0]}`:work[0];
+const displayTitle=work=>chineseTitles[work[2]]?`${work[0]} ${chineseTitles[work[2]]}`:work[0];
 const detailTitleHtml=work=>{
   const zh=chineseTitles[work[2]];
   return zh

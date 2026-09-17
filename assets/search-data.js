@@ -48,40 +48,40 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "Power Food Power Food 2026 Colorway 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "超動力 Super Power",
+    "title": "Super Power 超動力",
     "type": "Work",
     "url": "works/super-power-lake-green",
-    "text": "超動力 Super Power Super Power 超動力 2025 Bronze 銅雕 Lake green 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Super Power 超動力 Super Power 超動力 2025 Bronze 銅雕 Lake green 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "超動力 Super Power",
+    "title": "Super Power 超動力",
     "type": "Work",
     "url": "works/super-power-neon-orange",
-    "text": "超動力 Super Power Super Power 超動力 2025 Bronze 銅雕 Neon orange 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Super Power 超動力 Super Power 超動力 2025 Bronze 銅雕 Neon orange 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "超動力 Super Power",
+    "title": "Super Power 超動力",
     "type": "Work",
     "url": "works/super-power-stainless-steel",
-    "text": "超動力 Super Power Super Power 超動力 2025 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Super Power 超動力 Super Power 超動力 2025 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "咻…… Speedy",
+    "title": "Speedy 咻……",
     "type": "Work",
     "url": "works/speedy-black",
-    "text": "咻…… Speedy Speedy 咻…… 2025 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Speedy 咻…… Speedy 咻…… 2025 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "咻…… Speedy",
+    "title": "Speedy 咻……",
     "type": "Work",
     "url": "works/speedy-gold-leaf",
-    "text": "咻…… Speedy Speedy 咻…… 2025 Bronze 銅雕 Gold leaf 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Speedy 咻…… Speedy 咻…… 2025 Bronze 銅雕 Gold leaf 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "咻…… Speedy",
+    "title": "Speedy 咻……",
     "type": "Work",
     "url": "works/speedy-stainless-steel",
-    "text": "咻…… Speedy Speedy 咻…… 2025 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Speedy 咻…… Speedy 咻…… 2025 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
     "title": "Shake Shake",
@@ -168,16 +168,16 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "Baby Baby 2023 Stainless steel, pillow 不鏽鋼、枕頭 Pink 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "黑旋風 Black Buster",
+    "title": "Black Buster 黑旋風",
     "type": "Work",
     "url": "works/black-buster-black-red",
-    "text": "黑旋風 Black Buster Black Buster 黑旋風 2022 Bronze 銅雕 Black, red 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Black Buster 黑旋風 Black Buster 黑旋風 2022 Bronze 銅雕 Black, red 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "黑旋風 Black Buster",
+    "title": "Black Buster 黑旋風",
     "type": "Work",
     "url": "works/black-buster-grey-red",
-    "text": "黑旋風 Black Buster Black Buster 黑旋風 2022 Bronze 銅雕 Grey, red 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Black Buster 黑旋風 Black Buster 黑旋風 2022 Bronze 銅雕 Grey, red 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
     "title": "Here",
@@ -192,10 +192,10 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "So Cute So Cute 2021 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "牛仔 Cowboy",
+    "title": "Cowboy 牛仔",
     "type": "Work",
     "url": "works/2020-cowboy-bronze-gold-leaf-grey",
-    "text": "牛仔 Cowboy Cowboy 牛仔 2020 Bronze 銅雕 Gold leaf, grey 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Cowboy 牛仔 Cowboy 牛仔 2020 Bronze 銅雕 Gold leaf, grey 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
     "title": "Heart",
@@ -222,16 +222,16 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "Relax Relax 2020 Bronze 銅雕 Yellow 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "小黑 / 獵物 Black / Prey",
+    "title": "Black / Prey 小黑 / 獵物",
     "type": "Work",
     "url": "works/2019-small-bronze-black",
-    "text": "小黑 / 獵物 Black / Prey Black / Prey 小黑 / 獵物 2019 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Black / Prey 小黑 / 獵物 Black / Prey 小黑 / 獵物 2019 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "小黑 / 獵物 Black / Prey",
+    "title": "Black / Prey 小黑 / 獵物",
     "type": "Work",
     "url": "works/2019-small-stainless-steel",
-    "text": "小黑 / 獵物 Black / Prey Black / Prey 小黑 / 獵物 2019 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Black / Prey 小黑 / 獵物 Black / Prey 小黑 / 獵物 2019 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
     "title": "AWOOOOOO!",
@@ -252,40 +252,40 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "Sweet Sweet 2019 Stainless steel, pillow 不鏽鋼、枕頭 Gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "骨氣 Backbone",
+    "title": "Backbone 骨氣",
     "type": "Work",
     "url": "works/2018-spirit-bronze-black",
-    "text": "骨氣 Backbone Backbone 骨氣 2018 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Backbone 骨氣 Backbone 骨氣 2018 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "骨氣 Backbone",
+    "title": "Backbone 骨氣",
     "type": "Work",
     "url": "works/2018-spirit-bronze-black-silver",
-    "text": "骨氣 Backbone Backbone 骨氣 2018 Bronze 銅雕 Black, silver 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Backbone 骨氣 Backbone 骨氣 2018 Bronze 銅雕 Black, silver 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "骨氣 Backbone",
+    "title": "Backbone 骨氣",
     "type": "Work",
     "url": "works/2018-spirit-bronze-lake-green",
-    "text": "骨氣 Backbone Backbone 骨氣 2018 Bronze 銅雕 Lake green 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Backbone 骨氣 Backbone 骨氣 2018 Bronze 銅雕 Lake green 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "骨氣 Backbone",
+    "title": "Backbone 骨氣",
     "type": "Work",
     "url": "works/2018-spirit-bronze-white",
-    "text": "骨氣 Backbone Backbone 骨氣 2018 Bronze 銅雕 White 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Backbone 骨氣 Backbone 骨氣 2018 Bronze 銅雕 White 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "骨氣 Backbone",
+    "title": "Backbone 骨氣",
     "type": "Work",
     "url": "works/2018-spirit-bronze-white-gold",
-    "text": "骨氣 Backbone Backbone 骨氣 2018 Bronze 銅雕 White, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Backbone 骨氣 Backbone 骨氣 2018 Bronze 銅雕 White, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "骨氣 Backbone",
+    "title": "Backbone 骨氣",
     "type": "Work",
     "url": "works/2018-spirit-stainless-steel",
-    "text": "骨氣 Backbone Backbone 骨氣 2018 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Backbone 骨氣 Backbone 骨氣 2018 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
     "title": "Comma",
@@ -354,10 +354,10 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "Wonderful Wonderful 2018 Bronze 銅雕 Black, silver 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "臭脾氣 Grumpy",
+    "title": "Grumpy 臭脾氣",
     "type": "Work",
     "url": "works/2017-bad-temper-bronze-black-gold",
-    "text": "臭脾氣 Grumpy Grumpy 臭脾氣 2017 Bronze 銅雕 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Grumpy 臭脾氣 Grumpy 臭脾氣 2017 Bronze 銅雕 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
     "title": "Boom!",
@@ -372,112 +372,112 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "For You For You 2017 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "小犬 Kiddo",
+    "title": "Kiddo 小犬",
     "type": "Work",
     "url": "works/2015-little-dog-bronze-white-black",
-    "text": "小犬 Kiddo Kiddo 小犬 2015 Bronze, paint, stainless steel base 不鏽鋼、銅雕、烤漆 White, black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Kiddo 小犬 Kiddo 小犬 2015 Bronze, paint, stainless steel base 不鏽鋼、銅雕、烤漆 White, black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "噓 Shh….",
+    "title": "Shh…. 噓",
     "type": "Work",
     "url": "works/2015-shh-stainless-steel",
-    "text": "噓 Shh…. Shh…. 噓 2015 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Shh…. 噓 Shh…. 噓 2015 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "啾咪 Chu",
+    "title": "Chu 啾咪",
     "type": "Work",
     "url": "works/2015-chu-copper-foil-stainless-steel",
-    "text": "啾咪 Chu Chu 啾咪 2015 Copper foil, stainless steel 銅箔、不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Chu 啾咪 Chu 啾咪 2015 Copper foil, stainless steel 銅箔、不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "小淘氣 Little Rascal",
+    "title": "Little Rascal 小淘氣",
     "type": "Work",
     "url": "works/2014-little-mischief-stainless-steel",
-    "text": "小淘氣 Little Rascal Little Rascal 小淘氣 2014 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Little Rascal 小淘氣 Little Rascal 小淘氣 2014 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "你好 Hello",
+    "title": "Hello 你好",
     "type": "Work",
     "url": "works/2014-hello-bronze-black",
-    "text": "你好 Hello Hello 你好 2014 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Hello 你好 Hello 你好 2014 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "大鼻子 Big Nose",
+    "title": "Big Nose 大鼻子",
     "type": "Work",
     "url": "works/2011-big-nose-stainless-steel",
-    "text": "大鼻子 Big Nose Big Nose 大鼻子 2011 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Big Nose 大鼻子 Big Nose 大鼻子 2011 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "出神 Lost in Contemplation",
+    "title": "Lost in Contemplation 出神",
     "type": "Work",
     "url": "works/2011-enraptured-bronze-black-gold",
-    "text": "出神 Lost in Contemplation Lost in Contemplation 出神 2011 Bronze, baking paint 銅雕、烤漆 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Lost in Contemplation 出神 Lost in Contemplation 出神 2011 Bronze, baking paint 銅雕、烤漆 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "滿足 Well",
+    "title": "Well 滿足",
     "type": "Work",
     "url": "works/2011-satisfaction-bronze-black-gold",
-    "text": "滿足 Well Well 滿足 2011 Bronze, baking paint 銅雕、烤漆 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Well 滿足 Well 滿足 2011 Bronze, baking paint 銅雕、烤漆 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "安可 Encore",
+    "title": "Encore 安可",
     "type": "Work",
     "url": "works/2010-encore-stainless-steel",
-    "text": "安可 Encore Encore 安可 2010 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Encore 安可 Encore 安可 2010 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "哇靠 What the Heck!",
+    "title": "What the Heck! 哇靠",
     "type": "Work",
     "url": "works/2010-wow-stainless-steel",
-    "text": "哇靠 What the Heck! What the Heck! 哇靠 2010 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "What the Heck! 哇靠 What the Heck! 哇靠 2010 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "目標 Target",
+    "title": "Target 目標",
     "type": "Work",
     "url": "works/2010-target-bronze-black",
-    "text": "目標 Target Target 目標 2010 Bronze, baking paint 銅雕、烤漆 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Target 目標 Target 目標 2010 Bronze, baking paint 銅雕、烤漆 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "極速 High Speed",
+    "title": "High Speed 極速",
     "type": "Work",
     "url": "works/2010-top-speed-bronze-black",
-    "text": "極速 High Speed High Speed 極速 2010 Bronze, baking paint 銅雕、烤漆 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "High Speed 極速 High Speed 極速 2010 Bronze, baking paint 銅雕、烤漆 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "天之驕子 The Loved One",
+    "title": "The Loved One 天之驕子",
     "type": "Work",
     "url": "works/2009-pride-of-heaven-bronze-black-gold-leaf",
-    "text": "天之驕子 The Loved One The Loved One 天之驕子 2009 Bronze 銅雕 Black, gold leaf 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "The Loved One 天之驕子 The Loved One 天之驕子 2009 Bronze 銅雕 Black, gold leaf 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "父子 Father and Son",
+    "title": "Father and Son 父子",
     "type": "Work",
     "url": "works/2009-father-and-son-bronze-black",
-    "text": "父子 Father and Son Father and Son 父子 2009 Bronze, gold foil 銅雕、金箔 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Father and Son 父子 Father and Son 父子 2009 Bronze, gold foil 銅雕、金箔 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "訊息 Information",
+    "title": "Information 訊息",
     "type": "Work",
     "url": "works/2009-message-bronze-gold-leaf",
-    "text": "訊息 Information Information 訊息 2009 Bronze 銅雕 Gold leaf 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Information 訊息 Information 訊息 2009 Bronze 銅雕 Gold leaf 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "新大陸 New World",
+    "title": "New World 新大陸",
     "type": "Work",
     "url": "works/2009-new-continent-bronze-black-white",
-    "text": "新大陸 New World New World 新大陸 2009 Bronze 銅雕 Black, white 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "New World 新大陸 New World 新大陸 2009 Bronze 銅雕 Black, white 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "夢想 Dreams",
+    "title": "Dreams 夢想",
     "type": "Work",
     "url": "works/2009-dream-stainless-steel",
-    "text": "夢想 Dreams Dreams 夢想 2009 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Dreams 夢想 Dreams 夢想 2009 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "21世紀 21st Century",
+    "title": "21st Century 21世紀",
     "type": "Work",
     "url": "works/2008-21st-century-bronze-black-white",
-    "text": "21世紀 21st Century 21st Century 21世紀 2008 Bronze, baking paint 銅雕、烤漆 Black, white 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "21st Century 21世紀 21st Century 21世紀 2008 Bronze, baking paint 銅雕、烤漆 Black, white 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
     "title": "999.9",
@@ -486,166 +486,166 @@ window.POREN_SEARCH_ENTRIES=[
     "text": "999.9 999.9 2008 Bronze 銅雕 Black, white, gold leaf 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "世界那麼大 Friends",
+    "title": "Friends 世界那麼大",
     "type": "Work",
     "url": "works/2008-world-so-big-bronze-black-white",
-    "text": "世界那麼大 Friends Friends 世界那麼大 2008 Bronze, baking paint 銅雕、烤漆 Black, white 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Friends 世界那麼大 Friends 世界那麼大 2008 Bronze, baking paint 銅雕、烤漆 Black, white 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "夜巡 Night Watch",
+    "title": "Night Watch 夜巡",
     "type": "Work",
     "url": "works/2008-night-patrol-stainless-steel",
-    "text": "夜巡 Night Watch Night Watch 夜巡 2008 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Night Watch 夜巡 Night Watch 夜巡 2008 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "智者的思維 Wise Man",
+    "title": "Wise Man 智者的思維",
     "type": "Work",
     "url": "works/2008-wise-mind-bronze-black-gold",
-    "text": "智者的思維 Wise Man Wise Man 智者的思維 2008 Bronze, gold foil 銅雕、金箔 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Wise Man 智者的思維 Wise Man 智者的思維 2008 Bronze, gold foil 銅雕、金箔 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "大耳朵 Spying",
+    "title": "Spying 大耳朵",
     "type": "Work",
     "url": "works/2007-big-ears-bronze-black",
-    "text": "大耳朵 Spying Spying 大耳朵 2007 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Spying 大耳朵 Spying 大耳朵 2007 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "地盤(三) My Territory (3)",
+    "title": "My Territory (3) 地盤(三)",
     "type": "Work",
     "url": "works/2007-territory-iii-bronze-black",
-    "text": "地盤(三) My Territory (3) My Territory (3) 地盤(三) 2007 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "My Territory (3) 地盤(三) My Territory (3) 地盤(三) 2007 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "每一天 Everyday Is a New Start.",
+    "title": "Everyday Is a New Start. 每一天",
     "type": "Work",
     "url": "works/2007-every-day-bronze-gold-leaf",
-    "text": "每一天 Everyday Is a New Start. Everyday Is a New Start. 每一天 2007 Bronze, gold foil 銅雕、金箔 Gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Everyday Is a New Start. 每一天 Everyday Is a New Start. 每一天 2007 Bronze, gold foil 銅雕、金箔 Gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "堅守岡位 Holding the Post",
+    "title": "Holding the Post 堅守岡位",
     "type": "Work",
     "url": "works/2007-holding-the-line-bronze-gold-leaf",
-    "text": "堅守岡位 Holding the Post Holding the Post 堅守岡位 2007 Bronze, gold foil 銅雕、金箔 Gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Holding the Post 堅守岡位 Holding the Post 堅守岡位 2007 Bronze, gold foil 銅雕、金箔 Gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "愛的擁抱 Loving Hug",
+    "title": "Loving Hug 愛的擁抱",
     "type": "Work",
     "url": "works/2007-embrace-of-love-bronze-black-gold",
-    "text": "愛的擁抱 Loving Hug Loving Hug 愛的擁抱 2007 Bronze, baking paint 銅雕、烤漆 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Loving Hug 愛的擁抱 Loving Hug 愛的擁抱 2007 Bronze, baking paint 銅雕、烤漆 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "夢想911 Dream 911",
+    "title": "Dream 911 夢想911",
     "type": "Work",
     "url": "works/2007-dream-911-bronze-black",
-    "text": "夢想911 Dream 911 Dream 911 夢想911 2007 Bronze, baking paint 銅雕、烤漆 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Dream 911 夢想911 Dream 911 夢想911 2007 Bronze, baking paint 銅雕、烤漆 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "地盤(二) My Territory (2)",
+    "title": "My Territory (2) 地盤(二)",
     "type": "Work",
     "url": "works/2006-territory-ii-bronze-black",
-    "text": "地盤(二) My Territory (2) My Territory (2) 地盤(二) 2006 Bronze, baking paint 銅雕、烤漆 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "My Territory (2) 地盤(二) My Territory (2) 地盤(二) 2006 Bronze, baking paint 銅雕、烤漆 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "快樂時光 Happy Time",
+    "title": "Happy Time 快樂時光",
     "type": "Work",
     "url": "works/2006-happy-time-bronze-black",
-    "text": "快樂時光 Happy Time Happy Time 快樂時光 2006 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Happy Time 快樂時光 Happy Time 快樂時光 2006 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "赴宴 Attending a Banquet",
+    "title": "Attending a Banquet 赴宴",
     "type": "Work",
     "url": "works/2006-banquet-bronze-black-gold",
-    "text": "赴宴 Attending a Banquet Attending a Banquet 赴宴 2006 Bronze, gold foil 銅雕、金箔 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Attending a Banquet 赴宴 Attending a Banquet 赴宴 2006 Bronze, gold foil 銅雕、金箔 Black, gold 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "記憶 Memory",
+    "title": "Memory 記憶",
     "type": "Work",
     "url": "works/2006-memory-bronze-black",
-    "text": "記憶 Memory Memory 記憶 2006 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Memory 記憶 Memory 記憶 2006 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "暖冬 Taking Care of You",
+    "title": "Taking Care of You 暖冬",
     "type": "Work",
     "url": "works/2006-warm-winter-bronze-black",
-    "text": "暖冬 Taking Care of You Taking Care of You 暖冬 2006 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Taking Care of You 暖冬 Taking Care of You 暖冬 2006 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "禁區 You Can Not Pass!",
+    "title": "You Can Not Pass! 禁區",
     "type": "Work",
     "url": "works/2006-no-entry-bronze-black",
-    "text": "禁區 You Can Not Pass! You Can Not Pass! 禁區 2006 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "You Can Not Pass! 禁區 You Can Not Pass! 禁區 2006 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "不爽 I'm Not Happy Now!",
+    "title": "I'm Not Happy Now! 不爽",
     "type": "Work",
     "url": "works/2005-unhappy-bronze-black",
-    "text": "不爽 I'm Not Happy Now! I'm Not Happy Now! 不爽 2005 Bronze 銅雕 Natural black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "I'm Not Happy Now! 不爽 I'm Not Happy Now! 不爽 2005 Bronze 銅雕 Natural black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "不爽 I'm Not Happy Now!",
+    "title": "I'm Not Happy Now! 不爽",
     "type": "Work",
     "url": "works/2005-unhappy-stainless-steel",
-    "text": "不爽 I'm Not Happy Now! I'm Not Happy Now! 不爽 2005 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "I'm Not Happy Now! 不爽 I'm Not Happy Now! 不爽 2005 Stainless steel 不鏽鋼 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "任務 On Duty",
+    "title": "On Duty 任務",
     "type": "Work",
     "url": "works/2005-mission-bronze-black",
-    "text": "任務 On Duty On Duty 任務 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "On Duty 任務 On Duty 任務 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "回家 Home",
+    "title": "Home 回家",
     "type": "Work",
     "url": "works/2005-going-home-bronze-black",
-    "text": "回家 Home Home 回家 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Home 回家 Home 回家 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "地盤 My Territory",
+    "title": "My Territory 地盤",
     "type": "Work",
     "url": "works/2005-territory-bronze-black",
-    "text": "地盤 My Territory My Territory 地盤 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "My Territory 地盤 My Territory 地盤 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "吸收 Absorption",
+    "title": "Absorption 吸收",
     "type": "Work",
     "url": "works/2005-absorption-bronze-black",
-    "text": "吸收 Absorption Absorption 吸收 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Absorption 吸收 Absorption 吸收 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "男&女 Man & Woman",
+    "title": "Man & Woman 男&女",
     "type": "Work",
     "url": "works/2005-man-and-woman-bronze-black",
-    "text": "男&女 Man & Woman Man & Woman 男&女 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Man & Woman 男&女 Man & Woman 男&女 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "延續 Generation to Generation",
+    "title": "Generation to Generation 延續",
     "type": "Work",
     "url": "works/2005-continuation-bronze-black",
-    "text": "延續 Generation to Generation Generation to Generation 延續 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Generation to Generation 延續 Generation to Generation 延續 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "狗眼看人低 Snobbery",
+    "title": "Snobbery 狗眼看人低",
     "type": "Work",
     "url": "works/2005-looking-down-bronze-black",
-    "text": "狗眼看人低 Snobbery Snobbery 狗眼看人低 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Snobbery 狗眼看人低 Snobbery 狗眼看人低 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "狗腿子 The Flunky",
+    "title": "The Flunky 狗腿子",
     "type": "Work",
     "url": "works/2005-lackey-bronze-black",
-    "text": "狗腿子 The Flunky The Flunky 狗腿子 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "The Flunky 狗腿子 The Flunky 狗腿子 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "保全 The Guard",
+    "title": "The Guard 保全",
     "type": "Work",
     "url": "works/2005-security-guard-bronze-black",
-    "text": "保全 The Guard The Guard 保全 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "The Guard 保全 The Guard 保全 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
-    "title": "等待 Waiting",
+    "title": "Waiting 等待",
     "type": "Work",
     "url": "works/2005-waiting-bronze-black",
-    "text": "等待 Waiting Waiting 等待 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
+    "text": "Waiting 等待 Waiting 等待 2005 Bronze 銅雕 Black 作品 sculpture artwork dog 狗 黃柏仁 Poren Huang The Dog's Notes"
   },
   {
     "title": "Poren Huang Sculpture Solo Exhibition 黃柏仁雕塑個展",
