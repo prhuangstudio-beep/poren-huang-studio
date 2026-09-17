@@ -581,12 +581,14 @@ document.addEventListener('click',event=>{
 (()=>{
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 
-  const settings={damping:.11,influence:.62,maxScaleDrop:.28,maxBlur:12};
+  const settings={damping:.11,influence:.7,maxScaleDrop:.34,maxBlur:16};
   const selector=[
     '.work-list article','.works-image-grid > a','.works-index > a',
     '.news article','.press-card','.timeline article','.artist-cv article',
     '.series-entry','.series-hero figure','.artist-portrait,.image-carousel',
-    '.home-image-break,.press-side-image','.work-detail','.work-variants',
+    '.home-image-break,.press-side-image,.video-banner',
+    '.home .work-panel img,.works-image-grid img,.work-main img',
+    '.work-detail','.work-variants',
     '.related-works > div > a','.work-panel'
   ].join(',');
   const cards=[...document.querySelectorAll(selector)];
