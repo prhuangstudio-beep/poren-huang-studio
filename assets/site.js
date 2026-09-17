@@ -583,7 +583,8 @@ document.addEventListener('click',event=>{
 
   const compact=matchMedia('(max-width: 700px)').matches;
   const mobileHome=compact&&document.body.classList.contains('home');
-  const settings={damping:.11,influence:.77,maxScaleDrop:mobileHome ? .24 : .18,maxBlur:mobileHome ? 11 : 8};
+  const desktopWorks=!compact&&!!document.querySelector('.works-overview');
+  const settings={damping:desktopWorks ? .16 : .11,influence:desktopWorks ? .65 : .77,maxScaleDrop:mobileHome ? .24 : .18,maxBlur:mobileHome ? 11 : 8};
   const selector=[
     '.work-list article','.works-image-grid > a','.works-index > a',
     '.news article','.press-card','.timeline article','.artist-cv article',
