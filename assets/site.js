@@ -483,6 +483,7 @@ if('IntersectionObserver'in window){
 
 const homeStage=document.querySelector('.work-stage');
 if(homeStage){
+  if(!document.querySelector('.work-swipe-hint'))homeStage.insertAdjacentHTML('afterend','<span class="work-swipe-hint" aria-hidden="true"><svg viewBox="0 0 32 16"><path d="M7 3 2 8l5 5M2 8h28M25 3l5 5-5 5"/></svg></span>');
   const homeCovers={
     'Power Food':['assets/catalog/power-food/01.jpg?v=20260902pf','assets/catalog/power-food/03-home.jpg?v=20260902pfh'],
     'Super Power':['assets/catalog/super-power-lake-green/01.jpg?v=20260902','assets/catalog/super-power-neon-orange/01.jpg?v=20260902','assets/catalog/super-power-stainless-steel/01.jpg?v=20260902'],
@@ -646,6 +647,7 @@ document.addEventListener('click',event=>{
       const nestedEditorialHeading=card.matches('h1,h2,h3')&&card.closest('.timeline,.news,.press-list');
       const keepClear=nestedEditorialHeading||
         (compact&&document.body.classList.contains('about-page')&&card.matches('.page h1'))||
+        card.matches('.home .artist-detail h2')||
         (mobileHome&&card.matches('.hero h1,.artist-detail,.artist-detail h2'));
       if(atPageEdge||keepClear){
         const base=baseTransforms.get(card);

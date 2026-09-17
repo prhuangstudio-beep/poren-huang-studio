@@ -2285,11 +2285,13 @@ nav .menu-series-link{margin-top:10px!important;padding-top:15px!important;borde
 .home .work-stage{
   border:0!important;
   border-radius:0!important;
+  outline:0!important;
+  box-shadow:none!important;
   padding:0 0 42px!important;
   position:relative!important;
 }
 .home .work-stage::after{
-  content:"↔"!important;
+  content:none!important;
   position:sticky!important;
   right:0!important;
   bottom:0!important;
@@ -2307,3 +2309,35 @@ nav .menu-series-link{margin-top:10px!important;padding-top:15px!important;borde
   letter-spacing:0!important;
   opacity:.82!important;
 }
+
+.home .work-swipe-hint{
+  display:grid;
+  place-items:center;
+  grid-column:2;
+  justify-self:end;
+  width:30px;
+  height:30px;
+  margin:-36px 4px 6px auto;
+  color:#111;
+  pointer-events:none;
+}
+.home .work-swipe-hint svg{display:block;width:28px;height:14px;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
+
+/* The first home film is deliberately edge-to-edge on a phone. */
+@media(max-width:700px){
+  body.home .hero .artist-film,
+  body.home .video-banner{
+    width:100vw!important;
+    max-width:none!important;
+    margin-left:calc(50% - 50vw)!important;
+    margin-right:calc(50% - 50vw)!important;
+  }
+  body.home .hero .artist-film{height:72vw!important}
+  body.home .hero .artist-film video{width:100%!important;max-width:none!important;height:100%!important;object-fit:cover!important}
+  .home .work-swipe-hint{width:26px;height:26px;margin:-34px 0 8px auto;color:rgba(17,17,17,.72)}
+  .home .work-swipe-hint svg{width:25px;height:13px;stroke-width:1.2}
+}
+
+/* Prevent condensed tracking from making the Artist introduction appear crowded. */
+.home .artist-detail h2{letter-spacing:-.02em!important;word-spacing:.02em!important}
+.home .artist-detail>div p{letter-spacing:0!important}
