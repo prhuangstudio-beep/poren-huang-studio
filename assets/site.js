@@ -47,12 +47,14 @@ document.querySelectorAll('img:not([loading])').forEach(image=>{
 const header=document.querySelector('header'),nav=document.querySelector('nav');
 if(header&&nav){
   // The header stores itself while reading downward and returns on a reverse scroll.
-  let headerLastY=window.scrollY,headerFrame=0;
+  let headerLastY=window.scrollY,headerReference=window.scrollY,headerFrame=0;
   const updateHeader=()=>{
     headerFrame=0;
     const y=window.scrollY;
     if(!document.body.classList.contains('menu-open')&&!document.body.classList.contains('search-open')){
-      header.classList.toggle('is-stowed',y>120&&y>headerLastY+3);
+      if(y<96){header.classList.remove('is-stowed');headerReference=y;}
+      else if(y-headerReference>42){header.classList.add('is-stowed');headerReference=y;}
+      else if(headerReference-y>20){header.classList.remove('is-stowed');headerReference=y;}
     }
     headerLastY=y;
   };
@@ -91,7 +93,7 @@ if(header&&nav){
   const navLinks=[...nav.children].filter(item=>item.tagName==='A');
   const social=document.createElement('div');
   social.className='menu-socials';
-  social.innerHTML='<a href="https://www.instagram.com/porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-label">IG</span></a><a href="https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-label">f</span></a><a href="https://youtube.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a><a href="mailto:pr_dogs@yahoo.com.tw" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg></a><a href="https://www.threads.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Threads"><span class="social-label">@</span></a>';
+  social.innerHTML='<a href="https://www.instagram.com/porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-label">IG</span></a><a href="https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-label">f</span></a><a href="https://youtube.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a><a href="mailto:pr_dogs@yahoo.com.tw" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg></a><a href="https://www.threads.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Threads"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c-4.5 0-7 2.5-7 7.2 0 4.2 2.2 7 5.8 7 3 0 4.9-1.9 4.9-4.7 0-2.4-1.5-4-3.8-4-2.1 0-3.5 1.5-3.5 3.5 0 1.6 1 2.6 2.5 2.6 1.2 0 2-.8 2-1.9"/><path d="M17.5 5.3c1 1.4 1.5 3.2 1.5 5.2 0 5-2.7 8.2-7 8.2"/></svg></a>';
   nav.append(social);
   const searchButton=document.createElement('button');
   searchButton.className='site-search-toggle';
@@ -420,7 +422,7 @@ if(cv){
 const labels=['ARTIST','WORKS','NEWS','PRESS'];
 document.querySelectorAll('.side-title span').forEach((label,i)=>label.textContent=labels[i]||label.textContent);
 
-const footerSocialLinks='<a href="https://www.instagram.com/porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-label">IG</span></a><a href="https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-label">f</span></a><a href="https://youtube.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a><a href="mailto:pr_dogs@yahoo.com.tw" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg></a><a href="https://www.threads.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Threads"><span class="social-label">@</span></a>';
+const footerSocialLinks='<a href="https://www.instagram.com/porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-label">IG</span></a><a href="https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-label">f</span></a><a href="https://youtube.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a><a href="mailto:pr_dogs@yahoo.com.tw" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg></a><a href="https://www.threads.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Threads"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c-4.5 0-7 2.5-7 7.2 0 4.2 2.2 7 5.8 7 3 0 4.9-1.9 4.9-4.7 0-2.4-1.5-4-3.8-4-2.1 0-3.5 1.5-3.5 3.5 0 1.6 1 2.6 2.5 2.6 1.2 0 2-.8 2-1.9"/><path d="M17.5 5.3c1 1.4 1.5 3.2 1.5 5.2 0 5-2.7 8.2-7 8.2"/></svg></a>';
 const footer=document.querySelector('footer');
 if(footer){
   let socials=footer.querySelector('.socials');
