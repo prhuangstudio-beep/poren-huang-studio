@@ -12,8 +12,6 @@ const clean = value => String(value ?? '').replace(/<[^>]*>/g, '').replace(/\s+/
 const render = (template, values) => template.replace(/{{(\w+)}}/g, (_, key) => values[key] ?? '');
 const title = work => [work.title_en, work.title_zh].filter(Boolean).join(' ');
 const imageUrl = image => `${site}/${image.filename}`;
-const availabilityLabels = { available: 'Available', reserved: 'Reserved', sold: 'Sold', collected: 'Collected' };
-const availabilityZh = { available: '可洽詢', reserved: '保留中', sold: '已售出', collected: '已典藏' };
 const imageSize = filename => {
   const data = fs.readFileSync(path.join(root, filename));
   for (let i = 2; i < data.length - 9; i++) if (data[i] === 0xff && [0xc0, 0xc1, 0xc2].includes(data[i + 1])) return { height: data.readUInt16BE(i + 5), width: data.readUInt16BE(i + 7) };
@@ -48,8 +46,7 @@ function artworkSchema(work) {
 function card(work) {
   const first = work.images[0];
   const search = [work.title_en, work.title_zh, work.year, work.material_en, work.material_zh].filter(Boolean).join(' ').toLocaleLowerCase();
-  const availability = work.availability || 'available';
-  return `<a class="work-card" data-work-card data-year="${esc(work.year)}" data-search="${esc(search)}" href="works/${esc(work.slug)}"><figure>${picture(first)}</figure><div class="works-card-meta"><strong lang="en">${esc(work.title_en)}</strong>${work.title_zh ? `<span>${esc(work.title_zh)}</span>` : ''}<time>${esc(work.year)}</time><em class="work-availability status-${availability}">${availabilityZh[availability] || availability}</em></div></a>`;
+  return `<a class="work-card" data-work-card data-year="${esc(work.year)}" data-search="${esc(search)}" href="works/${esc(work.slug)}"><figure>${picture(first)}</figure><div class="works-card-meta"><strong lang="en">${esc(work.title_en)}</strong>${work.title_zh ? `<span>${esc(work.title_zh)}</span>` : ''}<time>${esc(work.year)}</time></div></a>`;
 }
 const indexTemplate = read('works-index.html');
 const years = [...new Set(works.map(work => work.year))].sort((a, b) => b - a);
@@ -75,7 +72,6 @@ works.forEach((work, index) => {
     title: esc(`${title(work)} | Poren Huang Studio 黃柏仁`), description: esc(workDescription(work)), canonical: `${site}/works/${work.slug}`,
     ogImage: imageUrl(work.images[0]), schema: JSON.stringify(artworkSchema(work)), mainImage: picture(work.images[0], { lazy: false }), mainAlt: esc(work.images[0].alt_zh || work.images[0].alt_en), hreflang: hreflang(`${site}/works/${work.slug}`),
     thumbnails, heading: `<span lang="en">${esc(work.title_en)}</span>${work.title_zh ? `<small>${esc(work.title_zh)}</small>` : ''}`, year: esc(work.year), metadata,
-    availability: work.availability || 'available', availabilityBadge: `<span class="work-availability status-${work.availability || 'available'}">${availabilityZh[work.availability || 'available'] || '可洽詢'} / ${availabilityLabels[work.availability || 'available'] || 'Available'}</span>`,
     descriptionBlock: description ? `<div class="work-description"><p>${esc(description).replace(/\n/g, '<br>')}</p></div>` : '', relatedWorks,
     neighbors: `<a href="works/${esc(previous.slug)}"><span>Prev</span><strong>${esc(previous.title_en)}</strong></a><a href="works/${esc(next.slug)}"><span>Next</span><strong>${esc(next.title_en)}</strong></a>`
   };

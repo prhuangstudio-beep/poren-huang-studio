@@ -259,9 +259,8 @@ if(form){
     const name=form.elements.name?.value.trim()||'';
     const email=form.elements.email?.value.trim()||'';
     const message=form.elements.message?.value.trim()||'';
-    const reference=form.elements.work_reference?.value.trim()||'';
-    const body=[reference?'Work: '+reference:'','Name: '+name,'Email: '+email,'','Message:',message].filter(Boolean).join('\n');
-    openGmailCompose(body,reference?`[洽詢] ${reference} — 來自 ${name||'訪客'}`:'Poren Huang Studio enquiry');
+    const body=['Name: '+name,'Email: '+email,'','Message:',message].join('\n');
+    openGmailCompose(body);
   });
   emailLinks.forEach(email=>{
     email.addEventListener('click',e=>{
