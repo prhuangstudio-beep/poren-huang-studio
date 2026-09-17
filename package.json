@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "build": "node scripts/generate-work-pages.js"
+    "build": "node scripts/build.js"
   }
 }

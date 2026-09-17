@@ -1,0 +1,4430 @@
+[
+  {
+    "id": "power-food",
+    "title_en": "Power Food",
+    "title_zh": "",
+    "year": 2026,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "circle",
+        "size": "5.5x2.5",
+        "unit": "cm"
+      },
+      {
+        "shape": "triangle",
+        "size": "5.5x5.5x2.5",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Colorway",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/power-food/01.jpg",
+        "alt_en": "Poren Huang sculpture “Power Food”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Power Food》第1視角"
+      },
+      {
+        "filename": "assets/catalog/power-food/02.jpg",
+        "alt_en": "Poren Huang sculpture “Power Food”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Power Food》第2視角"
+      },
+      {
+        "filename": "assets/catalog/power-food/03.jpg",
+        "alt_en": "Poren Huang sculpture “Power Food”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Power Food》第3視角"
+      },
+      {
+        "filename": "assets/catalog/power-food/04.jpg",
+        "alt_en": "Poren Huang sculpture “Power Food”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Power Food》第4視角"
+      },
+      {
+        "filename": "assets/catalog/power-food/05.jpg",
+        "alt_en": "Poren Huang sculpture “Power Food”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Power Food》第5視角"
+      }
+    ],
+    "slug": "power-food",
+    "featured": true,
+    "order": 1
+  },
+  {
+    "id": "super-power-lake-green",
+    "title_en": "Super Power",
+    "title_zh": "超動力",
+    "year": 2025,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "32x25x22",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Lake green",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/super-power-lake-green/01.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第1視角"
+      },
+      {
+        "filename": "assets/catalog/super-power-lake-green/02.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第2視角"
+      },
+      {
+        "filename": "assets/catalog/super-power-lake-green/03.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第3視角"
+      },
+      {
+        "filename": "assets/catalog/super-power-lake-green/04.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第4視角"
+      },
+      {
+        "filename": "assets/catalog/super-power-lake-green/05.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第5視角"
+      }
+    ],
+    "slug": "super-power-lake-green",
+    "featured": true,
+    "order": 2
+  },
+  {
+    "id": "super-power-neon-orange",
+    "title_en": "Super Power",
+    "title_zh": "超動力",
+    "year": 2025,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "52x25x22",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Neon orange",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/super-power-neon-orange/01.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第1視角"
+      },
+      {
+        "filename": "assets/catalog/super-power-neon-orange/02.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第2視角"
+      },
+      {
+        "filename": "assets/catalog/super-power-neon-orange/03.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第3視角"
+      },
+      {
+        "filename": "assets/catalog/super-power-neon-orange/04.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第4視角"
+      },
+      {
+        "filename": "assets/catalog/super-power-neon-orange/05.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第5視角"
+      }
+    ],
+    "slug": "super-power-neon-orange",
+    "featured": true,
+    "order": 3
+  },
+  {
+    "id": "super-power-stainless-steel",
+    "title_en": "Super Power",
+    "title_zh": "超動力",
+    "year": 2025,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "32x25x22",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/super-power-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第1視角"
+      },
+      {
+        "filename": "assets/catalog/super-power-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第2視角"
+      },
+      {
+        "filename": "assets/catalog/super-power-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第3視角"
+      },
+      {
+        "filename": "assets/catalog/super-power-stainless-steel/04.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第4視角"
+      },
+      {
+        "filename": "assets/catalog/super-power-stainless-steel/05.jpg",
+        "alt_en": "Poren Huang sculpture “Super Power”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Super Power》第5視角"
+      }
+    ],
+    "slug": "super-power-stainless-steel",
+    "featured": true,
+    "order": 4
+  },
+  {
+    "id": "speedy-black",
+    "title_en": "Speedy",
+    "title_zh": "咻……",
+    "year": 2025,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "28x20x21",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/speedy-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第1視角"
+      },
+      {
+        "filename": "assets/catalog/speedy-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第2視角"
+      },
+      {
+        "filename": "assets/catalog/speedy-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第3視角"
+      },
+      {
+        "filename": "assets/catalog/speedy-black/04.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第4視角"
+      },
+      {
+        "filename": "assets/catalog/speedy-black/05.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第5視角"
+      }
+    ],
+    "slug": "speedy-black",
+    "featured": true,
+    "order": 5
+  },
+  {
+    "id": "speedy-gold-leaf",
+    "title_en": "Speedy",
+    "title_zh": "咻……",
+    "year": 2025,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "28x20x21",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Gold leaf",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/speedy-gold-leaf/01.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第1視角"
+      },
+      {
+        "filename": "assets/catalog/speedy-gold-leaf/02.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第2視角"
+      },
+      {
+        "filename": "assets/catalog/speedy-gold-leaf/03.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第3視角"
+      },
+      {
+        "filename": "assets/catalog/speedy-gold-leaf/04.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第4視角"
+      },
+      {
+        "filename": "assets/catalog/speedy-gold-leaf/05.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第5視角"
+      }
+    ],
+    "slug": "speedy-gold-leaf",
+    "featured": true,
+    "order": 6
+  },
+  {
+    "id": "speedy-stainless-steel",
+    "title_en": "Speedy",
+    "title_zh": "咻……",
+    "year": 2025,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "28x20x21",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/speedy-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第1視角"
+      },
+      {
+        "filename": "assets/catalog/speedy-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第2視角"
+      },
+      {
+        "filename": "assets/catalog/speedy-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第3視角"
+      },
+      {
+        "filename": "assets/catalog/speedy-stainless-steel/04.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第4視角"
+      },
+      {
+        "filename": "assets/catalog/speedy-stainless-steel/05.jpg",
+        "alt_en": "Poren Huang sculpture “Speedy”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Speedy》第5視角"
+      }
+    ],
+    "slug": "speedy-stainless-steel",
+    "featured": false,
+    "order": 7
+  },
+  {
+    "id": "shake-shake-black",
+    "title_en": "Shake Shake",
+    "title_zh": "",
+    "year": 2025,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "25x13x22",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/shake-shake-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Shake Shake”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Shake Shake》第1視角"
+      },
+      {
+        "filename": "assets/catalog/shake-shake-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Shake Shake”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Shake Shake》第2視角"
+      },
+      {
+        "filename": "assets/catalog/shake-shake-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Shake Shake”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Shake Shake》第3視角"
+      },
+      {
+        "filename": "assets/catalog/shake-shake-black/04.jpg",
+        "alt_en": "Poren Huang sculpture “Shake Shake”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Shake Shake》第4視角"
+      },
+      {
+        "filename": "assets/catalog/shake-shake-black/05.jpg",
+        "alt_en": "Poren Huang sculpture “Shake Shake”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Shake Shake》第5視角"
+      }
+    ],
+    "slug": "shake-shake-black",
+    "featured": false,
+    "order": 8
+  },
+  {
+    "id": "shake-shake-lake-green",
+    "title_en": "Shake Shake",
+    "title_zh": "",
+    "year": 2025,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "25x13x22",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "106x57x88",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Lake green",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/shake-shake-lake-green/01.jpg",
+        "alt_en": "Poren Huang sculpture “Shake Shake”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Shake Shake》第1視角"
+      },
+      {
+        "filename": "assets/catalog/shake-shake-lake-green/02.jpg",
+        "alt_en": "Poren Huang sculpture “Shake Shake”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Shake Shake》第2視角"
+      },
+      {
+        "filename": "assets/catalog/shake-shake-lake-green/03.jpg",
+        "alt_en": "Poren Huang sculpture “Shake Shake”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Shake Shake》第3視角"
+      },
+      {
+        "filename": "assets/catalog/shake-shake-lake-green/04.jpg",
+        "alt_en": "Poren Huang sculpture “Shake Shake”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Shake Shake》第4視角"
+      }
+    ],
+    "slug": "shake-shake-lake-green",
+    "featured": false,
+    "order": 9
+  },
+  {
+    "id": "shake-shake-stainless-steel",
+    "title_en": "Shake Shake",
+    "title_zh": "",
+    "year": 2025,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "25x13x22",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/shake-shake-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “Shake Shake”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Shake Shake》第1視角"
+      },
+      {
+        "filename": "assets/catalog/shake-shake-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “Shake Shake”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Shake Shake》第2視角"
+      },
+      {
+        "filename": "assets/catalog/shake-shake-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “Shake Shake”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Shake Shake》第3視角"
+      },
+      {
+        "filename": "assets/catalog/shake-shake-stainless-steel/04.jpg",
+        "alt_en": "Poren Huang sculpture “Shake Shake”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Shake Shake》第4視角"
+      },
+      {
+        "filename": "assets/catalog/shake-shake-stainless-steel/05.jpg",
+        "alt_en": "Poren Huang sculpture “Shake Shake”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Shake Shake》第5視角"
+      }
+    ],
+    "slug": "shake-shake-stainless-steel",
+    "featured": false,
+    "order": 10
+  },
+  {
+    "id": "bubble-black-pink",
+    "title_en": "Bubble",
+    "title_zh": "",
+    "year": 2024,
+    "material_en": "Bronze, FRP",
+    "material_zh": "銅雕、FRP",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "56x28x85",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, pink",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/bubble-black-pink/01.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第1視角"
+      },
+      {
+        "filename": "assets/catalog/bubble-black-pink/02.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第2視角"
+      },
+      {
+        "filename": "assets/catalog/bubble-black-pink/03.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第3視角"
+      },
+      {
+        "filename": "assets/catalog/bubble-black-pink/04.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第4視角"
+      },
+      {
+        "filename": "assets/catalog/bubble-black-pink/05.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第5視角"
+      }
+    ],
+    "slug": "bubble-black-pink",
+    "featured": false,
+    "order": 11
+  },
+  {
+    "id": "bubble-green",
+    "title_en": "Bubble",
+    "title_zh": "",
+    "year": 2024,
+    "material_en": "Stainless steel, FRP",
+    "material_zh": "不鏽鋼、FRP",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "56x28x85",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Green",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/bubble-green/01.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第1視角"
+      },
+      {
+        "filename": "assets/catalog/bubble-green/02.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第2視角"
+      },
+      {
+        "filename": "assets/catalog/bubble-green/03.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第3視角"
+      },
+      {
+        "filename": "assets/catalog/bubble-green/04.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第4視角"
+      },
+      {
+        "filename": "assets/catalog/bubble-green/05.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第5視角"
+      }
+    ],
+    "slug": "bubble-green",
+    "featured": false,
+    "order": 12
+  },
+  {
+    "id": "bubble-pink",
+    "title_en": "Bubble",
+    "title_zh": "",
+    "year": 2024,
+    "material_en": "Stainless steel, FRP",
+    "material_zh": "不鏽鋼、FRP",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "56x28x85",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Pink",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/bubble-pink/01.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第1視角"
+      },
+      {
+        "filename": "assets/catalog/bubble-pink/02.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第2視角"
+      },
+      {
+        "filename": "assets/catalog/bubble-pink/03.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第3視角"
+      },
+      {
+        "filename": "assets/catalog/bubble-pink/04.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第4視角"
+      },
+      {
+        "filename": "assets/catalog/bubble-pink/05.jpg",
+        "alt_en": "Poren Huang sculpture “Bubble”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Bubble》第5視角"
+      }
+    ],
+    "slug": "bubble-pink",
+    "featured": false,
+    "order": 13
+  },
+  {
+    "id": "heart-bronze-green",
+    "title_en": "♥",
+    "title_zh": "",
+    "year": 2024,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "24x23x33",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Green",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/heart-bronze-green/01.jpg",
+        "alt_en": "Poren Huang sculpture “♥”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《♥》第1視角"
+      },
+      {
+        "filename": "assets/catalog/heart-bronze-green/02.jpg",
+        "alt_en": "Poren Huang sculpture “♥”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《♥》第2視角"
+      },
+      {
+        "filename": "assets/catalog/heart-bronze-green/03.jpg",
+        "alt_en": "Poren Huang sculpture “♥”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《♥》第3視角"
+      },
+      {
+        "filename": "assets/catalog/heart-bronze-green/04.jpg",
+        "alt_en": "Poren Huang sculpture “♥”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《♥》第4視角"
+      },
+      {
+        "filename": "assets/catalog/heart-bronze-green/05.jpg",
+        "alt_en": "Poren Huang sculpture “♥”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《♥》第5視角"
+      }
+    ],
+    "slug": "heart-bronze-green",
+    "featured": false,
+    "order": 14
+  },
+  {
+    "id": "heart-stainless-steel",
+    "title_en": "♥",
+    "title_zh": "",
+    "year": 2024,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "24x23x33",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/heart-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “♥”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《♥》第1視角"
+      },
+      {
+        "filename": "assets/catalog/heart-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “♥”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《♥》第2視角"
+      },
+      {
+        "filename": "assets/catalog/heart-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “♥”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《♥》第3視角"
+      },
+      {
+        "filename": "assets/catalog/heart-stainless-steel/04.jpg",
+        "alt_en": "Poren Huang sculpture “♥”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《♥》第4視角"
+      },
+      {
+        "filename": "assets/catalog/heart-stainless-steel/05.jpg",
+        "alt_en": "Poren Huang sculpture “♥”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《♥》第5視角"
+      }
+    ],
+    "slug": "heart-stainless-steel",
+    "featured": false,
+    "order": 15
+  },
+  {
+    "id": "go-up-black-red",
+    "title_en": "Go Up",
+    "title_zh": "",
+    "year": 2023,
+    "material_en": "Bronze, FRP",
+    "material_zh": "銅雕、FRP",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "25x20x48",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, red",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/go-up-black-red/01.jpg",
+        "alt_en": "Poren Huang sculpture “Go Up”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Go Up》第1視角"
+      },
+      {
+        "filename": "assets/catalog/go-up-black-red/02.jpg",
+        "alt_en": "Poren Huang sculpture “Go Up”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Go Up》第2視角"
+      },
+      {
+        "filename": "assets/catalog/go-up-black-red/03.jpg",
+        "alt_en": "Poren Huang sculpture “Go Up”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Go Up》第3視角"
+      },
+      {
+        "filename": "assets/catalog/go-up-black-red/04.jpg",
+        "alt_en": "Poren Huang sculpture “Go Up”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Go Up》第4視角"
+      }
+    ],
+    "slug": "go-up-black-red",
+    "featured": false,
+    "order": 16
+  },
+  {
+    "id": "go-up-pink",
+    "title_en": "Go Up",
+    "title_zh": "",
+    "year": 2023,
+    "material_en": "Stainless steel, FRP",
+    "material_zh": "不鏽鋼、FRP",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "25x20x48",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Pink",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/go-up-pink/01.jpg",
+        "alt_en": "Poren Huang sculpture “Go Up”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Go Up》第1視角"
+      },
+      {
+        "filename": "assets/catalog/go-up-pink/02.jpg",
+        "alt_en": "Poren Huang sculpture “Go Up”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Go Up》第2視角"
+      },
+      {
+        "filename": "assets/catalog/go-up-pink/03.jpg",
+        "alt_en": "Poren Huang sculpture “Go Up”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Go Up》第3視角"
+      },
+      {
+        "filename": "assets/catalog/go-up-pink/04.jpg",
+        "alt_en": "Poren Huang sculpture “Go Up”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Go Up》第4視角"
+      },
+      {
+        "filename": "assets/catalog/go-up-pink/05.jpg",
+        "alt_en": "Poren Huang sculpture “Go Up”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Go Up》第5視角"
+      }
+    ],
+    "slug": "go-up-pink",
+    "featured": false,
+    "order": 17
+  },
+  {
+    "id": "go-up-yellow",
+    "title_en": "Go Up",
+    "title_zh": "",
+    "year": 2023,
+    "material_en": "Stainless steel, FRP",
+    "material_zh": "不鏽鋼、FRP",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "25x20x48",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Yellow",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/go-up-yellow/01.jpg",
+        "alt_en": "Poren Huang sculpture “Go Up”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Go Up》第1視角"
+      },
+      {
+        "filename": "assets/catalog/go-up-yellow/02.jpg",
+        "alt_en": "Poren Huang sculpture “Go Up”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Go Up》第2視角"
+      },
+      {
+        "filename": "assets/catalog/go-up-yellow/03.jpg",
+        "alt_en": "Poren Huang sculpture “Go Up”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Go Up》第3視角"
+      },
+      {
+        "filename": "assets/catalog/go-up-yellow/04.jpg",
+        "alt_en": "Poren Huang sculpture “Go Up”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Go Up》第4視角"
+      },
+      {
+        "filename": "assets/catalog/go-up-yellow/05.jpg",
+        "alt_en": "Poren Huang sculpture “Go Up”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Go Up》第5視角"
+      }
+    ],
+    "slug": "go-up-yellow",
+    "featured": false,
+    "order": 18
+  },
+  {
+    "id": "fist-bump-stainless-steel",
+    "title_en": "Fist Bump",
+    "title_zh": "",
+    "year": 2023,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "23x27x33",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/fist-bump-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “Fist Bump”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Fist Bump》第1視角"
+      },
+      {
+        "filename": "assets/catalog/fist-bump-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “Fist Bump”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Fist Bump》第2視角"
+      },
+      {
+        "filename": "assets/catalog/fist-bump-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “Fist Bump”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Fist Bump》第3視角"
+      },
+      {
+        "filename": "assets/catalog/fist-bump-stainless-steel/04.jpg",
+        "alt_en": "Poren Huang sculpture “Fist Bump”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Fist Bump》第4視角"
+      },
+      {
+        "filename": "assets/catalog/fist-bump-stainless-steel/05.jpg",
+        "alt_en": "Poren Huang sculpture “Fist Bump”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Fist Bump》第5視角"
+      }
+    ],
+    "slug": "fist-bump-stainless-steel",
+    "featured": false,
+    "order": 19
+  },
+  {
+    "id": "baby-grey-black",
+    "title_en": "Baby",
+    "title_zh": "",
+    "year": 2023,
+    "material_en": "Bronze, pillow",
+    "material_zh": "銅雕、pillow",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "26x26x16",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Grey, black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/baby-grey-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Baby”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Baby》第2視角"
+      },
+      {
+        "filename": "assets/catalog/baby-grey-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Baby”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Baby》第1視角"
+      },
+      {
+        "filename": "assets/catalog/baby-grey-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Baby”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Baby》第3視角"
+      },
+      {
+        "filename": "assets/catalog/baby-grey-black/04.jpg",
+        "alt_en": "Poren Huang sculpture “Baby”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Baby》第4視角"
+      },
+      {
+        "filename": "assets/catalog/baby-grey-black/05.jpg",
+        "alt_en": "Poren Huang sculpture “Baby”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Baby》第5視角"
+      }
+    ],
+    "slug": "baby-grey-black",
+    "featured": false,
+    "order": 20
+  },
+  {
+    "id": "baby-pink",
+    "title_en": "Baby",
+    "title_zh": "",
+    "year": 2023,
+    "material_en": "Stainless steel, pillow",
+    "material_zh": "不鏽鋼、pillow",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "26x26x16",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Pink",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/baby-pink/02.jpg",
+        "alt_en": "Poren Huang sculpture “Baby”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Baby》第2視角"
+      },
+      {
+        "filename": "assets/catalog/baby-pink/01.jpg",
+        "alt_en": "Poren Huang sculpture “Baby”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Baby》第1視角"
+      },
+      {
+        "filename": "assets/catalog/baby-pink/03.jpg",
+        "alt_en": "Poren Huang sculpture “Baby”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Baby》第3視角"
+      },
+      {
+        "filename": "assets/catalog/baby-pink/04.jpg",
+        "alt_en": "Poren Huang sculpture “Baby”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Baby》第4視角"
+      },
+      {
+        "filename": "assets/catalog/baby-pink/05.jpg",
+        "alt_en": "Poren Huang sculpture “Baby”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Baby》第5視角"
+      }
+    ],
+    "slug": "baby-pink",
+    "featured": false,
+    "order": 21
+  },
+  {
+    "id": "black-buster-black-red",
+    "title_en": "Black Buster",
+    "title_zh": "黑旋風",
+    "year": 2022,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "48x31x26",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, red",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/black-buster-black-red/01.jpg",
+        "alt_en": "Poren Huang sculpture “Black Buster”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Black Buster》第1視角"
+      },
+      {
+        "filename": "assets/catalog/black-buster-black-red/02.jpg",
+        "alt_en": "Poren Huang sculpture “Black Buster”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Black Buster》第2視角"
+      },
+      {
+        "filename": "assets/catalog/black-buster-black-red/03.jpg",
+        "alt_en": "Poren Huang sculpture “Black Buster”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Black Buster》第3視角"
+      },
+      {
+        "filename": "assets/catalog/black-buster-black-red/04.jpg",
+        "alt_en": "Poren Huang sculpture “Black Buster”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Black Buster》第4視角"
+      },
+      {
+        "filename": "assets/catalog/black-buster-black-red/05.jpg",
+        "alt_en": "Poren Huang sculpture “Black Buster”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Black Buster》第5視角"
+      }
+    ],
+    "slug": "black-buster-black-red",
+    "featured": false,
+    "order": 22
+  },
+  {
+    "id": "black-buster-grey-red",
+    "title_en": "Black Buster",
+    "title_zh": "黑旋風",
+    "year": 2022,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "48x31x26",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Grey, red",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/black-buster-grey-red/01.jpg",
+        "alt_en": "Poren Huang sculpture “Black Buster”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Black Buster》第1視角"
+      },
+      {
+        "filename": "assets/catalog/black-buster-grey-red/02.jpg",
+        "alt_en": "Poren Huang sculpture “Black Buster”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Black Buster》第2視角"
+      },
+      {
+        "filename": "assets/catalog/black-buster-grey-red/03.jpg",
+        "alt_en": "Poren Huang sculpture “Black Buster”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Black Buster》第3視角"
+      },
+      {
+        "filename": "assets/catalog/black-buster-grey-red/04.jpg",
+        "alt_en": "Poren Huang sculpture “Black Buster”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Black Buster》第4視角"
+      },
+      {
+        "filename": "assets/catalog/black-buster-grey-red/05.jpg",
+        "alt_en": "Poren Huang sculpture “Black Buster”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Black Buster》第5視角"
+      }
+    ],
+    "slug": "black-buster-grey-red",
+    "featured": false,
+    "order": 23
+  },
+  {
+    "id": "2021-here-bronze-black",
+    "title_en": "Here",
+    "title_zh": "",
+    "year": 2021,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "31x21x43",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2021-here-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Here”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Here》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2021-here-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Here”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Here》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2021-here-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Here”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Here》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2021-here-bronze-black/04.jpg",
+        "alt_en": "Poren Huang sculpture “Here”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Here》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2021-here-bronze-black/05.jpg",
+        "alt_en": "Poren Huang sculpture “Here”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Here》第5視角"
+      }
+    ],
+    "slug": "2021-here-bronze-black",
+    "featured": false,
+    "order": 24
+  },
+  {
+    "id": "2021-so-cute-stainless-steel",
+    "title_en": "So Cute",
+    "title_zh": "",
+    "year": 2021,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "38x32x41",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2021-so-cute-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “So Cute”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《So Cute》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2021-so-cute-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “So Cute”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《So Cute》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2021-so-cute-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “So Cute”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《So Cute》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2021-so-cute-stainless-steel/04.jpg",
+        "alt_en": "Poren Huang sculpture “So Cute”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《So Cute》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2021-so-cute-stainless-steel/05.jpg",
+        "alt_en": "Poren Huang sculpture “So Cute”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《So Cute》第5視角"
+      }
+    ],
+    "slug": "2021-so-cute-stainless-steel",
+    "featured": false,
+    "order": 25
+  },
+  {
+    "id": "2020-cowboy-bronze-gold-leaf-grey",
+    "title_en": "Cowboy",
+    "title_zh": "牛仔",
+    "year": 2020,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "25x16x15",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Gold leaf, grey",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2020-cowboy-bronze-gold-leaf-grey/01.jpg",
+        "alt_en": "Poren Huang sculpture “Cowboy”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Cowboy》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2020-cowboy-bronze-gold-leaf-grey/02.jpg",
+        "alt_en": "Poren Huang sculpture “Cowboy”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Cowboy》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2020-cowboy-bronze-gold-leaf-grey/03.jpg",
+        "alt_en": "Poren Huang sculpture “Cowboy”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Cowboy》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2020-cowboy-bronze-gold-leaf-grey/04.jpg",
+        "alt_en": "Poren Huang sculpture “Cowboy”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Cowboy》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2020-cowboy-bronze-gold-leaf-grey/05.jpg",
+        "alt_en": "Poren Huang sculpture “Cowboy”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Cowboy》第5視角"
+      }
+    ],
+    "slug": "2020-cowboy-bronze-gold-leaf-grey",
+    "featured": false,
+    "order": 26
+  },
+  {
+    "id": "2020-heart-bronze-gold-leaf",
+    "title_en": "Heart",
+    "title_zh": "",
+    "year": 2020,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "19x21x29",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Gold leaf",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2020-heart-bronze-gold-leaf/01.jpg",
+        "alt_en": "Poren Huang sculpture “Heart”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Heart》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2020-heart-bronze-gold-leaf/02.jpg",
+        "alt_en": "Poren Huang sculpture “Heart”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Heart》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2020-heart-bronze-gold-leaf/03.jpg",
+        "alt_en": "Poren Huang sculpture “Heart”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Heart》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2020-heart-bronze-gold-leaf/04.jpg",
+        "alt_en": "Poren Huang sculpture “Heart”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Heart》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2020-heart-bronze-gold-leaf/05.jpg",
+        "alt_en": "Poren Huang sculpture “Heart”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Heart》第5視角"
+      }
+    ],
+    "slug": "2020-heart-bronze-gold-leaf",
+    "featured": false,
+    "order": 27
+  },
+  {
+    "id": "2020-heart-for-you-bronze-pink-blue",
+    "title_en": "Heart + For You",
+    "title_zh": "",
+    "year": 2020,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "19x21x29",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "20x14x28",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Pink, blue",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2020-heart-for-you-bronze-pink-blue/01.jpg",
+        "alt_en": "Poren Huang sculpture “Heart + For You”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Heart + For You》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2020-heart-for-you-bronze-pink-blue/02.jpg",
+        "alt_en": "Poren Huang sculpture “Heart + For You”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Heart + For You》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2020-heart-for-you-bronze-pink-blue/03.jpg",
+        "alt_en": "Poren Huang sculpture “Heart + For You”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Heart + For You》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2020-heart-for-you-bronze-pink-blue/04.jpg",
+        "alt_en": "Poren Huang sculpture “Heart + For You”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Heart + For You》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2020-heart-for-you-bronze-pink-blue/05.jpg",
+        "alt_en": "Poren Huang sculpture “Heart + For You”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Heart + For You》第5視角"
+      }
+    ],
+    "slug": "2020-heart-for-you-bronze-pink-blue",
+    "featured": false,
+    "order": 28
+  },
+  {
+    "id": "2020-relax-bronze-black",
+    "title_en": "Relax",
+    "title_zh": "",
+    "year": 2020,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "23x19x19",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2020-relax-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Relax”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Relax》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2020-relax-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Relax”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Relax》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2020-relax-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Relax”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Relax》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2020-relax-bronze-black/04.jpg",
+        "alt_en": "Poren Huang sculpture “Relax”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Relax》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2020-relax-bronze-black/05.jpg",
+        "alt_en": "Poren Huang sculpture “Relax”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Relax》第5視角"
+      }
+    ],
+    "slug": "2020-relax-bronze-black",
+    "featured": false,
+    "order": 29
+  },
+  {
+    "id": "2020-relax-bronze-yellow",
+    "title_en": "Relax",
+    "title_zh": "",
+    "year": 2020,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "23x19x19",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Yellow",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2020-relax-bronze-yellow/01.jpg",
+        "alt_en": "Poren Huang sculpture “Relax”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Relax》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2020-relax-bronze-yellow/02.jpg",
+        "alt_en": "Poren Huang sculpture “Relax”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Relax》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2020-relax-bronze-yellow/03.jpg",
+        "alt_en": "Poren Huang sculpture “Relax”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Relax》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2020-relax-bronze-yellow/04.jpg",
+        "alt_en": "Poren Huang sculpture “Relax”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Relax》第4視角"
+      }
+    ],
+    "slug": "2020-relax-bronze-yellow",
+    "featured": false,
+    "order": 30
+  },
+  {
+    "id": "2019-small-bronze-black",
+    "title_en": "Black / Prey",
+    "title_zh": "小黑 / 獵物",
+    "year": 2019,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "20x16x29",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "34x17x19",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2019-small-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Black / Prey”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Black / Prey》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2019-small-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Black / Prey”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Black / Prey》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2019-small-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Black / Prey”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Black / Prey》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2019-small-bronze-black/04.jpg",
+        "alt_en": "Poren Huang sculpture “Black / Prey”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Black / Prey》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2019-small-bronze-black/05.jpg",
+        "alt_en": "Poren Huang sculpture “Black / Prey”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Black / Prey》第5視角"
+      }
+    ],
+    "slug": "2019-small-bronze-black",
+    "featured": false,
+    "order": 31
+  },
+  {
+    "id": "2019-small-stainless-steel",
+    "title_en": "Black / Prey",
+    "title_zh": "小黑 / 獵物",
+    "year": 2019,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "20x16x29",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "34x17x19",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2019-small-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “Black / Prey”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Black / Prey》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2019-small-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “Black / Prey”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Black / Prey》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2019-small-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “Black / Prey”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Black / Prey》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2019-small-stainless-steel/04.jpg",
+        "alt_en": "Poren Huang sculpture “Black / Prey”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Black / Prey》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2019-small-stainless-steel/05.jpg",
+        "alt_en": "Poren Huang sculpture “Black / Prey”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Black / Prey》第5視角"
+      }
+    ],
+    "slug": "2019-small-stainless-steel",
+    "featured": false,
+    "order": 32
+  },
+  {
+    "id": "2019-awoooooo-stainless-steel",
+    "title_en": "AWOOOOOO!",
+    "title_zh": "",
+    "year": 2019,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "46x25x67",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2019-awoooooo-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “AWOOOOOO!”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《AWOOOOOO!》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2019-awoooooo-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “AWOOOOOO!”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《AWOOOOOO!》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2019-awoooooo-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “AWOOOOOO!”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《AWOOOOOO!》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2019-awoooooo-stainless-steel/04.jpg",
+        "alt_en": "Poren Huang sculpture “AWOOOOOO!”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《AWOOOOOO!》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2019-awoooooo-stainless-steel/05.jpg",
+        "alt_en": "Poren Huang sculpture “AWOOOOOO!”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《AWOOOOOO!》第5視角"
+      }
+    ],
+    "slug": "2019-awoooooo-stainless-steel",
+    "featured": false,
+    "order": 33
+  },
+  {
+    "id": "2019-sweet-bronze-grey-pillow-silver",
+    "title_en": "Sweet",
+    "title_zh": "",
+    "year": 2019,
+    "material_en": "Bronze, pillow",
+    "material_zh": "銅雕、pillow",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "26x26x14",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Grey, silver",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2019-sweet-bronze-grey-pillow-silver/01.jpg",
+        "alt_en": "Poren Huang sculpture “Sweet”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Sweet》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2019-sweet-bronze-grey-pillow-silver/02.jpg",
+        "alt_en": "Poren Huang sculpture “Sweet”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Sweet》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2019-sweet-bronze-grey-pillow-silver/03.jpg",
+        "alt_en": "Poren Huang sculpture “Sweet”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Sweet》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2019-sweet-bronze-grey-pillow-silver/04.jpg",
+        "alt_en": "Poren Huang sculpture “Sweet”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Sweet》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2019-sweet-bronze-grey-pillow-silver/05.jpg",
+        "alt_en": "Poren Huang sculpture “Sweet”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Sweet》第5視角"
+      }
+    ],
+    "slug": "2019-sweet-bronze-grey-pillow-silver",
+    "featured": false,
+    "order": 34
+  },
+  {
+    "id": "2019-sweet-stainless-steel-pillow-gold",
+    "title_en": "Sweet",
+    "title_zh": "",
+    "year": 2019,
+    "material_en": "Stainless steel, pillow",
+    "material_zh": "不鏽鋼、pillow",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "26x26x14",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Gold",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2019-sweet-stainless-steel-pillow-gold/01.jpg",
+        "alt_en": "Poren Huang sculpture “Sweet”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Sweet》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2019-sweet-stainless-steel-pillow-gold/02.jpg",
+        "alt_en": "Poren Huang sculpture “Sweet”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Sweet》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2019-sweet-stainless-steel-pillow-gold/03.jpg",
+        "alt_en": "Poren Huang sculpture “Sweet”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Sweet》第3視角"
+      }
+    ],
+    "slug": "2019-sweet-stainless-steel-pillow-gold",
+    "featured": false,
+    "order": 35
+  },
+  {
+    "id": "2018-spirit-bronze-black",
+    "title_en": "Backbone",
+    "title_zh": "骨氣",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "20x6x7",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "54x20x17",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-spirit-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Backbone”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Backbone》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-spirit-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Backbone”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Backbone》第2視角"
+      }
+    ],
+    "slug": "2018-spirit-bronze-black",
+    "featured": false,
+    "order": 36
+  },
+  {
+    "id": "2018-spirit-bronze-black-silver",
+    "title_en": "Backbone",
+    "title_zh": "骨氣",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "20x6x7",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "54x20x17",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, silver",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-spirit-bronze-black-silver/01.jpg",
+        "alt_en": "Poren Huang sculpture “Backbone”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Backbone》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-spirit-bronze-black-silver/02.jpg",
+        "alt_en": "Poren Huang sculpture “Backbone”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Backbone》第2視角"
+      }
+    ],
+    "slug": "2018-spirit-bronze-black-silver",
+    "featured": false,
+    "order": 37
+  },
+  {
+    "id": "2018-spirit-bronze-lake-green",
+    "title_en": "Backbone",
+    "title_zh": "骨氣",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "20x6x7",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "54x20x17",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Lake green",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-spirit-bronze-lake-green/01.jpg",
+        "alt_en": "Poren Huang sculpture “Backbone”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Backbone》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-spirit-bronze-lake-green/02.jpg",
+        "alt_en": "Poren Huang sculpture “Backbone”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Backbone》第2視角"
+      }
+    ],
+    "slug": "2018-spirit-bronze-lake-green",
+    "featured": false,
+    "order": 38
+  },
+  {
+    "id": "2018-spirit-bronze-white",
+    "title_en": "Backbone",
+    "title_zh": "骨氣",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "20x6x7",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "54x20x17",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "White",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-spirit-bronze-white/01.jpg",
+        "alt_en": "Poren Huang sculpture “Backbone”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Backbone》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-spirit-bronze-white/02.jpg",
+        "alt_en": "Poren Huang sculpture “Backbone”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Backbone》第2視角"
+      }
+    ],
+    "slug": "2018-spirit-bronze-white",
+    "featured": false,
+    "order": 39
+  },
+  {
+    "id": "2018-spirit-bronze-white-gold",
+    "title_en": "Backbone",
+    "title_zh": "骨氣",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "20x6x7",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "54x20x17",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "White, gold",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-spirit-bronze-white-gold/01.jpg",
+        "alt_en": "Poren Huang sculpture “Backbone”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Backbone》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-spirit-bronze-white-gold/02.jpg",
+        "alt_en": "Poren Huang sculpture “Backbone”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Backbone》第2視角"
+      }
+    ],
+    "slug": "2018-spirit-bronze-white-gold",
+    "featured": false,
+    "order": 40
+  },
+  {
+    "id": "2018-spirit-stainless-steel",
+    "title_en": "Backbone",
+    "title_zh": "骨氣",
+    "year": 2018,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "20x6x7",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "54x20x17",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-spirit-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “Backbone”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Backbone》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-spirit-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “Backbone”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Backbone》第2視角"
+      }
+    ],
+    "slug": "2018-spirit-stainless-steel",
+    "featured": false,
+    "order": 41
+  },
+  {
+    "id": "2018-comma-bronze-black",
+    "title_en": "Comma",
+    "title_zh": "",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "12x14x17",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-comma-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Comma”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Comma》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-comma-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Comma”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Comma》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2018-comma-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Comma”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Comma》第3視角"
+      }
+    ],
+    "slug": "2018-comma-bronze-black",
+    "featured": false,
+    "order": 42
+  },
+  {
+    "id": "2018-comma-bronze-colorway",
+    "title_en": "Comma",
+    "title_zh": "",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "12x14x17",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Colorway",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-comma-bronze-colorway/01.jpg",
+        "alt_en": "Poren Huang sculpture “Comma”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Comma》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-comma-bronze-colorway/02.jpg",
+        "alt_en": "Poren Huang sculpture “Comma”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Comma》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2018-comma-bronze-colorway/03.jpg",
+        "alt_en": "Poren Huang sculpture “Comma”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Comma》第3視角"
+      }
+    ],
+    "slug": "2018-comma-bronze-colorway",
+    "featured": false,
+    "order": 43
+  },
+  {
+    "id": "2018-comma-bronze-silver",
+    "title_en": "Comma",
+    "title_zh": "",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "12x14x17",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Silver",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-comma-bronze-silver/01.jpg",
+        "alt_en": "Poren Huang sculpture “Comma”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Comma》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-comma-bronze-silver/02.jpg",
+        "alt_en": "Poren Huang sculpture “Comma”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Comma》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2018-comma-bronze-silver/03.jpg",
+        "alt_en": "Poren Huang sculpture “Comma”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Comma》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2018-comma-bronze-silver/04.jpg",
+        "alt_en": "Poren Huang sculpture “Comma”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Comma》第4視角"
+      }
+    ],
+    "slug": "2018-comma-bronze-silver",
+    "featured": false,
+    "order": 44
+  },
+  {
+    "id": "2018-enjoy-bronze-black",
+    "title_en": "Enjoy",
+    "title_zh": "",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "20x20x22",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-enjoy-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Enjoy”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Enjoy》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-enjoy-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Enjoy”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Enjoy》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2018-enjoy-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Enjoy”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Enjoy》第3視角"
+      }
+    ],
+    "slug": "2018-enjoy-bronze-black",
+    "featured": false,
+    "order": 45
+  },
+  {
+    "id": "2018-enjoy-bronze-yellow",
+    "title_en": "Enjoy",
+    "title_zh": "",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "20x20x22",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Yellow",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-enjoy-bronze-yellow/01.jpg",
+        "alt_en": "Poren Huang sculpture “Enjoy”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Enjoy》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-enjoy-bronze-yellow/02.jpg",
+        "alt_en": "Poren Huang sculpture “Enjoy”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Enjoy》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2018-enjoy-bronze-yellow/03.jpg",
+        "alt_en": "Poren Huang sculpture “Enjoy”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Enjoy》第3視角"
+      }
+    ],
+    "slug": "2018-enjoy-bronze-yellow",
+    "featured": false,
+    "order": 46
+  },
+  {
+    "id": "2018-gelato-bronze-black-silver",
+    "title_en": "Gelato",
+    "title_zh": "",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "15x15x22",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, silver",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-gelato-bronze-black-silver/01.jpg",
+        "alt_en": "Poren Huang sculpture “Gelato”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Gelato》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-gelato-bronze-black-silver/02.jpg",
+        "alt_en": "Poren Huang sculpture “Gelato”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Gelato》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2018-gelato-bronze-black-silver/03.jpg",
+        "alt_en": "Poren Huang sculpture “Gelato”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Gelato》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2018-gelato-bronze-black-silver/04.jpg",
+        "alt_en": "Poren Huang sculpture “Gelato”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Gelato》第4視角"
+      }
+    ],
+    "slug": "2018-gelato-bronze-black-silver",
+    "featured": false,
+    "order": 47
+  },
+  {
+    "id": "2018-gelato-bronze-black-white",
+    "title_en": "Gelato",
+    "title_zh": "",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "15x15x22",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, white",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-gelato-bronze-black-white/01.jpg",
+        "alt_en": "Poren Huang sculpture “Gelato”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Gelato》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-gelato-bronze-black-white/02.jpg",
+        "alt_en": "Poren Huang sculpture “Gelato”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Gelato》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2018-gelato-bronze-black-white/03.jpg",
+        "alt_en": "Poren Huang sculpture “Gelato”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Gelato》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2018-gelato-bronze-black-white/04.jpg",
+        "alt_en": "Poren Huang sculpture “Gelato”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Gelato》第4視角"
+      }
+    ],
+    "slug": "2018-gelato-bronze-black-white",
+    "featured": false,
+    "order": 48
+  },
+  {
+    "id": "2018-gelato-bronze-white-gold",
+    "title_en": "Gelato",
+    "title_zh": "",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "15x15x22",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "White, gold",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-gelato-bronze-white-gold/01.jpg",
+        "alt_en": "Poren Huang sculpture “Gelato”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Gelato》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-gelato-bronze-white-gold/02.jpg",
+        "alt_en": "Poren Huang sculpture “Gelato”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Gelato》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2018-gelato-bronze-white-gold/03.jpg",
+        "alt_en": "Poren Huang sculpture “Gelato”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Gelato》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2018-gelato-bronze-white-gold/04.jpg",
+        "alt_en": "Poren Huang sculpture “Gelato”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Gelato》第4視角"
+      }
+    ],
+    "slug": "2018-gelato-bronze-white-gold",
+    "featured": false,
+    "order": 49
+  },
+  {
+    "id": "2018-swag-bronze-gold-leaf",
+    "title_en": "SWAG",
+    "title_zh": "",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "20x20x25",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Gold leaf",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-swag-bronze-gold-leaf/01.jpg",
+        "alt_en": "Poren Huang sculpture “SWAG”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《SWAG》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-swag-bronze-gold-leaf/02.jpg",
+        "alt_en": "Poren Huang sculpture “SWAG”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《SWAG》第2視角"
+      }
+    ],
+    "slug": "2018-swag-bronze-gold-leaf",
+    "featured": false,
+    "order": 50
+  },
+  {
+    "id": "2018-swag-stainless-steel",
+    "title_en": "SWAG",
+    "title_zh": "",
+    "year": 2018,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "20x20x25",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-swag-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “SWAG”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《SWAG》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-swag-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “SWAG”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《SWAG》第2視角"
+      }
+    ],
+    "slug": "2018-swag-stainless-steel",
+    "featured": false,
+    "order": 51
+  },
+  {
+    "id": "2018-wonderful-bronze-black-silver",
+    "title_en": "Wonderful",
+    "title_zh": "",
+    "year": 2018,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "21x23x21",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, silver",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2018-wonderful-bronze-black-silver/01.jpg",
+        "alt_en": "Poren Huang sculpture “Wonderful”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Wonderful》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2018-wonderful-bronze-black-silver/02.jpg",
+        "alt_en": "Poren Huang sculpture “Wonderful”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Wonderful》第2視角"
+      }
+    ],
+    "slug": "2018-wonderful-bronze-black-silver",
+    "featured": false,
+    "order": 52
+  },
+  {
+    "id": "2017-bad-temper-bronze-black-gold",
+    "title_en": "Grumpy",
+    "title_zh": "臭脾氣",
+    "year": 2017,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "42x58x62",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "63x87x93",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, gold",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2017-bad-temper-bronze-black-gold/01.jpg",
+        "alt_en": "Poren Huang sculpture “Grumpy”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Grumpy》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2017-bad-temper-bronze-black-gold/02.jpg",
+        "alt_en": "Poren Huang sculpture “Grumpy”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Grumpy》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2017-bad-temper-bronze-black-gold/03.jpg",
+        "alt_en": "Poren Huang sculpture “Grumpy”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Grumpy》第3視角"
+      }
+    ],
+    "slug": "2017-bad-temper-bronze-black-gold",
+    "featured": false,
+    "order": 53
+  },
+  {
+    "id": "2017-boom-bronze-black-stainless-steel",
+    "title_en": "Boom!",
+    "title_zh": "",
+    "year": 2017,
+    "material_en": "Bronze, stainless steel",
+    "material_zh": "銅雕、不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "24x16x38",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "48x32x76",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "70x46x112",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2017-boom-bronze-black-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “Boom!”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Boom!》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2017-boom-bronze-black-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “Boom!”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Boom!》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2017-boom-bronze-black-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “Boom!”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Boom!》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2017-boom-bronze-black-stainless-steel/04.jpg",
+        "alt_en": "Poren Huang sculpture “Boom!”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Boom!》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2017-boom-bronze-black-stainless-steel/05.jpg",
+        "alt_en": "Poren Huang sculpture “Boom!”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Boom!》第5視角"
+      }
+    ],
+    "slug": "2017-boom-bronze-black-stainless-steel",
+    "featured": false,
+    "order": 54
+  },
+  {
+    "id": "2017-for-you-stainless-steel",
+    "title_en": "For You",
+    "title_zh": "",
+    "year": 2017,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "20x14x30",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "70x49x105",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2017-for-you-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “For You”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《For You》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2017-for-you-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “For You”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《For You》第2視角"
+      }
+    ],
+    "slug": "2017-for-you-stainless-steel",
+    "featured": false,
+    "order": 55
+  },
+  {
+    "id": "2015-little-dog-bronze-white-black",
+    "title_en": "Kiddo",
+    "title_zh": "小犬",
+    "year": 2015,
+    "material_en": "Bronze, paint, stainless steel base",
+    "material_zh": "銅雕、paint、不鏽鋼 base",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "50x45x66",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "White, black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2015-little-dog-bronze-white-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Kiddo”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Kiddo》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2015-little-dog-bronze-white-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Kiddo”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Kiddo》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2015-little-dog-bronze-white-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Kiddo”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Kiddo》第3視角"
+      }
+    ],
+    "slug": "2015-little-dog-bronze-white-black",
+    "featured": false,
+    "order": 56
+  },
+  {
+    "id": "2015-shh-stainless-steel",
+    "title_en": "Shh….",
+    "title_zh": "噓",
+    "year": 2015,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "25x17x27",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": null,
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2015-shh-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “Shh….”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Shh….》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2015-shh-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “Shh….”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Shh….》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2015-shh-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “Shh….”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Shh….》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2015-shh-stainless-steel/04.jpg",
+        "alt_en": "Poren Huang sculpture “Shh….”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Shh….》第4視角"
+      }
+    ],
+    "slug": "2015-shh-stainless-steel",
+    "featured": false,
+    "order": 57
+  },
+  {
+    "id": "2015-chu-copper-foil-stainless-steel",
+    "title_en": "Chu",
+    "title_zh": "啾咪",
+    "year": 2015,
+    "material_en": "Copper foil, stainless steel",
+    "material_zh": "銅箔、不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "81x22x26",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": null,
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2015-chu-copper-foil-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “Chu”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Chu》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2015-chu-copper-foil-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “Chu”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Chu》第2視角"
+      }
+    ],
+    "slug": "2015-chu-copper-foil-stainless-steel",
+    "featured": false,
+    "order": 58
+  },
+  {
+    "id": "2014-little-mischief-stainless-steel",
+    "title_en": "Little Rascal",
+    "title_zh": "小淘氣",
+    "year": 2014,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "48x43x50",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2014-little-mischief-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “Little Rascal”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Little Rascal》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2014-little-mischief-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “Little Rascal”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Little Rascal》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2014-little-mischief-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “Little Rascal”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Little Rascal》第3視角"
+      }
+    ],
+    "slug": "2014-little-mischief-stainless-steel",
+    "featured": false,
+    "order": 59
+  },
+  {
+    "id": "2014-hello-bronze-black",
+    "title_en": "Hello",
+    "title_zh": "你好",
+    "year": 2014,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "21x12x26",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2014-hello-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Hello”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Hello》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2014-hello-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Hello”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Hello》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2014-hello-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Hello”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Hello》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2014-hello-bronze-black/04.jpg",
+        "alt_en": "Poren Huang sculpture “Hello”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Hello》第4視角"
+      }
+    ],
+    "slug": "2014-hello-bronze-black",
+    "featured": false,
+    "order": 60
+  },
+  {
+    "id": "2011-big-nose-stainless-steel",
+    "title_en": "Big Nose",
+    "title_zh": "大鼻子",
+    "year": 2011,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "24x38x67",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2011-big-nose-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “Big Nose”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Big Nose》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2011-big-nose-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “Big Nose”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Big Nose》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2011-big-nose-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “Big Nose”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Big Nose》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2011-big-nose-stainless-steel/04.jpg",
+        "alt_en": "Poren Huang sculpture “Big Nose”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Big Nose》第4視角"
+      }
+    ],
+    "slug": "2011-big-nose-stainless-steel",
+    "featured": false,
+    "order": 61
+  },
+  {
+    "id": "2011-enraptured-bronze-black-gold",
+    "title_en": "Lost in Contemplation",
+    "title_zh": "出神",
+    "year": 2011,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "40x26x45",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, gold",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2011-enraptured-bronze-black-gold/01.jpg",
+        "alt_en": "Poren Huang sculpture “Lost in Contemplation”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Lost in Contemplation》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2011-enraptured-bronze-black-gold/02.jpg",
+        "alt_en": "Poren Huang sculpture “Lost in Contemplation”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Lost in Contemplation》第2視角"
+      }
+    ],
+    "slug": "2011-enraptured-bronze-black-gold",
+    "featured": false,
+    "order": 62
+  },
+  {
+    "id": "2011-satisfaction-bronze-black-gold",
+    "title_en": "Well",
+    "title_zh": "滿足",
+    "year": 2011,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "43x36x23",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, gold",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2011-satisfaction-bronze-black-gold/01.jpg",
+        "alt_en": "Poren Huang sculpture “Well”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Well》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2011-satisfaction-bronze-black-gold/02.jpg",
+        "alt_en": "Poren Huang sculpture “Well”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Well》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2011-satisfaction-bronze-black-gold/03.jpg",
+        "alt_en": "Poren Huang sculpture “Well”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Well》第3視角"
+      }
+    ],
+    "slug": "2011-satisfaction-bronze-black-gold",
+    "featured": false,
+    "order": 63
+  },
+  {
+    "id": "2010-encore-stainless-steel",
+    "title_en": "Encore",
+    "title_zh": "安可",
+    "year": 2010,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "41x43x66",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2010-encore-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “Encore”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Encore》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2010-encore-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “Encore”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Encore》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2010-encore-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “Encore”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Encore》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2010-encore-stainless-steel/04.jpg",
+        "alt_en": "Poren Huang sculpture “Encore”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Encore》第4視角"
+      }
+    ],
+    "slug": "2010-encore-stainless-steel",
+    "featured": false,
+    "order": 64
+  },
+  {
+    "id": "2010-wow-stainless-steel",
+    "title_en": "What the Heck!",
+    "title_zh": "哇靠",
+    "year": 2010,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "28x28x32",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2010-wow-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “What the Heck!”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《What the Heck!》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2010-wow-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “What the Heck!”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《What the Heck!》第2視角"
+      }
+    ],
+    "slug": "2010-wow-stainless-steel",
+    "featured": false,
+    "order": 65
+  },
+  {
+    "id": "2010-target-bronze-black",
+    "title_en": "Target",
+    "title_zh": "目標",
+    "year": 2010,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "50x55x68",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2010-target-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Target”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Target》第1視角"
+      }
+    ],
+    "slug": "2010-target-bronze-black",
+    "featured": false,
+    "order": 66
+  },
+  {
+    "id": "2010-top-speed-bronze-black",
+    "title_en": "High Speed",
+    "title_zh": "極速",
+    "year": 2010,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "38x23x42",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2010-top-speed-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “High Speed”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《High Speed》第1視角"
+      }
+    ],
+    "slug": "2010-top-speed-bronze-black",
+    "featured": false,
+    "order": 67
+  },
+  {
+    "id": "2009-pride-of-heaven-bronze-black-gold-leaf",
+    "title_en": "The Loved One",
+    "title_zh": "天之驕子",
+    "year": 2009,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "37x32x57",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "112x91x173",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, gold leaf",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2009-pride-of-heaven-bronze-black-gold-leaf/01.jpg",
+        "alt_en": "Poren Huang sculpture “The Loved One”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《The Loved One》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2009-pride-of-heaven-bronze-black-gold-leaf/02.jpg",
+        "alt_en": "Poren Huang sculpture “The Loved One”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《The Loved One》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2009-pride-of-heaven-bronze-black-gold-leaf/03.jpg",
+        "alt_en": "Poren Huang sculpture “The Loved One”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《The Loved One》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2009-pride-of-heaven-bronze-black-gold-leaf/04.jpg",
+        "alt_en": "Poren Huang sculpture “The Loved One”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《The Loved One》第4視角"
+      }
+    ],
+    "slug": "2009-pride-of-heaven-bronze-black-gold-leaf",
+    "featured": false,
+    "order": 68
+  },
+  {
+    "id": "2009-father-and-son-bronze-black",
+    "title_en": "Father and Son",
+    "title_zh": "父子",
+    "year": 2009,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "43x26x62",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2009-father-and-son-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Father and Son”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Father and Son》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2009-father-and-son-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Father and Son”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Father and Son》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2009-father-and-son-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Father and Son”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Father and Son》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2009-father-and-son-bronze-black/04.jpg",
+        "alt_en": "Poren Huang sculpture “Father and Son”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Father and Son》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2009-father-and-son-bronze-black/05.jpg",
+        "alt_en": "Poren Huang sculpture “Father and Son”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Father and Son》第5視角"
+      }
+    ],
+    "slug": "2009-father-and-son-bronze-black",
+    "featured": false,
+    "order": 69
+  },
+  {
+    "id": "2009-message-bronze-gold-leaf",
+    "title_en": "Information",
+    "title_zh": "訊息",
+    "year": 2009,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "55x70x176",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Gold leaf",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2009-message-bronze-gold-leaf/01.jpg",
+        "alt_en": "Poren Huang sculpture “Information”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Information》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2009-message-bronze-gold-leaf/02.jpg",
+        "alt_en": "Poren Huang sculpture “Information”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Information》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2009-message-bronze-gold-leaf/03.jpg",
+        "alt_en": "Poren Huang sculpture “Information”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Information》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2009-message-bronze-gold-leaf/04.jpg",
+        "alt_en": "Poren Huang sculpture “Information”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Information》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2009-message-bronze-gold-leaf/05.jpg",
+        "alt_en": "Poren Huang sculpture “Information”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Information》第5視角"
+      }
+    ],
+    "slug": "2009-message-bronze-gold-leaf",
+    "featured": false,
+    "order": 70
+  },
+  {
+    "id": "2009-new-continent-bronze-black-white",
+    "title_en": "New World",
+    "title_zh": "新大陸",
+    "year": 2009,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "63x49x45",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, white",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2009-new-continent-bronze-black-white/01.jpg",
+        "alt_en": "Poren Huang sculpture “New World”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《New World》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2009-new-continent-bronze-black-white/02.jpg",
+        "alt_en": "Poren Huang sculpture “New World”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《New World》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2009-new-continent-bronze-black-white/03.jpg",
+        "alt_en": "Poren Huang sculpture “New World”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《New World》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2009-new-continent-bronze-black-white/04.jpg",
+        "alt_en": "Poren Huang sculpture “New World”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《New World》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2009-new-continent-bronze-black-white/05.jpg",
+        "alt_en": "Poren Huang sculpture “New World”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《New World》第5視角"
+      }
+    ],
+    "slug": "2009-new-continent-bronze-black-white",
+    "featured": false,
+    "order": 71
+  },
+  {
+    "id": "2009-dream-stainless-steel",
+    "title_en": "Dreams",
+    "title_zh": "夢想",
+    "year": 2009,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "57x42x35",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2009-dream-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “Dreams”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Dreams》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2009-dream-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “Dreams”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Dreams》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2009-dream-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “Dreams”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Dreams》第3視角"
+      }
+    ],
+    "slug": "2009-dream-stainless-steel",
+    "featured": false,
+    "order": 72
+  },
+  {
+    "id": "2008-21st-century-bronze-black-white",
+    "title_en": "21st Century",
+    "title_zh": "21世紀",
+    "year": 2008,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "27x28x46",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "40x42x69",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, white",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2008-21st-century-bronze-black-white/01.jpg",
+        "alt_en": "Poren Huang sculpture “21st Century”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《21st Century》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2008-21st-century-bronze-black-white/02.jpg",
+        "alt_en": "Poren Huang sculpture “21st Century”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《21st Century》第2視角"
+      }
+    ],
+    "slug": "2008-21st-century-bronze-black-white",
+    "featured": false,
+    "order": 73
+  },
+  {
+    "id": "2008-999-9-bronze-black-white-gold-leaf",
+    "title_en": "999.9",
+    "title_zh": "",
+    "year": 2008,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "24x28x33",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, white, gold leaf",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2008-999-9-bronze-black-white-gold-leaf/01.jpg",
+        "alt_en": "Poren Huang sculpture “999.9”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《999.9》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2008-999-9-bronze-black-white-gold-leaf/02.jpg",
+        "alt_en": "Poren Huang sculpture “999.9”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《999.9》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2008-999-9-bronze-black-white-gold-leaf/03.jpg",
+        "alt_en": "Poren Huang sculpture “999.9”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《999.9》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2008-999-9-bronze-black-white-gold-leaf/04.jpg",
+        "alt_en": "Poren Huang sculpture “999.9”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《999.9》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2008-999-9-bronze-black-white-gold-leaf/05.jpg",
+        "alt_en": "Poren Huang sculpture “999.9”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《999.9》第5視角"
+      }
+    ],
+    "slug": "2008-999-9-bronze-black-white-gold-leaf",
+    "featured": false,
+    "order": 74
+  },
+  {
+    "id": "2008-world-so-big-bronze-black-white",
+    "title_en": "Friends",
+    "title_zh": "世界那麼大",
+    "year": 2008,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "31×22×36",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "124×84×145",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, white",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2008-world-so-big-bronze-black-white/01.jpg",
+        "alt_en": "Poren Huang sculpture “Friends”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Friends》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2008-world-so-big-bronze-black-white/02.jpg",
+        "alt_en": "Poren Huang sculpture “Friends”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Friends》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2008-world-so-big-bronze-black-white/03.jpg",
+        "alt_en": "Poren Huang sculpture “Friends”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Friends》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2008-world-so-big-bronze-black-white/04.jpg",
+        "alt_en": "Poren Huang sculpture “Friends”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Friends》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2008-world-so-big-bronze-black-white/05.jpg",
+        "alt_en": "Poren Huang sculpture “Friends”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Friends》第5視角"
+      }
+    ],
+    "slug": "2008-world-so-big-bronze-black-white",
+    "featured": false,
+    "order": 75
+  },
+  {
+    "id": "2008-night-patrol-stainless-steel",
+    "title_en": "Night Watch",
+    "title_zh": "夜巡",
+    "year": 2008,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "34×30×44",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2008-night-patrol-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “Night Watch”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Night Watch》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2008-night-patrol-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “Night Watch”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Night Watch》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2008-night-patrol-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “Night Watch”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Night Watch》第3視角"
+      }
+    ],
+    "slug": "2008-night-patrol-stainless-steel",
+    "featured": false,
+    "order": 76
+  },
+  {
+    "id": "2008-wise-mind-bronze-black-gold",
+    "title_en": "Wise Man",
+    "title_zh": "智者的思維",
+    "year": 2008,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "30×23×36",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "45×34×54",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, gold",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2008-wise-mind-bronze-black-gold/01.jpg",
+        "alt_en": "Poren Huang sculpture “Wise Man”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Wise Man》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2008-wise-mind-bronze-black-gold/02.jpg",
+        "alt_en": "Poren Huang sculpture “Wise Man”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Wise Man》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2008-wise-mind-bronze-black-gold/03.jpg",
+        "alt_en": "Poren Huang sculpture “Wise Man”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Wise Man》第3視角"
+      }
+    ],
+    "slug": "2008-wise-mind-bronze-black-gold",
+    "featured": false,
+    "order": 77
+  },
+  {
+    "id": "2007-big-ears-bronze-black",
+    "title_en": "Spying",
+    "title_zh": "大耳朵",
+    "year": 2007,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "45×26×69",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "Spying listens closely while moving through the world. Its alert ears suggest that attention and information keep us prepared.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2007-big-ears-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Spying”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Spying》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2007-big-ears-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Spying”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Spying》第2視角"
+      }
+    ],
+    "slug": "2007-big-ears-bronze-black",
+    "featured": false,
+    "order": 78
+  },
+  {
+    "id": "2007-territory-iii-bronze-black",
+    "title_en": "My Territory (3)",
+    "title_zh": "地盤(三)",
+    "year": 2007,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "25×36×48",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "100×80×150",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "My Territory (3) defends a personal boundary without compromise. It insists on the right to protect one’s own ground.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2007-territory-iii-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “My Territory (3)”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《My Territory (3)》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2007-territory-iii-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “My Territory (3)”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《My Territory (3)》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2007-territory-iii-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “My Territory (3)”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《My Territory (3)》第3視角"
+      }
+    ],
+    "slug": "2007-territory-iii-bronze-black",
+    "featured": false,
+    "order": 79
+  },
+  {
+    "id": "2007-every-day-bronze-gold-leaf",
+    "title_en": "Everyday Is a New Start.",
+    "title_zh": "每一天",
+    "year": 2007,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "38×23×30",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Gold leaf",
+    "description_en": "Everyday Is a New Start meets the unknown with joy and optimism. It invites us to treat each day as a new challenge to explore.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2007-every-day-bronze-gold-leaf/01.jpg",
+        "alt_en": "Poren Huang sculpture “Everyday Is a New Start.”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Everyday Is a New Start.》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2007-every-day-bronze-gold-leaf/02.jpg",
+        "alt_en": "Poren Huang sculpture “Everyday Is a New Start.”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Everyday Is a New Start.》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2007-every-day-bronze-gold-leaf/03.jpg",
+        "alt_en": "Poren Huang sculpture “Everyday Is a New Start.”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Everyday Is a New Start.》第3視角"
+      }
+    ],
+    "slug": "2007-every-day-bronze-gold-leaf",
+    "featured": false,
+    "order": 80
+  },
+  {
+    "id": "2007-holding-the-line-bronze-gold-leaf",
+    "title_en": "Holding the Post",
+    "title_zh": "堅守岡位",
+    "year": 2007,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "33×42×52",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Gold leaf",
+    "description_en": "Holding the Post remains watchful even in fatigue. Like a radar, its raised ears search for the next signal.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2007-holding-the-line-bronze-gold-leaf/01.jpg",
+        "alt_en": "Poren Huang sculpture “Holding the Post”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Holding the Post》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2007-holding-the-line-bronze-gold-leaf/02.jpg",
+        "alt_en": "Poren Huang sculpture “Holding the Post”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Holding the Post》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2007-holding-the-line-bronze-gold-leaf/03.jpg",
+        "alt_en": "Poren Huang sculpture “Holding the Post”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Holding the Post》第3視角"
+      }
+    ],
+    "slug": "2007-holding-the-line-bronze-gold-leaf",
+    "featured": false,
+    "order": 81
+  },
+  {
+    "id": "2007-embrace-of-love-bronze-black-gold",
+    "title_en": "Loving Hug",
+    "title_zh": "愛的擁抱",
+    "year": 2007,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "148×177×176",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "26x21x26",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, gold",
+    "description_en": "Loving Hug captures the rush of greeting a beloved family member. It is an image of warmth, trust and wholehearted welcome.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2007-embrace-of-love-bronze-black-gold/01.jpg",
+        "alt_en": "Poren Huang sculpture “Loving Hug”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Loving Hug》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2007-embrace-of-love-bronze-black-gold/02.jpg",
+        "alt_en": "Poren Huang sculpture “Loving Hug”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Loving Hug》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2007-embrace-of-love-bronze-black-gold/03.jpg",
+        "alt_en": "Poren Huang sculpture “Loving Hug”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Loving Hug》第3視角"
+      }
+    ],
+    "slug": "2007-embrace-of-love-bronze-black-gold",
+    "featured": false,
+    "order": 82
+  },
+  {
+    "id": "2007-dream-911-bronze-black",
+    "title_en": "Dream 911",
+    "title_zh": "夢想911",
+    "year": 2007,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "45×27×44",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2007-dream-911-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Dream 911”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Dream 911》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2007-dream-911-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Dream 911”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Dream 911》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2007-dream-911-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Dream 911”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Dream 911》第3視角"
+      }
+    ],
+    "slug": "2007-dream-911-bronze-black",
+    "featured": false,
+    "order": 83
+  },
+  {
+    "id": "2006-territory-ii-bronze-black",
+    "title_en": "My Territory (2)",
+    "title_zh": "地盤(二)",
+    "year": 2006,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "48×45×84",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "My Territory (2) protects dignity through a clearly drawn line. The raised claw asks others to respect where they may and may not step.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2006-territory-ii-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “My Territory (2)”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《My Territory (2)》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2006-territory-ii-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “My Territory (2)”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《My Territory (2)》第2視角"
+      }
+    ],
+    "slug": "2006-territory-ii-bronze-black",
+    "featured": false,
+    "order": 84
+  },
+  {
+    "id": "2006-happy-time-bronze-black",
+    "title_en": "Happy Time",
+    "title_zh": "快樂時光",
+    "year": 2006,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "90x45x54",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "Happy Time treats rest as the beginning of renewed exploration. Its understated joy carries curiosity into the unknown.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2006-happy-time-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Happy Time”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Happy Time》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2006-happy-time-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Happy Time”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Happy Time》第2視角"
+      }
+    ],
+    "slug": "2006-happy-time-bronze-black",
+    "featured": false,
+    "order": 85
+  },
+  {
+    "id": "2006-banquet-bronze-black-gold",
+    "title_en": "Attending a Banquet",
+    "title_zh": "赴宴",
+    "year": 2006,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "37×37×90",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black, gold",
+    "description_en": "Attending a Banquet enters the room with poise and quiet confidence. It celebrates knowing who you are even when every eye is upon you.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2006-banquet-bronze-black-gold/01.jpg",
+        "alt_en": "Poren Huang sculpture “Attending a Banquet”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Attending a Banquet》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2006-banquet-bronze-black-gold/02.jpg",
+        "alt_en": "Poren Huang sculpture “Attending a Banquet”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Attending a Banquet》第2視角"
+      }
+    ],
+    "slug": "2006-banquet-bronze-black-gold",
+    "featured": false,
+    "order": 86
+  },
+  {
+    "id": "2006-memory-bronze-black",
+    "title_en": "Memory",
+    "title_zh": "記憶",
+    "year": 2006,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "32x34x44",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "Memory gathers the tenderness held within our deepest recollections. It suggests that beautiful moments never disappear, but continue to live within us.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2006-memory-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Memory”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Memory》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2006-memory-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Memory”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Memory》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2006-memory-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Memory”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Memory》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2006-memory-bronze-black/04.jpg",
+        "alt_en": "Poren Huang sculpture “Memory”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Memory》第4視角"
+      }
+    ],
+    "slug": "2006-memory-bronze-black",
+    "featured": false,
+    "order": 87
+  },
+  {
+    "id": "2006-warm-winter-bronze-black",
+    "title_en": "Taking Care of You",
+    "title_zh": "暖冬",
+    "year": 2006,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "24×26×62",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "Taking Care of You holds love as warmth, companionship and trust. It suggests that even in a distant world, sincere closeness can warm us from within.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2006-warm-winter-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Taking Care of You”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Taking Care of You》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2006-warm-winter-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Taking Care of You”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Taking Care of You》第2視角"
+      }
+    ],
+    "slug": "2006-warm-winter-bronze-black",
+    "featured": false,
+    "order": 88
+  },
+  {
+    "id": "2006-no-entry-bronze-black",
+    "title_en": "You Can Not Pass!",
+    "title_zh": "禁區",
+    "year": 2006,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "64×32×60",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "96×48×90",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "You Can Not Pass! is a vigilant declaration of the final boundary. Its arched back and planted claws make clear that some lines cannot be crossed.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2006-no-entry-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “You Can Not Pass!”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《You Can Not Pass!》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2006-no-entry-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “You Can Not Pass!”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《You Can Not Pass!》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2006-no-entry-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “You Can Not Pass!”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《You Can Not Pass!》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2006-no-entry-bronze-black/04.jpg",
+        "alt_en": "Poren Huang sculpture “You Can Not Pass!”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《You Can Not Pass!》第4視角"
+      }
+    ],
+    "slug": "2006-no-entry-bronze-black",
+    "featured": false,
+    "order": 89
+  },
+  {
+    "id": "2005-unhappy-bronze-black",
+    "title_en": "I'm Not Happy Now!",
+    "title_zh": "不爽",
+    "year": 2005,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "I’m Not Happy Now! refuses to linger on a problem. With a raised leg and an easy turn of the head, it marks a boundary and moves toward the next challenge.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2005-unhappy-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “I'm Not Happy Now!”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《I'm Not Happy Now!》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2005-unhappy-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “I'm Not Happy Now!”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《I'm Not Happy Now!》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2005-unhappy-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “I'm Not Happy Now!”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《I'm Not Happy Now!》第3視角"
+      }
+    ],
+    "slug": "2005-unhappy-bronze-black",
+    "featured": false,
+    "order": 90
+  },
+  {
+    "id": "2005-unhappy-stainless-steel",
+    "title_en": "I'm Not Happy Now!",
+    "title_zh": "不爽",
+    "year": 2005,
+    "material_en": "Stainless steel",
+    "material_zh": "不鏽鋼",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "48×20×32",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "To be confirmed",
+    "description_en": "I’m Not Happy Now! refuses to linger on a problem. With a raised leg and an easy turn of the head, it marks a boundary and moves toward the next challenge.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2005-unhappy-stainless-steel/01.jpg",
+        "alt_en": "Poren Huang sculpture “I'm Not Happy Now!”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《I'm Not Happy Now!》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2005-unhappy-stainless-steel/02.jpg",
+        "alt_en": "Poren Huang sculpture “I'm Not Happy Now!”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《I'm Not Happy Now!》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2005-unhappy-stainless-steel/03.jpg",
+        "alt_en": "Poren Huang sculpture “I'm Not Happy Now!”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《I'm Not Happy Now!》第3視角"
+      }
+    ],
+    "slug": "2005-unhappy-stainless-steel",
+    "featured": false,
+    "order": 91
+  },
+  {
+    "id": "2005-mission-bronze-black",
+    "title_en": "On Duty",
+    "title_zh": "任務",
+    "year": 2005,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "23x10x20",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "100x47x82",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "On Duty keeps a steady gaze and a clear mind amid uncertainty. It considers alertness and sound judgment as the way to find the right direction.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2005-mission-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “On Duty”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《On Duty》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2005-mission-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “On Duty”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《On Duty》第2視角"
+      }
+    ],
+    "slug": "2005-mission-bronze-black",
+    "featured": false,
+    "order": 92
+  },
+  {
+    "id": "2005-going-home-bronze-black",
+    "title_en": "Home",
+    "title_zh": "回家",
+    "year": 2005,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "27x15x10",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "40×15×22",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "167x54x81",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "Home waits beside an empty bowl with the devotion of a family member. It turns longing into a quiet wish for a loved one’s safe return.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2005-going-home-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Home”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Home》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2005-going-home-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Home”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Home》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2005-going-home-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Home”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Home》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2005-going-home-bronze-black/04.jpg",
+        "alt_en": "Poren Huang sculpture “Home”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Home》第4視角"
+      },
+      {
+        "filename": "assets/catalog/2005-going-home-bronze-black/05.jpg",
+        "alt_en": "Poren Huang sculpture “Home”, view 5",
+        "alt_zh": "黃柏仁雕塑作品《Home》第5視角"
+      }
+    ],
+    "slug": "2005-going-home-bronze-black",
+    "featured": false,
+    "order": 93
+  },
+  {
+    "id": "2005-territory-bronze-black",
+    "title_en": "My Territory",
+    "title_zh": "地盤",
+    "year": 2005,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "21x9x21",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "132×57×112",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "32x15x30",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "My Territory holds its ground without retreat. It considers boundaries as a way to protect one’s principles and inner world.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2005-territory-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “My Territory”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《My Territory》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2005-territory-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “My Territory”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《My Territory》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2005-territory-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “My Territory”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《My Territory》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2005-territory-bronze-black/04.jpg",
+        "alt_en": "Poren Huang sculpture “My Territory”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《My Territory》第4視角"
+      }
+    ],
+    "slug": "2005-territory-bronze-black",
+    "featured": false,
+    "order": 94
+  },
+  {
+    "id": "2005-absorption-bronze-black",
+    "title_en": "Absorption",
+    "title_zh": "吸收",
+    "year": 2005,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "27x11x15",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "150×55×85",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "Absorption sees knowledge and experience as nourishment. Quietly gathering energy, it suggests that strength grows from what we take in.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2005-absorption-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Absorption”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Absorption》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2005-absorption-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Absorption”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Absorption》第2視角"
+      }
+    ],
+    "slug": "2005-absorption-bronze-black",
+    "featured": false,
+    "order": 95
+  },
+  {
+    "id": "2005-man-and-woman-bronze-black",
+    "title_en": "Man & Woman",
+    "title_zh": "男&女",
+    "year": 2005,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "38x10x16",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "Man & Woman is a metaphor for attraction, compatibility and connection across difference. The work asks whether two hearts can find the same rhythm.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2005-man-and-woman-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Man & Woman”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Man & Woman》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2005-man-and-woman-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Man & Woman”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Man & Woman》第2視角"
+      }
+    ],
+    "slug": "2005-man-and-woman-bronze-black",
+    "featured": false,
+    "order": 96
+  },
+  {
+    "id": "2005-continuation-bronze-black",
+    "title_en": "Generation to Generation",
+    "title_zh": "延續",
+    "year": 2005,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "30x11x20",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "45×17×30",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "90x28x58",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "Generation to Generation uses humour to reveal life at its most tender and serious. New life appears in succession beneath a watchful presence.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2005-continuation-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Generation to Generation”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Generation to Generation》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2005-continuation-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Generation to Generation”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Generation to Generation》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2005-continuation-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Generation to Generation”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Generation to Generation》第3視角"
+      }
+    ],
+    "slug": "2005-continuation-bronze-black",
+    "featured": false,
+    "order": 97
+  },
+  {
+    "id": "2005-looking-down-bronze-black",
+    "title_en": "Snobbery",
+    "title_zh": "狗眼看人低",
+    "year": 2005,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "10x9x28",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "17x23x40",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "Snobbery transforms the sting of being underestimated into a mirror for growth. Its reply to judgment is not argument, but forward movement.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2005-looking-down-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Snobbery”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Snobbery》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2005-looking-down-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Snobbery”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Snobbery》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2005-looking-down-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Snobbery”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Snobbery》第3視角"
+      }
+    ],
+    "slug": "2005-looking-down-bronze-black",
+    "featured": false,
+    "order": 98
+  },
+  {
+    "id": "2005-lackey-bronze-black",
+    "title_en": "The Flunky",
+    "title_zh": "狗腿子",
+    "year": 2005,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "10x8x25",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "50×49×130",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "The Flunky contrasts flattery with self-reliance. It reminds us that lasting opportunity is earned through strength and preparation.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2005-lackey-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “The Flunky”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《The Flunky》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2005-lackey-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “The Flunky”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《The Flunky》第2視角"
+      }
+    ],
+    "slug": "2005-lackey-bronze-black",
+    "featured": false,
+    "order": 99
+  },
+  {
+    "id": "2005-security-guard-bronze-black",
+    "title_en": "The Guard",
+    "title_zh": "保全",
+    "year": 2005,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "24x38x21",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "60x66x114",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "The Guard stands quietly but firmly at the threshold. Its presence asks who is ready to take the next step.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2005-security-guard-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “The Guard”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《The Guard》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2005-security-guard-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “The Guard”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《The Guard》第2視角"
+      }
+    ],
+    "slug": "2005-security-guard-bronze-black",
+    "featured": false,
+    "order": 100
+  },
+  {
+    "id": "2005-waiting-bronze-black",
+    "title_en": "Waiting",
+    "title_zh": "等待",
+    "year": 2005,
+    "material_en": "Bronze",
+    "material_zh": "銅雕",
+    "dimensions": [
+      {
+        "shape": "",
+        "size": "21x12x8",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "126x72x51",
+        "unit": "cm"
+      },
+      {
+        "shape": "",
+        "size": "38x25x17",
+        "unit": "cm"
+      }
+    ],
+    "edition": null,
+    "colorway": "Black",
+    "description_en": "Poised in quiet readiness, Waiting turns stillness into alert focus. It suggests that true preparation gives courage to move when opportunity arrives.",
+    "description_zh": "",
+    "images": [
+      {
+        "filename": "assets/catalog/2005-waiting-bronze-black/01.jpg",
+        "alt_en": "Poren Huang sculpture “Waiting”, view 1",
+        "alt_zh": "黃柏仁雕塑作品《Waiting》第1視角"
+      },
+      {
+        "filename": "assets/catalog/2005-waiting-bronze-black/02.jpg",
+        "alt_en": "Poren Huang sculpture “Waiting”, view 2",
+        "alt_zh": "黃柏仁雕塑作品《Waiting》第2視角"
+      },
+      {
+        "filename": "assets/catalog/2005-waiting-bronze-black/03.jpg",
+        "alt_en": "Poren Huang sculpture “Waiting”, view 3",
+        "alt_zh": "黃柏仁雕塑作品《Waiting》第3視角"
+      },
+      {
+        "filename": "assets/catalog/2005-waiting-bronze-black/04.jpg",
+        "alt_en": "Poren Huang sculpture “Waiting”, view 4",
+        "alt_zh": "黃柏仁雕塑作品《Waiting》第4視角"
+      }
+    ],
+    "slug": "2005-waiting-bronze-black",
+    "featured": false,
+    "order": 101
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://porenhuang.com/#person",
+  "name": "Poren Huang",
+  "alternateName": "黃柏仁",
+  "jobTitle": "Contemporary Sculptor / 當代雕塑藝術家",
+  "birthDate": "1970",
+  "birthPlace": { "@type": "Place", "name": "Taichung, Taiwan" },
+  "nationality": "Taiwanese",
+  "alumniOf": { "@type": "EducationalOrganization", "name": "Fu-Hsin Trade & Arts School" },
+  "url": "https://porenhuang.com/",
+  "image": "https://porenhuang.com/assets/media/artist-portrait.png",
+  "description": "Poren Huang 黃柏仁 is a Taiwanese contemporary sculptor whose works explore emotion, humour and human feeling through dogs and sculpture.",
+  "sameAs": [
+    "https://www.instagram.com/porenhuang",
+    "https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr",
+    "https://youtube.com/@porenhuang",
+    "https://www.threads.com/@porenhuang"
+  ]
+}
