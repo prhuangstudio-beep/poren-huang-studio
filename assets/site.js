@@ -586,9 +586,9 @@ document.addEventListener('click',event=>{
     '.work-list article','.works-image-grid > a','.works-index > a',
     '.news article','.press-card','.timeline article','.artist-cv article',
     '.series-entry','.series-hero figure','.artist-portrait,.image-carousel',
-    '.home-image-break,.press-side-image,.video-banner',
+    '.home-image-break,.press-side-image,.video-banner,.artist-film',
     '.home .work-panel img,.works-image-grid img,.work-main img',
-    '.work-detail','.work-variants',
+    '.work-detail','.work-variants','h1,h2,h3',
     '.related-works > div > a','.work-panel'
   ].join(',');
   let cards=[];
