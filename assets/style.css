@@ -2047,6 +2047,40 @@ body.home .series-entry span{
 
 .works-overview .works-intro h1{justify-self:start!important;text-align:left!important;margin-right:auto!important;}
 
+/* Shared depth cards: position is calculated by the virtual scroll controller. */
+.virtual-card-scroll .work-list article,
+.virtual-card-scroll .works-image-grid>a,
+.virtual-card-scroll .works-index>a,
+.virtual-card-scroll .news article,
+.virtual-card-scroll .press-card,
+.virtual-card-scroll .timeline article,
+.virtual-card-scroll .artist-cv article,
+.virtual-card-scroll .series-entry,
+.virtual-card-scroll .series-hero figure,
+.virtual-card-scroll .work-detail,
+.virtual-card-scroll .work-variants,
+.virtual-card-scroll .related-works>div>a,
+.virtual-card-scroll .work-panel{
+  will-change:transform,filter,opacity;
+  transform-origin:center center;
+}
+
+@media(prefers-reduced-motion:reduce){
+  .virtual-card-scroll .work-list article,
+  .virtual-card-scroll .works-image-grid>a,
+  .virtual-card-scroll .works-index>a,
+  .virtual-card-scroll .news article,
+  .virtual-card-scroll .press-card,
+  .virtual-card-scroll .timeline article,
+  .virtual-card-scroll .artist-cv article,
+  .virtual-card-scroll .series-entry,
+  .virtual-card-scroll .series-hero figure,
+  .virtual-card-scroll .work-detail,
+  .virtual-card-scroll .work-variants,
+  .virtual-card-scroll .related-works>div>a,
+  .virtual-card-scroll .work-panel{will-change:auto!important;filter:none!important;opacity:1!important;}
+}
+
 @media(max-width:700px){
   body.home .menu-socials a,body.home .site-search-icons a,body.home footer .socials a{
     display:grid!important;place-items:center!important;width:30px!important;height:30px!important;

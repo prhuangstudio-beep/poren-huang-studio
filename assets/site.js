@@ -571,3 +571,91 @@ document.addEventListener('click',event=>{
   document.body.classList.add('page-leaving');
   setTimeout(()=>location.href=url.href,680);
 });
+
+/*
+  Site-wide virtual card scroll.
+  Tune these three values to adjust the feel without touching layout:
+  sensitivity: wheel / touch distance multiplier; damping: lower = more inertia;
+  influence: portion of viewport height used by the depth effect.
+*/
+(()=>{
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+
+  const settings={sensitivity:.92,damping:.08,influence:.55,maxScaleDrop:.24,maxBlur:9};
+  const selector=[
+    '.work-list article','.works-image-grid > a','.works-index > a',
+    '.news article','.press-card','.timeline article','.artist-cv article',
+    '.series-entry','.series-hero figure','.work-detail','.work-variants',
+    '.related-works > div > a','.work-panel'
+  ].join(',');
+  const cards=[...document.querySelectorAll(selector)];
+  if(!cards.length)return;
+
+  let target=window.scrollY,current=window.scrollY,frame=0,dragStartY=0,dragTarget=0;
+  let touching=false,programmatic=false,lastProgrammaticScroll=0;
+  const baseTransforms=new WeakMap();
+  cards.forEach(card=>baseTransforms.set(card,getComputedStyle(card).transform));
+  const maxScroll=()=>Math.max(0,document.documentElement.scrollHeight-innerHeight);
+  const clamp=value=>Math.max(0,Math.min(maxScroll(),value));
+  const isInteractive=element=>element.closest('a,button,input,select,textarea,label,[contenteditable]');
+  const render=()=>{
+    frame=0;
+    current+=(target-current)*settings.damping;
+    if(Math.abs(target-current)<.1)current=target;
+    programmatic=true;
+    window.scrollTo(0,current);
+    lastProgrammaticScroll=performance.now();
+    programmatic=false;
+    const center=innerHeight*.5;
+    const range=innerHeight*settings.influence;
+    cards.forEach(card=>{
+      const rect=card.getBoundingClientRect();
+      const distance=Math.abs(rect.top+rect.height*.5-center);
+      if(distance>range*2.1)return;
+      const t=Math.max(0,Math.min(1,distance/range));
+      const ease=t*t;
+      const base=baseTransforms.get(card);
+      card.style.transform=(base&&base!=='none'?base+' ':'')+'scale('+(1-ease*settings.maxScaleDrop)+')';
+      card.style.filter='blur('+(ease*settings.maxBlur)+'px)';
+      card.style.opacity=String(1-ease*.4);
+    });
+    if(current!==target)frame=requestAnimationFrame(render);
+  };
+  const requestRender=()=>{if(!frame)frame=requestAnimationFrame(render)};
+  const move=delta=>{
+    target=clamp(target+delta*settings.sensitivity);
+    requestRender();
+  };
+  addEventListener('wheel',event=>{
+    if(isInteractive(event.target)||document.body.classList.contains('menu-open'))return;
+    event.preventDefault();
+    move(event.deltaY*(event.deltaMode===1?18:1));
+  },{passive:false});
+  addEventListener('touchstart',event=>{
+    if(event.touches.length!==1||isInteractive(event.target)||document.body.classList.contains('menu-open'))return;
+    touching=true;
+    dragStartY=event.touches[0].clientY;
+    dragTarget=target;
+  },{passive:true});
+  addEventListener('touchmove',event=>{
+    if(!touching||event.touches.length!==1)return;
+    event.preventDefault();
+    target=clamp(dragTarget+(dragStartY-event.touches[0].clientY)*settings.sensitivity);
+    requestRender();
+  },{passive:false});
+  addEventListener('touchend',()=>touching=false,{passive:true});
+  addEventListener('touchcancel',()=>touching=false,{passive:true});
+  addEventListener('scroll',()=>{
+    if(!programmatic&&!touching&&performance.now()-lastProgrammaticScroll>40){target=current=window.scrollY;requestRender();}
+  },{passive:true});
+  addEventListener('resize',()=>{target=clamp(target);current=clamp(current);requestRender();},{passive:true});
+  document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',event=>{
+    const destination=document.querySelector(link.getAttribute('href'));
+    if(!destination)return;
+    event.preventDefault();
+    target=clamp(destination.getBoundingClientRect().top+current-92);
+    requestRender();
+  }));
+  document.body.classList.add('virtual-card-scroll');
+  requestRender();
+})();
