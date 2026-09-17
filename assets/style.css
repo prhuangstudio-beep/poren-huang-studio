@@ -2287,7 +2287,7 @@ nav .menu-series-link{margin-top:10px!important;padding-top:15px!important;borde
   border-radius:0!important;
   outline:0!important;
   box-shadow:none!important;
-  padding:0 0 42px!important;
+  padding:0!important;
   position:relative!important;
 }
 .home .work-stage::after{
@@ -2317,7 +2317,7 @@ nav .menu-series-link{margin-top:10px!important;padding-top:15px!important;borde
   justify-self:end;
   width:30px;
   height:30px;
-  margin:-36px 4px 6px auto;
+  margin:12px 4px 26px auto;
   color:#111;
   pointer-events:none;
 }
@@ -2334,10 +2334,17 @@ nav .menu-series-link{margin-top:10px!important;padding-top:15px!important;borde
   }
   body.home .hero .artist-film{height:72vw!important}
   body.home .hero .artist-film video{width:100%!important;max-width:none!important;height:100%!important;object-fit:cover!important}
-  .home .work-swipe-hint{width:26px;height:26px;margin:-34px 0 8px auto;color:rgba(17,17,17,.72)}
+  body.home .video-banner video{width:100%!important;max-width:none!important;height:100%!important;object-fit:cover!important}
+  .home .work-swipe-hint{width:26px;height:26px;margin:10px 0 22px auto;color:rgba(17,17,17,.72)}
   .home .work-swipe-hint svg{width:25px;height:13px;stroke-width:1.2}
 }
 
 /* Prevent condensed tracking from making the Artist introduction appear crowded. */
 .home .artist-detail h2{letter-spacing:-.02em!important;word-spacing:.02em!important}
 .home .artist-detail>div p{letter-spacing:0!important}
+.home .artist-detail h2{margin-bottom:clamp(34px,4vw,54px)!important}
+@media(max-width:700px){.home .artist-detail h2{margin-bottom:30px!important}}
+
+/* Header: stow on downward reading, return as soon as the scroll reverses. */
+header{transition:transform .42s cubic-bezier(.22,1,.36,1),opacity .28s ease!important;will-change:transform}
+header.is-stowed{transform:translateY(-110%);opacity:0;pointer-events:none}

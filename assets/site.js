@@ -46,6 +46,17 @@ document.querySelectorAll('img:not([loading])').forEach(image=>{
 
 const header=document.querySelector('header'),nav=document.querySelector('nav');
 if(header&&nav){
+  // The header stores itself while reading downward and returns on a reverse scroll.
+  let headerLastY=window.scrollY,headerFrame=0;
+  const updateHeader=()=>{
+    headerFrame=0;
+    const y=window.scrollY;
+    if(!document.body.classList.contains('menu-open')&&!document.body.classList.contains('search-open')){
+      header.classList.toggle('is-stowed',y>120&&y>headerLastY+3);
+    }
+    headerLastY=y;
+  };
+  addEventListener('scroll',()=>{if(!headerFrame)headerFrame=requestAnimationFrame(updateHeader)},{passive:true});
   let searchDataLoading=false;
   const loadSearchData=()=>{
     if(window.POREN_SEARCH_ENTRIES||searchDataLoading)return;
@@ -604,7 +615,7 @@ document.addEventListener('click',event=>{
   // A broader influence range also leaves a larger, clearer centre area.
   const primaryBrowse=document.body.classList.contains('home')||!!document.querySelector('.works-overview');
   const settings={
-    damping:desktopWorks ? .23 : (primaryBrowse ? .17 : .13),
+    damping:desktopWorks ? .16 : (primaryBrowse ? .13 : .11),
     influence:mobileHome ? .98 : ((desktopWorks||mobileWorks) ? .74 : .91),
     maxScaleDrop:mobileWorks ? .28 : (desktopWorks ? .22 : (mobileHome ? .20 : .15)),
     maxBlur:mobileWorks ? 13 : (desktopWorks ? 10 : (mobileHome ? 9 : 7))
@@ -657,7 +668,9 @@ document.addEventListener('click',event=>{
         return;
       }
       const rect=card.getBoundingClientRect();
-      const distance=Math.abs(rect.top+rect.height*.5-center);
+      // Rect follows native scrolling; offset it toward the eased scroll position
+      // so scaling and blur glide rather than jump with each wheel tick.
+      const distance=Math.abs(rect.top+rect.height*.5+(window.scrollY-current)-center);
       if(distance>range*2.1)return;
       const t=Math.max(0,Math.min(1,distance/range));
       const ease=t*t;
