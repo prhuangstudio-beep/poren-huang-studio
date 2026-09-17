@@ -2078,7 +2078,7 @@ body.home .series-entry span{
   cursor:pointer;
 }
 
-.works-year-filter:focus-visible{outline:2px solid #ff5a1f;outline-offset:3px}
+.works-year-filter:focus-visible{outline:2px solid #111;outline-offset:3px}
 
 @media(max-width:700px){
   .works-overview .works-intro,
@@ -2203,3 +2203,18 @@ body.home .series-entry span{
 .menu-socials a::before,.menu-socials a::after{content:none!important;display:none!important}
 .menu-socials .social-label{display:block!important;color:#111!important;font:700 14px/1 Arial,sans-serif!important}
 .menu-socials svg{display:block!important;width:18px!important;height:18px!important;fill:none!important;stroke:#111!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+
+/* Final shared menu/search icon treatment.  This must remain last: older page
+   styles used pseudo-elements which replaced the real icon on some routes. */
+.menu-socials a,.site-search-icons a{display:grid!important;place-items:center!important;width:30px!important;height:30px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#111!important;font-size:0!important}
+.menu-socials a::before,.menu-socials a::after,.site-search-icons a::before,.site-search-icons a::after{content:none!important;display:none!important}
+.menu-socials .social-label,.site-search-icons .social-label{display:block!important;color:#111!important;font:700 14px/1 Arial,sans-serif!important}
+.menu-socials svg,.site-search-icons svg{display:block!important;width:18px!important;height:18px!important;fill:none!important;stroke:#111!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+
+@media(max-width:700px){
+  /* Keep the two bilingual home headings in their own measured space. */
+  .home .hero h1{font-size:clamp(29px,9vw,46px)!important;line-height:1.16!important;max-width:100%!important;min-width:0!important;margin-bottom:24px!important}
+  .home .artist-detail{gap:32px!important}
+  .home .artist-detail>div{min-width:0!important;padding-top:0!important}
+  .home .artist-detail h2{font-size:clamp(27px,8vw,38px)!important;line-height:1.18!important;max-width:100%!important;min-width:0!important;margin:0 0 24px!important}
+}

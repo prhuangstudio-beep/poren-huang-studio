@@ -584,7 +584,15 @@ document.addEventListener('click',event=>{
   const compact=matchMedia('(max-width: 700px)').matches;
   const mobileHome=compact&&document.body.classList.contains('home');
   const desktopWorks=!compact&&!!document.querySelector('.works-overview');
-  const settings={damping:desktopWorks ? .16 : .11,influence:desktopWorks ? .65 : .77,maxScaleDrop:mobileHome ? .24 : .18,maxBlur:mobileHome ? 11 : 8};
+  // Higher damping makes the visual response follow the page scroll more promptly.
+  // A broader influence range also leaves a larger, clearer centre area.
+  const primaryBrowse=document.body.classList.contains('home')||!!document.querySelector('.works-overview');
+  const settings={
+    damping:desktopWorks ? .23 : (primaryBrowse ? .17 : .13),
+    influence:mobileHome ? .98 : (desktopWorks ? .82 : .91),
+    maxScaleDrop:mobileHome ? .20 : .15,
+    maxBlur:mobileHome ? 9 : 7
+  };
   const selector=[
     '.work-list article','.works-image-grid > a','.works-index > a',
     '.news article','.press-card','.timeline article','.artist-cv article',
@@ -617,7 +625,11 @@ document.addEventListener('click',event=>{
     const range=innerHeight*settings.influence;
     const atPageEdge=target<2||target>maxScroll()-2;
     cards.forEach(card=>{
-      if(atPageEdge){
+      // Timeline items have dense, nested typography.  Keeping them clear avoids
+      // transforms from moving the title and its parent by different amounts.
+      const keepClear=card.closest('.timeline')||
+        (mobileHome&&card.matches('.hero h1,.artist-detail,.artist-detail h2'));
+      if(atPageEdge||keepClear){
         const base=baseTransforms.get(card);
         card.style.setProperty('transform',base&&base!=='none'?base:'none','important');
         card.style.setProperty('filter','none','important');
