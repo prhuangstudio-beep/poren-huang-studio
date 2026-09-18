@@ -156,7 +156,7 @@
   font-size: 28px !important;
   line-height: 1 !important;
   font-weight: 900 !important;
-  color: #ff5a1f !important;
+  color: #adf203 !important;
 }
 
 .work-detail-page .work-main,
@@ -391,7 +391,7 @@
 }
 
 .concept-toggle {
-  border: 1px solid #ff5a1f !important;
+  border: 1px solid #adf203 !important;
   border-radius: 999px !important;
   padding: 8px 15px !important;
   line-height: 1 !important;
@@ -465,7 +465,7 @@
 .work-neighbor-nav span {
   display: block;
   margin-bottom: 5px;
-  color: #ff5a1f;
+  color: #adf203;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: .08em;
