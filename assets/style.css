@@ -2632,6 +2632,7 @@ body.home #works .work-panel,body.home #works .home-work-image{filter:none!impor
   font-weight:900!important;
   -webkit-text-stroke:.7px currentColor;
   text-shadow:.25px 0 currentColor,-.25px 0 currentColor;
+  margin-top:var(--space-4)!important;
 }
 @media (max-width:47.9375rem){
   body.home #works .work-stage{
