@@ -2533,6 +2533,16 @@ body.home .hero .artist-film--ambient .artist-film__foreground{width:100%!import
   body.home .video-banner--ambient{height:min(56.25vw,100svh)!important;min-height:0!important;max-height:100svh!important}
 }
 
+/* Work titles are two deliberate lines, never an inline bilingual string. */
+.work-detail-info .work-heading h1{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:var(--space-3)!important;white-space:normal!important}
+.work-detail-info .work-heading h1 .work-title-en,.work-detail-info .work-heading h1 .work-title-zh{display:block!important;max-width:100%!important;min-width:0!important}
+.work-detail-info .work-heading h1 .work-title-en{font:inherit!important;line-height:1.08!important}
+.work-detail-info .work-heading h1 .work-title-zh{margin:0!important;font:700 .56em/1.28 Manrope,Arial,sans-serif!important;letter-spacing:-.02em!important}
+
+/* A single centred Threads mark; legacy pseudo-elements and stroke layers cannot overlap it. */
+.menu-socials a[aria-label="Threads"] svg,.site-search-icons a[aria-label="Threads"] svg,footer .socials a[aria-label="Threads"] svg{display:none!important}
+.menu-socials a[aria-label="Threads"]::before,.site-search-icons a[aria-label="Threads"]::before,footer .socials a[aria-label="Threads"]::before{content:"@"!important;display:block!important;position:static!important;margin:0!important;width:auto!important;height:auto!important;color:#111!important;font:700 19px/1 Arial,sans-serif!important;transform:none!important}
+
 /* First (topmost) homepage film: preserve its full frame while the duplicate,
    blurred layer fills any phone-width side space.  The artist film below is
    intentionally not included here. */
