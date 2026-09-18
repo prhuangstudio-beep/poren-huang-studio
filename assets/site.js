@@ -515,7 +515,7 @@ if('IntersectionObserver'in window){
 
 const homeStage=document.querySelector('.work-stage');
 if(homeStage){
-  const enableHomeCoverRotation=matchMedia('(min-width:48rem)').matches;
+  const enableHomeCoverRotation=true;
   if(!document.querySelector('.work-swipe-hint'))homeStage.insertAdjacentHTML('afterend','<span class="work-swipe-hint" aria-hidden="true"><svg viewBox="0 0 32 16"><path d="M7 3 2 8l5 5M2 8h28M25 3l5 5-5 5"/></svg></span>');
   const homeCovers={
     'Power Food':['assets/catalog/power-food/01.jpg?v=20260902pf','assets/catalog/power-food/03-home.jpg?v=20260902pfh'],
@@ -648,9 +648,9 @@ document.addEventListener('click',event=>{
     '.series-entry','.series-hero figure','.artist-portrait,.image-carousel',
     '.home-image-break,.press-side-image,.video-banner,.artist-film',
     '.home .artist-detail,.home .series-entry-section,.home .press-layout',
-    '.home .work-panel img,.work-main img',
+    '.work-main img',
     '.work-detail','.work-variants','h1,h2,h3',
-    '.related-works > div > a','.work-panel'
+    '.related-works > div > a'
   ].join(',');
   let cards=[];
 

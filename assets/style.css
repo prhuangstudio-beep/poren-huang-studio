@@ -2598,7 +2598,7 @@ body.home #works .mobile-image-shell picture,body.home #works .mobile-image-shel
   body.home #works,body.home #works a,body.home #works img{cursor:auto!important}
   .site-cursor.is-suppressed{opacity:0!important}
 }
-body.home #works .home-work-image{filter:none!important;opacity:1!important}
+body.home #works .work-panel,body.home #works .home-work-image{filter:none!important;opacity:1!important}
 .status-badge.status-ended::before,.news-status.status-ended::before{background:currentColor!important}
 @media (max-width:47.9375rem){
   body.home .video-banner--ambient,body.home .video-banner--ambient .video-banner__foreground{background:#fff!important;background-color:#fff!important}
