@@ -2659,3 +2659,17 @@ body.home #works .work-panel,body.home #works .home-work-image{filter:none!impor
     opacity:1!important;
   }
 }
+
+/* Align every home vertical section title with the header brand's left edge. */
+body.home .side-section>.side-title{
+  justify-self:start!important;
+  width:max-content!important;
+  margin-left:0!important;
+  text-align:left!important;
+}
+body.home .contact-title{
+  left:var(--pad)!important;
+  width:max-content!important;
+  margin-left:0!important;
+  text-align:left!important;
+}
