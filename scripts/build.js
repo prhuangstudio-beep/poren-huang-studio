@@ -68,10 +68,13 @@ works.forEach((work, index) => {
   const thumbnails = work.images.map((image, imageIndex) => `<button type="button" class="${imageIndex === 0 ? 'active' : ''}" data-work-image="${esc(image.filename)}" data-work-alt="${esc(image.alt_zh || image.alt_en)}">${picture(image)}</button>`).join('');
   const description = [work.description_en, work.description_zh].filter(Boolean).join('\n');
   const relatedWorks = [...works.slice(index + 1), ...works.slice(0, index)].slice(0, 4).map(item => `<a href="works/${esc(item.slug)}"><span class="square-media">${picture(item.images[0])}</span><span lang="en">${esc(item.title_en)} · ${esc(item.year)}</span></a>`).join('');
+  const contactSubject = `Contact — ${title(work)} (${work.year})`;
+  const contactBody = `Hello Poren Huang Studio,\n\nI am contacting you about: ${title(work)} (${work.year}).\n\nHow should we address you?\nName:\nContact information:\nMessage:\n`;
   const values = {
     title: esc(`${title(work)} | Poren Huang Studio 黃柏仁`), description: esc(workDescription(work)), canonical: `${site}/works/${work.slug}`,
     ogImage: imageUrl(work.images[0]), schema: JSON.stringify(artworkSchema(work)), mainImage: picture(work.images[0], { lazy: false }), mainAlt: esc(work.images[0].alt_zh || work.images[0].alt_en), hreflang: hreflang(`${site}/works/${work.slug}`),
     thumbnails, heading: `<span lang="en">${esc(work.title_en)}</span>${work.title_zh ? `<small>${esc(work.title_zh)}</small>` : ''}`, year: esc(work.year), metadata,
+    workContact: `<a class="work-contact-me" href="mailto:pr_dogs@yahoo.com.tw?subject=${encodeURIComponent(contactSubject)}&body=${encodeURIComponent(contactBody)}">CONTACT ME</a>`,
     descriptionBlock: description ? `<div class="work-description"><p>${esc(description).replace(/\n/g, '<br>')}</p></div>` : '', relatedWorks,
     neighbors: `<a href="works/${esc(previous.slug)}"><span>Prev</span><strong>${esc(previous.title_en)}</strong></a><a href="works/${esc(next.slug)}"><span>Next</span><strong>${esc(next.title_en)}</strong></a>`
   };
@@ -96,10 +99,13 @@ function addHreflangToStaticPages() {
   [...rootPages, ...workPages].forEach(relative => {
     const target = path.join(root, relative);
     let html = fs.readFileSync(target, 'utf8');
+    // Repair legacy escaped attribute quotes before normalising hreflang.
+    html = html.replace(/\\(?=")/g, '');
     const route = relative === 'index.html' ? '' : relative.replace(/index\.html$/, '').replace(/\.html$/, '');
     const url = `${site}/${route}`.replace(/\/$/, '/');
     html = html.replace(/<link rel="alternate" hreflang="(?:zh-Hant|en|x-default)"[^>]*>/g, '');
     html = html.replace('</head>', `${hreflang(url)}</head>`);
+    html = html.replaceAll(String.fromCharCode(92, 34), '"');
     write(target, html);
   });
 }

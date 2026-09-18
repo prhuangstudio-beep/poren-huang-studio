@@ -425,6 +425,9 @@ if(footer){
     footer.querySelector('small')?.before(socials);
   }
   socials.innerHTML=footerSocialLinks;
+  if(!footer.querySelector('.contact-me')){
+    socials.insertAdjacentHTML('afterend','<a class="contact-me" href="mailto:pr_dogs@yahoo.com.tw" aria-label="Contact Poren Huang by email">CONTACT ME</a>');
+  }
 }
 if(footer&&hero){
   footer.insertAdjacentHTML('afterbegin','<p class="contact-title">CONTACT</p>');
@@ -679,7 +682,9 @@ document.addEventListener('click',event=>{
       const ease=t*t;
       const base=baseTransforms.get(card);
       card.style.setProperty('transform',(base&&base!=='none'?base+' ':'')+'scale('+(1-ease*settings.maxScaleDrop)+')','important');
-      card.style.setProperty('filter','blur('+(ease*settings.maxBlur)+'px)','important');
+      // On compact touch screens opacity keeps the depth cue without the
+      // expensive GPU blur pass. Desktop retains the blur treatment.
+      card.style.setProperty('filter',compact?'none':'blur('+(ease*settings.maxBlur)+'px)','important');
       card.style.setProperty('opacity',String(1-ease*.4),'important');
     });
     if(current!==target)frame=requestAnimationFrame(render);
@@ -696,4 +701,27 @@ document.addEventListener('click',event=>{
     requestRender();
   }).observe(document.body,{childList:true,subtree:true});
   requestRender();
+})();
+// Mobile-only image loading states. They sit around the existing picture/srcset
+// output and never replace its sources or responsive sizes.
+(()=>{
+  const mobile=matchMedia('(max-width: 47.9375rem)');
+  const setup=()=>{
+    if(!mobile.matches)return;
+    document.querySelectorAll('.works-image-grid figure img,.work-gallery figure img,.related-works figure img,.work-list figure img').forEach(img=>{
+      const shell=img.closest('figure');
+      if(!shell||shell.dataset.mobileImageState)return;
+      shell.dataset.mobileImageState='pending';
+      shell.classList.add('mobile-image-shell');
+      const reveal=()=>{
+        shell.classList.add('is-mobile-image-ready');
+        shell.dataset.mobileImageState='ready';
+      };
+      if(img.complete&&img.naturalWidth)reveal();
+      else img.addEventListener('load',reveal,{once:true});
+      img.addEventListener('error',reveal,{once:true});
+    });
+  };
+  setup();
+  mobile.addEventListener?.('change',setup);
 })();
