@@ -2630,5 +2630,6 @@ body.home #works .work-panel,body.home #works .home-work-image{filter:none!impor
 .intro-screen small{
   color:#adf203!important;
   font-weight:900!important;
-  -webkit-text-stroke:.35px currentColor;
+  -webkit-text-stroke:.7px currentColor;
+  text-shadow:.25px 0 currentColor,-.25px 0 currentColor;
 }
