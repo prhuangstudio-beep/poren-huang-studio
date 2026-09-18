@@ -2323,16 +2323,15 @@ nav .menu-series-link{margin-top:var(--space-3)!important;padding-top:var(--spac
 }
 .home .work-swipe-hint svg{display:block;width:28px;height:14px;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
 
-/* The first home film is deliberately edge-to-edge on a phone. */
+/* The first, topmost home film is deliberately edge-to-edge on a phone. */
 @media(max-width:700px){
-  body.home .hero .artist-film{
+  body.home .video-banner{
     width:100dvw!important;
     max-width:100dvw!important;
     margin-left:calc(50% - 50dvw)!important;
     margin-right:calc(50% - 50dvw)!important;
   }
-  body.home .hero .artist-film{height:72vw!important}
-  body.home .hero .artist-film video{width:100%!important;max-width:none!important;height:100%!important;object-fit:cover!important}
+  body.home .video-banner video{width:100%!important;max-width:none!important;height:100%!important;object-fit:cover!important}
   .home .work-swipe-hint{width:26px;height:26px;margin:var(--space-2) 0 var(--space-5) auto;color:rgba(17,17,17,.72)}
   .home .work-swipe-hint svg{width:25px;height:13px;stroke-width:1.2}
 }
@@ -2473,7 +2472,7 @@ footer .socials a,.menu-socials a,.site-search-icons a{width:2.75rem!important;h
 .work-contact-me:hover{transform:translateY(-2px);background:#333}
 .work-detail-info .work-heading h1{white-space:normal!important;overflow-wrap:normal!important;word-break:normal!important}
 .work-detail-info .work-heading h1>span,.work-detail-info .work-heading h1>small,.work-title-en,.work-title-zh{display:block!important;max-width:100%}
-.work-detail-info .work-heading h1>small,.work-title-zh{margin-top:var(--space-2);font:700 .56em/1.15 Manrope,Arial,sans-serif;letter-spacing:-.02em}
+.work-detail-info .work-heading h1>small,.work-title-zh{margin-top:var(--space-4);font:700 .56em/1.3 Manrope,Arial,sans-serif;letter-spacing:-.02em}
 .works-overview .works-year-filter{flex:0 0 20%!important;width:20%!important;min-width:0!important;max-width:20%!important;padding-right:var(--space-5)!important;background-position:right var(--space-3) center!important}
 .about-page .artist-switch{margin-top:var(--space-5)!important;margin-bottom:var(--space-6)!important}
 .intro-screen small{margin-top:var(--space-2)!important;color:#ff5a1f!important;font-size:clamp(19px,2.7vw,40px)!important}
@@ -2499,14 +2498,3 @@ footer .socials a,.menu-socials a,.site-search-icons a{width:2.75rem!important;h
 }
 @keyframes mobile-image-shimmer{to{background-position:-220% 0}}
 @media (prefers-reduced-motion:reduce){.mobile-image-shell::after{animation:none!important}.mobile-image-shell picture,.mobile-image-shell>img{transition:none!important}}
-
-/* First homepage film only: keep the full foreground frame on mobile and use
-   its own blurred copy for the side fill. The later homepage banner is excluded. */
-@media(max-width:39.999rem){
-  body.home .hero .artist-film--ambient{background:#d7d7d3!important}
-  body.home .hero .artist-film--ambient .artist-film__ambient{display:block!important;inset:-8%!important;width:116%!important;height:116%!important;filter:blur(18px) brightness(.72) saturate(.84)!important}
-  body.home .hero .artist-film--ambient .artist-film__veil{display:block!important;background:linear-gradient(90deg,rgba(255,255,255,.16),transparent 18% 82%,rgba(255,255,255,.16))!important}
-  body.home .hero .artist-film--ambient .artist-film__foreground{object-fit:contain!important;object-position:center!important;background:transparent!important}
-  body.home .video-banner{background:transparent!important}
-  body.home .video-banner video{width:100%!important;max-width:none!important;height:100%!important;object-fit:cover!important;object-position:center!important}
-}
