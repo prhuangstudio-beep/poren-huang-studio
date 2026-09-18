@@ -46,8 +46,13 @@ document.querySelectorAll('img:not([loading])').forEach(image=>{
 
 const header=document.querySelector('header'),nav=document.querySelector('nav');
 if(header&&nav){
-  // The header stores itself while reading downward and returns on a reverse scroll.
-  let headerLastY=window.scrollY,headerReference=window.scrollY,headerFrame=0;
+  // The header stores while reading downward, while resting in a section, and returns on reverse scroll.
+  let headerLastY=window.scrollY,headerReference=window.scrollY,headerFrame=0,headerIdleTimer=0;
+  const scheduleHeaderIdle=()=>{
+    clearTimeout(headerIdleTimer);
+    if(window.scrollY<96||document.body.classList.contains('menu-open')||document.body.classList.contains('search-open'))return;
+    headerIdleTimer=setTimeout(()=>header.classList.add('is-stowed'),1400);
+  };
   const updateHeader=()=>{
     headerFrame=0;
     const y=window.scrollY;
@@ -58,7 +63,13 @@ if(header&&nav){
     }
     headerLastY=y;
   };
-  addEventListener('scroll',()=>{if(!headerFrame)headerFrame=requestAnimationFrame(updateHeader)},{passive:true});
+  addEventListener('scroll',()=>{if(!headerFrame)headerFrame=requestAnimationFrame(updateHeader);scheduleHeaderIdle()},{passive:true});
+  ['pointerdown','touchstart','keydown'].forEach(type=>addEventListener(type,()=>{
+    if(document.body.classList.contains('menu-open')||document.body.classList.contains('search-open'))return;
+    header.classList.remove('is-stowed');
+    scheduleHeaderIdle();
+  },{passive:true}));
+  scheduleHeaderIdle();
   let searchDataLoading=false;
   const loadSearchData=()=>{
     if(window.POREN_SEARCH_ENTRIES||searchDataLoading)return;

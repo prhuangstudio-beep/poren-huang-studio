@@ -2543,6 +2543,12 @@ body.home .hero .artist-film--ambient .artist-film__foreground{width:100%!import
 .menu-socials a[aria-label="Threads"] svg,.site-search-icons a[aria-label="Threads"] svg,footer .socials a[aria-label="Threads"] svg{display:none!important}
 .menu-socials a[aria-label="Threads"]::before,.site-search-icons a[aria-label="Threads"]::before,footer .socials a[aria-label="Threads"]::before{content:"@"!important;display:block!important;position:static!important;margin:0!important;width:auto!important;height:auto!important;color:#111!important;font:700 19px/1 Arial,sans-serif!important;transform:none!important}
 
+/* Works overview: bilingual names always occupy separate lines as well. */
+.works-overview .works-card-meta{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;column-gap:var(--space-4)!important;row-gap:var(--space-2)!important;align-items:baseline!important}
+.works-overview .works-card-meta strong{grid-column:1!important;grid-row:1!important}
+.works-overview .works-card-meta span{display:block!important;grid-column:1!important;grid-row:2!important}
+.works-overview .works-card-meta time{grid-column:2!important;grid-row:1 / span 2!important;align-self:center!important}
+
 /* First (topmost) homepage film: preserve its full frame while the duplicate,
    blurred layer fills any phone-width side space.  The artist film below is
    intentionally not included here. */
