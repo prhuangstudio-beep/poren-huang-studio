@@ -2325,8 +2325,7 @@ nav .menu-series-link{margin-top:var(--space-3)!important;padding-top:var(--spac
 
 /* The first home film is deliberately edge-to-edge on a phone. */
 @media(max-width:700px){
-  body.home .hero .artist-film,
-  body.home .video-banner{
+  body.home .hero .artist-film{
     width:100vw!important;
     max-width:none!important;
     margin-left:calc(50% - 50vw)!important;
@@ -2334,7 +2333,6 @@ nav .menu-series-link{margin-top:var(--space-3)!important;padding-top:var(--spac
   }
   body.home .hero .artist-film{height:72vw!important}
   body.home .hero .artist-film video{width:100%!important;max-width:none!important;height:100%!important;object-fit:cover!important}
-  body.home .video-banner video{width:100%!important;max-width:none!important;height:100%!important;object-fit:cover!important}
   .home .work-swipe-hint{width:26px;height:26px;margin:var(--space-2) 0 var(--space-5) auto;color:rgba(17,17,17,.72)}
   .home .work-swipe-hint svg{width:25px;height:13px;stroke-width:1.2}
 }
