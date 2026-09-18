@@ -12,14 +12,22 @@
     const apply=()=>container.style.setProperty('--cover-image','url("'+img.src+'")');
     img.complete?apply():img.addEventListener('load',apply,{once:true});
   };
-  const main=document.querySelector('.work-main img');
+  const mainFigure=document.querySelector('.work-main');
+  let main=mainFigure?.querySelector('img');
   const thumbnails=[...document.querySelectorAll('.work-thumbnails button')];
   const showImage=index=>{
     const button=thumbnails[index];
-    if(!button||!main)return;
-    if(main.src===new URL(button.dataset.image,location.href).href)return;
+    if(!button||!main||!mainFigure)return;
+    const nextPicture=button.querySelector('picture');
+    const nextImage=nextPicture?.querySelector('img');
+    if(!nextImage)return;
+    if(main.currentSrc===nextImage.currentSrc||main.src===nextImage.src)return;
+    const replacement=nextPicture.cloneNode(true);
+    const replacementImage=replacement.querySelector('img');
+    replacementImage.loading='eager';
+    mainFigure.replaceChildren(replacement);
+    main=replacementImage;
     main.animate([{opacity:.18},{opacity:1}],{duration:260,easing:'cubic-bezier(.22,1,.36,1)'});
-    main.src=button.dataset.image;
     thumbnails.forEach(item=>item.classList.toggle('active',item===button));
     button.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
   };
