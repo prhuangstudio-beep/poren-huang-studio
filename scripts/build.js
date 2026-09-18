@@ -57,8 +57,17 @@ write(path.join(root, 'works.html'), indexPage);
 
 const detailTemplate = read('work-page.html');
 works.forEach((work, index) => {
-  const previous = works[(index - 1 + works.length) % works.length];
-  const next = works[(index + 1) % works.length];
+  // Colour/material variants share a title, but adjacent navigation should
+  // always lead to a different artwork rather than another version of itself.
+  const adjacentDistinct = direction => {
+    for (let offset = 1; offset < works.length; offset++) {
+      const candidate = works[(index + direction * offset + works.length) % works.length];
+      if (candidate.title_en !== work.title_en) return candidate;
+    }
+    return work;
+  };
+  const previous = adjacentDistinct(-1);
+  const next = adjacentDistinct(1);
   const metadata = [
     work.dimensions?.length ? `<p>${work.dimensions.map(dimText).map(esc).join('<br>')}</p>` : '',
     work.material_en ? `<p>${esc(work.material_en)}${work.material_zh ? ` / ${esc(work.material_zh)}` : ''}</p>` : '',
@@ -74,7 +83,7 @@ works.forEach((work, index) => {
     title: esc(`${title(work)} | Poren Huang Studio 黃柏仁`), description: esc(workDescription(work)), canonical: `${site}/works/${work.slug}`,
     ogImage: imageUrl(work.images[0]), schema: JSON.stringify(artworkSchema(work)), mainImage: picture(work.images[0], { lazy: false }), mainAlt: esc(work.images[0].alt_zh || work.images[0].alt_en), hreflang: hreflang(`${site}/works/${work.slug}`),
     thumbnails, heading: `<span lang="en">${esc(work.title_en)}</span>${work.title_zh ? `<small>${esc(work.title_zh)}</small>` : ''}`, year: esc(work.year), metadata,
-    workContact: `<a class="work-contact-me" href="mailto:pr_dogs@yahoo.com.tw?subject=${encodeURIComponent(contactSubject)}&body=${encodeURIComponent(contactBody)}">CONTACT ME</a>`,
+    workContact: `<a class="work-contact-me" target="_blank" rel="noopener noreferrer" href="https://mail.google.com/mail/?view=cm&fs=1&to=pr_dogs@yahoo.com.tw&su=${encodeURIComponent(contactSubject)}&body=${encodeURIComponent(contactBody)}">CONTACT ME</a>`,
     descriptionBlock: description ? `<div class="work-description"><p>${esc(description).replace(/\n/g, '<br>')}</p></div>` : '', relatedWorks,
     neighbors: `<a href="works/${esc(previous.slug)}"><span>Prev</span><strong>${esc(previous.title_en)}</strong></a><a href="works/${esc(next.slug)}"><span>Next</span><strong>${esc(next.title_en)}</strong></a>`
   };
