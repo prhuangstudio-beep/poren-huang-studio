@@ -2592,3 +2592,19 @@ body.home #works .mobile-image-shell picture,body.home #works .mobile-image-shel
   body.home .artist-detail h2{margin-bottom:var(--space-7)!important}
   .intro-screen>span{transform:translateY(8vh)!important}
 }
+
+/* Requested home/mobile refinements. */
+@media (pointer:fine){
+  body.home #works,body.home #works a,body.home #works img{cursor:auto!important}
+  .site-cursor.is-suppressed{opacity:0!important}
+}
+body.home #works .home-work-image{filter:none!important;opacity:1!important}
+.status-badge.status-ended::before,.news-status.status-ended::before{background:currentColor!important}
+@media (max-width:47.9375rem){
+  body.home .video-banner--ambient,body.home .video-banner--ambient .video-banner__foreground{background:#fff!important;background-color:#fff!important}
+  body.home .artist-detail h2{margin-bottom:var(--space-9)!important}
+  body.home .artist-detail h2+p{margin-top:0!important}
+  body.home .series-entry-section{min-height:58vh!important;padding-top:var(--space-7)!important;padding-bottom:var(--space-7)!important}
+  body.home .series-entry{height:52vh!important;min-height:52vh!important}
+  body.home .series-entry img{width:150%!important;height:calc(100% - 44px)!important;max-width:none!important;transform:scale(1.12)!important;transform-origin:center!important}
+}
