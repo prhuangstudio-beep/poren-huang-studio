@@ -2610,3 +2610,25 @@ body.home #works .work-panel,body.home #works .home-work-image{filter:none!impor
   body.home .series-entry{height:52vh!important;min-height:52vh!important}
   body.home .series-entry img{width:150%!important;height:calc(100% - 44px)!important;max-width:none!important;transform:scale(1.12)!important;transform-origin:center!important}
 }
+
+/* Keep the site accent orange; only the opening SCULPTURE label stays green. */
+.link,.section-head a,.news a,.timeline a,.all-works,.news-archive,
+.concept-toggle,.works-view-toggle button.active,.back-to-works,
+.series-entry strong,.home .side-title span:hover,.home .contact-title:hover,
+.news article:hover h3,.status-badge,.cv-toggle,.press-card:hover h3,
+.status-current,.news-status.status-current,.page-back,.more-panel{
+  color:#ff5a1f!important;
+}
+.status-badge::before{background:#ff5a1f!important}
+.intro-screen>span{
+  width:calc(100vw - 2rem);
+  max-width:none;
+  white-space:nowrap;
+  text-align:center;
+  font-size:clamp(2rem,11.5vw,8.125rem)!important;
+}
+.intro-screen small{
+  color:#adf203!important;
+  font-weight:900!important;
+  -webkit-text-stroke:.35px currentColor;
+}

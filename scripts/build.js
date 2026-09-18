@@ -81,7 +81,7 @@ works.forEach((work, index) => {
   const contactBody = `Hello Poren Huang Studio,\n\nI am contacting you about: ${title(work)} (${work.year}).\n\nHow should we address you?\nName:\nContact information:\nMessage:\n`;
   const values = {
     title: esc(`${title(work)} | Poren Huang Studio 黃柏仁`), description: esc(workDescription(work)), canonical: `${site}/works/${work.slug}`,
-    ogImage: imageUrl(work.images[0]), schema: JSON.stringify(artworkSchema(work)), mainImage: picture(work.images[0], { lazy: false }), mainAlt: esc(work.images[0].alt_zh || work.images[0].alt_en), hreflang: hreflang(`${site}/works/${work.slug}`),
+    ogImage: `${site}/assets/og/${work.slug}.jpg`, schema: JSON.stringify(artworkSchema(work)), mainImage: picture(work.images[0], { lazy: false }), mainAlt: esc(work.images[0].alt_zh || work.images[0].alt_en), hreflang: hreflang(`${site}/works/${work.slug}`),
     thumbnails, heading: `<span class="work-title-en" lang="en">${esc(work.title_en)}</span>${work.title_zh ? `<span class="work-title-zh" lang="zh-Hant">${esc(work.title_zh)}</span>` : ''}`, year: esc(work.year), metadata,
     workContact: `<a class="work-contact-me" target="_blank" rel="noopener noreferrer" href="https://mail.google.com/mail/?view=cm&fs=1&to=pr_dogs@yahoo.com.tw&su=${encodeURIComponent(contactSubject)}&body=${encodeURIComponent(contactBody)}">CONTACT ME</a>`,
     descriptionBlock: description ? `<div class="work-description"><p>${esc(description).replace(/\n/g, '<br>')}</p></div>` : '', relatedWorks,
@@ -152,5 +152,62 @@ async function optimizeImages() {
   return { created, skipped };
 }
 
+async function generateOgImages() {
+  const outputDirectory = path.join(root, 'assets', 'og');
+  const cacheFile = path.join(root, '.cache', 'og-images.json');
+  const cache = fs.existsSync(cacheFile) ? JSON.parse(fs.readFileSync(cacheFile, 'utf8')) : {};
+  fs.mkdirSync(outputDirectory, { recursive: true });
+  let created = 0, skipped = 0;
+  for (const work of works) {
+    const selected = work.images.find(image => image.featured) || work.images[0];
+    if (!selected) continue;
+    const source = path.join(root, selected.filename);
+    const output = path.join(outputDirectory, `${work.slug}.jpg`);
+    if (!fs.existsSync(source)) continue;
+    const stat = fs.statSync(source);
+    const signature = `${selected.filename}:${stat.mtimeMs}:${stat.size}`;
+    if (cache[work.slug] === signature && fs.existsSync(output)) { skipped++; continue; }
+    const background = await sharp(source).rotate().resize(1200, 630, { fit: 'cover', position: 'centre' }).blur(28).modulate({ brightness: 0.72, saturation: 0.9 }).jpeg({ quality: 84, mozjpeg: true }).toBuffer();
+    const foreground = await sharp(source).rotate().resize(1200, 630, { fit: 'contain', position: 'centre', background: { r: 0, g: 0, b: 0, alpha: 0 } }).png().toBuffer();
+    await sharp(background).composite([{ input: foreground, gravity: 'centre' }]).jpeg({ quality: 88, mozjpeg: true }).toFile(output);
+    cache[work.slug] = signature;
+    created++;
+  }
+  fs.mkdirSync(path.dirname(cacheFile), { recursive: true });
+  fs.writeFileSync(cacheFile, JSON.stringify(cache, null, 2));
+  return { created, skipped };
+}
+
+const staticSocialImages = {
+  'index.html': 'assets/media/artist-portrait.png',
+  'about.html': 'assets/media/artist-portrait.png',
+  'exhibitions.html': 'assets/media/home-image-break.jpg',
+  'press.html': 'assets/media/press-side-image-optimized.jpg',
+  'series.html': 'assets/media/series-entry.jpg',
+  'work.html': 'assets/media/artist-portrait.png'
+};
+async function updateStaticSocialMeta() {
+  for (const [file, imagePath] of Object.entries(staticSocialImages)) {
+    const target = path.join(root, file);
+    const localImage = path.join(root, imagePath);
+    if (!fs.existsSync(target) || !fs.existsSync(localImage)) continue;
+    let html = fs.readFileSync(target, 'utf8');
+    const head = html.match(/<head>[\s\S]*?<\/head>/)?.[0];
+    if (!head) continue;
+    const pageTitle = clean(head.match(/<title>([\s\S]*?)<\/title>/)?.[1]);
+    const description = head.match(/<meta name="description" content="([^"]*)">/)?.[1] || '';
+    const canonical = head.match(/<link rel="canonical" href="([^"]*)">/)?.[1] || `${site}/`;
+    const metadata = await sharp(localImage).metadata();
+    const image = `${site}/${imagePath}`;
+    const social = `<meta property="og:title" content="${esc(pageTitle)}"><meta property="og:description" content="${esc(description)}"><meta property="og:image" content="${image}"><meta property="og:image:width" content="${metadata.width}"><meta property="og:image:height" content="${metadata.height}"><meta property="og:image:type" content="${metadata.format === 'png' ? 'image/png' : 'image/jpeg'}"><meta property="og:url" content="${canonical}"><meta property="og:type" content="website"><meta property="og:locale" content="zh_TW"><meta property="og:locale:alternate" content="en_US"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(pageTitle)}"><meta name="twitter:description" content="${esc(description)}"><meta name="twitter:image" content="${image}">`;
+    const cleaned = head.replace(/<meta property="og:[^"]+"[^>]*>/g, '').replace(/<meta name="twitter:[^"]+"[^>]*>/g, '');
+    html = html.replace(head, cleaned.replace('</head>', `${social}</head>`));
+    write(target, html);
+  }
+}
+
 addHreflangToStaticPages();
-optimizeImages().then(result => console.log(`Built ${works.length} static work pages, sitemap and optimized images (${result.created} processed, ${result.skipped} cached).`)).catch(error => { console.error(error); process.exitCode = 1; });
+Promise.all([optimizeImages(), generateOgImages()]).then(async ([images, og]) => {
+  await updateStaticSocialMeta();
+  console.log(`Built ${works.length} static work pages, sitemap and optimized images (${images.created} processed, ${images.skipped} cached; OG ${og.created} created, ${og.skipped} cached).`);
+}).catch(error => { console.error(error); process.exitCode = 1; });
