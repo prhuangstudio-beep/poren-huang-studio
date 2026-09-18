@@ -2499,6 +2499,19 @@ footer .socials a,.menu-socials a,.site-search-icons a{width:2.75rem!important;h
 @keyframes mobile-image-shimmer{to{background-position:-220% 0}}
 @media (prefers-reduced-motion:reduce){.mobile-image-shell::after{animation:none!important}.mobile-image-shell picture,.mobile-image-shell>img{transition:none!important}}
 
+/* Final film separation: only the top film uses an ambient side-fill.  The
+   Artist film below stays a single, edge-to-edge video at every viewport. */
+body.home .video-banner--ambient{position:relative!important;isolation:isolate;overflow:hidden!important;background:#d7d7d3!important}
+body.home .video-banner--ambient .video-banner__ambient{display:block!important;position:absolute!important;inset:-9%!important;z-index:0!important;width:118%!important;height:118%!important;max-width:none!important;object-fit:cover!important;transform:scale(1.06)!important;filter:blur(18px) brightness(.72) saturate(.84)!important;pointer-events:none!important}
+body.home .video-banner--ambient .video-banner__veil{display:block!important;position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;background:linear-gradient(90deg,rgba(255,255,255,.14),transparent 18% 82%,rgba(255,255,255,.14))!important}
+body.home .video-banner--ambient .video-banner__foreground{display:block!important;position:relative!important;z-index:2!important;width:100%!important;height:100%!important;max-width:100%!important;object-fit:contain!important;object-position:center!important;background:transparent!important}
+body.home .hero .artist-film--ambient{background:transparent!important}
+body.home .hero .artist-film--ambient .artist-film__ambient,body.home .hero .artist-film--ambient .artist-film__veil{display:none!important}
+body.home .hero .artist-film--ambient .artist-film__foreground{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;background:transparent!important;mask-image:none!important;-webkit-mask-image:none!important}
+
+/* Keep the actual Threads link visible; it uses the inline black line mark. */
+.menu-socials a[aria-label="Threads"],.site-search-icons a[aria-label="Threads"],footer .socials a[aria-label="Threads"]{display:grid!important;visibility:visible!important;opacity:1!important}
+
 /* First (topmost) homepage film: preserve its full frame while the duplicate,
    blurred layer fills any phone-width side space.  The artist film below is
    intentionally not included here. */
