@@ -2400,6 +2400,8 @@ nav a{min-height:2.75rem;display:inline-flex;align-items:center;justify-content:
 .work-main{width:100%;margin:0;max-height:min(68svh,42rem);overflow:hidden}
 .work-main picture,.work-main img{width:100%;height:100%}
 .work-main img{object-fit:contain}
+.work-detail-page .work-main img{transform:none!important}
+.work-detail-page .work-thumbnails button:active{transform:none!important}
 .work-thumbnails{display:flex!important;grid-template-columns:none!important;gap:var(--space-3)!important;overflow-x:auto;scroll-snap-type:x mandatory;padding:var(--space-2) 0 var(--space-4);-webkit-overflow-scrolling:touch}
 .work-thumbnails button{flex:0 0 clamp(4rem,18vw,6rem);min-width:2.75rem;min-height:2.75rem;scroll-snap-align:start}
 .work-heading{display:flex;align-items:flex-start;gap:var(--space-4);justify-content:space-between}

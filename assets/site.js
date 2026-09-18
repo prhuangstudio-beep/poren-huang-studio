@@ -648,8 +648,7 @@ document.addEventListener('click',event=>{
     '.series-entry','.series-hero figure','.artist-portrait,.image-carousel',
     '.home-image-break,.press-side-image,.video-banner,.artist-film',
     '.home .artist-detail,.home .series-entry-section,.home .press-layout',
-    '.work-main img',
-    '.work-detail','.work-variants','h1,h2,h3',
+    '.work-variants','h1,h2,h3',
     '.related-works > div > a'
   ].join(',');
   let cards=[];

@@ -77,7 +77,7 @@
       const picture=mainFigure.querySelector('picture');
       if(picture){
         picture.style.transition='none';
-        picture.style.transform=`translateX(${Math.max(-32,Math.min(32,deltaX*.22))}px) scale(.985)`;
+        picture.style.transform=`translateX(${Math.max(-32,Math.min(32,deltaX*.22))}px)`;
       }
     });
     const finishSwipe=()=>{
