@@ -2527,6 +2527,12 @@ body.home .hero .artist-film--ambient .artist-film__foreground{width:100%!import
   .works-overview .works-tools{gap:var(--space-5)!important;margin-top:var(--space-6)!important}
 }
 
+/* Top film sizing: desktop never crops the foreground and keeps it entirely in
+   the viewport; only its lateral surround uses the blurred fill. */
+@media (min-width:48rem){
+  body.home .video-banner--ambient{height:min(56.25vw,100svh)!important;min-height:0!important;max-height:100svh!important}
+}
+
 /* First (topmost) homepage film: preserve its full frame while the duplicate,
    blurred layer fills any phone-width side space.  The artist film below is
    intentionally not included here. */
