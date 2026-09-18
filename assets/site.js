@@ -108,7 +108,7 @@ if(header&&nav){
   const navLinks=[...nav.children].filter(item=>item.tagName==='A');
   const social=document.createElement('div');
   social.className='menu-socials';
-  social.innerHTML='<a href="https://www.instagram.com/porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-label">IG</span></a><a href="https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-label">f</span></a><a href="https://youtube.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a><a href="https://mail.google.com/mail/?view=cm&fs=1&to=pr_dogs@yahoo.com.tw" target="_blank" rel="noopener noreferrer" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg></a><a href="https://www.threads.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Threads"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c-5 0-8 3.2-8 8.3 0 5.3 3 8.7 7.9 8.7 4 0 6.6-2.5 6.6-6 0-3.2-2.1-5.3-5.2-5.3-2.8 0-4.7 1.6-4.7 4 0 2 1.3 3.3 3.2 3.3 1.7 0 2.8-1 2.8-2.6 0-1.8-1.5-3-3.8-3"/><path d="M15.2 9.7c2.7.7 4.3 2.4 4.6 4.9"/></svg></a>';
+  social.innerHTML='<a href="https://www.instagram.com/porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-label">IG</span></a><a href="https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-label">f</span></a><a href="https://youtube.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a><a href="https://mail.google.com/mail/?view=cm&fs=1&to=pr_dogs@yahoo.com.tw" target="_blank" rel="noopener noreferrer" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg></a><a href="https://www.threads.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Threads"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c-5 0-8 3.2-8 8.3 0 5.3 3 8.7 7.9 8.7 4 0 6.6-2.5 6.6-6 0-3.2-2.1-5.3-5.2-5.3-2.8 0-4.7 1.6-4.7 4 0 2 1.3 3.3 3.2 3.3 1.7 0 2.8-1 2.8-2.6 0-1.8-1.5-3-3.8-3"/></svg></a>';
   nav.append(social);
   const searchButton=document.createElement('button');
   searchButton.className='site-search-toggle';
@@ -430,7 +430,7 @@ if(cv){
 const labels=['ARTIST','WORKS','NEWS','PRESS'];
 document.querySelectorAll('.side-title span').forEach((label,i)=>label.textContent=labels[i]||label.textContent);
 
-const footerSocialLinks='<a href="https://www.instagram.com/porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-label">IG</span></a><a href="https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-label">f</span></a><a href="https://youtube.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a><a href="https://mail.google.com/mail/?view=cm&fs=1&to=pr_dogs@yahoo.com.tw" target="_blank" rel="noopener noreferrer" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg></a><a href="https://www.threads.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Threads"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c-5 0-8 3.2-8 8.3 0 5.3 3 8.7 7.9 8.7 4 0 6.6-2.5 6.6-6 0-3.2-2.1-5.3-5.2-5.3-2.8 0-4.7 1.6-4.7 4 0 2 1.3 3.3 3.2 3.3 1.7 0 2.8-1 2.8-2.6 0-1.8-1.5-3-3.8-3"/><path d="M15.2 9.7c2.7.7 4.3 2.4 4.6 4.9"/></svg></a>';
+const footerSocialLinks='<a href="https://www.instagram.com/porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-label">IG</span></a><a href="https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-label">f</span></a><a href="https://youtube.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a><a href="https://mail.google.com/mail/?view=cm&fs=1&to=pr_dogs@yahoo.com.tw" target="_blank" rel="noopener noreferrer" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg></a><a href="https://www.threads.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Threads"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c-5 0-8 3.2-8 8.3 0 5.3 3 8.7 7.9 8.7 4 0 6.6-2.5 6.6-6 0-3.2-2.1-5.3-5.2-5.3-2.8 0-4.7 1.6-4.7 4 0 2 1.3 3.3 3.2 3.3 1.7 0 2.8-1 2.8-2.6 0-1.8-1.5-3-3.8-3"/></svg></a>';
 const footer=document.querySelector('footer');
 if(footer){
   let socials=footer.querySelector('.socials');
@@ -515,6 +515,7 @@ if('IntersectionObserver'in window){
 
 const homeStage=document.querySelector('.work-stage');
 if(homeStage){
+  const enableHomeCoverRotation=matchMedia('(min-width:48rem)').matches;
   if(!document.querySelector('.work-swipe-hint'))homeStage.insertAdjacentHTML('afterend','<span class="work-swipe-hint" aria-hidden="true"><svg viewBox="0 0 32 16"><path d="M7 3 2 8l5 5M2 8h28M25 3l5 5-5 5"/></svg></span>');
   const homeCovers={
     'Power Food':['assets/catalog/power-food/01.jpg?v=20260902pf','assets/catalog/power-food/03-home.jpg?v=20260902pfh'],
@@ -535,7 +536,7 @@ if(homeStage){
       sizeHomeWorks();
     });
   };
-  homeStage.querySelectorAll('.home-work-image').forEach(image=>{
+  if(enableHomeCoverRotation)homeStage.querySelectorAll('.home-work-image').forEach(image=>{
     if(homeCovers[image.alt])image.src=homeCovers[image.alt][0];
     image.complete?sizeHomeWorks():image.addEventListener('load',sizeHomeWorks,{once:true});
   });
@@ -579,7 +580,7 @@ if(homeStage){
     inactiveImage.src=nextSrc;
     if(inactiveImage.complete)activateNext();
   };
-  setInterval(()=>{
+  if(enableHomeCoverRotation)setInterval(()=>{
     if(document.hidden)return;
     homeStage.querySelectorAll('.work-panel').forEach(rotateHomeCover);
   },5600);
