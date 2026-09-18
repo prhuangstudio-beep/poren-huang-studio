@@ -2499,3 +2499,14 @@ footer .socials a,.menu-socials a,.site-search-icons a{width:2.75rem!important;h
 }
 @keyframes mobile-image-shimmer{to{background-position:-220% 0}}
 @media (prefers-reduced-motion:reduce){.mobile-image-shell::after{animation:none!important}.mobile-image-shell picture,.mobile-image-shell>img{transition:none!important}}
+
+/* First homepage film only: keep the full foreground frame on mobile and use
+   its own blurred copy for the side fill. The later homepage banner is excluded. */
+@media(max-width:39.999rem){
+  body.home .hero .artist-film--ambient{background:#d7d7d3!important}
+  body.home .hero .artist-film--ambient .artist-film__ambient{display:block!important;inset:-8%!important;width:116%!important;height:116%!important;filter:blur(18px) brightness(.72) saturate(.84)!important}
+  body.home .hero .artist-film--ambient .artist-film__veil{display:block!important;background:linear-gradient(90deg,rgba(255,255,255,.16),transparent 18% 82%,rgba(255,255,255,.16))!important}
+  body.home .hero .artist-film--ambient .artist-film__foreground{object-fit:contain!important;object-position:center!important;background:transparent!important}
+  body.home .video-banner{background:transparent!important}
+  body.home .video-banner video{width:100%!important;max-width:none!important;height:100%!important;object-fit:cover!important;object-position:center!important}
+}
