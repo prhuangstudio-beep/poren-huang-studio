@@ -144,8 +144,8 @@ const hero=document.querySelector('.hero');
 if(hero){
   document.body.classList.add('home');
   document.body.classList.add('intro-active');
-  hero.insertAdjacentHTML('beforebegin','<div class="video-spacer" aria-hidden="true"></div><section class="video-banner" aria-label="Poren Huang studio film"><video autoplay muted loop playsinline preload="metadata" poster="assets/media/home-image-break.jpg"><source src="assets/media/hero-banner-lite.mp4" media="(max-width: 900px)" type="video/mp4"><source src="assets/media/hero-banner-hd.mp4" type="video/mp4"></video></section>');
-  const heroVideo=document.querySelector('.video-banner video');
+  hero.insertAdjacentHTML('beforebegin','<div class="video-spacer" aria-hidden="true"></div><section class="video-banner video-banner--ambient" aria-label="Poren Huang studio film"><video class="video-banner__ambient" aria-hidden="true" tabindex="-1" autoplay muted loop playsinline preload="none"><source src="assets/media/hero-banner-lite.mp4" media="(max-width: 900px)" type="video/mp4"><source src="assets/media/hero-banner-hd.mp4" type="video/mp4"></video><span class="video-banner__veil" aria-hidden="true"></span><video class="video-banner__foreground" autoplay muted loop playsinline preload="metadata" poster="assets/media/home-image-break.jpg"><source src="assets/media/hero-banner-lite.mp4" media="(max-width: 900px)" type="video/mp4"><source src="assets/media/hero-banner-hd.mp4" type="video/mp4"></video></section>');
+  const heroVideo=document.querySelector('.video-banner__foreground');
   const warmHeroVideo=()=>{
     if(!heroVideo)return;
     heroVideo.preload='auto';
