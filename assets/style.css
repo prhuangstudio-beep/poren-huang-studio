@@ -2633,3 +2633,28 @@ body.home #works .work-panel,body.home #works .home-work-image{filter:none!impor
   -webkit-text-stroke:.7px currentColor;
   text-shadow:.25px 0 currentColor,-.25px 0 currentColor;
 }
+@media (max-width:47.9375rem){
+  body.home #works .work-stage{
+    height:44vh!important;
+    max-height:44vh!important;
+    padding-bottom:3rem!important;
+  }
+  body.home #works .work-panel,
+  body.home #works .work-panel.active{
+    height:calc(100% - 3rem)!important;
+    min-height:calc(100% - 3rem)!important;
+  }
+  body.home #works .work-panel>span{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    bottom:-2.35rem!important;
+    color:#111!important;
+    z-index:4!important;
+  }
+  body.home #works .work-panel>span small{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+  }
+}
