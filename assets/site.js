@@ -159,14 +159,24 @@ const hero=document.querySelector('.hero');
 if(hero){
   document.body.classList.add('home');
   document.body.classList.add('intro-active');
-  hero.insertAdjacentHTML('beforebegin','<div class="video-spacer" aria-hidden="true"></div><section class="video-banner video-banner--ambient" aria-label="Poren Huang studio film"><video class="video-banner__ambient" aria-hidden="true" tabindex="-1" autoplay muted loop playsinline preload="none"><source src="assets/media/hero-banner-lite.mp4" media="(max-width: 900px)" type="video/mp4"><source src="assets/media/hero-banner-hd.mp4" type="video/mp4"></video><span class="video-banner__veil" aria-hidden="true"></span><video class="video-banner__foreground" autoplay muted loop playsinline preload="metadata"><source src="assets/media/hero-banner-lite.mp4" media="(max-width: 900px)" type="video/mp4"><source src="assets/media/hero-banner-hd.mp4" type="video/mp4"></video></section>');
+  hero.insertAdjacentHTML('beforebegin','<div class="video-spacer" aria-hidden="true"></div><section class="video-banner video-banner--ambient" aria-label="Poren Huang studio film"><video class="video-banner__ambient" aria-hidden="true" tabindex="-1" muted loop playsinline preload="none" data-lite-src="assets/media/hero-banner-lite.mp4" data-hd-src="assets/media/hero-banner-hd.mp4"></video><span class="video-banner__veil" aria-hidden="true"></span><video class="video-banner__foreground" autoplay muted loop playsinline preload="metadata"><source src="assets/media/hero-banner-lite.mp4" media="(max-width: 900px)" type="video/mp4"><source src="assets/media/hero-banner-hd.mp4" type="video/mp4"></video></section>');
   const heroVideo=document.querySelector('.video-banner__foreground');
+  const ambientVideo=document.querySelector('.video-banner__ambient');
+  let ambientStarted=false;
+  const loadAmbientVideo=()=>{
+    if(ambientStarted||!ambientVideo||!matchMedia('(min-width: 901px)').matches)return;
+    ambientStarted=true;
+    ambientVideo.innerHTML='<source src="'+ambientVideo.dataset.hdSrc+'" type="video/mp4">';
+    ambientVideo.load();
+    ambientVideo.play().catch(()=>{});
+  };
   const warmHeroVideo=()=>{
     if(!heroVideo)return;
     heroVideo.preload='auto';
     heroVideo.play().catch(()=>{});
   };
   warmHeroVideo();
+  heroVideo?.addEventListener('canplay',()=>setTimeout(loadAmbientVideo,500),{once:true});
   window.scrollTo(0,0);
   const intro=document.createElement('div');
   intro.className='intro-screen';
@@ -178,9 +188,10 @@ if(hero){
       document.body.classList.remove('intro-active');
       intro.remove();
       warmHeroVideo();
+      setTimeout(loadAmbientVideo,1200);
     }
   });
-  setTimeout(()=>{document.body.classList.remove('intro-active');warmHeroVideo();},3800);
+  setTimeout(()=>{document.body.classList.remove('intro-active');warmHeroVideo();setTimeout(loadAmbientVideo,1200);},3800);
   const homeNav=document.createElement('div');
   homeNav.className='home-section-nav';
   homeNav.setAttribute('role','navigation');
