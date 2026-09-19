@@ -2682,3 +2682,25 @@ html.home-preintro body{
 html.home-preintro body{
   opacity:0!important;
 }
+
+/* During the opening sequence, keep the page clean white until the first
+   homepage film has a playable frame. */
+body.home.intro-active header,
+body.home.intro-active main,
+body.home.intro-active footer,
+body.home.intro-active .video-banner{
+  visibility:hidden!important;
+}
+body.home .video-banner--ambient{
+  background:#fff!important;
+}
+body.home .video-banner--ambient .video-banner__ambient,
+body.home .video-banner--ambient .video-banner__veil{
+  opacity:0!important;
+  visibility:hidden!important;
+}
+body.home.hero-ambient-ready .video-banner--ambient .video-banner__ambient,
+body.home.hero-ambient-ready .video-banner--ambient .video-banner__veil{
+  opacity:1!important;
+  visibility:visible!important;
+}

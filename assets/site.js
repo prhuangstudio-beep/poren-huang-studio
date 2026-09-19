@@ -164,6 +164,8 @@ if(hero){
   const ambientVideo=document.querySelector('.video-banner__ambient');
   const heroVideoQuery=matchMedia('(max-width: 900px)');
   let ambientStarted=false;
+  let heroVideoReady=false;
+  let introCleared=false;
   const selectHeroVideoSrc=()=>heroVideoQuery.matches?heroVideo.dataset.liteSrc:heroVideo.dataset.hdSrc;
   const setHeroVideoSrc=()=>{
     if(!heroVideo)return;
@@ -179,8 +181,10 @@ if(hero){
     ambientStarted=true;
     ambientVideo.setAttribute('src',ambientVideo.dataset.hdSrc);
     ambientVideo.load();
+    ambientVideo.addEventListener('loadeddata',()=>document.body.classList.add('hero-ambient-ready'),{once:true});
     ambientVideo.play().catch(()=>{});
   };
+  const markHeroVideoReady=()=>{heroVideoReady=true;};
   const warmHeroVideo=()=>{
     if(!heroVideo)return;
     setHeroVideoSrc();
@@ -194,8 +198,10 @@ if(hero){
     heroVideoQuery.addEventListener('change',()=>{setHeroVideoSrc();warmHeroVideo();});
   }
   warmHeroVideo();
-  heroVideo?.addEventListener('loadeddata',warmHeroVideo,{once:true});
-  heroVideo?.addEventListener('canplay',()=>setTimeout(loadAmbientVideo,500),{once:true});
+  heroVideo?.addEventListener('loadeddata',()=>{markHeroVideoReady();warmHeroVideo();},{once:true});
+  heroVideo?.addEventListener('canplay',markHeroVideoReady,{once:true});
+  heroVideo?.addEventListener('playing',markHeroVideoReady,{once:true});
+  heroVideo?.addEventListener('canplay',()=>setTimeout(()=>{if(introCleared)loadAmbientVideo();},4500),{once:true});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)warmHeroVideo();});
   window.scrollTo(0,0);
   const intro=document.createElement('div');
@@ -203,16 +209,29 @@ if(hero){
   intro.innerHTML='<span>POREN HUANG<small>SCULPTURE</small></span>';
   document.body.prepend(intro);
   document.documentElement.classList.remove('home-preintro');
+  const clearIntro=()=>{
+    if(introCleared)return;
+    if(!heroVideoReady&&heroVideo&&heroVideo.readyState<2){
+      const waitForVideo=()=>clearIntro();
+      heroVideo.addEventListener('loadeddata',waitForVideo,{once:true});
+      heroVideo.addEventListener('canplay',waitForVideo,{once:true});
+      setTimeout(()=>{heroVideoReady=true;clearIntro();},2600);
+      warmHeroVideo();
+      return;
+    }
+    introCleared=true;
+    window.scrollTo(0,0);
+    document.body.classList.remove('intro-active');
+    intro.remove();
+    warmHeroVideo();
+    setTimeout(loadAmbientVideo,4500);
+  };
   intro.addEventListener('animationend',e=>{
     if(e.animationName==='intro-out'){
-      window.scrollTo(0,0);
-      document.body.classList.remove('intro-active');
-      intro.remove();
-      warmHeroVideo();
-      setTimeout(loadAmbientVideo,1200);
+      clearIntro();
     }
   });
-  setTimeout(()=>{document.body.classList.remove('intro-active');warmHeroVideo();setTimeout(loadAmbientVideo,1200);},3800);
+  setTimeout(clearIntro,4200);
   const homeNav=document.createElement('div');
   homeNav.className='home-section-nav';
   homeNav.setAttribute('role','navigation');
