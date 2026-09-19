@@ -2707,3 +2707,44 @@ body.home.hero-ambient-ready .video-banner--ambient .video-banner__veil{
   opacity:1!important;
   visibility:visible!important;
 }
+
+/* Shared page-to-page donut transition. */
+body.page-transition-leaving{
+  opacity:0;
+  transition:opacity .42s cubic-bezier(.76,0,.24,1);
+}
+.page-donut-transition{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .36s cubic-bezier(.76,0,.24,1),visibility 0s .36s;
+}
+.page-donut-transition.is-visible{
+  opacity:1;
+  visibility:visible;
+  transition:opacity .36s cubic-bezier(.76,0,.24,1);
+}
+.page-donut-transition.is-done{
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .42s cubic-bezier(.76,0,.24,1),visibility 0s .42s;
+}
+.page-donut-transition video{
+  width:clamp(220px,38vw,480px);
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+@media(max-width:700px){
+  .page-donut-transition video{width:clamp(190px,58vw,340px)}
+}
+@media(prefers-reduced-motion:reduce){
+  body.page-transition-leaving{opacity:1;transition:none}
+  .page-donut-transition{display:none}
+}

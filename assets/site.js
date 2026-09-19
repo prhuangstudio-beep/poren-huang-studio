@@ -47,6 +47,12 @@ document.querySelectorAll('img:not([loading])').forEach(image=>{
   if(!image.closest('.hero,.video-banner,.work-main,.work-stage'))image.loading='lazy';
   image.decoding='async';
 });
+// Keep the first visible artwork views responsive without touching their
+// existing picture/srcset choices. Everything further down remains lazy.
+document.querySelectorAll('.artist-slides img.active,.series-slides img.active,.work-main img,.works-image-grid .work-card:nth-child(-n+4) img,body.home .work-panel:nth-child(-n+2) img').forEach(image=>{
+  image.loading='eager';
+  image.fetchPriority='high';
+});
 
 const header=document.querySelector('header'),nav=document.querySelector('nav');
 if(header&&nav){
@@ -161,19 +167,8 @@ if(hero){
   document.body.classList.add('intro-active');
   const heroVideo=document.querySelector('.video-banner__foreground');
   const ambientVideo=document.querySelector('.video-banner__ambient');
-  const heroVideoQuery=matchMedia('(max-width: 900px)');
   let ambientStarted=false;
   let introCleared=false;
-  const selectHeroVideoSrc=()=>heroVideoQuery.matches?heroVideo.dataset.liteSrc:heroVideo.dataset.hdSrc;
-  const setHeroVideoSrc=()=>{
-    if(!heroVideo)return;
-    const nextSrc=selectHeroVideoSrc();
-    const currentSrc=heroVideo.currentSrc||heroVideo.getAttribute('src')||'';
-    if(!currentSrc.endsWith(nextSrc)){
-      heroVideo.setAttribute('src',nextSrc);
-      heroVideo.load();
-    }
-  };
   const loadAmbientVideo=()=>{
     if(ambientStarted||!ambientVideo||!matchMedia('(min-width: 901px)').matches)return;
     ambientStarted=true;
@@ -184,16 +179,12 @@ if(hero){
   };
   const warmHeroVideo=()=>{
     if(!heroVideo)return;
-    setHeroVideoSrc();
     heroVideo.preload='auto';
     heroVideo.muted=true;
     heroVideo.autoplay=true;
     heroVideo.playsInline=true;
     heroVideo.play().catch(()=>{});
   };
-  if(heroVideoQuery.addEventListener){
-    heroVideoQuery.addEventListener('change',()=>{setHeroVideoSrc();warmHeroVideo();});
-  }
   warmHeroVideo();
   heroVideo?.addEventListener('loadeddata',warmHeroVideo,{once:true});
   heroVideo?.addEventListener('canplay',()=>setTimeout(()=>{if(introCleared)loadAmbientVideo();},4500),{once:true});
@@ -754,6 +745,57 @@ document.addEventListener('click',event=>{
     requestRender();
   }).observe(document.body,{childList:true,subtree:true});
   requestRender();
+})();
+
+// Full-site page transition. The animation remains absent from dedicated test
+// pages, where the test-only controller owns the interaction.
+(()=>{
+  if(window.__porenPageTransition||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(location.pathname.includes('donut-transition-test')||location.pathname.includes('cylindrical-home-test'))return;
+  window.__porenPageTransition=true;
+  const overlay=document.createElement('div');
+  overlay.className='page-donut-transition';
+  overlay.setAttribute('aria-hidden','true');
+  overlay.innerHTML='<video muted playsinline preload="auto" src="assets/media/donut-page-transition.mp4"></video>';
+  document.documentElement.append(overlay);
+  const video=overlay.querySelector('video');
+  let transitioning=false;
+  const sameDocument=url=>url.pathname===location.pathname&&url.search===location.search;
+  const handleLink=link=>{
+    if(!link||link.target==='_blank'||link.hasAttribute('download'))return false;
+    const href=link.getAttribute('href')||'';
+    if(href.startsWith('mailto:')||href.startsWith('tel:')||href.startsWith('#'))return false;
+    const url=new URL(link.href,location.href);
+    return url.origin===location.origin&&!sameDocument(url);
+  };
+  const play=()=>new Promise(resolve=>{
+    let complete=false;
+    const done=()=>{
+      if(complete)return;
+      complete=true;
+      clearTimeout(fallback);
+      video.onended=null;
+      resolve();
+    };
+    const fallback=setTimeout(done,2800);
+    video.onended=done;
+    video.currentTime=0;
+    const result=video.play();
+    if(result)result.catch(()=>setTimeout(done,500));
+  });
+  document.addEventListener('click',event=>{
+    const link=event.target.closest?.('a[href]');
+    if(event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||!handleLink(link)||transitioning)return;
+    event.preventDefault();
+    transitioning=true;
+    document.body.classList.add('page-transition-leaving');
+    setTimeout(async()=>{
+      overlay.classList.add('is-visible');
+      await play();
+      overlay.classList.add('is-done');
+      setTimeout(()=>{location.href=link.href;},420);
+    },420);
+  },true);
 })();
 // Mobile-only image loading states. They sit around the existing picture/srcset
 // output and never replace its sources or responsive sizes.
