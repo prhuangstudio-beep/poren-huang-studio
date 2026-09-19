@@ -159,19 +159,17 @@ const hero=document.querySelector('.hero');
 if(hero){
   document.body.classList.add('home');
   document.body.classList.add('intro-active');
-  hero.insertAdjacentHTML('beforebegin','<div class="video-spacer" aria-hidden="true"></div><section class="video-banner video-banner--ambient" aria-label="Poren Huang studio film"><video class="video-banner__ambient" aria-hidden="true" tabindex="-1" muted loop playsinline preload="none" data-hd-src="assets/media/hero-banner-web.mp4"></video><span class="video-banner__veil" aria-hidden="true"></span><video class="video-banner__foreground" autoplay muted loop playsinline preload="auto" data-lite-src="assets/media/hero-banner-mobile.mp4" data-hd-src="assets/media/hero-banner-web.mp4"></video></section>');
   const heroVideo=document.querySelector('.video-banner__foreground');
   const ambientVideo=document.querySelector('.video-banner__ambient');
   const heroVideoQuery=matchMedia('(max-width: 900px)');
   let ambientStarted=false;
-  let heroVideoReady=false;
   let introCleared=false;
   const selectHeroVideoSrc=()=>heroVideoQuery.matches?heroVideo.dataset.liteSrc:heroVideo.dataset.hdSrc;
   const setHeroVideoSrc=()=>{
     if(!heroVideo)return;
     const nextSrc=selectHeroVideoSrc();
-    const currentSrc=heroVideo.getAttribute('src')||'';
-    if(currentSrc!==nextSrc){
+    const currentSrc=heroVideo.currentSrc||heroVideo.getAttribute('src')||'';
+    if(!currentSrc.endsWith(nextSrc)){
       heroVideo.setAttribute('src',nextSrc);
       heroVideo.load();
     }
@@ -184,7 +182,6 @@ if(hero){
     ambientVideo.addEventListener('loadeddata',()=>document.body.classList.add('hero-ambient-ready'),{once:true});
     ambientVideo.play().catch(()=>{});
   };
-  const markHeroVideoReady=()=>{heroVideoReady=true;};
   const warmHeroVideo=()=>{
     if(!heroVideo)return;
     setHeroVideoSrc();
@@ -198,9 +195,7 @@ if(hero){
     heroVideoQuery.addEventListener('change',()=>{setHeroVideoSrc();warmHeroVideo();});
   }
   warmHeroVideo();
-  heroVideo?.addEventListener('loadeddata',()=>{markHeroVideoReady();warmHeroVideo();},{once:true});
-  heroVideo?.addEventListener('canplay',markHeroVideoReady,{once:true});
-  heroVideo?.addEventListener('playing',markHeroVideoReady,{once:true});
+  heroVideo?.addEventListener('loadeddata',warmHeroVideo,{once:true});
   heroVideo?.addEventListener('canplay',()=>setTimeout(()=>{if(introCleared)loadAmbientVideo();},4500),{once:true});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)warmHeroVideo();});
   window.scrollTo(0,0);
@@ -211,14 +206,6 @@ if(hero){
   document.documentElement.classList.remove('home-preintro');
   const clearIntro=()=>{
     if(introCleared)return;
-    if(!heroVideoReady&&heroVideo&&heroVideo.readyState<2){
-      const waitForVideo=()=>clearIntro();
-      heroVideo.addEventListener('loadeddata',waitForVideo,{once:true});
-      heroVideo.addEventListener('canplay',waitForVideo,{once:true});
-      setTimeout(()=>{heroVideoReady=true;clearIntro();},2600);
-      warmHeroVideo();
-      return;
-    }
     introCleared=true;
     window.scrollTo(0,0);
     document.body.classList.remove('intro-active');
