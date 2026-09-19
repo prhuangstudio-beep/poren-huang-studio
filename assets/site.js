@@ -187,7 +187,9 @@ if(hero){
   };
   warmHeroVideo();
   heroVideo?.addEventListener('loadeddata',warmHeroVideo,{once:true});
-  heroVideo?.addEventListener('canplay',()=>setTimeout(()=>{if(introCleared)loadAmbientVideo();},4500),{once:true});
+  // The ambient layer is decorative. Let the primary film, artwork images and
+  // artist film establish first; only then download this duplicate desktop stream.
+  heroVideo?.addEventListener('canplay',()=>setTimeout(()=>{if(introCleared)loadAmbientVideo();},12000),{once:true});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)warmHeroVideo();});
   window.scrollTo(0,0);
   const intro=document.createElement('div');
@@ -202,7 +204,7 @@ if(hero){
     document.body.classList.remove('intro-active');
     intro.remove();
     warmHeroVideo();
-    setTimeout(loadAmbientVideo,4500);
+    setTimeout(loadAmbientVideo,12000);
   };
   intro.addEventListener('animationend',e=>{
     if(e.animationName==='intro-out'){
@@ -761,7 +763,9 @@ document.addEventListener('click',event=>{
   const overlay=document.createElement('div');
   overlay.className='page-donut-transition';
   overlay.setAttribute('aria-hidden','true');
-  overlay.innerHTML='<video muted playsinline preload="auto" src="assets/media/donut-page-transition.mp4"></video>';
+  // Do not compete with page media for bandwidth. The transition movie is
+  // fetched only after the visitor chooses to leave the page.
+  overlay.innerHTML='<video muted playsinline preload="none" data-src="assets/media/donut-page-transition.mp4"></video>';
   document.documentElement.append(overlay);
   const video=overlay.querySelector('video');
   let transitioning=false;
@@ -784,6 +788,10 @@ document.addEventListener('click',event=>{
     };
     const fallback=setTimeout(done,2800);
     video.onended=done;
+    if(!video.src){
+      video.src=video.dataset.src;
+      video.load();
+    }
     video.currentTime=0;
     const result=video.play();
     if(result)result.catch(()=>setTimeout(done,500));
