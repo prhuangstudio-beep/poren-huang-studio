@@ -2673,3 +2673,12 @@ body.home .contact-title{
   margin-left:0!important;
   text-align:left!important;
 }
+
+/* Keep the homepage pure white until the opening animation is inserted. */
+html.home-preintro,
+html.home-preintro body{
+  background:#fff!important;
+}
+html.home-preintro body{
+  opacity:0!important;
+}

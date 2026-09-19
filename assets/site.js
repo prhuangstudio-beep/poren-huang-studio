@@ -202,6 +202,7 @@ if(hero){
   intro.className='intro-screen';
   intro.innerHTML='<span>POREN HUANG<small>SCULPTURE</small></span>';
   document.body.prepend(intro);
+  document.documentElement.classList.remove('home-preintro');
   intro.addEventListener('animationend',e=>{
     if(e.animationName==='intro-out'){
       window.scrollTo(0,0);
