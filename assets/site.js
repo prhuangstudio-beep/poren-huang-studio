@@ -170,17 +170,17 @@ if(hero){
   window.scrollTo(0,0);
   const intro=document.createElement('div');
   intro.className='intro-screen';
-  intro.innerHTML='<span>POREN HUANG<small>SCULPTURE</small></span>';
+  intro.innerHTML='<span class="intro-lockup"><b>POREN</b><b>HUANG</b><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
   intro.addEventListener('animationend',e=>{
-    if(e.animationName==='intro-out'){
+    if(e.animationName==='intro-out'||e.animationName==='intro-screen-finish'){
       window.scrollTo(0,0);
       document.body.classList.remove('intro-active');
       intro.remove();
       warmHeroVideo();
     }
   });
-  setTimeout(()=>{document.body.classList.remove('intro-active');warmHeroVideo();},3800);
+  setTimeout(()=>{document.body.classList.remove('intro-active');warmHeroVideo();},4800);
   const homeNav=document.createElement('div');
   homeNav.className='home-section-nav';
   homeNav.setAttribute('role','navigation');
@@ -735,8 +735,8 @@ document.addEventListener('click',event=>{
 
   const compact=matchMedia('(max-width: 47.9375rem)');
   const settings={
-    home:{horizontalDrift:compact.matches?28:64,radius:compact.matches?360:620,arc:.46,range:compact.matches?1.48:1.72,maxRotate:compact.matches?8:12},
-    works:{horizontalDrift:compact.matches?24:56,radius:compact.matches?330:570,arc:.5,range:compact.matches?1.4:1.62,maxRotate:compact.matches?8:11}
+    home:{horizontalDrift:compact.matches?7:14,radius:compact.matches?80:120,arc:.18,range:compact.matches?1.48:1.72,maxRotate:compact.matches?.65:1.1},
+    works:{horizontalDrift:compact.matches?6:12,radius:compact.matches?70:110,arc:.18,range:compact.matches?1.4:1.62,maxRotate:compact.matches?.65:1}
   };
   const mode=home?'home':'works';
   document.body.classList.add('cylindrical-browse','cylindrical-'+mode);
@@ -787,11 +787,11 @@ document.addEventListener('click',event=>{
       const offset=(rect.top+rect.height*.5-centre)/spacing;
       const distance=Math.abs(offset);
       const angle=Math.max(-config.range,Math.min(config.range,offset))*config.arc;
-      const x=offset*config.horizontalDrift+Math.sin(angle)*config.radius*.14;
-      const z=(Math.cos(angle)-1)*config.radius;
-      const rotate=Math.max(-config.maxRotate,Math.min(config.maxRotate,-angle*22));
+      const x=offset*config.horizontalDrift+Math.sin(angle)*config.radius*.04;
+      const z=(Math.cos(angle)-1)*config.radius*.12;
+      const rotate=Math.max(-config.maxRotate,Math.min(config.maxRotate,-angle*6));
       const fade=Math.max(0,Math.min(1,1-distance/(config.range+1.05)));
-      const scale=.94+fade*.06;
+      const scale=.992+fade*.008;
       panel.style.setProperty('transform',`translate3d(${x}px,0,${z}px) rotateY(${rotate}deg) scale(${scale})`,'important');
       panel.style.setProperty('opacity',String(.28+fade*.72),'important');
       panel.style.setProperty('pointer-events',distance<1.08?'auto':'none','important');

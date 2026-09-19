@@ -2721,3 +2721,92 @@ body.page-leaving{opacity:0;transform:perspective(1200px) rotateY(2.4deg) scale(
   .cylindrical-panel{transform:none!important;opacity:1!important;pointer-events:auto!important}
   body.page-entering,body.page-leaving{opacity:1!important;transform:none!important;filter:none!important}
 }
+
+/* 2026-09-19 command update: preserve the cylindrical route while keeping
+   photographs and films visually almost flat. */
+.cylindrical-panel{backface-visibility:visible!important}
+
+/* Opening lockup: fade in, pause, then enlarge and fade away.  POREN and
+   HUANG share the same left edge while the complete lockup remains centred. */
+.intro-screen{
+  animation:intro-screen-finish .01s linear 4.55s forwards!important;
+}
+.intro-screen .intro-lockup{
+  display:grid!important;
+  width:max-content!important;
+  max-width:calc(100vw - 2rem)!important;
+  margin-inline:auto!important;
+  transform:translateY(clamp(2.25rem,6vh,5rem)) scale(.94)!important;
+  transform-origin:center!important;
+  animation:intro-lockup-sequence 4.55s cubic-bezier(.22,1,.36,1) forwards!important;
+  font-size:clamp(2rem,11.5vw,8.125rem)!important;
+  line-height:.82!important;
+  letter-spacing:.08em!important;
+  text-align:left!important;
+  white-space:nowrap!important;
+}
+.intro-screen .intro-lockup>b{
+  display:block!important;
+  margin:0!important;
+  padding:0!important;
+  font:inherit!important;
+  text-align:left!important;
+}
+.intro-screen .intro-lockup small{
+  justify-self:center!important;
+  margin-top:var(--space-4)!important;
+  text-align:center!important;
+}
+@keyframes intro-lockup-sequence{
+  0%{opacity:0;transform:translateY(clamp(2.25rem,6vh,5rem)) scale(.94)}
+  24%,68%{opacity:1;transform:translateY(clamp(2.25rem,6vh,5rem)) scale(1)}
+  100%{opacity:0;transform:translateY(clamp(2.25rem,6vh,5rem)) scale(1.16)}
+}
+@keyframes intro-screen-finish{to{opacity:0;visibility:hidden}}
+@media (max-width:47.9375rem){
+  .intro-screen .intro-lockup{
+    font-size:clamp(2rem,15.5vw,4.25rem)!important;
+    transform:translateY(8vh) scale(.94)!important;
+  }
+  @keyframes intro-lockup-sequence{
+    0%{opacity:0;transform:translateY(8vh) scale(.94)}
+    24%,68%{opacity:1;transform:translateY(8vh) scale(1)}
+    100%{opacity:0;transform:translateY(8vh) scale(1.14)}
+  }
+}
+
+/* Mobile Works: keep each full artwork and its caption inside the available
+   screen area while retaining the horizontal swipe interaction. */
+@media (max-width:47.9375rem){
+  body.home #works{overflow:visible!important}
+  body.home #works .work-stage{
+    width:100%!important;
+    height:clamp(25rem,66svh,39rem)!important;
+    max-height:none!important;
+    padding:0 0 4.25rem!important;
+    gap:var(--space-4)!important;
+  }
+  body.home #works .work-panel,
+  body.home #works .work-panel.active{
+    flex-basis:min(84vw,28rem)!important;
+    width:min(84vw,28rem)!important;
+    height:calc(100% - 4.25rem)!important;
+    min-height:0!important;
+    padding:0!important;
+    overflow:visible!important;
+  }
+  body.home #works .home-work-image{
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:contain!important;
+    object-position:center!important;
+  }
+  body.home #works .work-panel>span{
+    left:0!important;
+    right:0!important;
+    bottom:-3.35rem!important;
+    width:100%!important;
+    padding-inline:var(--space-2)!important;
+  }
+}
