@@ -2687,9 +2687,12 @@ html.home-preintro body{
    homepage film has a playable frame. */
 body.home.intro-active header,
 body.home.intro-active main,
-body.home.intro-active footer,
-body.home.intro-active .video-banner{
+body.home.intro-active footer{
   visibility:hidden!important;
+}
+body.home.intro-active .video-banner{
+  opacity:0!important;
+  pointer-events:none!important;
 }
 body.home .video-banner--ambient{
   background:#fff!important;
