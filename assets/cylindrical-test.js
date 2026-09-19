@@ -170,17 +170,17 @@ if(hero){
   window.scrollTo(0,0);
   const intro=document.createElement('div');
   intro.className='intro-screen';
-  intro.innerHTML='<span>POREN HUANG<small>SCULPTURE</small></span>';
+  intro.innerHTML='<span class="intro-lockup"><b>POREN</b><b>HUANG</b><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
   intro.addEventListener('animationend',e=>{
-    if(e.animationName==='intro-out'){
+    if(e.animationName==='intro-out'||e.animationName==='intro-screen-finish'){
       window.scrollTo(0,0);
       document.body.classList.remove('intro-active');
       intro.remove();
       warmHeroVideo();
     }
   });
-  setTimeout(()=>{document.body.classList.remove('intro-active');warmHeroVideo();},3800);
+  setTimeout(()=>{document.body.classList.remove('intro-active');warmHeroVideo();},4800);
   const homeNav=document.createElement('div');
   homeNav.className='home-section-nav';
   homeNav.setAttribute('role','navigation');
@@ -617,7 +617,7 @@ document.addEventListener('click',event=>{
   if(url.origin!==location.origin||url.pathname===location.pathname&&url.hash||url.protocol==='mailto:'||url.protocol==='tel:')return;
   event.preventDefault();
   document.body.classList.add('page-leaving');
-  setTimeout(()=>location.href=url.href,680);
+  setTimeout(()=>location.href=url.href,800);
 });
 
 /*
@@ -628,6 +628,10 @@ document.addEventListener('click',event=>{
 */
 (()=>{
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+
+  // Home and the Works overview use the dedicated cylindrical path below.
+  // Keep the older depth treatment on the remaining editorial pages only.
+  if(document.body.classList.contains('home')||document.querySelector('.works-overview'))return;
 
   const compact=matchMedia('(max-width: 700px)').matches;
   const mobileHome=compact&&document.body.classList.contains('home');
@@ -715,6 +719,89 @@ document.addEventListener('click',event=>{
     collectCards();
     requestRender();
   }).observe(document.body,{childList:true,subtree:true});
+  requestRender();
+})();
+
+/*
+  Cylindrical path browsing for the homepage and Works overview.
+  Existing document flow remains intact for SEO and accessibility; the values
+  below only project each section/group onto a subtle 3D cylinder as it moves
+  past the viewport centre.
+*/
+(()=>{
+  const home=document.body.classList.contains('home');
+  const works=document.querySelector('.works-overview');
+  if((!home&&!works)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+
+  const compact=matchMedia('(max-width: 47.9375rem)');
+  const settings={
+    home:{horizontalDrift:compact.matches?7:14,radius:compact.matches?80:120,arc:.18,range:compact.matches?1.48:1.72,maxRotate:compact.matches?.65:1.1},
+    works:{horizontalDrift:compact.matches?6:12,radius:compact.matches?70:110,arc:.18,range:compact.matches?1.4:1.62,maxRotate:compact.matches?.65:1}
+  };
+  const mode=home?'home':'works';
+  document.body.classList.add('cylindrical-browse','cylindrical-'+mode);
+
+  if(works){
+    const grid=works.querySelector('.works-image-grid');
+    if(grid&&!grid.querySelector('.spiral-work-group')){
+      const cards=[...grid.querySelectorAll(':scope > [data-work-card]')];
+      const groupSize=compact.matches?2:3;
+      for(let index=0;index<cards.length;index+=groupSize){
+        const group=document.createElement('div');
+        group.className='spiral-work-group';
+        group.setAttribute('role','group');
+        group.setAttribute('aria-label',`Works ${index+1}–${Math.min(index+groupSize,cards.length)}`);
+        cards.slice(index,index+groupSize).forEach(card=>group.append(card));
+        grid.append(group);
+      }
+    }
+  }
+
+  let panels=[];
+  const collect=()=>{
+    panels=home
+      ? [...document.querySelectorAll('.video-banner,.home main > section,.home footer')]
+      : [...document.querySelectorAll('.works-intro,.spiral-work-group')];
+    panels.forEach(panel=>panel.classList.add('cylindrical-panel'));
+  };
+  collect();
+
+  const syncGroupVisibility=()=>{
+    document.querySelectorAll('.spiral-work-group').forEach(group=>{
+      const visible=[...group.querySelectorAll('[data-work-card]')].some(card=>!card.hidden);
+      group.hidden=!visible;
+    });
+    collect();
+  };
+  document.addEventListener('works-filter-updated',syncGroupVisibility);
+
+  let frame=0;
+  const render=()=>{
+    frame=0;
+    const config=settings[mode];
+    const centre=innerHeight*.5;
+    const spacing=Math.max(1,innerHeight*.62);
+    panels.forEach(panel=>{
+      if(panel.hidden)return;
+      const rect=panel.getBoundingClientRect();
+      const offset=(rect.top+rect.height*.5-centre)/spacing;
+      const distance=Math.abs(offset);
+      const angle=Math.max(-config.range,Math.min(config.range,offset))*config.arc;
+      const x=offset*config.horizontalDrift+Math.sin(angle)*config.radius*.04;
+      const z=(Math.cos(angle)-1)*config.radius*.12;
+      const rotate=Math.max(-config.maxRotate,Math.min(config.maxRotate,-angle*6));
+      const fade=Math.max(0,Math.min(1,1-distance/(config.range+1.05)));
+      const scale=.992+fade*.008;
+      panel.style.setProperty('transform',`translate3d(${x}px,0,${z}px) rotateY(${rotate}deg) scale(${scale})`,'important');
+      panel.style.setProperty('opacity',String(.28+fade*.72),'important');
+      panel.style.setProperty('pointer-events',distance<1.08?'auto':'none','important');
+    });
+  };
+  const requestRender=()=>{if(!frame)frame=requestAnimationFrame(render)};
+  addEventListener('scroll',requestRender,{passive:true});
+  addEventListener('resize',requestRender,{passive:true});
+  compact.addEventListener?.('change',()=>location.reload());
+  new MutationObserver(requestRender).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden']});
   requestRender();
 })();
 // Mobile-only image loading states. They sit around the existing picture/srcset
