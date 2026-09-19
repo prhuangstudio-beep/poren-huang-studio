@@ -371,7 +371,8 @@ if(stage){
     suppressStageClick=dragging&&Math.abs(e.clientX-startX)>7;
     if(!suppressStageClick&&startLink){
       e.preventDefault();
-      window.location.assign(startLink.href);
+      if(window.porenNavigate)window.porenNavigate(startLink.href);
+      else window.location.assign(startLink.href);
     }
     pointerDown=false;
     dragging=false;
@@ -395,7 +396,10 @@ if(stage){
 }
 
 document.querySelectorAll('.home .news article').forEach(article=>{
-  article.addEventListener('click',()=>{ location.href='exhibitions'; });
+  article.addEventListener('click',()=>{
+    if(window.porenNavigate)window.porenNavigate('exhibitions');
+    else location.href='exhibitions';
+  });
   article.setAttribute('role','link');
   article.tabIndex=0;
 });
@@ -633,7 +637,8 @@ document.querySelectorAll('.more-panel').forEach(link=>{
   link.addEventListener('pointerdown',event=>event.stopPropagation());
   link.addEventListener('click',event=>{
     event.preventDefault();
-    location.href=link.href;
+    if(window.porenNavigate)window.porenNavigate(link.href);
+    else location.href=link.href;
   });
 });
 
@@ -783,18 +788,25 @@ document.addEventListener('click',event=>{
     const result=video.play();
     if(result)result.catch(()=>setTimeout(done,500));
   });
-  document.addEventListener('click',event=>{
-    const link=event.target.closest?.('a[href]');
-    if(event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||!handleLink(link)||transitioning)return;
-    event.preventDefault();
+  window.porenNavigate=href=>{
+    if(transitioning)return false;
+    const url=new URL(href,location.href);
+    if(url.origin!==location.origin||sameDocument(url))return false;
     transitioning=true;
     document.body.classList.add('page-transition-leaving');
     setTimeout(async()=>{
       overlay.classList.add('is-visible');
       await play();
       overlay.classList.add('is-done');
-      setTimeout(()=>{location.href=link.href;},420);
+      setTimeout(()=>{location.href=url.href;},420);
     },420);
+    return true;
+  };
+  document.addEventListener('click',event=>{
+    const link=event.target.closest?.('a[href]');
+    if(event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||!handleLink(link)||transitioning)return;
+    event.preventDefault();
+    window.porenNavigate(link.href);
   },true);
 })();
 // Mobile-only image loading states. They sit around the existing picture/srcset
