@@ -16,7 +16,6 @@
 
   const video=overlay.querySelector('video');
   let transitioning=false;
-  const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
   const playDonut=()=>new Promise(resolve=>{
     let settled=false;
     const done=()=>{
@@ -33,17 +32,9 @@
     if(playPromise)playPromise.catch(()=>setTimeout(done,700));
   });
 
-  // Direct visits need a visible preview too; otherwise the transition can
-  // only be seen after leaving this page through a link.
-  const enterTestPage=async()=>{
-    await wait(80);
-    overlay.classList.add('is-visible');
-    await playDonut();
-    overlay.classList.add('is-done');
-    await wait(480);
-    document.body.classList.add('donut-transition-in');
-  };
-  enterTestPage();
+  // The first visit keeps the existing homepage intro. The donut is reserved
+  // for an actual page-to-page navigation only.
+  requestAnimationFrame(()=>document.body.classList.add('donut-transition-in'));
   const isSamePageHash=url=>url.pathname===location.pathname&&url.search===location.search&&url.hash;
   const shouldHandle=link=>{
     if(!link||link.target==='_blank'||link.hasAttribute('download'))return false;
