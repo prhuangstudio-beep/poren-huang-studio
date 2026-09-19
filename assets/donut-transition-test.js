@@ -1,6 +1,10 @@
 (()=>{
+  if(window.__porenDonutTransition)return;
+  window.__porenDonutTransition=true;
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduced)return;
+  const active=new URLSearchParams(location.search).has('donutTest')||location.pathname.includes('donut-transition-test')||location.pathname.includes('cylindrical-home-test');
+  if(!active)return;
 
   document.body.classList.add('donut-transition-ready');
   requestAnimationFrame(()=>document.body.classList.add('donut-transition-in'));
@@ -23,6 +27,11 @@
     return true;
   };
 
+  const withTestParam=url=>{
+    url.searchParams.set('donutTest','1');
+    return url;
+  };
+
   const finish=url=>{
     overlay.classList.add('is-done');
     setTimeout(()=>{location.href=url.href;},480);
@@ -34,7 +43,7 @@
     event.preventDefault();
     if(transitioning)return;
     transitioning=true;
-    const url=new URL(link.href,location.href);
+    const url=withTestParam(new URL(link.href,location.href));
     document.body.classList.add('donut-transition-leaving');
     setTimeout(()=>{
       overlay.classList.add('is-visible');
