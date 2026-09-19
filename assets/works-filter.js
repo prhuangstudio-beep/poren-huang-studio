@@ -13,6 +13,7 @@
       const matchText = !query || searchable.includes(query);
       card.hidden = !(matchYear && matchText);
     });
+    document.dispatchEvent(new CustomEvent('works-filter-updated'));
   };
   filter?.addEventListener('change', update);
   input?.addEventListener('input', update);

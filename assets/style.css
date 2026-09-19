@@ -2667,9 +2667,57 @@ body.home .side-section>.side-title{
   margin-left:0!important;
   text-align:left!important;
 }
+body.home .side-section>.side-title span{
+  display:block!important;
+  transform:translateX(-.45em)!important;
+}
 body.home .contact-title{
-  left:var(--pad)!important;
+  left:calc(var(--pad) - .45em)!important;
   width:max-content!important;
   margin-left:0!important;
   text-align:left!important;
+}
+
+/* Cylindrical browse: homepage sections and grouped Works rows follow a
+   left-top to right-bottom path without adding card chrome. */
+body.cylindrical-browse{overflow-x:clip;perspective:1200px;perspective-origin:50% 50%}
+body.cylindrical-browse main{transform-style:preserve-3d}
+.cylindrical-panel{transform-style:preserve-3d;transform-origin:center center;backface-visibility:hidden;will-change:transform,opacity}
+body.cylindrical-home .home main>section,body.cylindrical-home .video-banner,body.cylindrical-home footer{position:relative}
+
+body.cylindrical-works .works-overview{perspective:1200px;transform-style:preserve-3d}
+body.cylindrical-works .works-image-grid,body.cylindrical-works .static-works-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:clamp(5rem,11vw,10rem)!important;perspective:1200px;transform-style:preserve-3d}
+.spiral-work-group{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-7);align-items:start;min-height:min(68vh,760px);padding-block:var(--space-7);background:transparent}
+.spiral-work-group>[data-work-card]{display:grid!important;min-width:0;align-content:start}
+.spiral-work-group>[data-work-card][hidden],.spiral-work-group[hidden]{display:none!important}
+.spiral-work-group figure{width:100%!important;max-width:none!important;height:auto!important;aspect-ratio:4/5!important;background:transparent!important}
+.spiral-work-group figure picture,.spiral-work-group figure img{width:100%!important;height:100%!important}
+.spiral-work-group figure img{object-fit:contain!important;background:transparent!important}
+.spiral-work-group .works-card-meta{padding-top:var(--space-4)!important}
+
+/* Refined native-app feedback. The page keeps semantic links and controls;
+   only the press/release response and focus surface change. */
+:where(a,button,select,input,[role="button"]){-webkit-tap-highlight-color:transparent}
+:where(button,.contact-me,.work-contact-me,.works-view-toggle button,.works-search,.works-year-filter,.menu-toggle){transition:transform .22s cubic-bezier(.2,.8,.2,1),opacity .22s ease,box-shadow .22s ease,background-color .22s ease}
+@media (hover:hover){:where(button,.contact-me,.work-contact-me,.works-view-toggle button,.menu-toggle):hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(17,17,17,.08)}}
+:where(button,.contact-me,.work-contact-me,.works-view-toggle button,.menu-toggle):active{transform:scale(.965)!important;opacity:.78!important;transition-duration:.08s!important}
+:where(button,a,select,input):focus-visible{outline:2px solid #ff5a1f;outline-offset:4px}
+
+/* Slow rotating cross-fade between pages. */
+body{transform-origin:50% 48%;transition:opacity .78s cubic-bezier(.76,0,.24,1),transform .78s cubic-bezier(.76,0,.24,1),filter .78s cubic-bezier(.76,0,.24,1)}
+body.page-entering{opacity:0;transform:perspective(1200px) rotateY(-2.4deg) scale(.988);filter:blur(3px)}
+body.page-leaving{opacity:0;transform:perspective(1200px) rotateY(2.4deg) scale(.988);filter:blur(3px);pointer-events:none}
+
+@media (max-width:47.9375rem){
+  body.cylindrical-browse{perspective:900px}
+  body.cylindrical-works .works-image-grid,body.cylindrical-works .static-works-grid{gap:clamp(4rem,18vw,7rem)!important}
+  .spiral-work-group{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-5);min-height:62vh;padding-block:var(--space-6)}
+  .spiral-work-group figure{aspect-ratio:1/1!important}
+  .spiral-work-group .works-card-meta{font-size:12px!important;column-gap:var(--space-2)!important}
+  .spiral-work-group .works-card-meta strong{font-size:13px!important;line-height:1.25!important}
+  .spiral-work-group .works-card-meta span{font-size:11px!important}
+}
+@media (prefers-reduced-motion:reduce){
+  .cylindrical-panel{transform:none!important;opacity:1!important;pointer-events:auto!important}
+  body.page-entering,body.page-leaving{opacity:1!important;transform:none!important;filter:none!important}
 }
