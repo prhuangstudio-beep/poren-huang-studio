@@ -7,7 +7,6 @@
   if(!active)return;
 
   document.body.classList.add('donut-transition-ready');
-  requestAnimationFrame(()=>document.body.classList.add('donut-transition-in'));
 
   const overlay=document.createElement('div');
   overlay.className='donut-page-transition';
@@ -17,6 +16,34 @@
 
   const video=overlay.querySelector('video');
   let transitioning=false;
+  const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+  const playDonut=()=>new Promise(resolve=>{
+    let settled=false;
+    const done=()=>{
+      if(settled)return;
+      settled=true;
+      clearTimeout(fallback);
+      video.onended=null;
+      resolve();
+    };
+    const fallback=setTimeout(done,2600);
+    video.onended=done;
+    video.currentTime=0;
+    const playPromise=video.play();
+    if(playPromise)playPromise.catch(()=>setTimeout(done,700));
+  });
+
+  // Direct visits need a visible preview too; otherwise the transition can
+  // only be seen after leaving this page through a link.
+  const enterTestPage=async()=>{
+    await wait(80);
+    overlay.classList.add('is-visible');
+    await playDonut();
+    overlay.classList.add('is-done');
+    await wait(480);
+    document.body.classList.add('donut-transition-in');
+  };
+  enterTestPage();
   const isSamePageHash=url=>url.pathname===location.pathname&&url.search===location.search&&url.hash;
   const shouldHandle=link=>{
     if(!link||link.target==='_blank'||link.hasAttribute('download'))return false;
@@ -48,16 +75,7 @@
     setTimeout(()=>{
       overlay.classList.add('is-visible');
       overlay.classList.remove('is-done');
-      video.currentTime=0;
-      const fallback=setTimeout(()=>finish(url),1800);
-      video.onended=()=>{
-        clearTimeout(fallback);
-        finish(url);
-      };
-      video.play().catch(()=>{
-        clearTimeout(fallback);
-        setTimeout(()=>finish(url),900);
-      });
+      playDonut().then(()=>finish(url));
     },540);
   },true);
 })();
