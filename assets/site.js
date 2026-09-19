@@ -159,7 +159,7 @@ const hero=document.querySelector('.hero');
 if(hero){
   document.body.classList.add('home');
   document.body.classList.add('intro-active');
-  hero.insertAdjacentHTML('beforebegin','<div class="video-spacer" aria-hidden="true"></div><section class="video-banner video-banner--ambient" aria-label="Poren Huang studio film"><video class="video-banner__ambient" aria-hidden="true" tabindex="-1" muted loop playsinline preload="none" data-hd-src="assets/media/hero-banner-hd.mp4"></video><span class="video-banner__veil" aria-hidden="true"></span><video class="video-banner__foreground" autoplay muted loop playsinline preload="auto" data-lite-src="assets/media/hero-banner-lite.mp4" data-hd-src="assets/media/hero-banner-hd.mp4"></video></section>');
+  hero.insertAdjacentHTML('beforebegin','<div class="video-spacer" aria-hidden="true"></div><section class="video-banner video-banner--ambient" aria-label="Poren Huang studio film"><video class="video-banner__ambient" aria-hidden="true" tabindex="-1" muted loop playsinline preload="none" data-hd-src="assets/media/hero-banner-web.mp4"></video><span class="video-banner__veil" aria-hidden="true"></span><video class="video-banner__foreground" autoplay muted loop playsinline preload="auto" data-lite-src="assets/media/hero-banner-mobile.mp4" data-hd-src="assets/media/hero-banner-web.mp4"></video></section>');
   const heroVideo=document.querySelector('.video-banner__foreground');
   const ambientVideo=document.querySelector('.video-banner__ambient');
   const heroVideoQuery=matchMedia('(max-width: 900px)');
