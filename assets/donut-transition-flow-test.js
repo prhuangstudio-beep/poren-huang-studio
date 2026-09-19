@@ -13,7 +13,7 @@
   overlay.className='donut-page-transition';
   overlay.setAttribute('aria-hidden','true');
   overlay.innerHTML='<video muted playsinline preload="auto" src="assets/media/donut-page-transition.mp4"></video>';
-  document.body.append(overlay);
+  document.documentElement.append(overlay);
 
   const video=overlay.querySelector('video');
   let transitioning=false;
