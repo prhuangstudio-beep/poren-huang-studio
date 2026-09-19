@@ -1,0 +1,37 @@
+body.card-cylinder-test{overflow-x:clip;perspective:1500px;perspective-origin:50% 50%}
+body.card-cylinder-test main{display:grid;gap:clamp(3rem,8vw,8rem);padding-block:clamp(2rem,5vw,5rem);transform-style:preserve-3d}
+body.card-cylinder-test .video-spacer,
+body.card-cylinder-test .video-banner{transform:none!important;filter:none!important;opacity:1!important}
+body.card-cylinder-test .video-banner{margin-bottom:clamp(2rem,5vw,5rem)}
+body.card-cylinder-test .video-banner__foreground{object-fit:contain!important;transform:none!important;filter:none!important}
+body.card-cylinder-test .card-cylinder-panel{
+  --card-x:0px;
+  --card-z:0px;
+  --card-rotate:0deg;
+  --card-scale:1;
+  --card-opacity:1;
+  width:min(calc(100% - clamp(1.25rem,5vw,6rem)),1180px)!important;
+  max-width:1180px!important;
+  margin-inline:auto!important;
+  padding:clamp(1.25rem,4vw,4rem)!important;
+  border:1px solid rgba(17,17,17,.1);
+  border-radius:clamp(1rem,2.4vw,2rem);
+  background:#fff;
+  box-shadow:0 24px 70px rgba(17,17,17,.075);
+  transform:translate3d(var(--card-x),0,var(--card-z)) rotateY(var(--card-rotate)) scale(var(--card-scale))!important;
+  opacity:var(--card-opacity)!important;
+  transform-origin:center!important;
+  transform-style:preserve-3d;
+  will-change:transform,opacity;
+}
+body.card-cylinder-test .card-cylinder-panel img,
+body.card-cylinder-test .card-cylinder-panel video{max-width:100%;object-fit:contain}
+body.card-cylinder-test footer.card-cylinder-panel{margin-bottom:clamp(2rem,6vw,6rem)!important}
+@media(max-width:47.9375rem){
+  body.card-cylinder-test main{gap:3.5rem;padding-block:2rem}
+  body.card-cylinder-test .card-cylinder-panel{width:calc(100% - 2.25rem)!important;padding:1.15rem!important;border-radius:1.25rem}
+  body.card-cylinder-test .video-banner{width:100vw!important;max-width:none!important;margin-inline:calc(50% - 50vw)!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  body.card-cylinder-test .card-cylinder-panel{transform:none!important;opacity:1!important}
+}
