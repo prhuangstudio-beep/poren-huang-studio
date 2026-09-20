@@ -2946,6 +2946,20 @@ body.home .artist-film--ambient .artist-film__foreground{object-fit:contain!impo
   body.home .side-section>.side-title{left:0!important;margin-left:0!important;justify-self:start!important;font-size:clamp(1rem,4.8vw,1.35rem)!important}
 }
 
+/* Keep each vertical home label in view while its own section is passing.
+   This is separate from the scale rule above: the label is sticky, not a
+   static decoration. */
+body.home main > .side-section > .side-title{
+  position:sticky!important;
+  top:5.75rem!important;
+  align-self:start!important;
+  height:max-content!important;
+  transform:rotate(180deg)!important;
+}
+@media(max-width:47.9375rem){
+  body.home main > .side-section > .side-title{top:4.75rem!important}
+}
+
 /* The copied exhibition strip stays inside the page column instead of using
    viewport width. */
 .exhibition-image-ticker{margin:var(--space-6) 0!important;border:0!important}
