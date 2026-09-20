@@ -2973,6 +2973,19 @@ h1,h2,h3,
   font-weight:900!important;
 }
 
+/* Header / banner height: reduced by 30% from the previous desktop and
+   mobile values. The spacer and sticky labels share the same measurement. */
+:root{--site-header-height:4rem}
+header{height:var(--site-header-height)!important}
+.video-spacer{height:var(--site-header-height)!important;min-height:var(--site-header-height)!important;max-height:var(--site-header-height)!important}
+body.home main > .side-section > .side-title{top:calc(var(--site-header-height) + var(--space-3))!important}
+@media(max-width:47.9375rem){
+  :root{--site-header-height:3.3125rem}
+  header{height:var(--site-header-height)!important}
+  .video-spacer{height:var(--site-header-height)!important;min-height:var(--site-header-height)!important;max-height:var(--site-header-height)!important}
+  body.home main > .side-section > .side-title{top:calc(var(--site-header-height) + var(--space-3))!important}
+}
+
 /* The copied exhibition strip stays inside the page column instead of using
    viewport width. */
 .exhibition-image-ticker{margin:var(--space-6) 0!important;border:0!important}
