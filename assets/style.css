@@ -2236,6 +2236,10 @@ nav .menu-series-link{margin-top:var(--space-3)!important;padding-top:var(--spac
 .home .artist-detail h2{letter-spacing:-.045em!important;line-height:1.13!important}
 .home .artist-detail>div p{line-height:1.75!important;letter-spacing:-.01em!important}
 
+/* Artist page: keep each editorial unit distinct, with a slightly tighter rhythm. */
+.about-page .bio{gap:var(--space-9)!important}
+.about-page .artist-cv{margin-top:var(--space-9)!important}
+
 @media(max-width:700px){
   .about-page .bio{grid-template-columns:1fr!important;gap:var(--space-6)!important}
   .about-page .portrait{width:100%!important;aspect-ratio:1/1!important}
