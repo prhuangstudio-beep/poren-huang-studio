@@ -2799,6 +2799,30 @@ body.home footer > *{
   transform-origin:center center;
 }
 
+/* The opening film always occupies the complete viewport width. */
+body.home > .video-banner--ambient,
+body.home > .video-banner--ambient .video-banner__foreground{
+  width:100vw!important;
+  max-width:none!important;
+  margin-inline:0!important;
+}
+
+/* A single, shorter rhythm between homepage sections. Lines mark each new
+   content block without changing the opening film or moving image strip. */
+body.home main{--home-section-space:clamp(3rem,7.2vw,6rem)}
+body.home main > section{margin:0!important}
+body.home main > section:not(.horizontal-image-ticker){
+  padding-top:var(--home-section-space)!important;
+  padding-bottom:var(--home-section-space)!important;
+}
+body.home main > section + section{
+  border-top:1px solid rgba(17,17,17,.14);
+}
+body.home main > .horizontal-image-ticker{
+  border-top:1px solid rgba(17,17,17,.14);
+  border-bottom:1px solid rgba(17,17,17,.14);
+}
+
 /* Keep mobile page content below the previous-page key, rather than beside it. */
 @media(max-width:700px){
   .page.has-page-back{padding-left:var(--responsive-pad)!important}
