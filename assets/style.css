@@ -2997,17 +2997,36 @@ body.home main > .side-section > .side-title{top:calc(var(--site-header-height) 
   body.home main > .side-section > .side-title{top:calc(var(--site-header-height) + var(--space-3))!important}
 }
 
-/* One shared left edge: vertical titles and CONTACT begin at precisely the
-   same horizontal coordinate as the P in the header brand. Content remains
-   in its existing right-hand grid column and may shrink within that column
-   instead of overflowing. */
-body.home .side-section>.side-title,
+/* Home alignment system. The header P, every vertical title and the normal
+   no-title content share the same outer gutter. Titled sections place their
+   material in one consistent centred content field. */
+:root{--home-content-width:min(76.75rem,100%)}
+body.home .side-section>.side-title{left:0!important;justify-self:start!important}
 body.home .contact-title{left:var(--responsive-pad)!important}
-body.home .side-section>.side-title{justify-self:start!important}
-body.home main > .side-section > :not(.side-title){min-width:0!important;max-width:100%!important}
+body.home main > .side-section{
+  grid-template-columns:minmax(0,1fr)!important;
+  padding-left:0!important;
+}
+body.home main > .series-entry-section.side-section{padding-right:0!important}
+body.home main > .side-section > .side-title{grid-column:1!important;grid-row:1!important}
+body.home main > .side-section > :not(.side-title){
+  grid-column:1!important;
+  width:var(--home-content-width)!important;
+  min-width:0!important;
+  max-width:100%!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
 body.home main > .side-section > :not(.side-title) img,
 body.home main > .side-section > :not(.side-title) picture,
 body.home main > .side-section > :not(.side-title) video{max-width:100%!important}
+/* Non-titled content uses the header P gutter on both sides. The full-width
+   opening film deliberately remains an earlier, explicit exception. */
+body.home main > section:not(.side-section):not(.horizontal-image-ticker){
+  width:100%;
+  max-width:100%;
+}
+@media(max-width:47.9375rem){:root{--home-content-width:100%}}
 
 /* The copied exhibition strip stays inside the page column instead of using
    viewport width. */
