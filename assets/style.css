@@ -2869,8 +2869,11 @@ body.home .series-entry-section > :not(.side-title),
 body.home #works > :not(.side-title),
 body.home #news > :not(.side-title),
 body.home #press > :not(.side-title){
-  transform:scale(.8)!important;
-  transform-origin:left center!important;
+  /* Each area's content uses the page width independently. It no longer
+     inherits a positional or width relationship from the side label. */
+  transform:none!important;
+  width:100%!important;
+  max-width:100%!important;
 }
 
 /* A consistent, shorter gap with a quiet divider at the start of each
@@ -2968,6 +2971,18 @@ body.home main > .side-section > .side-title{
   width:max-content!important;
   justify-self:start!important;
   text-align:left!important;
+}
+/* The label is visually independent from the content grid: it marks the
+   header's P edge without reserving or moving the content column. */
+body.home main > .side-section{
+  grid-template-columns:minmax(0,1fr)!important;
+  padding-left:0!important;
+}
+body.home main > .side-section > :not(.side-title){grid-column:1!important}
+body.home main > .side-section > .side-title{
+  grid-column:1!important;
+  z-index:2!important;
+  pointer-events:none!important;
 }
 @media(max-width:47.9375rem){
   body.home main > .side-section > .side-title{top:4.75rem!important}
