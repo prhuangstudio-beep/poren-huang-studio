@@ -2864,17 +2864,6 @@ body.home #press{
      viewport markers when their containing section is transformed. */
   transform:none!important;
 }
-body.home #artist > :not(.side-title),
-body.home .series-entry-section > :not(.side-title),
-body.home #works > :not(.side-title),
-body.home #news > :not(.side-title),
-body.home #press > :not(.side-title){
-  /* Each area's content uses the page width independently. It no longer
-     inherits a positional or width relationship from the side label. */
-  transform:none!important;
-  width:100%!important;
-  max-width:100%!important;
-}
 
 /* A consistent, shorter gap with a quiet divider at the start of each
    editorial homepage section. */
@@ -2972,15 +2961,9 @@ body.home main > .side-section > .side-title{
   justify-self:start!important;
   text-align:left!important;
 }
-/* The label is visually independent from the content grid: it marks the
-   header's P edge without reserving or moving the content column. */
-body.home main > .side-section{
-  grid-template-columns:minmax(0,1fr)!important;
-  padding-left:0!important;
-}
-body.home main > .side-section > :not(.side-title){grid-column:1!important}
+/* The title occupies its original narrow left lane. Content remains in its
+   original right-hand column, unaffected by the sticky title. */
 body.home main > .side-section > .side-title{
-  grid-column:1!important;
   z-index:2!important;
   pointer-events:none!important;
 }
