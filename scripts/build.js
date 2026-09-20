@@ -57,17 +57,6 @@ write(path.join(root, 'works.html'), indexPage);
 
 const detailTemplate = read('work-page.html');
 works.forEach((work, index) => {
-  // Colour/material variants share a title, but adjacent navigation should
-  // always lead to a different artwork rather than another version of itself.
-  const adjacentDistinct = direction => {
-    for (let offset = 1; offset < works.length; offset++) {
-      const candidate = works[(index + direction * offset + works.length) % works.length];
-      if (candidate.title_en !== work.title_en) return candidate;
-    }
-    return work;
-  };
-  const previous = adjacentDistinct(-1);
-  const next = adjacentDistinct(1);
   const metadata = [
     work.dimensions?.length ? `<p>${work.dimensions.map(dimText).map(esc).join('<br>')}</p>` : '',
     work.material_en ? `<p>${esc(work.material_en)}${work.material_zh ? ` / ${esc(work.material_zh)}` : ''}</p>` : '',
@@ -84,8 +73,7 @@ works.forEach((work, index) => {
     ogImage: `${site}/assets/og/${work.slug}.jpg`, schema: JSON.stringify(artworkSchema(work)), mainImage: picture(work.images[0], { lazy: false }), mainAlt: esc(work.images[0].alt_zh || work.images[0].alt_en), hreflang: hreflang(`${site}/works/${work.slug}`),
     thumbnails, heading: `<span class="work-title-en" lang="en">${esc(work.title_en)}</span>${work.title_zh ? `<span class="work-title-zh" lang="zh-Hant">${esc(work.title_zh)}</span>` : ''}`, year: esc(work.year), metadata,
     workContact: `<a class="work-contact-me" target="_blank" rel="noopener noreferrer" href="https://mail.google.com/mail/?view=cm&fs=1&to=pr_dogs@yahoo.com.tw&su=${encodeURIComponent(contactSubject)}&body=${encodeURIComponent(contactBody)}">CONTACT ME</a>`,
-    descriptionBlock: description ? `<div class="work-description"><p>${esc(description).replace(/\n/g, '<br>')}</p></div>` : '', relatedWorks,
-    neighbors: `<a href="works/${esc(previous.slug)}"><span>Prev</span><strong>${esc(previous.title_en)}</strong></a><a href="works/${esc(next.slug)}"><span>Next</span><strong>${esc(next.title_en)}</strong></a>`
+    descriptionBlock: description ? `<div class="work-description"><p>${esc(description).replace(/\n/g, '<br>')}</p></div>` : '', relatedWorks
   };
   write(path.join(root, 'works', `${work.slug}.html`), render(detailTemplate, values));
 });

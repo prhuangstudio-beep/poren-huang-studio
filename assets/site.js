@@ -676,8 +676,8 @@ document.addEventListener('click',event=>{
   const settings={
     damping:desktopWorks ? .16 : (primaryBrowse ? .13 : .11),
     influence:mobileHome ? .98 : ((desktopWorks||mobileWorks) ? .74 : .91),
-    maxScaleDrop:mobileWorks ? .24 : (desktopWorks ? .18 : (mobileHome ? .12 : .10)),
-    maxBlur:mobileWorks ? 10 : (desktopWorks ? 8 : (mobileHome ? 5 : 4))
+    maxScaleDrop:mobileWorks ? .08 : (desktopWorks ? .08 : (mobileHome ? .04 : .06)),
+    maxBlur:mobileWorks ? 0 : (desktopWorks ? 2.5 : (mobileHome ? 2 : 2))
   };
   const selector=[
     '.work-list article','.works-image-grid > a','.works-index > a',
@@ -826,6 +826,9 @@ document.addEventListener('click',event=>{
 (()=>{
   const mobile=matchMedia('(max-width: 47.9375rem)');
   const setup=()=>{
+    // Mobile artwork loading deliberately uses the page's white background.
+    // No skeleton wrapper is added, so existing picture/srcset choices remain intact.
+    return;
     if(!mobile.matches)return;
     document.querySelectorAll('.works-image-grid figure img,.work-gallery figure img,.related-works figure img,.work-list figure img').forEach(img=>{
       const shell=img.closest('figure');

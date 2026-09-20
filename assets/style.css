@@ -2844,3 +2844,114 @@ body.home main > .horizontal-image-ticker{
 .horizontal-image-ticker img{display:block;flex:0 0 100vw;width:100vw;height:auto;max-width:none}
 @keyframes horizontal-image-ticker{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.horizontal-image-ticker__track{animation:none}}
+
+/* Confirmed layout rules — 2026-09-20. These declarations intentionally
+   override earlier experiments so the selected visual system is unambiguous. */
+
+/* Only the five editorial home sections are optically reduced. The header,
+   opening film, moving image strip, and footer always retain their own size. */
+body.home header > *,
+body.home footer > *,
+body.home main > section:not(#artist):not(#works):not(#news):not(#press):not(.series-entry-section){
+  transform:none!important;
+}
+body.home #artist,
+body.home .series-entry-section,
+body.home #works,
+body.home #news,
+body.home #press{
+  transform:scale(.8)!important;
+  transform-origin:center center!important;
+}
+
+/* A consistent, shorter gap with a quiet divider at the start of each
+   editorial homepage section. */
+body.home main{--home-section-space:clamp(1.8rem,4.3vw,3.6rem)!important}
+body.home main > section:not(.horizontal-image-ticker){
+  padding-top:var(--home-section-space)!important;
+  padding-bottom:var(--home-section-space)!important;
+}
+body.home main > #artist,
+body.home main > #works,
+body.home main > #news,
+body.home main > #press,
+body.home main > .series-entry-section{
+  border-top:1px solid rgba(17,17,17,.11)!important;
+}
+
+/* Opening film: desktop preserves every edge of the film and uses its own
+   softly enlarged image only in the side space. */
+@media(min-width:48rem){
+  body.home > .video-banner--ambient{background:#fff!important}
+  body.home > .video-banner--ambient .video-banner__ambient{
+    display:block!important;opacity:1!important;visibility:visible!important;
+  }
+  body.home > .video-banner--ambient .video-banner__veil{
+    display:block!important;opacity:1!important;visibility:visible!important;
+  }
+  body.home > .video-banner--ambient .video-banner__foreground{
+    object-fit:contain!important;background:transparent!important;
+  }
+}
+/* Mobile deliberately stays simple: a complete, screen-width film on white,
+   with no enlarged or blurred copy behind it. */
+@media(max-width:47.9375rem){
+  body.home > .video-banner--ambient{width:100vw!important;height:auto!important;min-height:0!important;background:#fff!important}
+  body.home > .video-banner--ambient .video-banner__ambient,
+  body.home > .video-banner--ambient .video-banner__veil{display:none!important;opacity:0!important;visibility:hidden!important}
+  body.home > .video-banner--ambient .video-banner__foreground{width:100vw!important;height:auto!important;object-fit:contain!important;background:#fff!important;margin:0!important}
+}
+
+/* The second, Artist-area film never crops and has a plain white surround. */
+body.home .artist-film--ambient{background:#fff!important}
+body.home .artist-film--ambient .artist-film__ambient,
+body.home .artist-film--ambient .artist-film__veil{display:none!important}
+body.home .artist-film--ambient .artist-film__foreground{object-fit:contain!important;background:#fff!important;mask-image:none!important;-webkit-mask-image:none!important}
+
+/* Homepage works: two equal, compact cards on phones. */
+@media(max-width:47.9375rem){
+  body.home #works .work-stage{height:clamp(11rem,42vw,15rem)!important;max-height:none!important;gap:var(--space-3)!important;padding:0!important}
+  body.home #works .work-panel,body.home #works .work-panel.active,body.home #works .work-panel:nth-child(n){flex:0 0 calc((100% - var(--space-3))/2)!important;height:100%!important;min-height:100%!important}
+  body.home #works .work-panel>span{bottom:calc(-1 * var(--space-6))!important;color:#111!important;font-size:clamp(.7rem,3vw,.95rem)!important}
+  body.home #works .work-panel img{object-fit:contain!important}
+}
+
+/* Works overview: three columns on desktop; a stable two-column grid on
+   phones. The year chooser and search field share the same left-aligned row. */
+.works-overview .works-tools{display:flex!important;align-items:center!important;justify-content:flex-start!important;grid-column:1 / -1!important;gap:var(--space-3)!important}
+.works-overview .works-year-filter{flex:0 0 20%!important;width:20%!important;min-width:7rem!important;max-width:10rem!important}
+.works-overview .works-search{flex:0 1 18rem!important}
+@media(min-width:64rem){.works-overview .works-image-grid,.works-overview .static-works-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:47.9375rem){
+  .works-overview .works-image-grid,.works-overview .static-works-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:var(--space-4)!important}
+  .works-overview .works-image-grid figure{height:auto!important;aspect-ratio:1/1!important}
+  .works-overview .works-tools{flex-wrap:nowrap!important}
+  .works-overview .works-year-filter{flex:0 0 20%!important;min-width:0!important;width:20%!important}
+  .works-overview .works-search{flex:1 1 auto!important;min-width:0!important}
+}
+
+/* All artwork titles are always two separate, complete lines. */
+.work-detail-info .work-heading h1{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:var(--space-3)!important;min-width:0!important}
+.work-detail-info .work-heading .work-title-en,.work-detail-info .work-heading .work-title-zh{display:block!important;white-space:normal!important;overflow-wrap:normal!important;word-break:normal!important}
+
+/* Side labels use the header's left rhythm on desktop and the true screen
+   edge on phones. Footer content follows the same horizontal rhythm. */
+@media(min-width:48rem){
+  body.home .side-section>.side-title{justify-self:start!important;left:0!important}
+  body.home footer{align-items:flex-start!important;text-align:left!important}
+}
+@media(max-width:47.9375rem){
+  body.home .side-section>.side-title{left:0!important;margin-left:0!important;justify-self:start!important;font-size:clamp(1rem,4.8vw,1.35rem)!important}
+}
+
+/* The copied exhibition strip stays inside the page column instead of using
+   viewport width. */
+.exhibition-image-ticker{margin:var(--space-6) 0!important;border:0!important}
+.exhibition-image-ticker img{flex:0 0 100%!important;width:100%!important}
+
+/* Phone image loading is intentionally a blank white frame, not a skeleton. */
+@media(max-width:47.9375rem){
+  .mobile-image-shell,.mobile-image-shell::after{background:#fff!important;animation:none!important}
+  .mobile-image-shell::after{display:none!important}
+  .mobile-image-shell picture,.mobile-image-shell>img{opacity:1!important}
+}
