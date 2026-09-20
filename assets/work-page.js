@@ -93,6 +93,20 @@
     };
     mainFigure.addEventListener('pointerup',finishSwipe);
     mainFigure.addEventListener('pointercancel',finishSwipe);
+
+    // On desktop, the gallery changes image with the mouse wheel while hovered.
+    const finePointer=window.matchMedia('(hover:hover) and (pointer:fine)');
+    let wheelLocked=false;
+    mainFigure.addEventListener('wheel',event=>{
+      if(!finePointer.matches||Math.abs(event.deltaY)<2)return;
+      event.preventDefault();
+      if(wheelLocked||switchingImage)return;
+      wheelLocked=true;
+      const direction=event.deltaY>0?1:-1;
+      const next=(currentIndex()+direction+thumbnails.length)%thumbnails.length;
+      showImage(next);
+      window.setTimeout(()=>{wheelLocked=false},380);
+    },{passive:false});
   }
   document.querySelector('.concept-toggle')?.addEventListener('click',event=>{
     const button=event.currentTarget;
