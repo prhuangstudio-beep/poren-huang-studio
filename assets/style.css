@@ -2764,3 +2764,21 @@ body.page-transition-leaving{
 :root{--back-key-clearance:clamp(4.25rem,7.2vw,7rem)}
 .page.has-page-back{padding-left:calc(var(--responsive-pad) + var(--back-key-clearance))!important}
 @media(min-width:64rem){.page.has-page-back{padding-left:max(calc(var(--responsive-pad) + var(--space-9)),calc(var(--responsive-pad) + var(--back-key-clearance)))!important}}
+
+/* Contact calls to action and the work-detail information rhythm. */
+.contact-me,.work-contact-me{
+  background:#fff!important;
+  color:#111!important;
+  border:1px solid #111!important;
+}
+.contact-me:hover,.work-contact-me:hover{
+  background:#111!important;
+  color:#fff!important;
+}
+.work-detail-info .work-heading{
+  gap:var(--space-2)!important;
+  margin-bottom:var(--space-5)!important;
+}
+.work-detail-info .work-heading h1{gap:var(--space-2)!important}
+.work-detail-info .work-data{gap:var(--space-2)!important}
+.work-detail-info .work-contact-me{margin-top:var(--space-7)!important}
