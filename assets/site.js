@@ -776,6 +776,9 @@ document.addEventListener('click',event=>{
     const href=link.getAttribute('href')||'';
     if(href.startsWith('mailto:')||href.startsWith('tel:')||href.startsWith('#'))return false;
     const url=new URL(link.href,location.href);
+    // Returning to the homepage is immediate; the donut transition is only
+    // used when moving between inner pages.
+    if(url.pathname==='/'||/\/index\.html$/.test(url.pathname))return false;
     return url.origin===location.origin&&!sameDocument(url);
   };
   const play=()=>new Promise(resolve=>{
