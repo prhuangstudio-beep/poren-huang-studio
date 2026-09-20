@@ -265,7 +265,8 @@ if(page){
   if(!page.querySelector('.page-back,.back-to-works')){
     const back=document.createElement('a');
     back.className='page-back key-back';
-    back.href=location.pathname.includes('/works/')?'../works':'/';
+    const siteRoot=location.hostname==='prhuangstudio-beep.github.io'&&location.pathname.startsWith('/poren-huang-studio-test/')?'/poren-huang-studio-test/':'/';
+    back.href=location.pathname.includes('/works/')?'../works':siteRoot;
     back.setAttribute('aria-label','Back');
     back.innerHTML='<img class="back-key-image" src="assets/media/back-key-black.png" alt="">';
     page.prepend(back);
