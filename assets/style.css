@@ -2781,3 +2781,19 @@ body.page-transition-leaving{
 .work-detail-info .work-heading h1{gap:var(--space-2)!important}
 .work-detail-info .work-data{gap:var(--space-2)!important}
 .work-detail-info .work-contact-me{margin-top:var(--space-7)!important}
+
+/* Keep mobile page content below the previous-page key, rather than beside it. */
+@media(max-width:700px){
+  .page.has-page-back{padding-left:var(--responsive-pad)!important}
+  .page.has-page-back .page-back{
+    position:relative!important;
+    left:auto!important;
+    top:auto!important;
+    display:inline-flex!important;
+    margin:0 0 var(--space-6)!important;
+  }
+  .page-donut-transition video{width:clamp(230px,72vw,390px)}
+}
+
+/* The desktop search mark sits closer to the outer edge of the header. */
+@media(min-width:701px){.site-search-toggle{transform:translateX(var(--space-2))}}
