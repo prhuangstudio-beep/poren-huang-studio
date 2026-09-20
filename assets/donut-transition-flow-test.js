@@ -11,7 +11,7 @@
   const overlay=document.createElement('div');
   overlay.className='donut-page-transition';
   overlay.setAttribute('aria-hidden','true');
-  overlay.innerHTML='<video muted playsinline preload="auto" src="assets/media/donut-page-transition.mp4"></video>';
+  overlay.innerHTML='<video muted playsinline preload="none" data-src="assets/media/donut-page-transition.mp4"></video>';
   document.documentElement.append(overlay);
 
   const video=overlay.querySelector('video');
@@ -27,6 +27,10 @@
     };
     const fallback=setTimeout(done,2600);
     video.onended=done;
+    if(!video.src){
+      video.src=video.dataset.src;
+      video.load();
+    }
     video.currentTime=0;
     const playPromise=video.play();
     if(playPromise)playPromise.catch(()=>setTimeout(done,700));
@@ -55,18 +59,25 @@
     setTimeout(()=>{location.href=url.href;},480);
   };
 
-  document.addEventListener('click',event=>{
-    const link=event.target.closest?.('a[href]');
-    if(!shouldHandle(link)||event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
-    event.preventDefault();
-    if(transitioning)return;
+  const navigate=href=>{
+    if(transitioning)return false;
+    const url=withTestParam(new URL(href,location.href));
+    if(url.origin!==location.origin||isSamePageHash(url))return false;
     transitioning=true;
-    const url=withTestParam(new URL(link.href,location.href));
     document.body.classList.add('donut-transition-leaving');
     setTimeout(()=>{
       overlay.classList.add('is-visible');
       overlay.classList.remove('is-done');
       playDonut().then(()=>finish(url));
     },540);
+    return true;
+  };
+  // Home cards use pointer navigation, so expose the same controller for them.
+  window.porenNavigate=navigate;
+  document.addEventListener('click',event=>{
+    const link=event.target.closest?.('a[href]');
+    if(!shouldHandle(link)||event.defaultPrevented||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+    event.preventDefault();
+    navigate(link.href);
   },true);
 })();
