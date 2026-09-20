@@ -2960,6 +2960,19 @@ body.home main > .side-section > .side-title{
   body.home main > .side-section > .side-title{top:4.75rem!important}
 }
 
+/* Shared black display type: keep editorial hierarchy visibly stronger than
+   body copy without changing dates, metadata, buttons, or navigation. */
+h1,h2,h3,
+.side-title,.contact-title,
+.work-panel>span,
+.works-card-meta strong,
+.work-list h2,
+.timeline h2,
+.news h3,.press h3,.press-card h3,
+.related-works a>span:last-child{
+  font-weight:900!important;
+}
+
 /* The copied exhibition strip stays inside the page column instead of using
    viewport width. */
 .exhibition-image-ticker{margin:var(--space-6) 0!important;border:0!important}
