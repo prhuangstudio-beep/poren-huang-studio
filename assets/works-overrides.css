@@ -515,6 +515,6 @@
 
 .back-to-works.key-back .back-key-image{
   display:block!important;
-  width:clamp(64px,7vw,118px)!important;
+  width:clamp(45px,4.9vw,83px)!important;
   height:auto!important;
 }
