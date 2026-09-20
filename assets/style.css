@@ -2861,7 +2861,9 @@ body.home #works,
 body.home #news,
 body.home #press{
   transform:scale(.8)!important;
-  transform-origin:center center!important;
+  /* Scale from the shared left content edge so vertical labels still align
+     with the P in the header brand. */
+  transform-origin:left center!important;
 }
 
 /* A consistent, shorter gap with a quiet divider at the start of each
