@@ -2752,3 +2752,10 @@ body.page-transition-leaving{
   body.page-transition-leaving{opacity:1;transition:none}
   .page-donut-transition{display:none}
 }
+
+/* Shared previous-page key: artwork-derived black mark. */
+.key-back{display:inline-flex!important;align-items:center;justify-content:flex-start;font-size:0!important;color:transparent!important;line-height:0!important}
+.key-back .back-key-image{display:block;width:clamp(64px,7vw,118px)!important;height:auto!important;max-width:none!important;transition:transform .35s var(--ease-soft),opacity .35s var(--ease-soft)}
+.page-back.key-back .back-key-image{width:clamp(72px,8vw,132px)!important}
+.key-back:hover .back-key-image{transform:translateX(-6px);opacity:.7}
+@media(max-width:700px){.key-back .back-key-image{width:62px!important}.page-back.key-back .back-key-image{width:76px!important}}

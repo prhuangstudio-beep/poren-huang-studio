@@ -504,3 +504,17 @@
 .work-detail-page .work-detail-info .work-heading > span {
   justify-self: start;
 }
+
+.back-to-works.key-back{
+  display:inline-flex!important;
+  align-items:center;
+  color:transparent!important;
+  font-size:0!important;
+  line-height:0!important;
+}
+
+.back-to-works.key-back .back-key-image{
+  display:block!important;
+  width:clamp(64px,7vw,118px)!important;
+  height:auto!important;
+}
