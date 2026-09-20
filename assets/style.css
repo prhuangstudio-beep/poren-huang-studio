@@ -2860,9 +2860,16 @@ body.home .series-entry-section,
 body.home #works,
 body.home #news,
 body.home #press{
+  /* Do not transform the section itself: sticky labels stop behaving like
+     viewport markers when their containing section is transformed. */
+  transform:none!important;
+}
+body.home #artist > :not(.side-title),
+body.home .series-entry-section > :not(.side-title),
+body.home #works > :not(.side-title),
+body.home #news > :not(.side-title),
+body.home #press > :not(.side-title){
   transform:scale(.8)!important;
-  /* Scale from the shared left content edge so vertical labels still align
-     with the P in the header brand. */
   transform-origin:left center!important;
 }
 
@@ -2955,6 +2962,12 @@ body.home main > .side-section > .side-title{
   align-self:start!important;
   height:max-content!important;
   transform:rotate(180deg)!important;
+  /* The text's own left edge—not a centred label lane—shares the header's
+     left content edge. */
+  left:0!important;
+  width:max-content!important;
+  justify-self:start!important;
+  text-align:left!important;
 }
 @media(max-width:47.9375rem){
   body.home main > .side-section > .side-title{top:4.75rem!important}
