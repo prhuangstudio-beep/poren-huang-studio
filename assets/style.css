@@ -2783,6 +2783,40 @@ body.page-transition-leaving{
 .work-detail-info .work-data{gap:var(--space-2)!important}
 .work-detail-info .work-contact-me{margin-top:var(--space-7)!important}
 
+/* Work-image changes are an opacity transition only: never zoom the artwork. */
+.work-detail-page .work-main picture,
+.work-detail-page .work-main img{
+  transform:none!important;
+}
+
+/* Home only: a more compact overall rhythm. Media that needs its original
+   presentation (the opening film and the horizontal film strip) is excluded. */
+body.home{
+  --pad:clamp(19px,4.8vw,77px);
+  --space-1:.2rem;
+  --space-2:.4rem;
+  --space-3:.6rem;
+  --space-4:.8rem;
+  --space-5:1.2rem;
+  --space-6:1.6rem;
+  --space-7:clamp(1.6rem,3.2vw,2.4rem);
+  --space-8:clamp(2.4rem,4.8vw,3.2rem);
+  --space-9:clamp(3.2rem,7.2vw,4.8rem);
+  --space-10:clamp(4rem,9.6vw,8rem);
+}
+body.home .hero{min-height:calc(80vh - 74px)}
+body.home .hero h1{font-size:clamp(40px,6.08vw,98px)}
+body.home .intro h2{font-size:clamp(24px,3.28vw,52px)}
+body.home .work-stage{height:clamp(336px,52vh,608px)}
+body.home .work-panel span{font-size:clamp(24px,4vw,66px)}
+body.home .news h3{font-size:15px}
+body.home .press-list h3{font-size:clamp(18px,2.4vw,34px)}
+@media(max-width:700px){
+  body.home .hero{min-height:calc(80vh - 61px)}
+  body.home .hero h1{font-size:clamp(25px,5.9vw,34px)}
+  body.home .work-stage{height:clamp(336px,49.6vh,608px)}
+}
+
 /* Keep mobile page content below the previous-page key, rather than beside it. */
 @media(max-width:700px){
   .page.has-page-back{padding-left:var(--responsive-pad)!important}
