@@ -264,10 +264,10 @@ if(page){
   else page.dataset.label='';
   if(!page.querySelector('.page-back,.back-to-works')){
     const back=document.createElement('a');
-    back.className='page-back';
+    back.className='page-back key-back';
     back.href=location.pathname.includes('/works/')?'../works':'/';
     back.setAttribute('aria-label','Back');
-    back.textContent='←';
+    back.innerHTML='<img class="back-key-image" src="assets/media/back-key-black.png" alt="">';
     page.prepend(back);
   }
 }
