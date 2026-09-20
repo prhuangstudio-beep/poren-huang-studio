@@ -2798,6 +2798,13 @@ body.page-transition-leaving{
 /* The desktop search mark sits closer to the outer edge of the header. */
 @media(min-width:701px){.site-search-toggle{transform:translateX(var(--space-2))}}
 
+/* Home image strip between the introduction film and Artist section. */
+.horizontal-image-ticker{width:100%;overflow:hidden;background:#fff;line-height:0}
+.horizontal-image-ticker__track{display:flex;width:max-content;animation:horizontal-image-ticker 34s linear infinite;will-change:transform}
+.horizontal-image-ticker img{display:block;flex:0 0 100vw;width:100vw;height:auto;max-width:none}
+@keyframes horizontal-image-ticker{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.horizontal-image-ticker__track{animation:none}}
+
 /* Test-site page entrance: image, heading, then each information row. */
 @media(prefers-reduced-motion:no-preference){
   body.page-sequence .page-enter-image,
