@@ -2759,3 +2759,8 @@ body.page-transition-leaving{
 .page-back.key-back .back-key-image{width:clamp(50px,5.6vw,92px)!important}
 .key-back:hover .back-key-image{transform:translateX(-6px);opacity:.7}
 @media(max-width:700px){.key-back .back-key-image{width:43px!important}.page-back.key-back .back-key-image{width:53px!important}}
+
+/* Reserve a dedicated lane for the key so its right edge never meets page copy. */
+:root{--back-key-clearance:clamp(4.25rem,7.2vw,7rem)}
+.page.has-page-back{padding-left:calc(var(--responsive-pad) + var(--back-key-clearance))!important}
+@media(min-width:64rem){.page.has-page-back{padding-left:max(calc(var(--responsive-pad) + var(--space-9)),calc(var(--responsive-pad) + var(--back-key-clearance)))!important}}

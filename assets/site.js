@@ -269,6 +269,7 @@ if(page){
     back.setAttribute('aria-label','Back');
     back.innerHTML='<img class="back-key-image" src="assets/media/back-key-black.png" alt="">';
     page.prepend(back);
+    page.classList.add('has-page-back');
   }
 }
 
