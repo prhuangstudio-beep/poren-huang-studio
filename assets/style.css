@@ -2797,3 +2797,17 @@ body.page-transition-leaving{
 
 /* The desktop search mark sits closer to the outer edge of the header. */
 @media(min-width:701px){.site-search-toggle{transform:translateX(var(--space-2))}}
+
+/* Test-site page entrance: image, heading, then each information row. */
+@media(prefers-reduced-motion:no-preference){
+  body.page-sequence .page-enter-image,
+  body.page-sequence .page-enter-title,
+  body.page-sequence .page-enter-detail{
+    opacity:0;
+    transform:translateY(16px);
+  }
+  body.page-sequence-ready .page-enter-image{animation:page-sequence-in .5s cubic-bezier(.22,1,.36,1) .05s both}
+  body.page-sequence-ready .page-enter-title{animation:page-sequence-in .45s cubic-bezier(.22,1,.36,1) .32s both}
+  body.page-sequence-ready .page-enter-detail{animation:page-sequence-in .42s cubic-bezier(.22,1,.36,1) var(--page-enter-delay,.52s) both}
+  @keyframes page-sequence-in{to{opacity:1;transform:translateY(0)}}
+}

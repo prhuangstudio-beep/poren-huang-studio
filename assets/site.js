@@ -645,6 +645,26 @@ document.querySelectorAll('.more-panel').forEach(link=>{
   });
 });
 
+// Test-site page entrance sequence: image first, then heading, then detail rows.
+// The classes are assigned only to page content, never to the persistent header/footer.
+(()=>{
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const content=document.querySelector('.page');
+  if(!content)return;
+  const imageBlocks=[...content.querySelectorAll('.work-main,.image-carousel,.artist-portrait,.square-media,.home-image-break,.works-image-grid figure')];
+  const titleBlocks=[...content.querySelectorAll(':scope > h1,:scope > .section-head h1,:scope > .section-head h2,.work-heading')];
+  const detailBlocks=[...content.querySelectorAll('.work-data > *, .work-details dl > *, .concept-copy > *, .bio > p, .timeline > article, .news > article, .press > article, .work-neighbor-nav, .related-works')];
+  imageBlocks.forEach(block=>block.classList.add('page-enter-image'));
+  titleBlocks.forEach(block=>block.classList.add('page-enter-title'));
+  [...new Set(detailBlocks)].forEach((block,index)=>{
+    block.classList.add('page-enter-detail');
+    block.style.setProperty('--page-enter-delay',`${.52+index*.2}s`);
+  });
+  if(!imageBlocks.length&&!titleBlocks.length&&!detailBlocks.length)return;
+  document.body.classList.add('page-sequence');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('page-sequence-ready')));
+})();
+
 document.body.classList.add('page-entering');
 requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.remove('page-entering')));
 document.addEventListener('click',event=>{
