@@ -2997,6 +2997,9 @@ body.home main > .side-section > .side-title{top:calc(var(--site-header-height) 
   body.home main > .side-section > .side-title{top:calc(var(--site-header-height) + var(--space-3))!important}
 }
 
+/* The header now precedes the first film, so no artificial gap is needed. */
+body.home .video-spacer{display:none!important}
+
 /* Home alignment system. Titles sit in the left lane and all section material
    starts in the right lane. The material retains the existing 80% scale,
    without centring or widening it. */
@@ -3062,6 +3065,10 @@ body.home main > section:not(.side-section):not(.horizontal-image-ticker){
    whole section. No homepage section is clipped by its outer container. */
 body.home main > .side-section{overflow:visible!important}
 body.home main > .side-section > .side-content{overflow:visible!important}
+
+/* Press keeps the full image composition instead of cropping it to portrait. */
+.press-side-image{aspect-ratio:auto!important;overflow:visible!important}
+.press-side-image img{height:auto!important;object-fit:contain!important}
 
 /* Phone image loading is intentionally a blank white frame, not a skeleton. */
 @media(max-width:47.9375rem){
