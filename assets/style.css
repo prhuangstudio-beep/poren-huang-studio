@@ -3115,6 +3115,38 @@ body.home main > .side-section > .side-title span{
   transform:rotate(180deg)!important;
 }
 
+/* Native sticky keeps the label and normal page scrolling in the same rhythm.
+   Each title remains in its own section's left rail and cannot cross into the
+   next section. */
+body.home main > .side-section > .side-title{
+  position:sticky!important;
+  top:calc(var(--site-header-height) + var(--space-3))!important;
+  left:0!important;
+  align-self:start!important;
+  grid-column:1!important;
+  grid-row:1!important;
+  width:max-content!important;
+  height:max-content!important;
+  writing-mode:vertical-rl!important;
+  transform:rotate(180deg)!important;
+}
+body.home main > .side-section > .side-title span{
+  position:static!important;
+  writing-mode:inherit!important;
+  transform:none!important;
+}
+
+/* Every editorial home section uses the same centred content field on
+   desktop. The title rail remains outside this field on the left. */
+:root{--home-content-max:72rem}
+@media(min-width:48rem){
+  body.home main > .side-section > .side-content{
+    width:min(100%,var(--home-content-max))!important;
+    margin-inline:auto!important;
+    justify-self:center!important;
+  }
+}
+
 /* Phone image loading is intentionally a blank white frame, not a skeleton. */
 @media(max-width:47.9375rem){
   .mobile-image-shell,.mobile-image-shell::after{background:#fff!important;animation:none!important}

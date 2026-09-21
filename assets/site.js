@@ -755,30 +755,6 @@ document.addEventListener('click',event=>{
   requestRender();
 })();
 
-// Homepage side labels stay below the header while their own section is
-// visible. This deliberately positions labels without scaling or moving the
-// content beside them.
-(()=>{
-  if(!document.body.classList.contains('home'))return;
-  const header=document.querySelector('header');
-  const titles=[...document.querySelectorAll('main > .side-section > .side-title')];
-  if(!header||!titles.length)return;
-  const placeTitles=()=>{
-    const pinnedTop=header.getBoundingClientRect().height+12;
-    titles.forEach(title=>{
-      const section=title.parentElement;
-      const sectionTop=section.getBoundingClientRect().top+window.scrollY;
-      const available=Math.max(0,section.offsetHeight-title.offsetHeight);
-      const y=Math.max(0,Math.min(window.scrollY+pinnedTop-sectionTop,available));
-      title.style.setProperty('--home-side-title-y',`${Math.round(y)}px`);
-    });
-  };
-  addEventListener('scroll',placeTitles,{passive:true});
-  addEventListener('resize',placeTitles,{passive:true});
-  requestAnimationFrame(placeTitles);
-  addEventListener('load',placeTitles,{once:true});
-})();
-
 // Full-site page transition. The animation remains absent from dedicated test
 // pages, where the test-only controller owns the interaction.
 (()=>{
