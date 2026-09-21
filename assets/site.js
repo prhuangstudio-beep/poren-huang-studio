@@ -643,19 +643,17 @@ if(document.body.classList.contains('home')){
     const pin=(header?.getBoundingClientRect().height||64)+12;
     homeRails.forEach(rail=>{
       const section=rail.parentElement;
-      const sectionRect=section.getBoundingClientRect();
       const word=rail.querySelector('span');
       if(!word)return;
       const wordRect=word.getBoundingClientRect();
-      /* Convert visible movement back to layout movement when a section is
-         optically scaled, and leave a clear space above the lower divider. */
-      const scale=(section.offsetHeight ? sectionRect.height/section.offsetHeight : 1)||1;
       const dividerGap=parseFloat(getComputedStyle(section).getPropertyValue('--home-title-divider-clearance'))||32;
-      /* Calculate the word's viewport position directly. It starts at the
-         section top, pins under the header, then releases above the divider. */
-      const stopTop=sectionRect.bottom-wordRect.height-dividerGap;
-      const viewportTop=Math.max(sectionRect.top,Math.min(pin,stopTop));
-      const nextTop=Math.max(0,(viewportTop-sectionRect.top)/scale);
+      /* Static document coordinates avoid the fractional rect/scale feedback
+         loop that made the title vibrate while scrolling. */
+      const sectionTop=section.offsetTop;
+      const sectionBottom=sectionTop+section.offsetHeight;
+      const stopTop=sectionBottom-wordRect.height-dividerGap;
+      const documentTop=Math.max(sectionTop,Math.min(window.scrollY+pin,stopTop));
+      const nextTop=documentTop-sectionTop;
       rail.style.setProperty('--home-side-title-y',`${nextTop}px`);
     });
   };
