@@ -2965,7 +2965,7 @@ body.home main > .side-section > .side-title{
    original right-hand column, unaffected by the sticky title. */
 body.home main > .side-section > .side-title{
   z-index:2!important;
-  pointer-events:none!important;
+  pointer-events:auto!important;
 }
 @media(max-width:47.9375rem){
   body.home main > .side-section > .side-title{top:4.75rem!important}
@@ -3031,8 +3031,37 @@ body.home main > section:not(.side-section):not(.horizontal-image-ticker){
 
 /* The copied exhibition strip stays inside the page column instead of using
    viewport width. */
-.exhibition-image-ticker{margin:var(--space-6) 0!important;border:0!important}
-.exhibition-image-ticker img{flex:0 0 100%!important;width:100%!important}
+.exhibition-image-ticker{
+  height:20svh!important;
+  min-height:0!important;
+  max-height:20svh!important;
+  margin:var(--space-6) 0!important;
+  border:0!important;
+}
+.exhibition-image-ticker .horizontal-image-ticker__track{height:100%!important}
+.exhibition-image-ticker img{
+  flex:0 0 100vw!important;
+  width:100vw!important;
+  height:100%!important;
+  object-fit:cover!important;
+}
+
+/* Press uses a deliberately quieter reading scale than headlines elsewhere. */
+.press-page .press-card h3,
+.press-page .press-list h3{
+  font-size:clamp(.875rem,1vw,1rem)!important;
+  line-height:1.38!important;
+  letter-spacing:-.012em!important;
+}
+.press-page .press-card p,
+.press-page .press-list p{font-size:.75rem!important;line-height:1.6!important}
+.press-page .press-card time,
+.press-page .press-list time{font-size:.6875rem!important}
+
+/* The content wrapper keeps the sticky label's grid row as tall as its own
+   whole section. No homepage section is clipped by its outer container. */
+body.home main > .side-section{overflow:visible!important}
+body.home main > .side-section > .side-content{overflow:visible!important}
 
 /* Phone image loading is intentionally a blank white frame, not a skeleton. */
 @media(max-width:47.9375rem){
