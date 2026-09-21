@@ -648,12 +648,13 @@ if(document.body.classList.contains('home')){
       if(!word)return;
       const wordRect=word.getBoundingClientRect();
       /* Convert visible movement back to layout movement when a section is
-         optically scaled, and reserve 1px before the lower divider. */
+         optically scaled, and leave a clear 16px gap above the lower divider. */
       const scale=(section.offsetHeight ? sectionRect.height/section.offsetHeight : 1)||1;
       /* The rail fills the section in order to clip its word at the divider.
          Use the word's own height here: using the rail height made the
          available movement zero. */
-      const limit=Math.max(0,(sectionRect.height-wordRect.height-1)/scale);
+      const dividerGap=16;
+      const limit=Math.max(0,(sectionRect.height-wordRect.height-dividerGap)/scale);
       const nextTop=Math.min(limit,Math.max(0,(pin-sectionRect.top)/scale));
       rail.style.setProperty('--home-side-title-y',`${nextTop}px`);
     });
