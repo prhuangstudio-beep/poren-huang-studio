@@ -3070,6 +3070,35 @@ body.home main > .side-section > .side-content{overflow:visible!important}
 .press-side-image{aspect-ratio:auto!important;overflow:visible!important}
 .press-side-image img{height:auto!important;object-fit:contain!important}
 
+/* Homepage editorial labels: the full-height outer rail belongs to its own
+   section, while the visible word sticks beneath the header until that
+   section ends. This avoids the grid-item sticky limitation and keeps every
+   label paired with its own content. */
+body.home main > .side-section > .side-title{
+  position:absolute!important;
+  top:0!important;
+  left:0!important;
+  z-index:3!important;
+  display:block!important;
+  width:var(--home-side-label-width)!important;
+  height:100%!important;
+  margin:0!important;
+  writing-mode:vertical-rl!important;
+  transform:rotate(180deg)!important;
+  pointer-events:auto!important;
+}
+body.home main > .side-section > .side-title span{
+  position:sticky!important;
+  top:calc(var(--site-header-height) + var(--space-3))!important;
+  display:block!important;
+  width:max-content!important;
+  height:max-content!important;
+  transform:none!important;
+}
+@media(max-width:47.9375rem){
+  body.home main > .side-section > .side-title span{top:calc(var(--site-header-height) + var(--space-3))!important}
+}
+
 /* Phone image loading is intentionally a blank white frame, not a skeleton. */
 @media(max-width:47.9375rem){
   .mobile-image-shell,.mobile-image-shell::after{background:#fff!important;animation:none!important}

@@ -684,7 +684,7 @@ document.addEventListener('click',event=>{
     '.news article','.press-card','.timeline article','.artist-cv article',
     '.series-entry','.series-hero figure','.artist-portrait,.image-carousel',
     '.home-image-break,.press-side-image,.artist-film',
-    '.home .artist-detail,.home .series-entry-section,.home .press-layout',
+    '.home .artist-detail,.home .press-layout',
     '.work-variants','h1,h2,h3',
     '.related-works > div > a'
   ].join(',');
