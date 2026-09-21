@@ -3410,3 +3410,11 @@ body.home main > .side-section > .side-title span{
 .page.has-page-back > .page-back{
   left:var(--responsive-pad)!important;
 }
+
+/* Contact is the final home rail: use the exact same left edge and lane
+   width as every other home-side title. */
+body.home footer .contact-title{
+  left:var(--responsive-pad)!important;
+  width:var(--home-side-label-width)!important;
+  transform:rotate(180deg)!important;
+}
