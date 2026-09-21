@@ -3371,10 +3371,10 @@ body.home main > .side-section > .side-title span{
 
 /* One large key size across every page and breakpoint. */
 .key-back .back-key-image,
-.page-back.key-back .back-key-image{width:4.5rem!important}
+.page-back.key-back .back-key-image{width:3.625rem!important}
 @media(max-width:700px){
   .key-back .back-key-image,
-  .page-back.key-back .back-key-image{width:4.5rem!important}
+  .page-back.key-back .back-key-image{width:3.625rem!important}
 }
 
 /* News / exhibitions strip: double the media field so the full artwork has
