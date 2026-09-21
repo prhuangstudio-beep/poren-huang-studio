@@ -464,9 +464,6 @@ if(cv){
   }
 }
 
-const labels=['ARTIST','WORKS','NEWS','PRESS'];
-document.querySelectorAll('.side-title span').forEach((label,i)=>label.textContent=labels[i]||label.textContent);
-
 const footerSocialLinks='<a href="https://www.instagram.com/porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-label">IG</span></a><a href="https://www.facebook.com/share/1bvSVWuj5K/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-label">f</span></a><a href="https://youtube.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></a><a href="https://mail.google.com/mail/?view=cm&fs=1&to=pr_dogs@yahoo.com.tw" target="_blank" rel="noopener noreferrer" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg></a><a href="https://www.threads.com/@porenhuang" target="_blank" rel="noopener noreferrer" aria-label="Threads"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c-5 0-8 3.2-8 8.3 0 5.3 3 8.7 7.9 8.7 4 0 6.6-2.5 6.6-6 0-3.2-2.1-5.3-5.2-5.3-2.8 0-4.7 1.6-4.7 4 0 2 1.3 3.3 3.2 3.3 1.7 0 2.8-1 2.8-2.6 0-1.8-1.5-3-3.8-3"/></svg></a>';
 const footer=document.querySelector('footer');
 if(footer){
@@ -754,31 +751,6 @@ document.addEventListener('click',event=>{
     requestRender();
   }).observe(document.body,{childList:true,subtree:true});
   requestRender();
-})();
-
-// Homepage section rail: show the label and destination of the section that
-// is actually passing below the header. This has no effect on content layout.
-(()=>{
-  if(!document.body.classList.contains('home'))return;
-  const header=document.querySelector('header');
-  const labelsByTarget=new Map([...document.querySelectorAll('main > .side-section > .side-title')]
-    .map(label=>['#'+label.parentElement.id,label]));
-  if(!header||!labelsByTarget.size)return;
-  const rail=document.createElement('a');
-  rail.className='home-active-side-title';
-  rail.hidden=true;
-  document.body.append(rail);
-  const updateRail=()=>{
-    const active=labelsByTarget.get(document.body.dataset.homeSection);
-    if(!active){rail.hidden=true;return;}
-    rail.hidden=false;
-    rail.textContent=active.textContent.trim();
-    rail.href=active.href;
-    rail.setAttribute('aria-label',active.getAttribute('aria-label')||active.textContent.trim());
-  };
-  addEventListener('scroll',updateRail,{passive:true});
-  addEventListener('resize',updateRail,{passive:true});
-  requestAnimationFrame(()=>requestAnimationFrame(updateRail));
 })();
 
 // Full-site page transition. The animation remains absent from dedicated test
