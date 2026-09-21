@@ -3420,3 +3420,9 @@ body.home footer .contact-title{
   width:var(--home-side-label-width)!important;
   transform:rotate(180deg)!important;
 }
+
+/* The key is an overlay only. It must never shift an inner page's content
+   column to the right. */
+.page.has-page-back{
+  padding-left:var(--responsive-pad)!important;
+}
