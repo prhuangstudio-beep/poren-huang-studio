@@ -653,7 +653,11 @@ if(document.body.classList.contains('home')){
       const sectionBottom=sectionTop+section.offsetHeight;
       const stopTop=sectionBottom-wordRect.height-dividerGap;
       const documentTop=Math.max(sectionTop,Math.min(window.scrollY+pin,stopTop));
-      const nextTop=documentTop-sectionTop;
+      /* The absolutely positioned rail begins after the section's own top
+         padding. Subtract that inset so the visible word—not its rail—keeps
+         the full clearance from the lower divider. */
+      const railInsetTop=rail.getBoundingClientRect().top+window.scrollY-sectionTop;
+      const nextTop=Math.max(0,documentTop-sectionTop-railInsetTop);
       rail.style.setProperty('--home-side-title-y',`${nextTop}px`);
     });
   };
