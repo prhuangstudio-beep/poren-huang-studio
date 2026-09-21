@@ -252,6 +252,7 @@ if(hero){
       return top<=innerHeight*.42?item:active;
     },homeSections[0]);
     homeNavLinks.forEach(link=>link.classList.toggle('active',link===current.link));
+    document.body.dataset.homeSection=current.link.getAttribute('href')||'#top';
   };
   updateHomeNav();
   addEventListener('scroll',updateHomeNav,{passive:true});
@@ -760,29 +761,24 @@ document.addEventListener('click',event=>{
 (()=>{
   if(!document.body.classList.contains('home'))return;
   const header=document.querySelector('header');
-  const sections=[...document.querySelectorAll('main > .side-section')]
-    .map(section=>({section,label:section.querySelector('.side-title')}))
-    .filter(item=>item.label);
-  if(!header||!sections.length)return;
+  const labelsByTarget=new Map([...document.querySelectorAll('main > .side-section > .side-title')]
+    .map(label=>['#'+label.parentElement.id,label]));
+  if(!header||!labelsByTarget.size)return;
   const rail=document.createElement('a');
   rail.className='home-active-side-title';
   rail.hidden=true;
   document.body.append(rail);
   const updateRail=()=>{
-    const marker=header.getBoundingClientRect().height+12;
-    const active=sections.find(({section})=>{
-      const rect=section.getBoundingClientRect();
-      return rect.top<=marker&&rect.bottom>marker;
-    });
+    const active=labelsByTarget.get(document.body.dataset.homeSection);
     if(!active){rail.hidden=true;return;}
     rail.hidden=false;
-    rail.textContent=active.label.textContent.trim();
-    rail.href=active.label.href;
-    rail.setAttribute('aria-label',active.label.getAttribute('aria-label')||active.label.textContent.trim());
+    rail.textContent=active.textContent.trim();
+    rail.href=active.href;
+    rail.setAttribute('aria-label',active.getAttribute('aria-label')||active.textContent.trim());
   };
   addEventListener('scroll',updateRail,{passive:true});
   addEventListener('resize',updateRail,{passive:true});
-  requestAnimationFrame(updateRail);
+  requestAnimationFrame(()=>requestAnimationFrame(updateRail));
 })();
 
 // Full-site page transition. The animation remains absent from dedicated test

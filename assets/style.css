@@ -3175,6 +3175,7 @@ body.home main > .side-section > .side-title{visibility:hidden!important;pointer
     max-width:calc(100% - var(--home-side-label-width) - var(--space-7))!important;
     margin-inline:auto!important;
   }
+  body.home #artist .side-content{justify-self:center!important}
 }
 @media(max-width:47.9375rem){
   .home-active-side-title{top:calc(var(--site-header-height) + var(--space-3));font-size:clamp(1rem,4.8vw,1.35rem)}
