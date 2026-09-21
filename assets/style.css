@@ -3254,7 +3254,7 @@ body.home main > .side-section > .side-title span{
   width:100%!important;
   max-width:none!important;
   height:auto!important;
-  aspect-ratio:1.2 / 1!important;
+  aspect-ratio:1 / 1!important;
   margin:0!important;
   overflow:hidden!important;
 }
@@ -3267,11 +3267,22 @@ body.home main > .side-section > .side-title span{
 .works-overview .works-image-grid > a.work-card .works-card-meta{
   order:1!important;
   display:flex!important;
-  flex-direction:column!important;
-  align-items:flex-start!important;
-  justify-content:flex-start!important;
-  gap:var(--space-1)!important;
+  flex-direction:row!important;
+  align-items:baseline!important;
+  justify-content:space-between!important;
+  gap:var(--space-3)!important;
+  width:100%!important;
+  min-width:0!important;
   padding:0!important;
+}
+.works-overview .works-image-grid > a.work-card .works-card-meta strong{
+  min-width:0!important;
+  overflow-wrap:normal!important;
+  word-break:normal!important;
+}
+.works-overview .works-image-grid > a.work-card .works-card-meta time{
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
 }
 
 /* The previous-page mark remains clear of content at its new compact size. */
