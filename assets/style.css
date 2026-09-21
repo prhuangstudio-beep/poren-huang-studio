@@ -3338,14 +3338,14 @@ body.home main > .side-section > .side-title span{
 body.home main > .side-section > .side-title{
   top:0!important;
   height:100%!important;
-  overflow:hidden!important;
-  clip-path:inset(0 0 var(--home-title-divider-clearance) 0)!important;
+  overflow:visible!important;
+  clip-path:none!important;
 }
 body.home main > .side-section > .side-title span{
   position:absolute!important;
   top:var(--home-side-title-y,0px)!important;
   left:0!important;
-  transition:top .16s cubic-bezier(.22,1,.36,1)!important;
+  transition:none!important;
   will-change:top;
 }
 
