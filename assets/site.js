@@ -647,9 +647,9 @@ if(document.body.classList.contains('home')){
       if(!word)return;
       const wordRect=word.getBoundingClientRect();
       const dividerGap=parseFloat(getComputedStyle(section).getPropertyValue('--home-title-divider-clearance'))||32;
-      /* Static document coordinates avoid the fractional rect/scale feedback
-         loop that made the title vibrate while scrolling. */
-      const sectionTop=section.offsetTop;
+      /* Use the complete document position. offsetTop is relative to <main>,
+         which begins below the opening film and made labels release too late. */
+      const sectionTop=section.getBoundingClientRect().top+window.scrollY;
       const sectionBottom=sectionTop+section.offsetHeight;
       const stopTop=sectionBottom-wordRect.height-dividerGap;
       const documentTop=Math.max(sectionTop,Math.min(window.scrollY+pin,stopTop));
