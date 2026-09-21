@@ -3099,6 +3099,22 @@ body.home main > .side-section > .side-title span{
   body.home main > .side-section > .side-title span{top:calc(var(--site-header-height) + var(--space-3))!important}
 }
 
+/* The homepage content remains at its natural 1:1 scale. Labels are placed
+   independently, so their motion never changes the proportions of artwork,
+   text, or media. */
+body.home main > .side-section > :not(.side-title){zoom:1!important}
+body.home main > .side-section > .side-title{
+  top:var(--home-side-title-y, 0px)!important;
+  height:auto!important;
+  writing-mode:horizontal-tb!important;
+  transform:none!important;
+}
+body.home main > .side-section > .side-title span{
+  position:static!important;
+  writing-mode:vertical-rl!important;
+  transform:rotate(180deg)!important;
+}
+
 /* Phone image loading is intentionally a blank white frame, not a skeleton. */
 @media(max-width:47.9375rem){
   .mobile-image-shell,.mobile-image-shell::after{background:#fff!important;animation:none!important}
