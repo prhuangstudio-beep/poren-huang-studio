@@ -3423,15 +3423,24 @@ body.home footer .contact-title{
 
 /* The studio portrait begins the News section itself; it has no divider
    between the image and the News material. */
-body.home main > #news{border-top:1px solid rgba(17,17,17,.11)!important}
+body.home main > #news{border-top:0!important}
+body.home main > #news::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:1px;
+  background:#d8d8d8;
+  pointer-events:none;
+}
 body.home #news .home-image-break{
   margin:0 0 var(--home-section-space)!important;
 }
-@media(min-width:48rem){
-  body.home #news > .side-content,
-  body.home #press > .side-content{
-    zoom:.8!important;
-  }
+/* Keep the opening film and left-side labels at their designed scale. All
+   homepage content columns use one 90% reading scale. */
+body.home main > .side-section > .side-content{
+  zoom:.9!important;
 }
 
 /* The key is an overlay only. It must never shift an inner page's content
