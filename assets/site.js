@@ -644,10 +644,13 @@ if(document.body.classList.contains('home')){
     const scrollTop=window.scrollY;
     homeRails.forEach(rail=>{
       const section=rail.parentElement;
-      const sectionTop=section.getBoundingClientRect().top+scrollTop;
-      const railHeight=rail.offsetHeight;
-      const limit=Math.max(0,section.offsetHeight-railHeight);
-      const nextTop=Math.min(limit,Math.max(0,scrollTop+pin-sectionTop));
+      const sectionRect=section.getBoundingClientRect();
+      const railRect=rail.getBoundingClientRect();
+      /* Convert visible movement back to layout movement when a section is
+         optically scaled, and reserve 1px before the lower divider. */
+      const scale=(section.offsetHeight ? sectionRect.height/section.offsetHeight : 1)||1;
+      const limit=Math.max(0,(sectionRect.height-railRect.height-1)/scale);
+      const nextTop=Math.min(limit,Math.max(0,(pin-sectionRect.top)/scale));
       rail.style.setProperty('--home-side-title-y',`${nextTop}px`);
     });
   };

@@ -3312,6 +3312,25 @@ body.home main > .side-section > .side-title span{
   height:auto;
   object-fit:contain;
 }
+.press-page-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(17rem,42%);
+  gap:var(--space-8);
+  align-items:start;
+}
+.press-page-layout .press-list{grid-column:1;grid-row:1}
+.press-page-layout .press-page-media{grid-column:2;grid-row:1;margin:0;width:100%}
+@media(max-width:47.9375rem){
+  .press-page-layout{display:flex;flex-direction:column;gap:var(--space-6)}
+  .press-page-layout .press-page-media{order:0}
+  .press-page-layout .press-list{order:1;width:100%}
+}
+@media(min-width:48rem){
+  body.home #press .press-side-image{
+    width:min(100%,22rem)!important;
+    justify-self:end!important;
+  }
+}
 
 /* News / exhibitions strip: double the media field so the full artwork has
    room to appear at twice its prior display size without clipping. */
