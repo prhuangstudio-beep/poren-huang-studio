@@ -104,7 +104,11 @@ header{
   position:fixed!important;
   top:0!important;
   left:50%!important;
-  width:min(100%,1600px)!important;
+  /* The banner is the viewport-wide surface.  Limiting it to 1600px created
+     visible empty gutters on wide displays.  Its inner padding still keeps
+     the brand and controls on the shared content line. */
+  width:100%!important;
+  max-width:none!important;
   transform:translateX(-50%)!important;
 }
 body{padding-top:var(--space-9);}
