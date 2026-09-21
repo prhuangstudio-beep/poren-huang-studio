@@ -3313,6 +3313,13 @@ body.home main > .side-section > .side-title span{
   object-fit:contain;
 }
 
+/* News / exhibitions strip: double the media field so the full artwork has
+   room to appear at twice its prior display size without clipping. */
+.exhibition-image-ticker{
+  height:40svh!important;
+  max-height:40svh!important;
+}
+
 /* The previous-page key uses the identical left reference line as the P in
    the header brand, independently of the page content column. */
 .page.has-page-back > .page-back{
