@@ -3195,8 +3195,8 @@ body.home main > .side-section > .side-title{
   width:var(--home-side-label-width)!important;
   height:100%!important;
   margin:0!important;
-  writing-mode:vertical-rl!important;
-  transform:rotate(180deg)!important;
+  writing-mode:horizontal-tb!important;
+  transform:none!important;
 }
 body.home main > .side-section > .side-title span{
   position:sticky!important;
@@ -3204,8 +3204,9 @@ body.home main > .side-section > .side-title span{
   display:block!important;
   width:max-content!important;
   height:max-content!important;
-  writing-mode:inherit!important;
-  transform:none!important;
+  writing-mode:vertical-rl!important;
+  transform:rotate(180deg)!important;
+  transform-origin:center!important;
 }
 @media(min-width:48rem){
   body.home #artist .artist-detail{margin-inline:auto!important}
