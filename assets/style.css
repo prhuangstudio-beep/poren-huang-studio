@@ -3218,3 +3218,86 @@ body.home main > .side-section > .side-title span{
   .mobile-image-shell::after{display:none!important}
   .mobile-image-shell picture,.mobile-image-shell>img{opacity:1!important}
 }
+
+/* Final editorial layout repairs — these rules intentionally sit last so
+   legacy experiments cannot change the established page geometry. */
+body.home main > .side-section > .side-title{
+  position:absolute!important;
+  top:var(--home-side-title-y,0px)!important;
+  left:0!important;
+  height:auto!important;
+  width:var(--home-side-label-width)!important;
+  writing-mode:horizontal-tb!important;
+  transform:none!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+}
+body.home main > .side-section > .side-title span{
+  position:static!important;
+  display:block!important;
+  width:max-content!important;
+  height:max-content!important;
+  writing-mode:vertical-rl!important;
+  transform:rotate(180deg)!important;
+}
+
+/* Works overview cards always read top-to-bottom: artwork, then title/year. */
+.works-overview .works-image-grid > a.work-card{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:var(--space-4)!important;
+  overflow:visible!important;
+}
+.works-overview .works-image-grid > a.work-card figure{
+  order:0!important;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  aspect-ratio:1.2 / 1!important;
+  margin:0!important;
+  overflow:hidden!important;
+}
+.works-overview .works-image-grid > a.work-card figure img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+}
+.works-overview .works-image-grid > a.work-card .works-card-meta{
+  order:1!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  justify-content:flex-start!important;
+  gap:var(--space-1)!important;
+  padding:0!important;
+}
+
+/* The previous-page mark remains clear of content at its new compact size. */
+.key-back .back-key-image{width:clamp(2rem,3.4vw,3.625rem)!important}
+.page-back.key-back .back-key-image{width:clamp(2.25rem,3.8vw,4rem)!important}
+@media(max-width:700px){
+  .key-back .back-key-image,.page-back.key-back .back-key-image{width:2.25rem!important}
+}
+
+/* News keeps the established ticker height, but never cuts the artwork image. */
+.exhibition-image-ticker .horizontal-image-ticker__track img{
+  width:auto!important;
+  max-width:none!important;
+  height:100%!important;
+  object-fit:contain!important;
+}
+
+/* The Press page repeats its homepage studio image as a complete composition. */
+.press-page-media{
+  width:min(100%,42rem);
+  margin:var(--space-8) auto 0;
+  background:#fff;
+}
+.press-page-media img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}

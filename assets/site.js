@@ -633,6 +633,36 @@ if(hero){
   });
 }
 
+/* Homepage section rails follow the native document scroll exactly.  Each
+   rail starts at its own section top, pins beneath the header, and releases
+   before the following section begins. */
+if(document.body.classList.contains('home')){
+  const homeRails=[...document.querySelectorAll('main > .side-section > .side-title')];
+  const syncHomeRails=()=>{
+    const header=document.querySelector('header');
+    const pin=(header?.getBoundingClientRect().height||64)+12;
+    const scrollTop=window.scrollY;
+    homeRails.forEach(rail=>{
+      const section=rail.parentElement;
+      const sectionTop=section.getBoundingClientRect().top+scrollTop;
+      const railHeight=rail.offsetHeight;
+      const limit=Math.max(0,section.offsetHeight-railHeight);
+      const nextTop=Math.min(limit,Math.max(0,scrollTop+pin-sectionTop));
+      rail.style.setProperty('--home-side-title-y',`${nextTop}px`);
+    });
+  };
+  let railQueued=false;
+  const queueHomeRailSync=()=>{
+    if(railQueued)return;
+    railQueued=true;
+    requestAnimationFrame(()=>{railQueued=false;syncHomeRails();});
+  };
+  syncHomeRails();
+  addEventListener('scroll',queueHomeRailSync,{passive:true});
+  addEventListener('resize',queueHomeRailSync,{passive:true});
+  addEventListener('load',queueHomeRailSync,{once:true});
+}
+
 document.querySelector('.works-overview .eyebrow')?.remove();
 document.querySelectorAll('.more-panel').forEach(link=>{
   link.addEventListener('pointerdown',event=>event.stopPropagation());
