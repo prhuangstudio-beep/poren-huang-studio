@@ -641,15 +641,19 @@ if(document.body.classList.contains('home')){
   const syncHomeRails=()=>{
     const header=document.querySelector('header');
     const pin=(header?.getBoundingClientRect().height||64)+12;
-    const scrollTop=window.scrollY;
     homeRails.forEach(rail=>{
       const section=rail.parentElement;
       const sectionRect=section.getBoundingClientRect();
-      const railRect=rail.getBoundingClientRect();
+      const word=rail.querySelector('span');
+      if(!word)return;
+      const wordRect=word.getBoundingClientRect();
       /* Convert visible movement back to layout movement when a section is
          optically scaled, and reserve 1px before the lower divider. */
       const scale=(section.offsetHeight ? sectionRect.height/section.offsetHeight : 1)||1;
-      const limit=Math.max(0,(sectionRect.height-railRect.height-1)/scale);
+      /* The rail fills the section in order to clip its word at the divider.
+         Use the word's own height here: using the rail height made the
+         available movement zero. */
+      const limit=Math.max(0,(sectionRect.height-wordRect.height-1)/scale);
       const nextTop=Math.min(limit,Math.max(0,(pin-sectionRect.top)/scale));
       rail.style.setProperty('--home-side-title-y',`${nextTop}px`);
     });

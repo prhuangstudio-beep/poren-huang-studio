@@ -3343,6 +3343,8 @@ body.home main > .side-section > .side-title span{
   position:absolute!important;
   top:var(--home-side-title-y,0px)!important;
   left:0!important;
+  transition:top .16s cubic-bezier(.22,1,.36,1)!important;
+  will-change:top;
 }
 
 /* Works overview metadata: bilingual title forms one left column; year holds
@@ -3367,12 +3369,12 @@ body.home main > .side-section > .side-title span{
   align-self:center!important;
 }
 
-/* One small key size across every page and breakpoint. */
+/* One large key size across every page and breakpoint. */
 .key-back .back-key-image,
-.page-back.key-back .back-key-image{width:2.25rem!important}
+.page-back.key-back .back-key-image{width:4.5rem!important}
 @media(max-width:700px){
   .key-back .back-key-image,
-  .page-back.key-back .back-key-image{width:2.25rem!important}
+  .page-back.key-back .back-key-image{width:4.5rem!important}
 }
 
 /* News / exhibitions strip: double the media field so the full artwork has
@@ -3380,6 +3382,27 @@ body.home main > .side-section > .side-title span{
 .exhibition-image-ticker{
   height:40svh!important;
   max-height:40svh!important;
+}
+.exhibition-image-ticker .horizontal-image-ticker__track{
+  display:flex!important;
+  width:max-content!important;
+  height:100%!important;
+  animation:exhibition-image-ticker-loop 26s linear infinite!important;
+  animation-play-state:running!important;
+  will-change:transform;
+}
+.exhibition-image-ticker .horizontal-image-ticker__track img{
+  flex:0 0 auto!important;
+  width:auto!important;
+  height:100%!important;
+  max-width:none!important;
+}
+@keyframes exhibition-image-ticker-loop{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .exhibition-image-ticker .horizontal-image-ticker__track{animation:none!important}
 }
 
 /* The previous-page key uses the identical left reference line as the P in
