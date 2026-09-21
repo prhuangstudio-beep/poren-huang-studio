@@ -3334,10 +3334,12 @@ body.home main > .side-section > .side-title span{
 
 /* A section title moves inside its own full-height rail. The rail clips only
    the title word, so it cannot visually cross either horizontal divider. */
+:root{--home-title-divider-clearance:32px}
 body.home main > .side-section > .side-title{
   top:0!important;
   height:100%!important;
   overflow:hidden!important;
+  clip-path:inset(0 0 var(--home-title-divider-clearance) 0)!important;
 }
 body.home main > .side-section > .side-title span{
   position:absolute!important;
