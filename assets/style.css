@@ -3332,6 +3332,49 @@ body.home main > .side-section > .side-title span{
   }
 }
 
+/* A section title moves inside its own full-height rail. The rail clips only
+   the title word, so it cannot visually cross either horizontal divider. */
+body.home main > .side-section > .side-title{
+  top:0!important;
+  height:100%!important;
+  overflow:hidden!important;
+}
+body.home main > .side-section > .side-title span{
+  position:absolute!important;
+  top:var(--home-side-title-y,0px)!important;
+  left:0!important;
+}
+
+/* Works overview metadata: bilingual title forms one left column; year holds
+   the far-right edge of the same image-width row. */
+.works-overview .works-image-grid > a.work-card .works-card-meta{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  grid-template-rows:auto auto!important;
+  align-items:baseline!important;
+}
+.works-overview .works-image-grid > a.work-card .works-card-meta strong{
+  grid-column:1!important;
+  grid-row:1!important;
+}
+.works-overview .works-image-grid > a.work-card .works-card-meta span{
+  grid-column:1!important;
+  grid-row:2!important;
+}
+.works-overview .works-image-grid > a.work-card .works-card-meta time{
+  grid-column:2!important;
+  grid-row:1 / span 2!important;
+  align-self:center!important;
+}
+
+/* One small key size across every page and breakpoint. */
+.key-back .back-key-image,
+.page-back.key-back .back-key-image{width:2.25rem!important}
+@media(max-width:700px){
+  .key-back .back-key-image,
+  .page-back.key-back .back-key-image{width:2.25rem!important}
+}
+
 /* News / exhibitions strip: double the media field so the full artwork has
    room to appear at twice its prior display size without clipping. */
 .exhibition-image-ticker{
