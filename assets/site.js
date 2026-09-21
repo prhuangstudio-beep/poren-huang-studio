@@ -755,6 +755,36 @@ document.addEventListener('click',event=>{
   requestRender();
 })();
 
+// Homepage section rail: show the label and destination of the section that
+// is actually passing below the header. This has no effect on content layout.
+(()=>{
+  if(!document.body.classList.contains('home'))return;
+  const header=document.querySelector('header');
+  const sections=[...document.querySelectorAll('main > .side-section')]
+    .map(section=>({section,label:section.querySelector('.side-title')}))
+    .filter(item=>item.label);
+  if(!header||!sections.length)return;
+  const rail=document.createElement('a');
+  rail.className='home-active-side-title';
+  rail.hidden=true;
+  document.body.append(rail);
+  const updateRail=()=>{
+    const marker=header.getBoundingClientRect().height+12;
+    const active=sections.find(({section})=>{
+      const rect=section.getBoundingClientRect();
+      return rect.top<=marker&&rect.bottom>marker;
+    });
+    if(!active){rail.hidden=true;return;}
+    rail.hidden=false;
+    rail.textContent=active.label.textContent.trim();
+    rail.href=active.label.href;
+    rail.setAttribute('aria-label',active.label.getAttribute('aria-label')||active.label.textContent.trim());
+  };
+  addEventListener('scroll',updateRail,{passive:true});
+  addEventListener('resize',updateRail,{passive:true});
+  requestAnimationFrame(updateRail);
+})();
+
 // Full-site page transition. The animation remains absent from dedicated test
 // pages, where the test-only controller owns the interaction.
 (()=>{

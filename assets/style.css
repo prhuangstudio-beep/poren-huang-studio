@@ -3147,6 +3147,39 @@ body.home main > .side-section > .side-title span{
   }
 }
 
+/* One page-level rail avoids grid sticky crossover: its word is always the
+   label for the section currently passing the header. Original rail links
+   remain in the document for their destinations, but are not drawn twice. */
+body.home main > .side-section > .side-title{visibility:hidden!important;pointer-events:none!important}
+.home-active-side-title{
+  position:fixed;
+  top:calc(var(--site-header-height) + var(--space-3));
+  left:var(--responsive-pad);
+  z-index:30;
+  display:block;
+  color:#111;
+  font-size:clamp(2.125rem,3.8vw,4rem);
+  font-weight:900;
+  line-height:1;
+  letter-spacing:-.02em;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  transition:opacity .16s ease;
+}
+.home-active-side-title[hidden]{display:none!important}
+@media(min-width:48rem){
+  body.home main > .side-section{grid-template-columns:minmax(0,1fr)!important}
+  body.home main > .side-section > .side-content{
+    grid-column:1 / -1!important;
+    width:min(var(--home-content-max),calc(100% - var(--home-side-label-width) - var(--space-7)))!important;
+    max-width:calc(100% - var(--home-side-label-width) - var(--space-7))!important;
+    margin-inline:auto!important;
+  }
+}
+@media(max-width:47.9375rem){
+  .home-active-side-title{top:calc(var(--site-header-height) + var(--space-3));font-size:clamp(1rem,4.8vw,1.35rem)}
+}
+
 /* Phone image loading is intentionally a blank white frame, not a skeleton. */
 @media(max-width:47.9375rem){
   .mobile-image-shell,.mobile-image-shell::after{background:#fff!important;animation:none!important}
