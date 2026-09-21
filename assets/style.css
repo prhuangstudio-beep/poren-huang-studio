@@ -3301,3 +3301,9 @@ body.home main > .side-section > .side-title span{
   height:auto;
   object-fit:contain;
 }
+
+/* The previous-page key uses the identical left reference line as the P in
+   the header brand, independently of the page content column. */
+.page.has-page-back > .page-back{
+  left:var(--responsive-pad)!important;
+}
