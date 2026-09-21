@@ -3461,3 +3461,8 @@ body.home main > .side-section > .side-content{
     top:var(--space-4)!important;
   }
 }
+
+/* Artist must use the same full-width page coordinate system as every other
+   inner page.  Its former 1440px cap made this one page centre itself on
+   wide displays and break the shared header/content alignment. */
+.about-page .page{max-width:100%!important}
