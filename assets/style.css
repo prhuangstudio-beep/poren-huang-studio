@@ -3543,3 +3543,7 @@ body.home main > .side-section > .side-content{
   transform:scale(.9)!important;
   transform-origin:top center!important;
 }
+
+/* The homepage Press call-to-action uses the same studio orange as every
+   other "view more..." link. */
+body.home #press .press-more{color:#adf203!important}
