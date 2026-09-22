@@ -3466,3 +3466,28 @@ body.home main > .side-section > .side-content{
    inner page.  Its former 1440px cap made this one page centre itself on
    wide displays and break the shared header/content alignment. */
 .about-page .page{max-width:100%!important}
+
+/* Artist introduction: keep the editorial group centred, while every portrait
+   sits inside a consistent square white frame without cropping the photograph. */
+.about-page .artist-tab-panel{
+  width:min(100%,77.5rem)!important;
+  margin-inline:auto!important;
+}
+.about-page .bio{
+  width:100%!important;
+  margin-inline:auto!important;
+  justify-content:center!important;
+}
+.about-page .portrait,
+.about-page .artist-photo-carousel{
+  width:min(100%,34rem)!important;
+  max-width:34rem!important;
+  aspect-ratio:1 / 1!important;
+  justify-self:center!important;
+  background:#fff!important;
+}
+.about-page .portrait img,
+.about-page .artist-photo-carousel img{
+  object-fit:contain!important;
+  background:#fff!important;
+}
