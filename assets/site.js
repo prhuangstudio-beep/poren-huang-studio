@@ -478,10 +478,16 @@ if(footer){
     socials.insertAdjacentHTML('afterend','<a class="contact-me" href="https://mail.google.com/mail/?view=cm&fs=1&to=pr_dogs@yahoo.com.tw" target="_blank" rel="noopener noreferrer" aria-label="Contact Poren Huang by Gmail">CONTACT ME</a>');
   }
 }
-if(footer&&hero&&!footer.querySelector('.contact-title')){
-  footer.insertAdjacentHTML('afterbegin','<p class="contact-title">CONTACT</p>');
-  footer.querySelector('small').insertAdjacentHTML('beforebegin','<address class="contact-details"><a href="mailto:pr_dogs@yahoo.com.tw">pr_dogs@yahoo.com.tw</a><a href="tel:+886926776431">+886 926 776 431</a><span>台中市大甲區甲埔大道800號<br>No. 800, Jiapu Blvd., Dajia Dist., Taichung City 437, Taiwan</span></address>');
-  footer.insertAdjacentHTML('afterend','<div class="end-spacer" aria-hidden="true"></div>');
+if(footer&&hero){
+  if(!footer.querySelector('.contact-title')){
+    footer.insertAdjacentHTML('afterbegin','<p class="contact-title">CONTACT</p>');
+  }
+  if(!footer.querySelector('.contact-details')){
+    footer.querySelector('small').insertAdjacentHTML('beforebegin','<address class="contact-details"><a href="mailto:pr_dogs@yahoo.com.tw">pr_dogs@yahoo.com.tw</a><a href="tel:+886926776431">+886 926 776 431</a><span>台中市大甲區甲埔大道800號<br>No. 800, Jiapu Blvd., Dajia Dist., Taichung City 437, Taiwan</span></address>');
+  }
+  if(!document.querySelector('.end-spacer')){
+    footer.insertAdjacentHTML('afterend','<div class="end-spacer" aria-hidden="true"></div>');
+  }
 }
 
 document.querySelectorAll('.work-detail-info .work-heading h1').forEach(title=>{
