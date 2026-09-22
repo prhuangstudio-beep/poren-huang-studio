@@ -699,23 +699,26 @@ document.addEventListener('click',event=>{
   Site-wide virtual card scroll.
   Tune these three values to adjust the feel without touching layout:
   sensitivity: wheel / touch distance multiplier; damping: lower = more inertia;
-  influence: portion of viewport height used by the depth effect.
+  influence: fallback portion of viewport height used by non-home pages.
 */
 (()=>{
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 
   const compact=matchMedia('(max-width: 700px)').matches;
-  const mobileHome=compact&&document.body.classList.contains('home');
+  const homePage=document.body.classList.contains('home');
+  const mobileHome=compact&&homePage;
   const desktopWorks=!compact&&!!document.querySelector('.works-overview');
   const mobileWorks=compact&&!!document.querySelector('.works-overview');
-  // Higher damping makes the visual response follow the page scroll more promptly.
-  // A broader influence range also leaves a larger, clearer centre area.
-  const primaryBrowse=document.body.classList.contains('home')||!!document.querySelector('.works-overview');
+  // Homepage uses edge bands: top 15% and bottom 15% carry the depth cue,
+  // while the centre 70% remains completely clear.
+  const primaryBrowse=homePage||!!document.querySelector('.works-overview');
   const settings={
-    damping:desktopWorks ? .16 : (primaryBrowse ? .13 : .11),
+    damping:desktopWorks ? .16 : (primaryBrowse ? .14 : .11),
+    homeEdgeBand:.15,
     influence:mobileHome ? .98 : ((desktopWorks||mobileWorks) ? .74 : .91),
-    maxScaleDrop:mobileWorks ? .08 : (desktopWorks ? .08 : (mobileHome ? .04 : .06)),
-    maxBlur:mobileWorks ? 0 : (desktopWorks ? 2.5 : (mobileHome ? 2 : 2))
+    maxScaleDrop:mobileWorks ? .08 : (desktopWorks ? .08 : (homePage ? (compact ? .075 : .095) : .06)),
+    maxBlur:mobileWorks ? 0 : (desktopWorks ? 2.5 : (homePage ? (compact ? 0 : 3.2) : 2)),
+    maxOpacityDrop:homePage ? (compact ? .46 : .5) : .4
   };
   const selector=[
     '.work-list article','.works-image-grid > a','.works-index > a',
@@ -744,8 +747,6 @@ document.addEventListener('click',event=>{
     frame=0;
     current+=(target-current)*settings.damping;
     if(Math.abs(target-current)<.1)current=target;
-    const center=innerHeight*.5;
-    const range=innerHeight*settings.influence;
     const atPageEdge=target<2||target>maxScroll()-2;
     cards.forEach(card=>{
       // Keep nested typography clear while allowing its parent card to retain
@@ -766,16 +767,27 @@ document.addEventListener('click',event=>{
       const rect=card.getBoundingClientRect();
       // Rect follows native scrolling; offset it toward the eased scroll position
       // so scaling and blur glide rather than jump with each wheel tick.
-      const distance=Math.abs(rect.top+rect.height*.5+(window.scrollY-current)-center);
-      if(distance>range*2.1)return;
-      const t=Math.max(0,Math.min(1,distance/range));
+      const visualCenter=rect.top+rect.height*.5+(window.scrollY-current);
+      let t=0;
+      if(homePage){
+        const edge=innerHeight*settings.homeEdgeBand;
+        const lowerEdge=innerHeight-edge;
+        t=visualCenter<edge ? (edge-visualCenter)/edge : (visualCenter>lowerEdge ? (visualCenter-lowerEdge)/edge : 0);
+      }else{
+        const center=innerHeight*.5;
+        const range=innerHeight*settings.influence;
+        const distance=Math.abs(visualCenter-center);
+        if(distance>range*2.1)t=1;
+        else t=distance/range;
+      }
+      t=Math.max(0,Math.min(1,t));
       const ease=t*t;
       const base=baseTransforms.get(card);
       card.style.setProperty('transform',(base&&base!=='none'?base+' ':'')+'scale('+(1-ease*settings.maxScaleDrop)+')','important');
       // On compact touch screens opacity keeps the depth cue without the
       // expensive GPU blur pass. Desktop retains the blur treatment.
       card.style.setProperty('filter',compact?'none':'blur('+(ease*settings.maxBlur)+'px)','important');
-      card.style.setProperty('opacity',String(1-ease*.4),'important');
+      card.style.setProperty('opacity',String(1-ease*settings.maxOpacityDrop),'important');
     });
     if(current!==target)frame=requestAnimationFrame(render);
   };
