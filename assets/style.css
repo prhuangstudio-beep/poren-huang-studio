@@ -3532,3 +3532,14 @@ body.home main > .side-section > .side-content{
   grid-row:2!important;
   justify-self:center!important;
 }
+
+/* Reduce only the Works card field. The page title and filter controls keep
+   their established scale and position. */
+.works-overview .works-image-grid{
+  width:90%!important;
+  margin-inline:auto!important;
+}
+.works-overview .works-image-grid > a.work-card .works-card-meta{
+  transform:scale(.9)!important;
+  transform-origin:top center!important;
+}
