@@ -3569,3 +3569,38 @@ footer .contact-details a{
   margin-left:auto!important;
   margin-right:auto!important;
 }
+
+/* 2026-09-22 homepage centering repairs: keep Artist content visually centred
+   in the same 1152px editorial field as the other home sections. */
+body.home #artist > .side-content{
+  width:min(100%,72rem)!important;
+  max-width:72rem!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  justify-self:center!important;
+}
+body.home #artist .artist-detail{
+  width:100%!important;
+  max-width:72rem!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  justify-content:center!important;
+}
+
+/* Mobile Series: enlarge the visual and crop only the surrounding white field
+   inside its existing frame. */
+@media(max-width:47.9375rem){
+  body.home .series-entry{
+    overflow:hidden!important;
+  }
+  body.home .series-entry img{
+    width:180%!important;
+    height:calc(100% - 44px)!important;
+    max-width:none!important;
+    object-fit:contain!important;
+    object-position:center!important;
+    transform:none!important;
+    margin-left:-40%!important;
+    margin-right:-40%!important;
+  }
+}
