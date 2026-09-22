@@ -3491,3 +3491,30 @@ body.home main > .side-section > .side-content{
   object-fit:contain!important;
   background:#fff!important;
 }
+
+/* Works overview: one card per sculpture family. Colour/material variants
+   cross-fade through their first photographs inside the existing square frame. */
+.works-overview .work-card-carousel{position:relative!important;isolation:isolate!important;background:#fff!important}
+.works-overview .work-card-carousel .work-card-slide{
+  position:absolute!important;
+  inset:0!important;
+  display:block!important;
+  opacity:0!important;
+  transition:opacity .5s ease!important;
+}
+.works-overview .work-card-carousel .work-card-slide.is-active{opacity:1!important}
+.works-overview .work-card-carousel .work-card-slide picture,
+.works-overview .work-card-carousel .work-card-slide img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  background:#fff!important;
+}
+/* Keep the title/year row compact.  The year follows the title with one
+   8px step rather than being pushed across the full card width. */
+.works-overview .works-image-grid > a.work-card .works-card-meta{
+  grid-template-columns:minmax(0,max-content) auto!important;
+  justify-content:start!important;
+  column-gap:var(--space-2)!important;
+}

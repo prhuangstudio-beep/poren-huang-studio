@@ -43,15 +43,31 @@ function artworkSchema(work) {
     ...numberValues(work), description: workDescription(work), url: `${site}/works/${work.slug}`
   };
 }
-function card(work) {
+// A sculpture appears once in the overview. Its colour/material variants stay
+// as separate detail pages, while their first photographs rotate in one card.
+const workFamilyKey = work => [work.title_en, work.title_zh, work.year].map(value => String(value || '').trim().toLocaleLowerCase()).join('|');
+const workFamilies = [...works.reduce((families, work) => {
+  const key = workFamilyKey(work);
+  if (!families.has(key)) families.set(key, []);
+  families.get(key).push(work);
+  return families;
+}, new Map()).values()];
+function card(family) {
+  const work = family[0];
   const first = work.images[0];
-  const search = [work.title_en, work.title_zh, work.year, work.material_en, work.material_zh].filter(Boolean).join(' ').toLocaleLowerCase();
-  return `<a class="work-card" data-work-card data-year="${esc(work.year)}" data-search="${esc(search)}" href="works/${esc(work.slug)}"><figure>${picture(first)}</figure><div class="works-card-meta"><strong lang="en">${esc(work.title_en)}</strong>${work.title_zh ? `<span>${esc(work.title_zh)}</span>` : ''}<time>${esc(work.year)}</time></div></a>`;
+  const search = family.flatMap(item => [item.title_en, item.title_zh, item.year, item.material_en, item.material_zh, item.colorway]).filter(Boolean).join(' ').toLocaleLowerCase();
+  const slides = family.map((item, index) => {
+    const image = item.images[0];
+    if (!image) return '';
+    return `<span class="work-card-slide${index === 0 ? ' is-active' : ''}"${index === 0 ? '' : ' aria-hidden="true"'}>${picture(image, { lazy: index !== 0 })}</span>`;
+  }).join('');
+  const variants = family.length > 1 ? ` data-work-variants="${family.length}"` : '';
+  return `<a class="work-card" data-work-card${variants} data-year="${esc(work.year)}" data-search="${esc(search)}" href="works/${esc(work.slug)}"><figure class="works-cover work-card-carousel" data-work-card-carousel aria-label="${esc(title(work))}">${slides || picture(first)}</figure><div class="works-card-meta"><strong lang="en">${esc(work.title_en)}</strong>${work.title_zh ? `<span>${esc(work.title_zh)}</span>` : ''}<time>${esc(work.year)}</time></div></a>`;
 }
 const indexTemplate = read('works-index.html');
 const years = [...new Set(works.map(work => work.year))].sort((a, b) => b - a);
 const hreflang = url => `<link rel="alternate" hreflang="zh-Hant" href="${url}"><link rel="alternate" hreflang="en" href="${url}"><link rel="alternate" hreflang="x-default" href="${url}">`;
-const indexPage = render(indexTemplate, { yearOptions: years.map(year => `<option value="${year}">${year}</option>`).join(''), workCards: works.map(card).join(''), hreflang: hreflang(`${site}/works`) });
+const indexPage = render(indexTemplate, { yearOptions: years.map(year => `<option value="${year}">${year}</option>`).join(''), workCards: workFamilies.map(card).join(''), hreflang: hreflang(`${site}/works`) });
 write(path.join(root, 'works', 'index.html'), indexPage);
 write(path.join(root, 'works.html'), indexPage);
 
