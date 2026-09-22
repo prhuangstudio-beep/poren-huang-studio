@@ -178,3 +178,4 @@
 | 2026-09-22 | 首頁 Contact 直排標題垂直中心對齊頁尾內容群組中心：`top:50%`，`transform:translateY(-50%) rotate(180deg)`。左側仍使用 `--responsive-pad` 與其他首頁側標題同基準線。 |
 | 2026-09-22 | 首頁頁尾必須顯示三項聯絡資訊：`pr_dogs@yahoo.com.tw`、`+886 926 776 431`、`台中市大甲區甲埔大道800號 / No. 800, Jiapu Blvd., Dajia Dist., Taichung City 437, Taiwan`。聯絡資訊的顯示不可再依賴 CONTACT 標題是否存在。 |
 | 2026-09-22 | 全站所有分頁頁尾都必須顯示同一組聯絡資訊：`pr_dogs@yahoo.com.tw`、`+886 926 776 431`、`台中市大甲區甲埔大道800號 / No. 800, Jiapu Blvd., Dajia Dist., Taichung City 437, Taiwan`。分頁資訊由全站頁尾程式插入，不可再綁定首頁專用條件。 |
+| 2026-09-22 | 全站頁尾聯絡資訊需水平置中：`.contact-details` 使用 `justify-items:center`、`justify-self:center`、`text-align:center`，連結左右邊界自動置中；此規則套用所有分頁，不限首頁。 |

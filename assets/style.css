@@ -3554,3 +3554,18 @@ body.home footer .contact-title{
   top:50%!important;
   transform:translateY(-50%) rotate(180deg)!important;
 }
+
+/* Footer contact information must be centred on every page, not only on the
+   homepage. */
+footer .contact-details{
+  justify-items:center!important;
+  align-self:center!important;
+  justify-self:center!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+  text-align:center!important;
+}
+footer .contact-details a{
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
