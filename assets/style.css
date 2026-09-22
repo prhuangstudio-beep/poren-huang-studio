@@ -3547,3 +3547,10 @@ body.home main > .side-section > .side-content{
 /* The homepage Press call-to-action uses the same studio orange as every
    other "view more..." link. */
 body.home #press .press-more{color:#ff5a1f!important}
+
+/* Homepage Contact rail: centre the vertical CONTACT word on the same
+   horizontal axis as the footer content group. */
+body.home footer .contact-title{
+  top:50%!important;
+  transform:translateY(-50%) rotate(180deg)!important;
+}
