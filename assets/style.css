@@ -3511,10 +3511,24 @@ body.home main > .side-section > .side-content{
   object-fit:contain!important;
   background:#fff!important;
 }
-/* Keep the title/year row compact.  The year follows the title with one
-   8px step rather than being pushed across the full card width. */
+/* Centre the full text block. English title and year share the first line;
+   the Chinese title is centred directly beneath that line. */
 .works-overview .works-image-grid > a.work-card .works-card-meta{
   grid-template-columns:minmax(0,max-content) auto!important;
   justify-content:start!important;
   column-gap:var(--space-2)!important;
+}
+.works-overview .works-image-grid > a.work-card .works-card-meta{
+  justify-content:center!important;
+  text-align:center!important;
+}
+.works-overview .works-image-grid > a.work-card .works-card-meta time{
+  grid-column:2!important;
+  grid-row:1!important;
+  align-self:baseline!important;
+}
+.works-overview .works-image-grid > a.work-card .works-card-meta span{
+  grid-column:1 / span 2!important;
+  grid-row:2!important;
+  justify-self:center!important;
 }
