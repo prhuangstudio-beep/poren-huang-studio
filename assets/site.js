@@ -517,7 +517,7 @@ document.querySelectorAll('[data-artist-gallery]').forEach(gallery=>{
     const figure=document.createElement('figure');
     const image=document.createElement('img');
     image.loading='lazy';
-    image.src=`assets/media/artist-gallery/${encodeURIComponent(filename)}`;
+    image.src=`assets/media/artist-gallery/optimized/${encodeURIComponent(filename.replace(/\.[^.]+$/,'')+'.webp')}`;
     image.alt=`雕塑藝術家黃柏仁 Poren Huang 照片 ${index+1}`;
     figure.append(image);
     return figure;
