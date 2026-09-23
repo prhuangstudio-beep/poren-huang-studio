@@ -3563,6 +3563,36 @@ body.home footer .contact-title{
   font-weight:800!important;
 }
 
+/* Artist CV and Press share one fixed-width right gallery. Each original
+   photograph keeps its full ratio; spacing is controlled in one place. */
+:root{--artist-gallery-gap:var(--space-6);--artist-gallery-width:24rem}
+.artist-cv-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(16rem,var(--artist-gallery-width));gap:var(--space-8);align-items:start}
+.artist-side-gallery{display:grid;grid-template-columns:1fr;gap:var(--artist-gallery-gap);width:100%;margin:0}
+.artist-side-gallery figure{width:100%;margin:0;background:#fff}
+.artist-side-gallery img{display:block;width:100%;height:auto;object-fit:contain;background:#fff}
+.artist-cv-layout .artist-side-gallery{margin-top:var(--space-8)}
+.artist-cv h2{display:flex;align-items:center;min-height:3.5rem;padding:0}
+.press-page-layout .artist-side-gallery{grid-column:2;grid-row:1}
+@media(max-width:47.9375rem){
+  .artist-cv-layout{display:grid!important;grid-template-columns:minmax(0,1fr) 25vw!important;gap:var(--space-5)!important;align-items:start!important}
+  .artist-cv-layout .artist-cv{grid-column:1;grid-row:1;min-width:0}
+  .artist-cv-layout .artist-gallery-ticker{display:block!important;grid-column:2;grid-row:1;align-self:start;width:100%!important;max-width:none!important;height:var(--artist-gallery-view-height,50svh);min-height:0}
+}
+
+/* The right-hand artist strip cycles upward behind its own top edge. */
+.press-page-layout{grid-template-columns:minmax(0,1fr) minmax(16rem,var(--artist-gallery-width))!important;align-items:start}
+.artist-gallery-ticker{display:block;position:relative;height:var(--artist-gallery-view-height,auto);min-height:0;overflow:hidden}
+.artist-gallery-ticker__track{display:grid;grid-template-columns:1fr;gap:var(--artist-gallery-gap);will-change:transform;animation:artist-gallery-scroll 240s linear infinite}
+@keyframes artist-gallery-scroll{to{transform:translateY(var(--artist-gallery-cycle,-50%))}}
+@media(prefers-reduced-motion:reduce){.artist-gallery-ticker__track{animation:none}}
+@media(max-width:47.9375rem){
+  .press-page-layout{display:grid!important;grid-template-columns:minmax(0,1fr) 25vw!important;gap:var(--space-5)!important;align-items:start!important}
+  .press-page-layout .press-list{grid-column:1;grid-row:1;width:100%!important}
+  .press-page-layout .artist-gallery-ticker{display:block!important;grid-column:2;grid-row:1;align-self:start;width:100%!important;max-width:none!important;height:var(--artist-gallery-view-height,50svh);min-height:0}
+  .about-page .artist-switch{margin-left:auto!important;margin-right:auto!important}
+  .page.has-page-back > .page-back{left:auto!important}
+}
+
 /* Footer contact information must be centred on every page, not only on the
    homepage. */
 footer .contact-details{

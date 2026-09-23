@@ -269,7 +269,7 @@ if(page){
     back.className='page-back key-back';
     back.href=location.pathname.includes('/works/')?'../works':'/';
     back.setAttribute('aria-label','Back');
-    back.innerHTML='<img class="back-key-image" src="assets/media/back-key-gold.png?v=20260923balanced" alt="">';
+    back.innerHTML='<img class="back-key-image" src="assets/media/back-key-black.png" alt="">';
     page.prepend(back);
     page.classList.add('has-page-back');
   }
@@ -506,6 +506,46 @@ document.querySelectorAll('a').forEach(link=>{
   if(!/^view more(?:…|\.\.\.)?$/i.test(link.textContent.trim()))return;
   link.style.setProperty('--view-more-base-color',getComputedStyle(link).color);
   link.classList.add('view-more-link');
+});
+
+const artistGalleryImages=['IMG_2117.JPG','IMG_8234.JPG','IMG_9063.JPG','IMG_9066.JPG','IMG_9119.JPG','IMG_9123.JPG','L1000258.JPG','L1020065.JPG','L1020266.JPG','L1020295.JPG','L1020311.JPG','L1020519.JPG','L1020532.JPG','L1020536.JPG','L1020548.JPG','L1020604.JPG','L1020747.JPG','L1020834.JPG','L1020850.JPG','L1020890.JPG','L1030503.JPG','L1120738.JPG','L1120742.JPG','L1120749.JPG','直微發光.png'];
+document.querySelectorAll('[data-artist-gallery]').forEach(gallery=>{
+  const files=gallery.dataset.galleryOrder==='reverse'?[...artistGalleryImages].reverse():artistGalleryImages;
+  const track=document.createElement('div');
+  track.className='artist-gallery-ticker__track';
+  const figures=files.map((filename,index)=>{
+    const figure=document.createElement('figure');
+    const image=document.createElement('img');
+    image.loading='lazy';
+    image.src=`assets/media/artist-gallery/${encodeURIComponent(filename)}`;
+    image.alt=`雕塑藝術家黃柏仁 Poren Huang 照片 ${index+1}`;
+    figure.append(image);
+    return figure;
+  });
+  const repeats=figures.map(figure=>{
+    const copy=figure.cloneNode(true);
+    copy.setAttribute('aria-hidden','true');
+    copy.querySelector('img').alt='';
+    return copy;
+  });
+  track.append(...figures,...repeats);
+  gallery.classList.add('artist-gallery-ticker');
+  gallery.replaceChildren(track);
+  const contentColumn=gallery.closest('.press-page-layout')?.querySelector('.press-list')||gallery.closest('.artist-cv-layout')?.querySelector('.artist-cv');
+  const measureViewport=()=>{
+    if(!contentColumn)return;
+    gallery.style.setProperty('--artist-gallery-view-height',`${Math.ceil(contentColumn.getBoundingClientRect().height)}px`);
+  };
+  const measureCycle=()=>{
+    const firstRepeat=repeats[0];
+    if(firstRepeat)track.style.setProperty('--artist-gallery-cycle',`-${Math.round(firstRepeat.offsetTop)}px`);
+  };
+  track.querySelectorAll('img').forEach(image=>image.addEventListener('load',measureCycle,{once:true}));
+  new ResizeObserver(measureCycle).observe(track);
+  if(contentColumn)new ResizeObserver(measureViewport).observe(contentColumn);
+  window.addEventListener('resize',measureViewport,{passive:true});
+  measureCycle();
+  measureViewport();
 });
 
 document.querySelectorAll('.work-detail-info .work-heading h1').forEach(title=>{
