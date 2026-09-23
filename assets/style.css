@@ -3603,7 +3603,7 @@ body.home #artist > .side-content{
   margin-inline:auto!important;
   justify-self:center!important;
   position:relative!important;
-  left:calc((100vw - 100%) / 2)!important;
+  left:var(--artist-screen-offset,0px)!important;
 }
 @media(max-width:47.9375rem){
   body.home #artist > .side-content{
