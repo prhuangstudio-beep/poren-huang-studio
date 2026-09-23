@@ -3560,6 +3560,7 @@ body.home #press .press-more{color:#ff5a1f!important}
 body.home footer .contact-title{
   top:50%!important;
   transform:translateY(-50%) rotate(180deg)!important;
+  font-weight:800!important;
 }
 
 /* Footer contact information must be centred on every page, not only on the
