@@ -491,6 +491,14 @@ if(footer&&hero){
   }
 }
 
+// Every "view more..." keeps its established base colour. Its only hover
+// response is a compact scale, so it behaves consistently across sections.
+document.querySelectorAll('a').forEach(link=>{
+  if(!/^view more(?:…|\.\.\.)?$/i.test(link.textContent.trim()))return;
+  link.style.setProperty('--view-more-base-color',getComputedStyle(link).color);
+  link.classList.add('view-more-link');
+});
+
 document.querySelectorAll('.work-detail-info .work-heading h1').forEach(title=>{
   if(title.querySelector('.work-title-en'))return;
   const raw=title.textContent.trim().replace(/\s+/g,' ');
@@ -957,10 +965,12 @@ document.addEventListener('click',event=>{
   const context=canvas.getContext('2d',{willReadFrequently:true});
   const videos={right:walker.querySelector('.scroll-walker__walk--right'),left:walker.querySelector('.scroll-walker__walk--left')};
   const compact=matchMedia('(max-width:700px)');
-  let position=0,targetPosition=0,direction='',stopTimer=0,positionFrame=0,videoFrame=0,activeVideo=null;
+  let position=0,targetPosition=0,direction='',stopTimer=0,positionFrame=0,videoFrame=0,activeVideo=null,pageScrollRange=1;
   const characterWidth=()=>walker.getBoundingClientRect().width||innerHeight*.12;
   const travelBounds=()=>{
-    const available=Math.max(0,(document.documentElement.clientWidth||innerWidth)-characterWidth());
+    // Use the complete viewport rather than clientWidth (which excludes the
+    // scrollbar). This makes the visible left and right margins identical.
+    const available=Math.max(0,innerWidth-characterWidth());
     // Keep the route centred. Desktop was already an 84% lane; both routes
     // now travel 15% less while retaining identical left/right margins.
     const lane=available*(compact.matches?.85:(.84*.85));
@@ -968,6 +978,12 @@ document.addEventListener('click',event=>{
     return {start,end:start+lane};
   };
   const clamp=value=>{const bounds=travelBounds();return Math.max(bounds.start,Math.min(bounds.end,value));};
+  const measurePageRoute=()=>{
+    pageScrollRange=Math.max(1,Math.round(document.documentElement.scrollHeight-innerHeight));
+    document.documentElement.dataset.walkerScrollRange=String(pageScrollRange);
+    return pageScrollRange;
+  };
+  const pageProgress=()=>Math.max(0,Math.min(1,scrollY/measurePageRoute()));
   const place=()=>{position=clamp(position);targetPosition=clamp(targetPosition);walker.style.transform='translate3d('+position+'px,0,0)';};
   const easePosition=()=>{
     position+=(targetPosition-position)*.12;
@@ -1011,14 +1027,13 @@ document.addEventListener('click',event=>{
     clearTimeout(stopTimer);stopTimer=setTimeout(stop,220);
   };
   const syncToPageProgress=()=>{
-    const limit=Math.max(1,document.documentElement.scrollHeight-innerHeight);
-    const bounds=travelBounds(),destination=bounds.start+(bounds.end-bounds.start)*Math.max(0,Math.min(1,scrollY/limit));
+    const bounds=travelBounds(),destination=bounds.start+(bounds.end-bounds.start)*pageProgress();
     if(Math.abs(destination-position)<.5){position=destination;targetPosition=destination;place();return;}
     walk(destination>position?'right':'left');moveTo(destination);
   };
   const recordSectionPositions=()=>{
     if(compact.matches)return;
-    const limit=Math.max(1,document.documentElement.scrollHeight-innerHeight),bounds=travelBounds(),records={};
+    const limit=measurePageRoute(),bounds=travelBounds(),records={};
     document.querySelectorAll('.home-section-nav a').forEach(link=>{
       const selector=link.getAttribute('href'),section=selector==='#top'?null:document.querySelector(selector);
       const screenY=section?Math.min(limit,Math.max(0,section.getBoundingClientRect().top+scrollY)):0;
@@ -1042,6 +1057,7 @@ document.addEventListener('click',event=>{
     cancelAnimationFrame(calibrationFrame);
     calibrationFrame=requestAnimationFrame(()=>{
       calibrationFrame=0;
+      measurePageRoute();
       centerArtistOnViewport();
       syncToPageProgress();
       recordSectionPositions();
@@ -1050,14 +1066,14 @@ document.addEventListener('click',event=>{
   addEventListener('wheel',event=>{
     if(!event.deltaY||event.target.closest?.('.work-stage,.horizontal-image-ticker'))return;
     const amount=event.deltaMode===1?event.deltaY*16:event.deltaMode===2?event.deltaY*innerHeight:event.deltaY;
-    const limit=Math.max(0,document.documentElement.scrollHeight-innerHeight),atBottom=amount>0&&scrollY>=limit-2,atTop=amount<0&&scrollY<=2;
+    const limit=measurePageRoute(),atBottom=amount>0&&scrollY>=limit-2,atTop=amount<0&&scrollY<=2;
     if(atBottom||atTop){const bounds=travelBounds(),destination=atBottom?bounds.end:bounds.start;targetPosition=destination;if(Math.abs(position-destination)<.5){position=destination;place();}walk(atBottom?'right':'left');return;}
     walk(amount>0?'right':'left');
   },{passive:true,capture:true});
   addEventListener('scroll',()=>{syncToPageProgress();recordSectionPositions();},{passive:true});
   addEventListener('resize',()=>{place();recalibrateRoute();},{passive:true});
   addEventListener('poren:section-select',()=>{if(!compact.matches)recalibrateRoute();});
-  position=travelBounds().start;targetPosition=position;place();centerArtistOnViewport();recordSectionPositions();
+  measurePageRoute();position=travelBounds().start;targetPosition=position;place();centerArtistOnViewport();recordSectionPositions();
   document.fonts?.ready.then(recalibrateRoute);
   document.querySelectorAll('img,video').forEach(media=>{
     media.addEventListener('load',recalibrateRoute,{once:true});

@@ -3733,4 +3733,38 @@ body.home #works .section-head a{position:absolute!important;top:0!important;rig
   body.home #works .work-stage.works-ticker-ready .home-ticker-card>span{font-size:.82rem!important}
   body.home #works .work-stage.works-ticker-ready .home-ticker-card>span small{font-size:.8rem!important}
 }
+
+/* View-more links retain their own section colour; interaction is scale only. */
+a.view-more-link{
+  display:inline-block!important;
+  color:var(--view-more-base-color)!important;
+  transform-origin:center!important;
+  transition:transform .2s ease!important;
+}
+a.view-more-link:hover,a.view-more-link:focus-visible{
+  color:var(--view-more-base-color)!important;
+  opacity:1!important;
+  transform:scale(1.08)!important;
+}
+
+/* A centred single-column footer prevents page-specific grid rules from
+   shifting the shared contact information away from the viewport centre. */
+footer{
+  position:relative!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  /* client width excludes the browser scrollbar; compensate so the content
+     is centred in the full visible viewport on every page. */
+  left:calc((100vw - 100%) / 2)!important;
+}
+footer .contact-details,footer .contact-details>*{
+  width:auto!important;
+  max-width:min(100%,42rem)!important;
+  justify-self:center!important;
+  justify-items:center!important;
+  text-align:center!important;
+}
 }
