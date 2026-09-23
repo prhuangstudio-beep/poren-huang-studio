@@ -3678,6 +3678,7 @@ body.home #works .work-stage.works-ticker-ready{
   scroll-snap-type:none!important;
   gap:clamp(1rem,2vw,2rem)!important;
   padding:0!important;
+  height:clamp(19rem,34vw,31rem)!important;
   touch-action:pan-x!important;
   cursor:grab;
 }
@@ -3687,13 +3688,30 @@ body.home #works .work-stage.works-ticker-ready .home-ticker-card{
   width:clamp(11.5rem,19vw,19rem)!important;
   height:100%!important;
   min-height:100%!important;
+  display:grid!important;
+  grid-template-rows:minmax(0,1fr) auto!important;
+  align-items:stretch!important;
+  padding:0!important;
   overflow:hidden!important;
 }
+body.home #works .work-stage.works-ticker-ready .home-work-image{
+  position:relative!important;
+  inset:auto!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
 body.home #works .work-stage.works-ticker-ready .home-ticker-card>span{
+  position:relative!important;
   left:0!important;
   bottom:0!important;
+  display:block!important;
   padding:.55rem .65rem!important;
-  background:rgba(255,255,255,.9)!important;
+  background:#fff!important;
+  color:#111!important;
   font-size:clamp(.82rem,1.15vw,1.05rem)!important;
 }
 body.home #works .work-stage.works-ticker-ready .home-ticker-card>span small{
@@ -3704,8 +3722,9 @@ body.home #works .work-stage.works-ticker-ready .home-ticker-card>span small{
   letter-spacing:.04em!important;
 }
 body.home .work-swipe-hint,body.home .more-panel{display:none!important}
+body.home #works .section-head{justify-content:flex-end!important}
 @media(max-width:47.9375rem){
-  body.home #works .work-stage.works-ticker-ready{height:clamp(12rem,52vw,16rem)!important;gap:var(--space-3)!important}
+  body.home #works .work-stage.works-ticker-ready{height:clamp(14rem,62vw,18rem)!important;gap:var(--space-3)!important}
   body.home #works .work-stage.works-ticker-ready .home-ticker-card{flex-basis:44vw!important;width:44vw!important}
   body.home #works .work-stage.works-ticker-ready .home-ticker-card>span{font-size:.82rem!important}
   body.home #works .work-stage.works-ticker-ready .home-ticker-card>span small{font-size:.8rem!important}

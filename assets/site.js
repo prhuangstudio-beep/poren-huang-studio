@@ -557,6 +557,7 @@ if('IntersectionObserver'in window){
 const homeStage=document.querySelector('body.home .work-stage');
 if(homeStage){
   document.querySelectorAll('.work-swipe-hint,.more-panel').forEach(item=>item.remove());
+  homeStage.closest('.side-content')?.querySelector('.section-head .eyebrow')?.remove();
   const homeWorksUrl='data/works.json';
   const escapeHtml=value=>String(value).replace(/[&<>'"]/g,character=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[character]));
   const startHomeWorksTicker=works=>{
@@ -576,17 +577,20 @@ if(homeStage){
     homeStage.innerHTML=recent.map(card).join('')+recent.map(card).join('');
     homeStage.classList.add('works-ticker-ready');
     const panels=[...homeStage.querySelectorAll('.home-ticker-card')];
-    let velocity=0,dragging=false,startX=0,startScroll=0,moved=false;
+    let velocity=0,scrollPosition=0,dragging=false,startX=0,startScroll=0,moved=false;
     const loopWidth=()=>homeStage.scrollWidth/2;
     const keepLooped=()=>{
       const cycle=loopWidth();
       if(!cycle)return;
-      if(homeStage.scrollLeft>=cycle)homeStage.scrollLeft-=cycle;
-      if(homeStage.scrollLeft<0)homeStage.scrollLeft+=cycle;
+      if(scrollPosition>=cycle)scrollPosition-=cycle;
+      if(scrollPosition<0)scrollPosition+=cycle;
+      homeStage.scrollLeft=scrollPosition;
     };
     const tick=()=>{
       if(!dragging&&!document.hidden&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
-        homeStage.scrollLeft+=.34+velocity;
+        // scrollLeft stores integer pixels; retain the fractional distance here
+        // so the slow continuous movement does not get rounded back to zero.
+        scrollPosition+=.34+velocity;
         velocity*=.92;
         if(Math.abs(velocity)<.01)velocity=0;
         keepLooped();
@@ -602,14 +606,14 @@ if(homeStage){
       velocity=Math.max(-48,Math.min(48,velocity+movement*.18));
     },{passive:false});
     homeStage.addEventListener('pointerdown',event=>{
-      dragging=true;moved=false;velocity=0;startX=event.clientX;startScroll=homeStage.scrollLeft;
+      dragging=true;moved=false;velocity=0;startX=event.clientX;startScroll=scrollPosition;
       homeStage.setPointerCapture?.(event.pointerId);
     });
     homeStage.addEventListener('pointermove',event=>{
       if(!dragging)return;
       const delta=event.clientX-startX;
       if(Math.abs(delta)>5)moved=true;
-      homeStage.scrollLeft=startScroll-delta;
+      scrollPosition=startScroll-delta;
       keepLooped();
     });
     const release=event=>{
@@ -735,7 +739,7 @@ document.addEventListener('click',event=>{
     damping:desktopWorks ? .16 : (primaryBrowse ? .14 : .11),
     homeEdgeBand:.15,
     influence:mobileHome ? .98 : ((desktopWorks||mobileWorks) ? .74 : .91),
-    maxScaleDrop:mobileWorks ? .08 : (desktopWorks ? .08 : (homePage ? (compact ? .075 : .095) : .06)),
+    maxScaleDrop:mobileWorks ? .045 : (desktopWorks ? .045 : (homePage ? (compact ? .03 : .045) : .035)),
     maxBlur:mobileWorks ? 0 : (desktopWorks ? 2.5 : (homePage ? (compact ? 0 : 3.2) : 2)),
     maxOpacityDrop:homePage ? (compact ? .46 : .5) : .4
   };
