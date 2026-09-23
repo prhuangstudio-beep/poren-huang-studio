@@ -128,6 +128,7 @@
 - 圖片維持 `<picture>`／`srcset` 管線；任何版面調整不可覆蓋或移除 AVIF、WebP、JPG fallback 與尺寸資訊。
 - 所有作品圖片要有如實的 alt 文字；沒有正式中文名稱時不可自行翻譯或補造。
 - 所有頁面使用 HTTPS、乾淨網址、正確 canonical、Open Graph、Twitter Card、hreflang 與 JSON-LD。
+- `porenhuang.com` 是正式主網站與版面基準。主網站有直接修改時，測試站 `test-sync` 必須依正式網站目前版本同步後再進行後續測試；同步不可覆蓋測試站的 `.git` 記錄。
 
 ## 發布紀錄
 
@@ -179,4 +180,5 @@
 | 2026-09-22 | 首頁頁尾必須顯示三項聯絡資訊：`pr_dogs@yahoo.com.tw`、`+886 926 776 431`、`台中市大甲區甲埔大道800號 / No. 800, Jiapu Blvd., Dajia Dist., Taichung City 437, Taiwan`。聯絡資訊的顯示不可再依賴 CONTACT 標題是否存在。 |
 | 2026-09-22 | 全站所有分頁頁尾都必須顯示同一組聯絡資訊：`pr_dogs@yahoo.com.tw`、`+886 926 776 431`、`台中市大甲區甲埔大道800號 / No. 800, Jiapu Blvd., Dajia Dist., Taichung City 437, Taiwan`。分頁資訊由全站頁尾程式插入，不可再綁定首頁專用條件。 |
 | 2026-09-22 | 全站頁尾聯絡資訊需水平置中：`.contact-details` 使用 `justify-items:center`、`justify-self:center`、`text-align:center`，連結左右邊界自動置中；此規則套用所有分頁，不限首頁。 |
+| 2026-09-23 | `porenhuang.com` 為正式主網站基準；使用者直接修改主網站後，測試站需依正式站版本同步，並保留測試站的 Git 記錄。首頁 Artist 內容需跨越左側標題欄後置中；底部角色在版面尺寸或媒體高度變動後重新量測各區路徑。 |
 | 2026-09-22 | 首頁 Artist 區域內容框固定置中於 72rem（1152px）最大寬度內：`#artist > .side-content` 與 `.artist-detail` 使用 `margin-left:auto`、`margin-right:auto`、`justify-self:center`。手機端首頁 Series 圖片放大至 180%，圖片容器保留原高度，左右各以 `-40%` 偏移裁掉可裁切白色邊界。 |
