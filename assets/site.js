@@ -627,17 +627,35 @@ if(homeStage){
     homeStage.addEventListener('pointerup',release);
     homeStage.addEventListener('pointercancel',release);
     panels.forEach(panel=>panel.addEventListener('click',event=>{if(moved)event.preventDefault();}));
+    const panelsByWork=new Map();
+    panels.forEach(panel=>{
+      const key=panel.dataset.homeWork;
+      if(!panelsByWork.has(key))panelsByWork.set(key,[]);
+      panelsByWork.get(key).push(panel);
+    });
     const coverIndexes=new Map();
+    const changeCover=(panel,variant)=>{
+      const image=panel.querySelector('.home-work-image');
+      if(!image)return;
+      const preload=new Image();
+      preload.src=variant.src;
+      image.classList.add('is-fading');
+      const apply=()=>{
+        image.src=variant.src;
+        image.alt=variant.alt;
+        requestAnimationFrame(()=>image.classList.remove('is-fading'));
+      };
+      preload.addEventListener('load',apply,{once:true});
+      preload.addEventListener('error',()=>image.classList.remove('is-fading'),{once:true});
+    };
     setInterval(()=>{
       if(document.hidden)return;
-      panels.forEach(panel=>{
-        const variants=JSON.parse(panel.dataset.variants||'[]');
+      panelsByWork.forEach((matchingPanels,key)=>{
+        const variants=JSON.parse(matchingPanels[0].dataset.variants||'[]');
         if(variants.length<2)return;
-        const image=panel.querySelector('.home-work-image');
-        const index=((coverIndexes.get(panel.dataset.homeWork)||0)+1)%variants.length;
-        coverIndexes.set(panel.dataset.homeWork,index);
-        image.classList.add('is-changing');
-        setTimeout(()=>{image.src=variants[index].src;image.alt=variants[index].alt;image.classList.remove('is-changing');},180);
+        const index=((coverIndexes.get(key)||0)+1)%variants.length;
+        coverIndexes.set(key,index);
+        matchingPanels.forEach(panel=>changeCover(panel,variants[index]));
       });
     },4800);
   };
