@@ -3632,18 +3632,22 @@ body.home #artist > .side-content{
   body.home #press .press-layout{
     display:flex!important;
     flex-direction:column!important;
-    gap:var(--space-8)!important;
+    gap:4rem!important;
   }
   body.home #press .press-side-image{
-    position:relative!important;
-    z-index:0!important;
+    display:block!important;
+    position:static!important;
+    width:100%!important;
+    aspect-ratio:1 / 1!important;
+    order:1!important;
     margin:0!important;
-    margin-bottom:calc(var(--space-8) * 2)!important;
   }
   body.home #press .press-list{
-    position:relative!important;
-    z-index:1!important;
+    display:block!important;
+    order:2!important;
+    margin:0!important;
   }
+  body.home #press > .side-content{zoom:1!important;}
   body.home #artist .artist-detail > div{
     padding-left:4.5rem!important;
   }
