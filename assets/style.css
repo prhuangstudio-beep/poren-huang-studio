@@ -3616,6 +3616,8 @@ body.home #artist > .side-content{
 @media(max-width:47.9375rem){
   body.home .series-entry{
     overflow:hidden!important;
+    height:clamp(16.25rem,72vw,20rem)!important;
+    min-height:clamp(16.25rem,72vw,20rem)!important;
   }
   body.home .series-entry img{
     width:180%!important;
@@ -3627,4 +3629,40 @@ body.home #artist > .side-content{
     margin-left:-40%!important;
     margin-right:-40%!important;
   }
+  body.home #press .press-layout{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:var(--space-8)!important;
+  }
+  body.home #press .press-side-image{
+    position:relative!important;
+    z-index:0!important;
+    margin:0!important;
+    margin-bottom:calc(var(--space-8) * 2)!important;
+  }
+  body.home #press .press-list{
+    position:relative!important;
+    z-index:1!important;
+  }
+  body.home #artist .artist-detail > div{
+    padding-left:4.5rem!important;
+  }
+  body.home #artist .artist-detail h2{
+    font-size:clamp(1.4rem,6.3vw,1.72rem)!important;
+    line-height:1.18!important;
+  }
+  body.home #artist .artist-detail > div p{
+    font-size:.82rem!important;
+    line-height:1.65!important;
+  }
+  body.home #series .series-entry{
+    grid-template-rows:calc(100% - 44px) 44px!important;
+  }
+  .scroll-walker{
+    width:10.8vh!important;
+    height:10.8vh!important;
+    max-width:151px!important;
+    max-height:151px!important;
+  }
+}
 }
