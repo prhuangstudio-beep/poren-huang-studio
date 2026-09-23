@@ -3775,17 +3775,22 @@ body.home #works .works-more{
   margin-left:0!important;
 }
 
-/* Gold material replaces the existing black-filled interactive controls. */
-.contact-form button,
-.artist-switch button.active,
-.contact-me:hover,
-.work-contact-me:hover{
+/* Controls retain their existing states; hover feedback is movement only. */
+.contact-form button{
+  color:#fff!important;
+  background:#111!important;
+  background-image:none!important;
+}
+.artist-switch button.active{
+  color:#fff!important;
+  background:#111!important;
+  background-image:none!important;
+  box-shadow:0 10px 24px rgba(17,17,17,.18)!important;
+}
+.contact-me:hover,.work-contact-me:hover{
   color:#111!important;
-  border-color:#9b6d09!important;
-  background-color:#d4a72c!important;
-  background-image:url("media/gold-button-texture.png")!important;
-  background-size:cover!important;
-  background-position:center!important;
+  background:#fff!important;
+  background-image:none!important;
 }
 
 /* CONTACT is a label, not a control, and shares the left title lane exactly. */
