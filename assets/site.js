@@ -194,12 +194,27 @@ if(hero){
   window.scrollTo(0,0);
   const intro=document.createElement('div');
   intro.className='intro-screen';
-  intro.innerHTML='<span>POREN HUANG<small>SCULPTURE</small></span>';
+  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><video autoplay muted playsinline preload="auto"><source src="assets/media/intro-character-right-walk-stop-short.webm?v=20260924outline" type="video/webm"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
+  const introWalkVideo=intro.querySelector('.intro-screen__walker video');
+  introWalkVideo.playbackRate=1.1;
   document.documentElement.classList.remove('home-preintro');
+  const alignIntroWalker=()=>{
+    const gap=intro.querySelector('.intro-gap');
+    const video=intro.querySelector('.intro-screen__walker video');
+    if(!gap||!video)return;
+    const rect=gap.getBoundingClientRect();
+    video.style.left=`${rect.left+(rect.width/2)}px`;
+  };
+  const realignIntro=()=>{alignIntroWalker();};
+  requestAnimationFrame(()=>requestAnimationFrame(realignIntro));
+  setTimeout(realignIntro,120);
+  window.addEventListener('resize',realignIntro);
+  document.fonts?.ready?.then(alignIntroWalker);
   const clearIntro=()=>{
     if(introCleared)return;
     introCleared=true;
+    window.removeEventListener('resize',realignIntro);
     window.scrollTo(0,0);
     document.body.classList.remove('intro-active');
     intro.remove();
@@ -211,7 +226,7 @@ if(hero){
       clearIntro();
     }
   });
-  setTimeout(clearIntro,4200);
+  setTimeout(clearIntro,5900);
   const homeNav=document.createElement('div');
   homeNav.className='home-section-nav';
   homeNav.setAttribute('role','navigation');
