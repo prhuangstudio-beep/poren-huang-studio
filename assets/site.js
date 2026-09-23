@@ -197,7 +197,7 @@ if(hero){
   intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><video autoplay muted playsinline preload="auto"><source src="assets/media/intro-character-right-walk-stop-short.webm?v=20260924outline" type="video/webm"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
   const introWalkVideo=intro.querySelector('.intro-screen__walker video');
-  introWalkVideo.playbackRate=1.1;
+  introWalkVideo.playbackRate=1.25;
   document.documentElement.classList.remove('home-preintro');
   const alignIntroWalker=()=>{
     const gap=intro.querySelector('.intro-gap');
@@ -226,7 +226,7 @@ if(hero){
       clearIntro();
     }
   });
-  setTimeout(clearIntro,5900);
+  setTimeout(clearIntro,5100);
   const homeNav=document.createElement('div');
   homeNav.className='home-section-nav';
   homeNav.setAttribute('role','navigation');
