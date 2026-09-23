@@ -3794,4 +3794,34 @@ body.home footer .contact-title{
   width:var(--home-side-label-width)!important;
   pointer-events:none!important;
 }
+
+/* Shared editorial call to action: one visual language, everywhere. */
+a.view-more-link,
+body.home .series-more{
+  display:inline-block!important;
+  color:#ff5a1f!important;
+  font:800 12px/1.2 Manrope,Arial,sans-serif!important;
+  letter-spacing:.02em!important;
+  text-decoration:none!important;
+  text-shadow:none!important;
+  -webkit-text-stroke:0!important;
+  border:0!important;
+  transform-origin:left center!important;
+  transition:transform .2s ease!important;
+}
+a.view-more-link:hover,a.view-more-link:focus-visible,
+body.home .series-more:hover,body.home .series-more:focus-visible{
+  color:#ff5a1f!important;
+  opacity:1!important;
+  transform:scale(1.08)!important;
+}
+body.home #artist .view-more-link,
+body.home #works .works-more,
+body.home #news .view-more-link,
+body.home #press .view-more-link,
+body.home #series .series-more{
+  margin-top:var(--space-5)!important;
+  margin-left:0!important;
+  justify-self:start!important;
+}
 }
