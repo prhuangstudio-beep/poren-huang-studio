@@ -269,7 +269,7 @@ if(page){
     back.className='page-back key-back';
     back.href=location.pathname.includes('/works/')?'../works':'/';
     back.setAttribute('aria-label','Back');
-    back.innerHTML='<img class="back-key-image" src="assets/media/back-key-gold.png" alt="">';
+    back.innerHTML='<img class="back-key-image" src="assets/media/back-key-gold.png?v=20260923balanced" alt="">';
     page.prepend(back);
     page.classList.add('has-page-back');
   }
