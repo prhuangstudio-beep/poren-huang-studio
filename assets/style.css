@@ -3602,6 +3602,8 @@ body.home #artist > .side-content{
   max-width:72rem!important;
   margin-inline:auto!important;
   justify-self:center!important;
+  position:relative!important;
+  left:calc((100vw - 100%) / 2)!important;
 }
 @media(max-width:47.9375rem){
   body.home #artist > .side-content{
