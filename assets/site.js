@@ -927,8 +927,9 @@ document.addEventListener('click',event=>{
   const characterWidth=()=>walker.getBoundingClientRect().width||innerHeight*.12;
   const travelBounds=()=>{
     const available=Math.max(0,(document.documentElement.clientWidth||innerWidth)-characterWidth());
-    if(compact.matches)return {start:0,end:available};
-    const lane=available*.84;
+    // Keep the route centred. Desktop was already an 84% lane; both routes
+    // now travel 15% less while retaining identical left/right margins.
+    const lane=available*(compact.matches?.85:(.84*.85));
     const start=(available-lane)/2;
     return {start,end:start+lane};
   };
