@@ -194,7 +194,7 @@ if(hero){
   window.scrollTo(0,0);
   const intro=document.createElement('div');
   intro.className='intro-screen';
-  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><video autoplay muted playsinline preload="auto"><source src="assets/media/intro-character-right-walk-stop-short.webm?v=20260924outline" type="video/webm"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
+  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><video autoplay muted playsinline preload="auto"><source src="assets/media/intro-character-right-walk-stop-short.webm?v=20260924color" type="video/webm"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
   const introWalkVideo=intro.querySelector('.intro-screen__walker video');
   introWalkVideo.playbackRate=1.25;
