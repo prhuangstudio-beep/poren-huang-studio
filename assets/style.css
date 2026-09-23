@@ -3767,4 +3767,31 @@ footer .contact-details,footer .contact-details>*{
   justify-items:center!important;
   text-align:center!important;
 }
+
+/* Homepage Works follows the other section calls to action: lower left. */
+body.home #works .works-more{
+  display:inline-block!important;
+  margin-top:var(--space-5)!important;
+  margin-left:0!important;
+}
+
+/* Gold material replaces the existing black-filled interactive controls. */
+.contact-form button,
+.artist-switch button.active,
+.contact-me:hover,
+.work-contact-me:hover{
+  color:#111!important;
+  border-color:#9b6d09!important;
+  background-color:#d4a72c!important;
+  background-image:url("media/gold-button-texture.png")!important;
+  background-size:cover!important;
+  background-position:center!important;
+}
+
+/* CONTACT is a label, not a control, and shares the left title lane exactly. */
+body.home footer .contact-title{
+  left:calc(var(--responsive-pad) - ((100vw - 100%) / 2))!important;
+  width:var(--home-side-label-width)!important;
+  pointer-events:none!important;
+}
 }

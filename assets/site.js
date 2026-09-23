@@ -490,6 +490,15 @@ if(footer&&hero){
     footer.insertAdjacentHTML('afterend','<div class="end-spacer" aria-hidden="true"></div>');
   }
 }
+if(footer&&document.body.classList.contains('home')){
+  const contactTitle=footer.querySelector('a.contact-title');
+  if(contactTitle){
+    const label=document.createElement('p');
+    label.className=contactTitle.className;
+    label.textContent=contactTitle.textContent;
+    contactTitle.replaceWith(label);
+  }
+}
 
 // Every "view more..." keeps its established base colour. Its only hover
 // response is a compact scale, so it behaves consistently across sections.
@@ -565,7 +574,14 @@ if('IntersectionObserver'in window){
 const homeStage=document.querySelector('body.home .work-stage');
 if(homeStage){
   document.querySelectorAll('.work-swipe-hint,.more-panel').forEach(item=>item.remove());
-  homeStage.closest('.side-content')?.querySelector('.section-head .eyebrow')?.remove();
+  const worksContent=homeStage.closest('.side-content');
+  const worksHead=worksContent?.querySelector('.section-head');
+  const worksMore=worksHead?.querySelector('a[href]');
+  if(worksMore){
+    worksMore.classList.add('works-more');
+    homeStage.insertAdjacentElement('afterend',worksMore);
+  }
+  worksHead?.remove();
   const homeWorksUrl='data/works.json';
   const escapeHtml=value=>String(value).replace(/[&<>'"]/g,character=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[character]));
   const startHomeWorksTicker=works=>{
