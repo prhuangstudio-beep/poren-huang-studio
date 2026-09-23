@@ -3670,4 +3670,44 @@ body.home #artist > .side-content{
     max-height:151px!important;
   }
 }
+
+/* Homepage Works ticker — shared by desktop and phone. */
+body.home #works .work-stage.works-ticker-ready{
+  display:flex!important;
+  overflow:hidden!important;
+  scroll-snap-type:none!important;
+  gap:clamp(1rem,2vw,2rem)!important;
+  padding:0!important;
+  touch-action:pan-x!important;
+  cursor:grab;
+}
+body.home #works .work-stage.works-ticker-ready.dragging{cursor:grabbing}
+body.home #works .work-stage.works-ticker-ready .home-ticker-card{
+  flex:0 0 clamp(11.5rem,19vw,19rem)!important;
+  width:clamp(11.5rem,19vw,19rem)!important;
+  height:100%!important;
+  min-height:100%!important;
+  overflow:hidden!important;
+}
+body.home #works .work-stage.works-ticker-ready .home-ticker-card>span{
+  left:0!important;
+  bottom:0!important;
+  padding:.55rem .65rem!important;
+  background:rgba(255,255,255,.9)!important;
+  font-size:clamp(.82rem,1.15vw,1.05rem)!important;
+}
+body.home #works .work-stage.works-ticker-ready .home-ticker-card>span small{
+  display:block!important;
+  margin-top:.25rem!important;
+  font-size:clamp(.78rem,1.1vw,1rem)!important;
+  font-weight:700!important;
+  letter-spacing:.04em!important;
+}
+body.home .work-swipe-hint,body.home .more-panel{display:none!important}
+@media(max-width:47.9375rem){
+  body.home #works .work-stage.works-ticker-ready{height:clamp(12rem,52vw,16rem)!important;gap:var(--space-3)!important}
+  body.home #works .work-stage.works-ticker-ready .home-ticker-card{flex-basis:44vw!important;width:44vw!important}
+  body.home #works .work-stage.works-ticker-ready .home-ticker-card>span{font-size:.82rem!important}
+  body.home #works .work-stage.works-ticker-ready .home-ticker-card>span small{font-size:.8rem!important}
+}
 }
