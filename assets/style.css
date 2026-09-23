@@ -3578,7 +3578,7 @@ body.home footer .contact-title{
 .intro-screen>span{position:relative;z-index:4}
 .intro-screen .intro-word,.intro-screen .intro-gap{font:inherit;font-style:normal}
 .intro-screen>span{animation:none!important;opacity:1}
-@media(max-width:47.9375rem){.intro-screen__walker video{min-width:0;width:auto;height:30%;transform:translate(-50%,67%)}}
+@media(max-width:47.9375rem){.intro-screen__walker video{min-width:0;width:auto;height:30%;transform:translate(-50%,67%);border:0;outline:0;box-shadow:none;background:transparent;clip-path:inset(2px)}}
 .press-page-layout .artist-side-gallery{grid-column:2;grid-row:1}
 @media(max-width:47.9375rem){
   .artist-cv-layout{display:grid!important;grid-template-columns:minmax(0,1fr) 25vw!important;gap:var(--space-5)!important;align-items:start!important}
@@ -3871,3 +3871,8 @@ body.home #series .series-more{
 /* Keep the homepage depth field, with a calmer background enlargement. */
 :root{--ambient-scale:1.08}
 body.home .video-banner--ambient .video-banner__ambient{transform:scale(1.03)!important}
+
+/* The fixed homepage header is 64px high on desktop.  Keep the opening
+   film exactly flush to its lower edge rather than inheriting the former
+   global 96px body offset. */
+body.home{padding-top:var(--site-header-height)!important}
