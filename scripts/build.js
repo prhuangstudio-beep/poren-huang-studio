@@ -5,13 +5,34 @@ const sharp = require('sharp');
 const root = path.resolve(__dirname, '..');
 const site = 'https://porenhuang.com';
 const brandIconHead = '<link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#ffffff">';
-const works = JSON.parse(fs.readFileSync(path.join(root, 'data', 'works.json'), 'utf8')).sort((a, b) => a.order - b.order);
+const works = JSON.parse(fs.readFileSync(path.join(root, 'data', 'works.json'), 'utf8')).map(work => ({ ...work, previous_slugs: work.previous_slugs || [] })).sort((a, b) => a.order - b.order);
 const read = name => fs.readFileSync(path.join(root, 'templates', name), 'utf8');
 const write = (file, value) => { fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, value); };
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const clean = value => String(value ?? '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 const render = (template, values) => template.replace(/{{(\w+)}}/g, (_, key) => values[key] ?? '');
 const title = work => [work.title_en, work.title_zh].filter(Boolean).join(' ');
+const redirectSlugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+function redirectPage(previousSlug, currentSlug) {
+  const destination = `/works/${currentSlug}.html`;
+  return `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0; url=${destination}"><link rel="canonical" href="${site}/works/${currentSlug}"><title>Redirecting…</title><script>location.replace(${JSON.stringify(destination)});</script></head><body><p>Redirecting to <a href="${destination}">${destination}</a>.</p></body></html>`;
+}
+function buildPreviousSlugRedirects() {
+  const currentSlugs = new Set(works.map(work => work.slug));
+  const previousSlugs = new Map();
+  works.forEach(work => {
+    if (!Array.isArray(work.previous_slugs)) throw new Error(`previous_slugs must be an array for ${work.slug}`);
+    work.previous_slugs.forEach(value => {
+      const previousSlug = String(value || '').trim();
+      if (!redirectSlugPattern.test(previousSlug)) throw new Error(`Invalid previous slug "${previousSlug}" for ${work.slug}`);
+      if (currentSlugs.has(previousSlug)) throw new Error(`Previous slug "${previousSlug}" conflicts with an active work URL.`);
+      if (previousSlugs.has(previousSlug)) throw new Error(`Previous slug "${previousSlug}" is assigned to both ${previousSlugs.get(previousSlug)} and ${work.slug}.`);
+      previousSlugs.set(previousSlug, work.slug);
+    });
+  });
+  previousSlugs.forEach((currentSlug, previousSlug) => write(path.join(root, 'works', `${previousSlug}.html`), redirectPage(previousSlug, currentSlug)));
+  return previousSlugs.size;
+}
 const imageUrl = image => `${site}/${image.filename}`;
 const imageSize = filename => {
   const data = fs.readFileSync(path.join(root, filename));
@@ -94,6 +115,7 @@ works.forEach((work, index) => {
   };
   write(path.join(root, 'works', `${work.slug}.html`), render(detailTemplate, values));
 });
+const redirectCount = buildPreviousSlugRedirects();
 
 // The shared Person source is inserted on the two manually-authored pages on every build.
 ['index.html', 'about.html'].forEach(file => {
@@ -254,5 +276,5 @@ addHreflangToStaticPages();
 addBrandIconsToAllPages();
 Promise.all([optimizeImages(), generateOgImages(), generateBrandIcons()]).then(async ([images, og]) => {
   await updateStaticSocialMeta();
-  console.log(`Built ${works.length} static work pages, sitemap and optimized images (${images.created} processed, ${images.skipped} cached; OG ${og.created} created, ${og.skipped} cached).`);
+  console.log(`Built ${works.length} static work pages, ${redirectCount} legacy redirect pages, sitemap and optimized images (${images.created} processed, ${images.skipped} cached; OG ${og.created} created, ${og.skipped} cached).`);
 }).catch(error => { console.error(error); process.exitCode = 1; });
