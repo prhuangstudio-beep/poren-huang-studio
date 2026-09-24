@@ -4,6 +4,7 @@ const sharp = require('sharp');
 
 const root = path.resolve(__dirname, '..');
 const site = 'https://porenhuang.com';
+const brandIconHead = '<link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#ffffff">';
 const works = JSON.parse(fs.readFileSync(path.join(root, 'data', 'works.json'), 'utf8')).sort((a, b) => a.order - b.order);
 const read = name => fs.readFileSync(path.join(root, 'templates', name), 'utf8');
 const write = (file, value) => { fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, value); };
@@ -210,8 +211,48 @@ async function updateStaticSocialMeta() {
   }
 }
 
+async function generateBrandIcons() {
+  const source = path.join(root, 'assets', 'icons', 'pr-black.png');
+  if (!fs.existsSync(source)) throw new Error('Missing brand icon source: assets/icons/pr-black.png');
+  const render = async (size, { opaque = false } = {}) => {
+    const logo = await sharp(source).trim({ background: '#ffffff', threshold: 12 }).resize(Math.round(size * 0.62), Math.round(size * 0.62), { fit: 'contain' }).png().toBuffer();
+    const radius = Math.round(size * 0.18);
+    const background = Buffer.from(`<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg"><rect width="${size}" height="${size}" rx="${radius}" fill="#ffffff"/></svg>`);
+    const canvas = sharp({ create: { width: size, height: size, channels: 4, background: opaque ? '#ffffff' : { r: 255, g: 255, b: 255, alpha: 0 } } }).composite([{ input: background }, { input: logo, gravity: 'centre' }]);
+    return opaque ? canvas.flatten({ background: '#ffffff' }).png().toBuffer() : canvas.png().toBuffer();
+  };
+  const named = [[16, 'favicon-16x16.png'], [32, 'favicon-32x32.png'], [180, 'apple-touch-icon.png'], [192, 'android-chrome-192x192.png'], [512, 'android-chrome-512x512.png']];
+  const buffers = await Promise.all(named.map(([size, file]) => render(size, { opaque: file === 'apple-touch-icon.png' })));
+  await Promise.all(named.map(([, file], index) => fs.promises.writeFile(path.join(root, file), buffers[index])));
+  const icoImages = await Promise.all([16, 32, 48].map(size => render(size)));
+  const header = Buffer.alloc(6 + icoImages.length * 16);
+  header.writeUInt16LE(0, 0); header.writeUInt16LE(1, 2); header.writeUInt16LE(icoImages.length, 4);
+  let offset = header.length;
+  icoImages.forEach((image, index) => {
+    const entry = 6 + index * 16;
+    const size = [16, 32, 48][index];
+    header[entry] = size; header[entry + 1] = size; header[entry + 2] = 0; header[entry + 3] = 0;
+    header.writeUInt16LE(1, entry + 4); header.writeUInt16LE(32, entry + 6);
+    header.writeUInt32LE(image.length, entry + 8); header.writeUInt32LE(offset, entry + 12); offset += image.length;
+  });
+  await fs.promises.writeFile(path.join(root, 'favicon.ico'), Buffer.concat([header, ...icoImages]));
+  await fs.promises.writeFile(path.join(root, 'site.webmanifest'), JSON.stringify({ name: 'Poren Huang Studio', short_name: 'Poren Huang', icons: [{ src: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' }, { src: '/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' }], theme_color: '#ffffff', background_color: '#ffffff', display: 'standalone' }, null, 2) + '\n');
+}
+
+function addBrandIconsToAllPages() {
+  const rootPages = fs.readdirSync(root).filter(file => file.endsWith('.html'));
+  const workPages = fs.readdirSync(path.join(root, 'works')).filter(file => file.endsWith('.html')).map(file => path.join('works', file));
+  [...rootPages, ...workPages].forEach(relative => {
+    const target = path.join(root, relative);
+    let html = fs.readFileSync(target, 'utf8');
+    html = html.replace(/<link rel="icon"[^>]*>|<link rel="apple-touch-icon"[^>]*>|<link rel="manifest"[^>]*>|<meta name="theme-color"[^>]*>/g, '');
+    write(target, html.replace('</head>', `${brandIconHead}</head>`));
+  });
+}
+
 addHreflangToStaticPages();
-Promise.all([optimizeImages(), generateOgImages()]).then(async ([images, og]) => {
+addBrandIconsToAllPages();
+Promise.all([optimizeImages(), generateOgImages(), generateBrandIcons()]).then(async ([images, og]) => {
   await updateStaticSocialMeta();
   console.log(`Built ${works.length} static work pages, sitemap and optimized images (${images.created} processed, ${images.skipped} cached; OG ${og.created} created, ${og.skipped} cached).`);
 }).catch(error => { console.error(error); process.exitCode = 1; });
