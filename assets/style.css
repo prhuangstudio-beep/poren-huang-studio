@@ -3581,7 +3581,6 @@ body.home footer .contact-title{
 @media(max-width:47.9375rem){.intro-screen__walker video{min-width:0;width:auto;height:30%;transform:translate(-50%,67%);border:0;outline:0;box-shadow:none;background:transparent;filter:none;clip-path:none}}
 @media(max-width:47.9375rem){
   body.home main{--home-section-space:clamp(2.5rem,8vw,3.5rem)!important}
-  .intro-screen>span{transform:translateY(14vh)!important}
 }
 .press-page-layout .artist-side-gallery{grid-column:2;grid-row:1}
 @media(max-width:47.9375rem){
@@ -3891,11 +3890,6 @@ body.home{padding-top:var(--site-header-height)!important}
 
 /* Final mobile-home refinements: keep text, media, and section labels aligned. */
 @media(max-width:47.9375rem){
-  body.home .intro-screen>span{
-    position:relative!important;
-    top:0!important;
-    transform:none!important;
-  }
   body.home main #news>.side-content,
   body.home main #press>.side-content{
     zoom:.88!important;
