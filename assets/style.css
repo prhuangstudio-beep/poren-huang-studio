@@ -3572,7 +3572,7 @@ body.home footer .contact-title{
 .artist-side-gallery img{display:block;width:100%;height:auto;object-fit:contain;background:#fff}
 .artist-cv-layout .artist-side-gallery{margin-top:var(--space-8)}
 .artist-cv h2{display:flex;align-items:center;min-height:3.5rem;padding:0}
-.intro-screen{overflow:hidden!important;animation:intro-out .6s linear 4.2s forwards!important}
+.intro-screen{overflow:hidden!important;animation:intro-out .6s linear 4.1s forwards!important}
 .intro-screen__walker{position:absolute;inset:0;z-index:2;overflow:hidden;background:transparent}
 .intro-screen__walker,.intro-screen>span{transition:opacity .18s linear!important}
 .intro-screen.intro-media-pending .intro-screen__walker,.intro-screen.intro-media-pending>span{opacity:0!important}

@@ -233,7 +233,7 @@ if(hero){
       clearIntro();
     }
   });
-  setTimeout(clearIntro,4800);
+  setTimeout(clearIntro,4700);
   const homeNav=document.createElement('div');
   homeNav.className='home-section-nav';
   homeNav.setAttribute('role','navigation');
