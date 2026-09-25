@@ -213,9 +213,47 @@ if(hero){
     const rect=gap.getBoundingClientRect();
     video.style.left=`${rect.left+(rect.width/2)}px`;
   };
-  const realignIntro=()=>{alignIntroWalker();};
+  const placeMobileIntroPair=()=>{
+    if(!matchMedia('(max-width:47.9375rem)').matches)return;
+    const video=intro.querySelector('.intro-screen__walker video');
+    const title=intro.querySelector('span');
+    if(!video||!title||!video.videoWidth)return;
+    // Fix the visual gap first, then align that gap with the viewport centre.
+    // Text line-height adds about 10px above the visible glyphs. A 6px box
+    // gap therefore renders as a consistent 16px visual gap.
+    const fixedGap=6;
+    const pairCentre=innerHeight/2+6;
+    const probe=document.createElement('canvas');
+    probe.width=video.videoWidth;
+    probe.height=video.videoHeight;
+    const probeContext=probe.getContext('2d',{willReadFrequently:true});
+    let visibleBottom=.93;
+    try{
+      probeContext.drawImage(video,0,0);
+      const pixels=probeContext.getImageData(0,0,probe.width,probe.height).data;
+      let lastOpaque=-1;
+      for(let y=probe.height-1;y>=0&&lastOpaque<0;y--){
+        for(let x=0;x<probe.width;x++){
+          const index=(y*probe.width+x)*4;
+          if(pixels[index+3]>18){lastOpaque=y;break;}
+        }
+      }
+      if(lastOpaque>=0)visibleBottom=(lastOpaque+1)/probe.height;
+    }catch(_){}
+    video.style.transform='translate(-50%,0)';
+    title.style.setProperty('top','0px','important');
+    const videoRect=video.getBoundingClientRect();
+    const targetCharacterBottom=pairCentre-fixedGap/2;
+    const videoOffset=targetCharacterBottom-visibleBottom*videoRect.height;
+    video.style.transform=`translate(-50%,0) translateY(${Math.round(videoOffset)}px)`;
+    const titleRect=title.getBoundingClientRect();
+    const targetTitleTop=pairCentre+fixedGap/2;
+    title.style.setProperty('top',`${Math.round(targetTitleTop-titleRect.top)}px`,'important');
+  };
+  const realignIntro=()=>{alignIntroWalker();placeMobileIntroPair();};
   requestAnimationFrame(()=>requestAnimationFrame(realignIntro));
   setTimeout(realignIntro,120);
+  introWalkVideo.addEventListener('loadeddata',()=>requestAnimationFrame(realignIntro),{once:true});
   window.addEventListener('resize',realignIntro);
   document.fonts?.ready?.then(alignIntroWalker);
   const clearIntro=()=>{
