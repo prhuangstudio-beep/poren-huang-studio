@@ -3883,6 +3883,12 @@ body.home .video-banner--ambient .video-banner__ambient{transform:scale(1.03)!im
    global 96px body offset. */
 body.home{padding-top:var(--site-header-height)!important}
 
+/* Homepage film: remove the ambient fill, blur and veil. */
+body.home .video-banner--ambient{background:#fff!important}
+body.home .video-banner--ambient .video-banner__ambient,
+body.home .video-banner--ambient .video-banner__veil{display:none!important;visibility:hidden!important;opacity:0!important}
+body.home .video-banner--ambient .video-banner__foreground{position:relative!important;z-index:2!important;width:100%!important;height:auto!important;max-width:100%!important;object-fit:contain!important;object-position:center!important;background:#fff!important;filter:none!important;transform:none!important}
+
 /* Homepage Donut exhibition — aligned to the shared content rails. */
 .donut-sequence{margin:var(--space-8) 0!important;padding:0!important}.donut-sequence__stage{position:relative;height:100vh;min-height:700px;overflow:hidden;background:transparent;perspective:1400px}.donut-sequence canvas{display:block;width:100%;height:100%;pointer-events:none;transform:rotateY(var(--donut-tilt-y,0deg)) rotateX(var(--donut-tilt-x,0deg)) scale(1.012);transform-origin:center center;transition:transform .12s linear}.donut-sequence__loading{position:absolute;inset:0;display:grid;place-items:center;font-size:11px;font-weight:800;letter-spacing:.12em}.donut-sequence:not(.is-ready) canvas{opacity:0}@media(max-width:700px){.donut-sequence{margin:var(--space-6) 0!important}.donut-sequence__stage{height:min(68svh,620px);min-height:0}.donut-sequence canvas{transform:scale(1.006)}}
 

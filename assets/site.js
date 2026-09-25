@@ -169,14 +169,9 @@ if(hero){
   const ambientVideo=document.querySelector('.video-banner__ambient');
   let ambientStarted=false;
   let introCleared=false;
-  const loadAmbientVideo=()=>{
-    if(ambientStarted||!ambientVideo||!matchMedia('(min-width: 901px)').matches)return;
-    ambientStarted=true;
-    ambientVideo.setAttribute('src',ambientVideo.dataset.hdSrc);
-    ambientVideo.load();
-    ambientVideo.addEventListener('loadeddata',()=>document.body.classList.add('hero-ambient-ready'),{once:true});
-    ambientVideo.play().catch(()=>{});
-  };
+  // The homepage film now uses only its uncropped foreground source.
+  // Do not load a second blurred background stream.
+  const loadAmbientVideo=()=>{};
   const warmHeroVideo=()=>{
     if(!heroVideo)return;
     heroVideo.preload='auto';
