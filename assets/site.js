@@ -209,20 +209,7 @@ if(hero){
     const rect=gap.getBoundingClientRect();
     video.style.left=`${rect.left+(rect.width/2)}px`;
   };
-  const centerMobileIntroPair=()=>{
-    if(!matchMedia('(max-width:47.9375rem)').matches)return;
-    const video=intro.querySelector('.intro-screen__walker video');
-    const title=intro.querySelector('span');
-    if(!video||!title)return;
-    // The whitespace between the character and its name is the visual anchor:
-    // keep that midpoint exactly at the centre on every phone height.
-    video.style.transform='translate(-50%,57%)';
-    const videoRect=video.getBoundingClientRect();
-    const titleRect=title.getBoundingClientRect();
-    const offset=Math.round(innerHeight/2-((videoRect.bottom+titleRect.top)/2));
-    video.style.transform=`translate(-50%,57%) translateY(${offset}px)`;
-  };
-  const realignIntro=()=>{alignIntroWalker();centerMobileIntroPair();};
+  const realignIntro=()=>{alignIntroWalker();};
   requestAnimationFrame(()=>requestAnimationFrame(realignIntro));
   setTimeout(realignIntro,120);
   window.addEventListener('resize',realignIntro);
