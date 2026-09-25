@@ -213,9 +213,42 @@ if(hero){
     const rect=gap.getBoundingClientRect();
     video.style.left=`${rect.left+(rect.width/2)}px`;
   };
-  const realignIntro=()=>{alignIntroWalker();};
+  const centerMobileIntroPair=()=>{
+    if(!matchMedia('(max-width:47.9375rem)').matches)return;
+    const video=intro.querySelector('.intro-screen__walker video');
+    const title=intro.querySelector('span');
+    if(!video||!title||!video.videoWidth)return;
+    // Keep the established character/title spacing intact; move them only as
+    // one group so their visual midpoint follows each phone's viewport centre.
+    intro.style.setProperty('--intro-pair-offset','0px');
+    const probe=document.createElement('canvas');
+    probe.width=video.videoWidth;
+    probe.height=video.videoHeight;
+    const context=probe.getContext('2d',{willReadFrequently:true});
+    let characterBottom=.93;
+    try{
+      context.drawImage(video,0,0);
+      const pixels=context.getImageData(0,0,probe.width,probe.height).data;
+      let found=-1;
+      for(let y=probe.height-1;y>=0&&found<0;y--){
+        for(let x=0;x<probe.width;x++){
+          const i=(y*probe.width+x)*4,r=pixels[i],g=pixels[i+1],b=pixels[i+2],a=pixels[i+3];
+          if(a>18&&(r<110||(g-r>25&&g-b>25))){found=y;break;}
+        }
+      }
+      if(found>=0)characterBottom=(found+1)/probe.height;
+    }catch(_){}
+    const videoRect=video.getBoundingClientRect();
+    const titleRect=title.getBoundingClientRect();
+    const visibleCharacterBottom=videoRect.top+videoRect.height*characterBottom;
+    const visibleTitleTop=titleRect.top+Math.min(10,titleRect.height*.12);
+    const offset=Math.round(innerHeight/2-(visibleCharacterBottom+visibleTitleTop)/2);
+    intro.style.setProperty('--intro-pair-offset',`${offset}px`);
+  };
+  const realignIntro=()=>{alignIntroWalker();requestAnimationFrame(centerMobileIntroPair);};
   requestAnimationFrame(()=>requestAnimationFrame(realignIntro));
   setTimeout(realignIntro,120);
+  introWalkVideo.addEventListener('loadeddata',realignIntro,{once:true});
   window.addEventListener('resize',realignIntro);
   document.fonts?.ready?.then(alignIntroWalker);
   const clearIntro=()=>{
