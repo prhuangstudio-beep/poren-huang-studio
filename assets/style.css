@@ -3572,15 +3572,13 @@ body.home footer .contact-title{
 .artist-side-gallery img{display:block;width:100%;height:auto;object-fit:contain;background:#fff}
 .artist-cv-layout .artist-side-gallery{margin-top:var(--space-8)}
 .artist-cv h2{display:flex;align-items:center;min-height:3.5rem;padding:0}
-.intro-screen{overflow:hidden!important;animation:intro-out .6s linear 4.1s forwards!important}
+.intro-screen{overflow:hidden!important;animation:intro-out .6s linear 4.45s forwards!important}
 .intro-screen__walker{position:absolute;inset:0;z-index:2;overflow:hidden;background:transparent}
-.intro-screen__walker,.intro-screen>span{transition:opacity .18s linear!important}
-.intro-screen.intro-media-pending .intro-screen__walker,.intro-screen.intro-media-pending>span{opacity:0!important}
 .intro-screen__walker video{position:absolute;left:50%;top:0;width:auto;min-width:0;height:37%;max-width:none;transform:translate(-50%,27%);object-fit:contain;filter:none;clip-path:none}
 .intro-screen>span{position:relative;z-index:4}
 .intro-screen .intro-word,.intro-screen .intro-gap{font:inherit;font-style:normal}
 .intro-screen>span{animation:none!important;opacity:1}
-@media(max-width:47.9375rem){.intro-screen__walker video{min-width:0;width:auto;height:30%;transform:translate(-50%,100%);border:0;outline:0;box-shadow:none;background:transparent;filter:none;clip-path:none}}
+@media(max-width:47.9375rem){.intro-screen__walker video{min-width:0;width:auto;height:30%;transform:translate(-50%,67%);border:0;outline:0;box-shadow:none;background:transparent;filter:none;clip-path:none}}
 @media(max-width:47.9375rem){
   body.home main{--home-section-space:clamp(2.5rem,8vw,3.5rem)!important}
   .intro-screen>span{transform:translateY(14vh)!important}
@@ -3895,7 +3893,7 @@ body.home{padding-top:var(--site-header-height)!important}
 @media(max-width:47.9375rem){
   body.home .intro-screen>span{
     position:relative!important;
-    top:2vh!important;
+    top:0!important;
     transform:none!important;
   }
   body.home main #news>.side-content,
