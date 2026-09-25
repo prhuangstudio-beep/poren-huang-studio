@@ -228,7 +228,7 @@ if(hero){
       clearIntro();
     }
   });
-  setTimeout(clearIntro,5100);
+  setTimeout(clearIntro,5200);
   const homeNav=document.createElement('div');
   homeNav.className='home-section-nav';
   homeNav.setAttribute('role','navigation');

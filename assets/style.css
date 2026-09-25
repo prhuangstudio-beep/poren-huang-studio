@@ -3572,7 +3572,10 @@ body.home footer .contact-title{
 .artist-side-gallery img{display:block;width:100%;height:auto;object-fit:contain;background:#fff}
 .artist-cv-layout .artist-side-gallery{margin-top:var(--space-8)}
 .artist-cv h2{display:flex;align-items:center;min-height:3.5rem;padding:0}
-.intro-screen{overflow:hidden!important;animation:intro-out .6s linear 4.45s forwards!important}
+.intro-screen{overflow:hidden!important;animation:intro-in .6s linear 0s both,intro-out .6s linear 4.41s forwards}
+.intro-screen__walker{animation:intro-walker-in .6s linear 0s both}
+@keyframes intro-in{from{opacity:0}to{opacity:1}}
+@keyframes intro-walker-in{from{opacity:0}to{opacity:1}}
 .intro-screen__walker{position:absolute;inset:0;z-index:2;overflow:hidden;background:transparent}
 .intro-screen__walker video{position:absolute;left:50%;top:0;width:auto;min-width:0;height:37%;max-width:none;transform:translate(-50%,27%);object-fit:contain;filter:none;clip-path:none}
 .intro-screen>span{position:relative;z-index:4}
@@ -3931,12 +3934,6 @@ body.home{padding-top:var(--site-header-height)!important}
     font:900 clamp(1.7rem,3.04vw,3.2rem)/1 Manrope,Arial,sans-serif!important;
     letter-spacing:-.02em!important;
   }
-}
-
-/* Move the mobile opening character and title together without changing their gap. */
-@media(max-width:47.9375rem){
-  .intro-screen__walker video{transform:translate(-50%,67%) translateY(1.1vh)!important}
-  .intro-screen>span{transform:translateY(9.1vh)!important}
 }
 
 /* Gallery-like, quiet recovery page for static-host 404 responses. */
