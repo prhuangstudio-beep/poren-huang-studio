@@ -938,6 +938,23 @@ document.addEventListener('click',event=>{
   requestRender();
 })();
 
+// Homepage Donut sequence: frame 32 is the resting composition.
+(()=>{
+  if(!document.body.classList.contains('home')||document.querySelector('.donut-sequence'))return;
+  const series=document.querySelector('#series');if(!series)return;
+  series.insertAdjacentHTML('afterend','<section id="donut-scroll" class="donut-sequence" aria-label="Donut sculpture sequence"><div class="donut-sequence__stage"><canvas aria-label="Donut sculpture sequence"></canvas><div class="donut-sequence__loading">Loading 0%</div></div></section>');
+  const section=document.querySelector('.donut-sequence'),stage=section.querySelector('.donut-sequence__stage'),canvas=stage.querySelector('canvas'),context=canvas.getContext('2d'),loading=section.querySelector('.donut-sequence__loading');
+  const indexes=Array.from({length:45},(_,i)=>i+1),frames=[],paths=indexes.map(i=>'assets/catalog/donut/frames/'+String(i).padStart(3,'0')+'.webp?v=4');
+  let loaded=0,target=31,current=target,shown=-1;
+  const render=force=>{const index=Math.max(0,Math.min(frames.length-1,Math.round(current))),image=frames[index];if(!image||(!force&&shown===index))return;shown=index;const w=canvas.width,h=canvas.height,scale=Math.min(w/image.naturalWidth,h/image.naturalHeight)*.936,dw=image.naturalWidth*scale,dh=image.naturalHeight*scale;context.clearRect(0,0,w,h);context.drawImage(image,(w-dw)/2,(h-dh)/2,dw,dh);};
+  const resize=()=>{const ratio=Math.min(devicePixelRatio||1,2),box=stage.getBoundingClientRect();canvas.width=Math.max(1,Math.round(box.width*ratio));canvas.height=Math.max(1,Math.round(box.height*ratio));render(true);};
+  const followPage=()=>{const resting=section.offsetTop+section.offsetHeight/2-innerHeight/2,span=Math.max(innerHeight*.52,section.offsetHeight*.27),position=scrollY-resting;if(position<=-span)target=0;else if(position<-.18*span)target=(position+span)/(.82*span)*31;else if(position<.12*span)target=31+(position+.18*span)/(.3*span)*4;else if(position<1.32*span)target=35+(position-.12*span)/(1.2*span)*9;else target=frames.length-1;};
+  const animate=()=>{current+=(target-current)*.16;if(Math.abs(target-current)<.012)current=target;const momentum=Math.max(-1,Math.min(1,(target-current)*.22));stage.style.setProperty('--donut-tilt-y',(momentum*3.2).toFixed(2)+'deg');stage.style.setProperty('--donut-tilt-x',(Math.abs(momentum)*1.15).toFixed(2)+'deg');render();requestAnimationFrame(animate);};
+  const begin=()=>{section.classList.add('is-ready');loading.remove();resize();followPage();addEventListener('resize',()=>{resize();followPage();},{passive:true});addEventListener('scroll',followPage,{passive:true});requestAnimationFrame(animate);};
+  const preload=()=>paths.forEach((source,index)=>{const image=new Image();image.decoding='async';const done=()=>{frames[index]=image;loaded+=1;loading.textContent='Loading '+Math.round(loaded/paths.length*100)+'%';if(loaded===paths.length)begin();};image.onload=done;image.onerror=done;image.src=source;});
+  if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){observer.disconnect();preload();}}),{rootMargin:'700px 0px'});observer.observe(section);}else preload();
+})();
+
 // Full-site page transition. The animation remains absent from dedicated test
 // pages, where the test-only controller owns the interaction.
 (()=>{
