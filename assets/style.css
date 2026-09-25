@@ -3574,7 +3574,7 @@ body.home footer .contact-title{
 .artist-cv h2{display:flex;align-items:center;min-height:3.5rem;padding:0}
 .intro-screen{overflow:hidden!important;animation:intro-out .6s linear 4.2s forwards!important}
 .intro-screen__walker{position:absolute;inset:0;z-index:2;overflow:hidden;background:transparent}
-.intro-screen__walker video{position:absolute;left:50%;top:0;width:auto;min-width:0;height:37%;max-width:none;transform:translate(-50%,27%);object-fit:contain;filter:none}
+.intro-screen__walker video{position:absolute;left:50%;top:0;width:auto;min-width:0;height:37%;max-width:none;transform:translate(-50%,27%);object-fit:contain;filter:none;clip-path:inset(0 7%)}
 .intro-screen>span{position:relative;z-index:4}
 .intro-screen .intro-word,.intro-screen .intro-gap{font:inherit;font-style:normal}
 .intro-screen>span{animation:none!important;opacity:1}
@@ -3893,7 +3893,7 @@ body.home{padding-top:var(--site-header-height)!important}
 @media(max-width:47.9375rem){
   body.home .intro-screen>span{
     position:relative!important;
-    top:10vh!important;
+    top:18vh!important;
     transform:none!important;
   }
   body.home main #news>.side-content,
@@ -3902,28 +3902,25 @@ body.home{padding-top:var(--site-header-height)!important}
     transform-origin:left top!important;
   }
   body.home main #press .press-layout{
-    display:grid!important;
-    grid-template-columns:minmax(0,1fr) minmax(3.8rem,25vw)!important;
+    display:flex!important;
+    flex-direction:column!important;
     gap:var(--space-5)!important;
-    align-items:start!important;
+    align-items:stretch!important;
   }
   body.home main #press .press-list{
     display:block!important;
-    grid-column:1!important;
-    grid-row:1!important;
     min-width:0!important;
-    order:initial!important;
+    order:2!important;
   }
   body.home main #press .press-side-image{
     display:block!important;
     position:static!important;
-    grid-column:2!important;
-    grid-row:1!important;
-    width:100%!important;
+    width:25vw!important;
+    max-width:7.5rem!important;
     aspect-ratio:1 / 1!important;
-    margin:0!important;
+    margin:0 0 0 auto!important;
     overflow:hidden!important;
-    order:initial!important;
+    order:1!important;
   }
   body.home main #press .press-side-image img{
     width:100%!important;
