@@ -196,11 +196,15 @@ if(hero){
   intro.className='intro-screen';
   intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><video autoplay muted playsinline preload="auto"><source src="assets/media/intro-character-right-walk-stop-short.webm?v=20260924color" type="video/webm"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
+  intro.classList.add('intro-media-pending');
   const introWalkVideo=intro.querySelector('.intro-screen__walker video');
   // Keep the original gait speed. The visible route is shortened in CSS so
   // the character remains available from its first rendered frame.
   introWalkVideo.playbackRate=1.25;
   introWalkVideo.play().catch(()=>{});
+  const revealIntro=()=>intro.classList.remove('intro-media-pending');
+  introWalkVideo.addEventListener('playing',revealIntro,{once:true});
+  setTimeout(revealIntro,450);
   document.documentElement.classList.remove('home-preintro');
   const alignIntroWalker=()=>{
     const gap=intro.querySelector('.intro-gap');
