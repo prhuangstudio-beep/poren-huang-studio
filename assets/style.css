@@ -4348,6 +4348,10 @@ a.key-view-more:hover,a.key-view-more:focus-visible{
 a.key-view-more.is-gold::after{animation:view-more-key-gold-in .42s linear forwards}
 a.key-view-more.is-gold-out::after{animation:view-more-key-gold-out .42s linear forwards}
 
+/* Keep the key reveal deterministic in both directions: black reveals from
+   the left exactly as the gold overlay does, even during a quick hover-out. */
+a.key-view-more::after{will-change:clip-path}
+
 /* The homepage background is intentionally white throughout; cards retain
    their depth only through spacing and shadows, never pastel colour fields. */
 body.home{background:#fff!important}
@@ -4562,5 +4566,15 @@ body.home::before,body.home::after{display:none!important;content:none!important
     font-weight:800!important;
     letter-spacing:-.02em!important;
     line-height:1!important;
+  }
+}
+
+/* Move the mobile opening composition as one unit: the established gap
+   between character and lettering is preserved while its centre shifts 10vh. */
+@media(max-width:47.9375rem){
+  .intro-screen>span{transform:translateY(18vh)!important}
+  @keyframes intro-walker-cross-mobile{
+    from{transform:translate(calc(-50% - 20vw),calc(180% + 10vh))}
+    to{transform:translate(calc(-50% + 20vw),calc(180% + 10vh))}
   }
 }

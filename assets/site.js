@@ -573,7 +573,7 @@ document.querySelectorAll('a').forEach(link=>{
 
 // Replace every final "view more" label with the mirrored key artwork after
 // page-specific links have finished moving into their final containers.
-queueMicrotask(()=>{
+const initialiseViewMoreKeys=()=>{
   document.querySelectorAll('a').forEach(link=>{
     if(link.classList.contains('key-view-more'))return;
     if(!/^view more(?:…|\.\.\.)?$/i.test(link.textContent.trim()))return;
@@ -584,15 +584,15 @@ queueMicrotask(()=>{
     image.src='/assets/media/ui/view-more-key-mirrored.png';
     image.alt='';
     link.replaceChildren(image);
-    const revealGold=()=>{
-      link.classList.remove('is-gold-out');
-      link.classList.add('is-gold');
+    const setGoldState=showGold=>{
+      if(showGold===link.classList.contains('is-gold'))return;
+      link.classList.remove('is-gold','is-gold-out');
+      // Force a fresh animation when the pointer reverses direction quickly.
+      void link.offsetWidth;
+      link.classList.add(showGold?'is-gold':'is-gold-out');
     };
-    const concealGold=()=>{
-      if(!link.classList.contains('is-gold'))return;
-      link.classList.remove('is-gold');
-      link.classList.add('is-gold-out');
-    };
+    const revealGold=()=>setGoldState(true);
+    const concealGold=()=>setGoldState(false);
     link.addEventListener('pointerenter',revealGold);
     link.addEventListener('pointerleave',concealGold);
     link.addEventListener('focus',revealGold);
@@ -601,7 +601,8 @@ queueMicrotask(()=>{
       if(event.animationName==='view-more-key-gold-out')link.classList.remove('is-gold-out');
     });
   });
-});
+};
+queueMicrotask(initialiseViewMoreKeys);
 
 const artistGalleryImages=['IMG_2117.JPG','IMG_8234.JPG','IMG_9063.JPG','IMG_9066.JPG','IMG_9119.JPG','IMG_9123.JPG','L1000258.JPG','L1020065.JPG','L1020266.JPG','L1020295.JPG','L1020311.JPG','L1020519.JPG','L1020532.JPG','L1020536.JPG','L1020548.JPG','L1020604.JPG','L1020747.JPG','L1020834.JPG','L1020850.JPG','L1020890.JPG','L1030503.JPG','L1120738.JPG','L1120742.JPG','L1120749.JPG','直微發光.png'];
 document.querySelectorAll('[data-artist-gallery]').forEach(gallery=>{
