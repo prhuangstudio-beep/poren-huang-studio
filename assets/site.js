@@ -1,4 +1,17 @@
 if('scrollRestoration' in history)history.scrollRestoration='manual';
+// The lightweight local test server serves physical HTML files and has no
+// extensionless-route rewrite. Normalise only its internal section links so
+// every test-site page remains reachable by clicking the site navigation.
+if(location.hostname==='127.0.0.1'){
+  const testPages=new Set(['about','works','exhibitions','press','series','work']);
+  document.querySelectorAll('a[href]').forEach(link=>{
+    const target=new URL(link.getAttribute('href'),location.href);
+    const pageName=target.pathname.replace(/^\/+|\/+$/g,'');
+    if(target.origin===location.origin&&testPages.has(pageName)){
+      link.href=`${target.pathname}.html${target.search}${target.hash}`;
+    }
+  });
+}
 window.addEventListener('pageshow',()=>{
   document.body.classList.remove('page-entering','page-leaving');
   document.querySelectorAll('#year').forEach(x=>x.textContent=new Date().getFullYear());
@@ -22,9 +35,7 @@ if(matchMedia('(pointer:fine)').matches){
   };
   window.addEventListener('onpointerrawupdate'in window?'pointerrawupdate':'pointermove',moveCursor,{passive:true});
   document.addEventListener('mouseover',e=>{
-    const homeWorks=!!e.target.closest('body.home #works');
-    cursor.classList.toggle('is-suppressed',homeWorks);
-    cursor.classList.toggle('is-active',!homeWorks&&!!e.target.closest('a,button,.work-stage'));
+    cursor.classList.toggle('is-active',!!e.target.closest('a,button,[role="button"],input,select,textarea,.work-stage,.news article'));
   });
 }
 
@@ -189,19 +200,52 @@ if(hero){
   window.scrollTo(0,0);
   const intro=document.createElement('div');
   intro.className='intro-screen';
-  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><video autoplay muted playsinline preload="auto"><source src="assets/media/intro-character-right-walk-stop-short.webm?v=20260924color" type="video/webm"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
+  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><canvas class="intro-screen__walker-canvas"></canvas><video muted playsinline loop preload="auto"><source src="assets/media/scroll-character-right.mp4?v=20260923route" type="video/mp4"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
   const introWalkVideo=intro.querySelector('.intro-screen__walker video');
-  // Keep the original gait speed. The visible route is shortened in CSS so
-  // the character remains available from its first rendered frame.
-  introWalkVideo.playbackRate=1.25;
+  const introWalkCanvas=intro.querySelector('.intro-screen__walker-canvas');
+  const introWalkContext=introWalkCanvas.getContext('2d',{willReadFrequently:true});
+  let introWalkFrame=0,introExitTimer=0;
+  const renderIntroWalk=()=>{
+    const width=introWalkVideo.videoWidth,height=introWalkVideo.videoHeight;
+    if(width&&height){
+      // The opening canvas is viewed on high-density desktop displays.  Keep a
+      // substantially denser backing bitmap so the outline stays clean.
+      const canvasHeight=720,canvasWidth=Math.max(1,Math.round(canvasHeight*width/height));
+      if(introWalkCanvas.width!==canvasWidth||introWalkCanvas.height!==canvasHeight){introWalkCanvas.width=canvasWidth;introWalkCanvas.height=canvasHeight;}
+      introWalkContext.imageSmoothingEnabled=true;
+      introWalkContext.imageSmoothingQuality='high';
+      introWalkContext.clearRect(0,0,canvasWidth,canvasHeight);
+      introWalkContext.drawImage(introWalkVideo,0,0,canvasWidth,canvasHeight);
+      const frame=introWalkContext.getImageData(0,0,canvasWidth,canvasHeight),pixels=frame.data;
+      for(let index=0;index<pixels.length;index+=4){
+        if(Math.min(pixels[index],pixels[index+1],pixels[index+2])>225){pixels[index+3]=0;continue;}
+        if(Math.max(pixels[index],pixels[index+1],pixels[index+2])>75){pixels[index]=198;pixels[index+1]=255;pixels[index+2]=52;}
+      }
+      introWalkContext.putImageData(frame,0,0);
+    }
+    introWalkFrame=requestAnimationFrame(renderIntroWalk);
+  };
+  introWalkVideo.playbackRate=.72;
+  const beginIntroExit=()=>intro.classList.add('is-exiting');
+  introWalkVideo.addEventListener('playing',()=>{
+    intro.classList.add('is-walking');
+    cancelAnimationFrame(introWalkFrame);
+    renderIntroWalk();
+    clearTimeout(introExitTimer);
+    // Keep the complete opening (walk plus shared fade-out) below five seconds.
+    // 2.9 seconds of walking plus the shared 0.6 second fade = 3.5 seconds.
+    introExitTimer=setTimeout(beginIntroExit,2900);
+  },{once:true});
+  introWalkVideo.load();
+  introWalkVideo.play().catch(()=>{});
   document.documentElement.classList.remove('home-preintro');
   const alignIntroWalker=()=>{
     const gap=intro.querySelector('.intro-gap');
-    const video=intro.querySelector('.intro-screen__walker video');
-    if(!gap||!video)return;
+    const canvas=intro.querySelector('.intro-screen__walker-canvas');
+    if(!gap||!canvas)return;
     const rect=gap.getBoundingClientRect();
-    video.style.left=`${rect.left+(rect.width/2)}px`;
+    canvas.style.left=`${rect.left+(rect.width/2)}px`;
   };
   const realignIntro=()=>{alignIntroWalker();};
   requestAnimationFrame(()=>requestAnimationFrame(realignIntro));
@@ -212,6 +256,9 @@ if(hero){
     if(introCleared)return;
     introCleared=true;
     window.removeEventListener('resize',realignIntro);
+    clearTimeout(introExitTimer);
+    cancelAnimationFrame(introWalkFrame);
+    introWalkVideo.pause();
     window.scrollTo(0,0);
     document.body.classList.remove('intro-active');
     intro.remove();
@@ -223,7 +270,9 @@ if(hero){
       clearIntro();
     }
   });
-  setTimeout(clearIntro,5200);
+  // Never remove the opening before the video has had time to provide a
+  // visible frame. This is important for the 9 MB MP4 on mobile networks.
+  setTimeout(beginIntroExit,3500);
   const homeNav=document.createElement('div');
   homeNav.className='home-section-nav';
   homeNav.setAttribute('role','navigation');
@@ -281,7 +330,7 @@ if(page){
     back.className='page-back key-back';
     back.href=location.pathname.includes('/works/')?'../works':'/';
     back.setAttribute('aria-label','Back');
-    back.innerHTML='<img class="back-key-image" src="assets/media/back-key-black.png" alt="">';
+    back.innerHTML='<img class="back-key-image" src="/assets/media/ui/back-dog-bowl.png" alt="">';
     page.prepend(back);
     page.classList.add('has-page-back');
   }
@@ -336,7 +385,9 @@ if(form){
 }
 
 const stage=document.querySelector('.work-stage');
-if(stage&&!document.body.classList.contains('home')){
+// On the homepage this is replaced by the dedicated continuously moving
+// ticker below. Detect it from the hero itself: body.home is assigned later.
+if(stage&&!document.querySelector('.hero')){
   const section=stage.closest('.side-section'),head=section.querySelector('.section-head'),allLink=head?.querySelector('a');
   section.classList.add('works-section');
   if(allLink){
@@ -520,6 +571,38 @@ document.querySelectorAll('a').forEach(link=>{
   link.classList.add('view-more-link');
 });
 
+// Replace every final "view more" label with the mirrored key artwork after
+// page-specific links have finished moving into their final containers.
+queueMicrotask(()=>{
+  document.querySelectorAll('a').forEach(link=>{
+    if(link.classList.contains('key-view-more'))return;
+    if(!/^view more(?:…|\.\.\.)?$/i.test(link.textContent.trim()))return;
+    link.classList.add('view-more-link','key-view-more');
+    link.setAttribute('aria-label','View more');
+    const image=document.createElement('img');
+    image.className='view-more-key-image';
+    image.src='/assets/media/ui/view-more-key-mirrored.png';
+    image.alt='';
+    link.replaceChildren(image);
+    const revealGold=()=>{
+      link.classList.remove('is-gold-out');
+      link.classList.add('is-gold');
+    };
+    const concealGold=()=>{
+      if(!link.classList.contains('is-gold'))return;
+      link.classList.remove('is-gold');
+      link.classList.add('is-gold-out');
+    };
+    link.addEventListener('pointerenter',revealGold);
+    link.addEventListener('pointerleave',concealGold);
+    link.addEventListener('focus',revealGold);
+    link.addEventListener('blur',concealGold);
+    link.addEventListener('animationend',event=>{
+      if(event.animationName==='view-more-key-gold-out')link.classList.remove('is-gold-out');
+    });
+  });
+});
+
 const artistGalleryImages=['IMG_2117.JPG','IMG_8234.JPG','IMG_9063.JPG','IMG_9066.JPG','IMG_9119.JPG','IMG_9123.JPG','L1000258.JPG','L1020065.JPG','L1020266.JPG','L1020295.JPG','L1020311.JPG','L1020519.JPG','L1020532.JPG','L1020536.JPG','L1020548.JPG','L1020604.JPG','L1020747.JPG','L1020834.JPG','L1020850.JPG','L1020890.JPG','L1030503.JPG','L1120738.JPG','L1120742.JPG','L1120749.JPG','直微發光.png'];
 document.querySelectorAll('[data-artist-gallery]').forEach(gallery=>{
   const files=gallery.dataset.galleryOrder==='reverse'?[...artistGalleryImages].reverse():artistGalleryImages;
@@ -625,6 +708,30 @@ if('IntersectionObserver'in window){
 
 const homeStage=document.querySelector('body.home .work-stage');
 const homeSeries=document.querySelector('body.home #series .series-entry');
+const homeImageTicker=document.querySelector('body.home .horizontal-image-ticker__track');
+if(document.body.classList.contains('home')){
+  // A long, coloured canvas: eight soft pools are distributed through the
+  // document height, while their colours shuffle at every page visit.
+  // One chromatic family only: lake green over white, with positions shuffled
+  // across the complete document rather than pinned to the viewport.
+  const pastel=['rgba(111,205,190,.52)','rgba(151,224,212,.46)','rgba(91,187,173,.38)','rgba(207,244,236,.66)'];
+  const colours=[...pastel,...pastel].sort(()=>Math.random()-.5);
+  colours.forEach((colour,index)=>{
+    const y=7+index*12+Math.random()*6;
+    document.body.style.setProperty(`--home-blob-${index+1}-position`,`${Math.round(8+Math.random()*84)}% ${Math.round(y)}%`);
+    document.body.style.setProperty(`--home-blob-${index+1}-colour`,colour);
+  });
+}
+if(homeImageTicker){
+  // The image strip uses the same base travel rate as the Works ticker
+  // (.34 px per 16 ms), but recalculates its loop duration per viewport.
+  const syncHomeImageTickerSpeed=()=>{
+    const pixelsPerSecond=.34/(16/1000);
+    homeImageTicker.style.setProperty('--home-image-ticker-duration',`${(innerWidth/pixelsPerSecond).toFixed(2)}s`);
+  };
+  syncHomeImageTickerSpeed();
+  addEventListener('resize',syncHomeImageTickerSpeed);
+}
 if(homeSeries){
   homeSeries.classList.remove('view-more-link');
   const seriesMore=homeSeries.closest('.side-content')?.querySelector('.series-more');
@@ -666,7 +773,7 @@ if(homeStage){
     homeStage.innerHTML=recent.map(card).join('')+recent.map(card).join('');
     homeStage.classList.add('works-ticker-ready');
     const panels=[...homeStage.querySelectorAll('.home-ticker-card')];
-    let velocity=0,scrollPosition=0,dragging=false,startX=0,startScroll=0,moved=false;
+    let velocity=0,scrollPosition=0,dragging=false,startX=0,startScroll=0,moved=false,pressedPanel=null;
     const loopWidth=()=>homeStage.scrollWidth/2;
     const keepLooped=()=>{
       const cycle=loopWidth();
@@ -696,6 +803,7 @@ if(homeStage){
     },{passive:false});
     homeStage.addEventListener('pointerdown',event=>{
       dragging=true;moved=false;velocity=0;startX=event.clientX;startScroll=scrollPosition;
+      pressedPanel=event.target.closest('.home-ticker-card');
       homeStage.setPointerCapture?.(event.pointerId);
     });
     homeStage.addEventListener('pointermove',event=>{
@@ -711,6 +819,12 @@ if(homeStage){
       if(Math.abs(delta)>5)velocity=Math.max(-26,Math.min(26,-delta*.12));
       dragging=false;
       try{homeStage.releasePointerCapture?.(event.pointerId)}catch{}
+      if(!moved&&pressedPanel?.href){
+        event.preventDefault();
+        location.href=pressedPanel.href;
+        return;
+      }
+      pressedPanel=null;
       if(moved)setTimeout(()=>moved=false,0);
     };
     homeStage.addEventListener('pointerup',release);
@@ -763,11 +877,49 @@ if(hero){
   });
 }
 
-/* Homepage section rails follow the native document scroll exactly.  Each
-   rail starts at its own section top, pins beneath the header, and releases
-   before the following section begins. */
+// Contact is the final member of the homepage title system. Copy the live
+// Press title typography so it stays identical across responsive sizes.
+if(document.body.classList.contains('home')){
+  const contactTitle=document.querySelector('footer .contact-title');
+  const referenceTitle=document.querySelector('#press>.side-title span');
+  const syncContactTitle=()=>{
+    if(!contactTitle||!referenceTitle)return;
+    const reference=getComputedStyle(referenceTitle);
+    ['fontFamily','fontSize','fontWeight','letterSpacing','lineHeight'].forEach(property=>contactTitle.style.setProperty(property.replace(/[A-Z]/g,letter=>'-'+letter.toLowerCase()),reference[property],'important'));
+    contactTitle.style.setProperty('font-weight','800','important');
+  };
+  syncContactTitle();
+  addEventListener('resize',syncContactTitle,{passive:true});
+}
+
+/* Homepage section rails follow their original full section run: each label
+   starts with its section, pins beneath the header, then releases at its end. */
 if(document.body.classList.contains('home')){
   const homeRails=[...document.querySelectorAll('main > .side-section > .side-title')];
+  const railMotion=new Map();
+  let railMotionFrame=0;
+  const renderRailMotion=()=>{
+    railMotionFrame=0;
+    let moving=false;
+    railMotion.forEach((state,rail)=>{
+      state.current+=(state.target-state.current)*.18;
+      if(Math.abs(state.target-state.current)<.12)state.current=state.target;
+      else moving=true;
+      rail.style.setProperty('--home-side-title-y',`${state.current.toFixed(2)}px`);
+    });
+    if(moving)railMotionFrame=requestAnimationFrame(renderRailMotion);
+  };
+  const setRailPosition=(rail,target)=>{
+    let state=railMotion.get(rail);
+    if(!state){
+      state={current:target,target};
+      railMotion.set(rail,state);
+      rail.style.setProperty('--home-side-title-y',`${target}px`);
+      return;
+    }
+    state.target=target;
+    if(!railMotionFrame)railMotionFrame=requestAnimationFrame(renderRailMotion);
+  };
   const syncHomeRails=()=>{
     const header=document.querySelector('header');
     const pin=(header?.getBoundingClientRect().height||64)+12;
@@ -777,18 +929,13 @@ if(document.body.classList.contains('home')){
       if(!word)return;
       const wordRect=word.getBoundingClientRect();
       const dividerGap=parseFloat(getComputedStyle(section).getPropertyValue('--home-title-divider-clearance'))||32;
-      /* Use the complete document position. offsetTop is relative to <main>,
-         which begins below the opening film and made labels release too late. */
       const sectionTop=section.getBoundingClientRect().top+window.scrollY;
       const sectionBottom=sectionTop+section.offsetHeight;
       const stopTop=sectionBottom-wordRect.height-dividerGap;
       const documentTop=Math.max(sectionTop,Math.min(window.scrollY+pin,stopTop));
-      /* The absolutely positioned rail begins after the section's own top
-         padding. Subtract that inset so the visible word—not its rail—keeps
-         the full clearance from the lower divider. */
       const railInsetTop=rail.getBoundingClientRect().top+window.scrollY-sectionTop;
       const nextTop=Math.max(0,documentTop-sectionTop-railInsetTop);
-      rail.style.setProperty('--home-side-title-y',`${nextTop}px`);
+      setRailPosition(rail,nextTop);
     });
   };
   let railQueued=false;
@@ -856,6 +1003,7 @@ document.addEventListener('click',event=>{
     '.series-entry','.series-hero figure','.artist-portrait,.image-carousel',
     '.home-image-break,.press-side-image,.artist-film',
     '.home .artist-detail,.home .press-layout',
+    '.home .hero,.home .side-content,.home .donut-sequence__stage,.home .horizontal-image-ticker',
     '.work-variants','h1,h2,h3',
     '.related-works > div > a'
   ].join(',');
@@ -864,7 +1012,16 @@ document.addEventListener('click',event=>{
   let target=window.scrollY,current=window.scrollY,frame=0;
   const baseTransforms=new WeakMap();
   const collectCards=()=>{
-    cards=[...document.querySelectorAll(selector)];
+    cards=[...document.querySelectorAll(selector)].filter(card=>{
+      // On the desktop home page the independent glass panel is the single
+      // depth surface. Its children must not scale a second time. Mobile keeps
+      // its existing, unmodified composition.
+      if(homePage&&!compact){
+        if(card.closest('.side-content')&&!card.matches('.home .side-content'))return false;
+        if(card.closest('.hero')&&!card.matches('.home .hero'))return false;
+      }
+      return !(mobileHome&&card.matches('.home .side-content,.home .donut-sequence__stage,.home .horizontal-image-ticker'));
+    });
     cards.forEach(card=>{
       if(!baseTransforms.has(card))baseTransforms.set(card,getComputedStyle(card).transform);
     });
@@ -900,7 +1057,9 @@ document.addEventListener('click',event=>{
       const visualCenter=rect.top+rect.height*.5+(window.scrollY-current);
       let t=0;
       if(homePage){
-        const edge=innerHeight*settings.homeEdgeBand;
+        // News is intentionally calmer: its depth cue waits until the card is
+        // close to an edge instead of beginning across its long reading area.
+        const edge=innerHeight*(card.matches('.home #news > .side-content') ? .045 : settings.homeEdgeBand);
         const lowerEdge=innerHeight-edge;
         t=visualCenter<edge ? (edge-visualCenter)/edge : (visualCenter>lowerEdge ? (visualCenter-lowerEdge)/edge : 0);
       }else{
@@ -935,17 +1094,18 @@ document.addEventListener('click',event=>{
   requestRender();
 })();
 
+
 // Homepage Donut sequence: frame 32 is the resting composition.
 (()=>{
   if(!document.body.classList.contains('home')||document.querySelector('.donut-sequence'))return;
   const series=document.querySelector('#series');if(!series)return;
-  series.insertAdjacentHTML('afterend','<section id="donut-scroll" class="donut-sequence" aria-label="Donut sculpture sequence"><div class="donut-sequence__stage"><canvas aria-label="Donut sculpture sequence"></canvas><div class="donut-sequence__loading">Loading 0%</div></div></section>');
+  series.insertAdjacentHTML('afterend','<section id="donut-scroll" class="donut-sequence" aria-label="Donut sculpture sequence"><a class="donut-sequence__link" href="works/power-food.html" aria-label="Open Power Food work detail"><div class="donut-sequence__stage"><canvas aria-label="Donut sculpture sequence"></canvas><div class="donut-sequence__loading">Loading 0%</div></div></a></section>');
   const section=document.querySelector('.donut-sequence'),stage=section.querySelector('.donut-sequence__stage'),canvas=stage.querySelector('canvas'),context=canvas.getContext('2d'),loading=section.querySelector('.donut-sequence__loading');
   const indexes=Array.from({length:45},(_,i)=>i+1),frames=[],paths=indexes.map(i=>'assets/catalog/donut/frames/'+String(i).padStart(3,'0')+'.webp?v=4');
   let loaded=0,target=31,current=target,shown=-1;
   const render=force=>{const index=Math.max(0,Math.min(frames.length-1,Math.round(current))),image=frames[index];if(!image||(!force&&shown===index))return;shown=index;const w=canvas.width,h=canvas.height,scale=Math.min(w/image.naturalWidth,h/image.naturalHeight)*.936,dw=image.naturalWidth*scale,dh=image.naturalHeight*scale;context.clearRect(0,0,w,h);context.drawImage(image,(w-dw)/2,(h-dh)/2,dw,dh);};
   const resize=()=>{const ratio=Math.min(devicePixelRatio||1,2),box=stage.getBoundingClientRect();canvas.width=Math.max(1,Math.round(box.width*ratio));canvas.height=Math.max(1,Math.round(box.height*ratio));render(true);};
-  const followPage=()=>{const resting=section.offsetTop+section.offsetHeight/2-innerHeight/2,span=Math.max(innerHeight*.52,section.offsetHeight*.27),position=scrollY-resting;if(position<=-span)target=0;else if(position<-.18*span)target=(position+span)/(.82*span)*31;else if(position<.12*span)target=31+(position+.18*span)/(.3*span)*4;else if(position<1.32*span)target=35+(position-.12*span)/(1.2*span)*9;else target=frames.length-1;};
+  const followPage=()=>{const resting=section.offsetTop+section.offsetHeight/2-innerHeight/2,span=Math.max(innerHeight*.52,section.offsetHeight*.27),position=scrollY-resting;if(position<=-span)target=0;else if(position<-.18*span)target=(position+span)/(.82*span)*31;else if(position<.08*span)target=31;else if(position<.26*span)target=31+(position-.08*span)/(.18*span)*4;else if(position<1.46*span)target=35+(position-.26*span)/(1.2*span)*9;else target=frames.length-1;};
   const animate=()=>{current+=(target-current)*.16;if(Math.abs(target-current)<.012)current=target;const momentum=Math.max(-1,Math.min(1,(target-current)*.22));stage.style.setProperty('--donut-tilt-y',(momentum*3.2).toFixed(2)+'deg');stage.style.setProperty('--donut-tilt-x',(Math.abs(momentum)*1.15).toFixed(2)+'deg');render();requestAnimationFrame(animate);};
   const begin=()=>{section.classList.add('is-ready');loading.remove();resize();followPage();addEventListener('resize',()=>{resize();followPage();},{passive:true});addEventListener('scroll',followPage,{passive:true});requestAnimationFrame(animate);};
   const preload=()=>paths.forEach((source,index)=>{const image=new Image();image.decoding='async';const done=()=>{frames[index]=image;loaded+=1;loading.textContent='Loading '+Math.round(loaded/paths.length*100)+'%';if(loaded===paths.length)begin();};image.onload=done;image.onerror=done;image.src=source;});
@@ -1053,6 +1213,11 @@ document.addEventListener('click',event=>{
   const walkerStyle=document.createElement('style');
   walkerStyle.textContent='.scroll-walker{position:fixed!important;z-index:20001!important;left:0!important;bottom:max(24px,calc(env(safe-area-inset-bottom) + 16px))!important;width:12vh!important;height:12vh!important;min-width:72px!important;min-height:72px!important;max-width:168px!important;max-height:168px!important;pointer-events:none!important;will-change:transform!important;transition:opacity .3s ease,visibility 0s linear 0s!important}.intro-active .scroll-walker{opacity:0!important;visibility:hidden!important}.scroll-walker__idle,.scroll-walker__canvas{display:block;width:100%;height:100%;object-fit:contain}.scroll-walker__walk{display:none!important}.scroll-walker__canvas{display:none}.scroll-walker.is-walking .scroll-walker__canvas{display:block}.scroll-walker.is-walking .scroll-walker__idle{display:none}body.home #artist>.side-content{position:relative!important;left:var(--artist-screen-offset,0px)!important}@media(max-width:700px){.scroll-walker{width:10.8vh!important;height:10.8vh!important;max-width:151px!important;max-height:151px!important}body.home #press>.side-content{zoom:1!important}body.home #press .press-layout{display:flex!important;flex-direction:column!important;gap:4rem!important}body.home #press .press-side-image{display:block!important;position:static!important;width:100%!important;aspect-ratio:1 / 1!important;order:1!important;margin:0!important}body.home #press .press-list{display:block!important;order:2!important;margin:0!important}body.home #series .series-entry{height:clamp(16.25rem,72vw,20rem)!important;min-height:clamp(16.25rem,72vw,20rem)!important;grid-template-rows:calc(100% - 44px) 44px!important}body.home #series .series-entry img{height:calc(100% - 44px)!important}body.home #artist .artist-detail>div{padding-left:4.5rem!important}body.home #artist .artist-detail h2{font-size:clamp(1.4rem,6.3vw,1.72rem)!important;line-height:1.18!important}body.home #artist .artist-detail>div p{font-size:.82rem!important;line-height:1.65!important}}@media(prefers-reduced-motion:reduce){.scroll-walker__canvas{display:none!important}.scroll-walker__idle{display:block!important}}';
   document.head.append(walkerStyle);
+  // This runtime walker stylesheet is appended after the main stylesheet.
+  // Keep its mobile Press fallback centred and reserve clear reading space below it.
+  const walkerPressLayoutStyle=document.createElement('style');
+  walkerPressLayoutStyle.textContent='@media(max-width:700px){body.home #press .press-layout{display:flex!important;flex-direction:column!important}body.home #press .press-side-image{margin:0 auto!important;aspect-ratio:auto!important;height:auto!important;max-height:none!important;overflow:visible!important}body.home #press .press-side-image img{display:block!important;width:100%!important;height:auto!important;object-fit:contain!important}body.home #press .press-list{margin:var(--space-7) 0 0!important}}';
+  document.head.append(walkerPressLayoutStyle);
   const walker=document.createElement('div');
   walker.className='scroll-walker';
   walker.setAttribute('aria-hidden','true');
@@ -1094,8 +1259,13 @@ document.addEventListener('click',event=>{
     if(!activeVideo||activeVideo.paused)return;
     const sourceWidth=activeVideo.videoWidth,sourceHeight=activeVideo.videoHeight;
     if(sourceWidth&&sourceHeight){
-      const height=240,width=Math.max(1,Math.round(height*sourceWidth/sourceHeight));
+      // Match the canvas backing store to high-density displays so the fixed
+      // scroll character stays sharp at its existing visual size.
+      const renderedHeight=walker.getBoundingClientRect().height||168;
+      const height=Math.min(720,Math.max(480,Math.round(renderedHeight*Math.min(3,devicePixelRatio||1)*1.5))),width=Math.max(1,Math.round(height*sourceWidth/sourceHeight));
       if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;}
+      context.imageSmoothingEnabled=true;
+      context.imageSmoothingQuality='high';
       context.clearRect(0,0,width,height);
       context.drawImage(activeVideo,0,0,width,height);
       const frame=context.getImageData(0,0,width,height),pixels=frame.data;

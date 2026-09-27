@@ -3384,10 +3384,10 @@ body.home main > .side-section > .side-title span{
 
 /* One large key size across every page and breakpoint. */
 .key-back .back-key-image,
-.page-back.key-back .back-key-image{width:3.625rem!important}
+.page-back.key-back .back-key-image{width:3.1rem!important}
 @media(max-width:700px){
   .key-back .back-key-image,
-  .page-back.key-back .back-key-image{width:3.625rem!important}
+  .page-back.key-back .back-key-image{width:3.1rem!important}
 }
 
 /* News / exhibitions strip: double the media field so the full artwork has
@@ -3572,16 +3572,19 @@ body.home footer .contact-title{
 .artist-side-gallery img{display:block;width:100%;height:auto;object-fit:contain;background:#fff}
 .artist-cv-layout .artist-side-gallery{margin-top:var(--space-8)}
 .artist-cv h2{display:flex;align-items:center;min-height:3.5rem;padding:0}
-.intro-screen{overflow:hidden!important;animation:intro-in .6s linear 0s both,intro-out .6s linear 4.41s forwards}
+.intro-screen{overflow:hidden!important;animation:intro-in .6s linear 0s both}
+.intro-screen.is-exiting{animation:intro-out .6s linear forwards!important}
 .intro-screen__walker{animation:intro-walker-in .6s linear 0s both}
 @keyframes intro-in{from{opacity:0}to{opacity:1}}
 @keyframes intro-walker-in{from{opacity:0}to{opacity:1}}
 .intro-screen__walker{position:absolute;inset:0;z-index:2;overflow:hidden;background:transparent}
-.intro-screen__walker video{position:absolute;left:50%;top:0;width:auto;min-width:0;height:37%;max-width:none;transform:translate(-50%,27%);object-fit:contain;filter:none;clip-path:none}
+.intro-screen__walker video{position:absolute!important;left:-9999px!important;top:-9999px!important;display:block!important;width:1px!important;height:1px!important;min-width:0!important;min-height:0!important;max-width:none!important;opacity:0!important;pointer-events:none!important}
+.intro-screen__walker-canvas{position:absolute;left:50%;top:0;width:auto;min-width:0;height:22%;max-width:none;transform:translate(-50%,105%);image-rendering:auto}
 .intro-screen>span{position:relative;z-index:4}
 .intro-screen .intro-word,.intro-screen .intro-gap{font:inherit;font-style:normal}
 .intro-screen>span{animation:none!important;opacity:1}
-@media(max-width:47.9375rem){.intro-screen__walker video{min-width:0;width:auto;height:30%;transform:translate(-50%,67%);border:0;outline:0;box-shadow:none;background:transparent;filter:none;clip-path:none}}
+/* Preserve the previously approved mobile baseline after reducing the figure. */
+@media(max-width:47.9375rem){.intro-screen__walker-canvas{min-width:0;width:auto;height:17%;transform:translate(-50%,180%);border:0;outline:0;box-shadow:none;background:transparent;filter:none;clip-path:none}}
 @media(max-width:47.9375rem){
   body.home main{--home-section-space:clamp(2.5rem,8vw,3.5rem)!important}
 }
@@ -3945,3 +3948,619 @@ body.home .video-banner--ambient .video-banner__foreground{position:relative!imp
 /* Gallery-like, quiet recovery page for static-host 404 responses. */
 .not-found{min-height:calc(100svh - var(--site-header-height));display:grid;grid-template-columns:minmax(0,1fr) minmax(14rem,.78fr);align-items:center;gap:clamp(2rem,8vw,9rem);padding-top:clamp(4rem,12vh,10rem)!important;padding-bottom:clamp(4rem,12vh,10rem)!important}
 .not-found__copy{max-width:44rem}.not-found h1{margin:var(--space-4) 0 var(--space-6);font-size:clamp(2.8rem,6.8vw,7rem);font-weight:800;line-height:1.03;letter-spacing:-.06em}.not-found h1 span{font-size:.5em;font-weight:500;letter-spacing:-.04em}.not-found__copy>p:not(.eyebrow){max-width:35rem;margin:0;color:var(--muted);font-size:clamp(.95rem,1.4vw,1.1rem)}.not-found__links{display:flex;flex-wrap:wrap;gap:var(--space-6);margin-top:var(--space-8)}.not-found__link{display:inline-flex;align-items:center;gap:.4em;border-bottom:1px solid currentColor;padding-bottom:var(--space-2);font-size:.8rem;font-weight:800;letter-spacing:.04em;transition:transform .25s ease}.not-found__link:hover{transform:scale(1.05)}.not-found__link span{font-weight:500}.not-found__art{position:relative;justify-self:end;width:min(26vw,23rem);aspect-ratio:1;background:#f3f3f0;border-radius:50% 50% 12% 50%;overflow:hidden}.not-found__art:before,.not-found__art:after,.not-found__art span,.not-found__art i{content:"";position:absolute;display:block;border:1px solid #111;border-radius:50%}.not-found__art:before{width:76%;height:76%;left:12%;top:12%;border-width:clamp(1px,.14vw,2px)}.not-found__art:after{width:32%;height:32%;right:-6%;top:19%}.not-found__art span{width:20%;height:20%;left:29%;top:34%;background:#fff}.not-found__art i{width:13%;height:13%;right:29%;bottom:25%;background:#fff}@media(max-width:47.9375rem){.not-found{grid-template-columns:1fr;gap:var(--space-8);padding-top:calc(var(--space-9) + var(--site-header-height))!important}.not-found__art{justify-self:start;width:min(58vw,17rem)}.not-found__links{gap:var(--space-5)}}
+
+/* Test concept: detached editorial panels over a quiet coloured glass field.
+   The title rail and fixed section navigator remain outside every panel. */
+@media(min-width:48rem){
+  body.home{background:radial-gradient(circle at 12% 24%,rgba(220,240,255,.42),transparent 27%),radial-gradient(circle at 86% 42%,rgba(255,234,216,.38),transparent 31%),radial-gradient(circle at 42% 88%,rgba(229,241,224,.38),transparent 34%),#fafaf9!important}
+  body.home main > .side-section > .side-content,
+  body.home .donut-sequence__stage{
+    position:relative;
+    background:rgba(255,255,255,.62)!important;
+    backdrop-filter:blur(18px) saturate(112%);
+    -webkit-backdrop-filter:blur(18px) saturate(112%);
+    border:0!important;
+    border-radius:0!important;
+    box-shadow:0 24px 52px rgba(44,58,72,.14)!important;
+  }
+  body.home main > .side-section > .side-content{padding:clamp(1.5rem,3.2vw,4rem)!important}
+  body.home main > .side-section > .side-content{
+    width:auto!important;
+    max-width:none!important;
+    justify-self:stretch!important;
+    margin-left:calc(var(--home-side-label-width) + var(--space-7))!important;
+    margin-right:clamp(4.5rem,8vw,7rem)!important;
+  }
+  body.home .donut-sequence__stage{margin-left:var(--responsive-pad)!important;margin-right:clamp(4.5rem,8vw,7rem)!important}
+  body.home #works .work-stage{border:0!important;border-radius:0!important;padding:0!important}
+}
+
+/* Desktop-only: the colour lives in the lowest background layer, while each
+   section keeps a separate clear glass surface above it. */
+@media(min-width:48rem){
+  body.home{position:relative;isolation:isolate;background:transparent!important}
+  body.home::before{
+    content:"";
+    position:fixed;
+    inset:-12%;
+    z-index:-1;
+    pointer-events:none;
+    background:radial-gradient(circle at 11% 21%,rgba(189,224,255,.48),transparent 25%),radial-gradient(circle at 88% 34%,rgba(255,220,196,.45),transparent 29%),radial-gradient(circle at 44% 92%,rgba(209,239,219,.42),transparent 30%),#f8faf9;
+    filter:blur(30px) saturate(108%);
+  }
+  body.home main > section,
+  body.home main > section + section,
+  body.home main > .horizontal-image-ticker{border-top:0!important;border-bottom:0!important}
+  body.home #artist > .side-content{margin-left:calc(var(--home-side-label-width) + var(--space-7))!important;margin-right:clamp(7rem,13vw,14rem)!important}
+  body.home #series > .side-content{margin-left:calc(var(--home-side-label-width) + var(--space-7) + 8vw)!important;margin-right:clamp(4.5rem,7vw,7rem)!important}
+  body.home #works > .side-content{margin-left:calc(var(--home-side-label-width) + var(--space-7) + 2vw)!important;margin-right:clamp(7rem,12vw,13rem)!important}
+  body.home #news > .side-content{margin-left:calc(var(--home-side-label-width) + var(--space-7) + 10vw)!important;margin-right:clamp(4.5rem,6vw,6rem)!important}
+  body.home #press > .side-content{margin-left:calc(var(--home-side-label-width) + var(--space-7) + 5vw)!important;margin-right:clamp(7rem,11vw,12rem)!important}
+  body.home .donut-sequence__stage{margin-left:clamp(4rem,12vw,13rem)!important;margin-right:clamp(5rem,9vw,10rem)!important}
+}
+
+/* Refine the desktop panel study without changing the mobile composition. */
+@media(min-width:48rem){
+  body.home main > .side-section,
+  body.home main > .side-section::before,
+  body.home main > .side-section::after,
+  body.home main > .horizontal-image-ticker,
+  body.home main > .horizontal-image-ticker::before,
+  body.home main > .horizontal-image-ticker::after,
+  body.home .donut-sequence,
+  body.home .donut-sequence::before,
+  body.home .donut-sequence::after{
+    border-top:0!important;
+    border-bottom:0!important;
+  }
+
+  body.home main > .side-section > .side-content,
+  body.home .donut-sequence__stage{
+    border-radius:clamp(4px,.5vw,8px)!important;
+  }
+
+  /* The image strip inherits the Works ticker's base rate (about 21.25px/s)
+     and receives the same floating treatment as the editorial panels. */
+  body.home .horizontal-image-ticker{
+    width:min(88vw,calc(100% - 8rem))!important;
+    margin:var(--home-section-space) auto!important;
+    overflow:hidden!important;
+    border-radius:clamp(4px,.5vw,8px)!important;
+    box-shadow:0 24px 52px rgba(44,58,72,.14)!important;
+  }
+  body.home .horizontal-image-ticker__track{
+    animation-duration:var(--home-image-ticker-duration,67.76s)!important;
+  }
+
+  /* Keep the artwork itself intact: establish a fixed white stage and centre
+     the image within it instead of cropping its object. */
+  body.home #series .series-entry{
+    height:clamp(24rem,43vw,42rem)!important;
+    min-height:0!important;
+    grid-template-rows:minmax(0,1fr)!important;
+    background:#fff!important;
+  }
+  body.home #series .series-entry img{
+    width:100%!important;
+    height:100%!important;
+    max-width:100%!important;
+    object-fit:contain!important;
+    object-position:center center!important;
+    align-self:center!important;
+    justify-self:center!important;
+    background:#fff!important;
+    /* The View more row occupies 44px below the image grid. Offset by half
+       that row so the actual artwork—not the whole link wrapper—is centred. */
+    transform:translateY(22px)!important;
+  }
+}
+
+/* Finalise the desktop glass composition.  The opening copy and its film are
+   intentionally one surface, while the side rails remain outside the card. */
+@media(min-width:48rem){
+  body.home .hero{
+    width:min(88vw,calc(100% - 8rem))!important;
+    margin:var(--home-section-space) auto!important;
+    padding:clamp(2rem,4vw,5rem)!important;
+    background:rgba(255,255,255,.62)!important;
+    backdrop-filter:blur(18px) saturate(112%);
+    -webkit-backdrop-filter:blur(18px) saturate(112%);
+    border:0!important;
+    border-radius:clamp(4px,.5vw,8px)!important;
+    box-shadow:0 24px 52px rgba(44,58,72,.14)!important;
+  }
+  body.home main > #artist,
+  body.home main > #series,
+  body.home main > #works,
+  body.home main > #news,
+  body.home main > #press,
+  body.home main > .horizontal-image-ticker{
+    border-top:0!important;
+    border-bottom:0!important;
+  }
+}
+
+/* CONTACT uses exactly the same type weight, scale and tracking as the
+   vertical homepage section titles. */
+body.home footer .contact-title{
+  font:900 clamp(1.7rem,3.04vw,3.2rem)/1 Manrope,Arial,sans-serif!important;
+  letter-spacing:-.06em!important;
+}
+@media(max-width:47.9375rem){
+  body.home footer .contact-title{
+    font:900 clamp(1rem,4.8vw,1.35rem)/1 Manrope,Arial,sans-serif!important;
+    letter-spacing:-.06em!important;
+  }
+}
+
+/* Site actions stay neutral: use grey for controls without changing the
+   opening artwork's lime SCULPTURE mark or the editorial status colours. */
+:root{--action-neutral:#71726f}
+.link,.section-head a,.news a,.timeline a,.all-works,.news-archive,
+.concept-toggle,.works-view-toggle button.active,.back-to-works,.page-back,
+.cv-toggle,.press-more,a.view-more-link,body.home .series-more,
+body.home #press .press-more{
+  color:var(--action-neutral)!important;
+}
+.link:hover,.section-head a:hover,.news a:hover,.timeline a:hover,
+.all-works:hover,.news-archive:hover,.concept-toggle:hover,.back-to-works:hover,
+.page-back:hover,.cv-toggle:hover,.press-more:hover,a.view-more-link:hover,
+a.view-more-link:focus-visible,body.home .series-more:hover,
+body.home .series-more:focus-visible{
+  color:var(--action-neutral)!important;
+}
+
+/* The two non-rail cards deliberately sit off the common centre line in
+   opposite directions, giving the sequence a less mechanical rhythm. */
+@media(min-width:48rem){
+  body.home .hero{
+    width:min(82vw,calc(100% - 10rem))!important;
+    margin-left:clamp(4rem,9vw,12rem)!important;
+    margin-right:auto!important;
+    background:#fff!important;
+  }
+  body.home .horizontal-image-ticker{
+    width:min(82vw,calc(100% - 10rem))!important;
+    margin-left:auto!important;
+    margin-right:clamp(4rem,9vw,12rem)!important;
+    background:#fff!important;
+  }
+  body.home main > .side-section > .side-content,
+  body.home .donut-sequence__stage{
+    background:#fff!important;
+  }
+  /* These two visible rules came from earlier homepage layouts and need
+     explicit removal because their ID specificity is higher than the generic
+     section reset. */
+  body.home main > #news::before{content:none!important;display:none!important}
+  body.home footer{border-top:0!important}
+}
+
+/* Every homepage and editorial "view more…" CTA shares the same slightly
+   larger reading size, regardless of which section generated the link. */
+.link,.works-more,.news-archive,.press-more,.all-works,
+a.view-more-link,body.home .series-more{
+  font-size:14px!important;
+}
+
+/* Desktop home background: oversized coloured light pools dissolve into one
+   another under the cards; the white cards remain legible frosted surfaces. */
+@media(min-width:48rem){
+  body.home::before{
+    position:absolute!important;
+    inset:0!important;
+    background:
+      radial-gradient(ellipse 46% 15% at var(--home-blob-1-position,18% 10%),var(--home-blob-1-colour),transparent 72%),
+      radial-gradient(ellipse 43% 14% at var(--home-blob-2-position,76% 22%),var(--home-blob-2-colour),transparent 72%),
+      radial-gradient(ellipse 48% 15% at var(--home-blob-3-position,28% 35%),var(--home-blob-3-colour),transparent 72%),
+      radial-gradient(ellipse 42% 14% at var(--home-blob-4-position,72% 47%),var(--home-blob-4-colour),transparent 72%),
+      radial-gradient(ellipse 46% 15% at var(--home-blob-5-position,22% 59%),var(--home-blob-5-colour),transparent 72%),
+      radial-gradient(ellipse 43% 14% at var(--home-blob-6-position,78% 70%),var(--home-blob-6-colour),transparent 72%),
+      radial-gradient(ellipse 48% 15% at var(--home-blob-7-position,32% 83%),var(--home-blob-7-colour),transparent 72%),
+      radial-gradient(ellipse 42% 14% at var(--home-blob-8-position,70% 94%),var(--home-blob-8-colour),transparent 72%),
+      #f7f8f7!important;
+    filter:blur(58px) saturate(118%)!important;
+    opacity:.92!important;
+  }
+  body.home::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-2;
+    pointer-events:none;
+    background:linear-gradient(135deg,rgba(255,255,255,.42),rgba(248,250,249,.72));
+    filter:blur(76px) saturate(115%);
+  }
+  body.home .hero,
+  body.home main > .side-section > .side-content,
+  body.home .horizontal-image-ticker,
+  body.home .donut-sequence__stage{
+    background:#fff!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+  }
+}
+
+/* Restore the original full-section rail rather than clipping it to the card. */
+@media(min-width:48rem){
+  body.home main > .side-section > .side-title{
+    top:0!important;
+    height:100%!important;
+    overflow:visible!important;
+    clip-path:none!important;
+  }
+}
+
+@media(min-width:48rem){
+  body.home .hero,
+  body.home main > .side-section > .side-content,
+  body.home .horizontal-image-ticker,
+  body.home .donut-sequence__stage{
+    border-radius:clamp(8px,.8vw,12px)!important;
+  }
+}
+
+/* Opening walker: a short, symmetrical route around the word gap. The source
+   gait loops only through its walking frames, so there is no centre pause. */
+.intro-screen__walker-canvas{
+  animation:intro-walker-cross 2.9s linear both!important;
+  animation-play-state:paused!important;
+}
+.intro-screen.is-walking .intro-screen__walker-canvas{animation-play-state:running!important}
+@keyframes intro-walker-cross{
+  from{transform:translate(calc(-50% - 7.5vw),105%)}
+  to{transform:translate(calc(-50% + 7.5vw),105%)}
+}
+@media(max-width:47.9375rem){
+  .intro-screen__walker-canvas{
+    animation:intro-walker-cross-mobile 2.9s linear both!important;
+    animation-play-state:paused!important;
+  }
+  .intro-screen.is-walking .intro-screen__walker-canvas{animation-play-state:running!important}
+  @keyframes intro-walker-cross-mobile{
+    from{transform:translate(calc(-50% - 20vw),180%)}
+    to{transform:translate(calc(-50% + 20vw),180%)}
+  }
+}
+
+.intro-screen__walker-canvas{z-index:2}
+
+/* The sculpture sequence is the link itself: no separate control competes
+   with the artwork, while keyboard users still receive a clear focus state. */
+.donut-sequence__link{display:block;color:inherit;text-decoration:none;cursor:pointer}
+.donut-sequence__link:focus-visible{outline:2px solid #111;outline-offset:6px}
+
+/* Enlarge only the Contact content; its vertical CONTACT title remains on
+   the established shared title rail. */
+body.home footer>p:not(.contact-title){font-size:27.6px!important}
+body.home footer .contact-details{font-size:12.65px!important}
+body.home footer small{font-size:13.8px!important}
+body.home footer .socials{gap:calc(var(--space-6)*1.15)!important}
+body.home footer .socials a{scale:1.15}
+
+/* A quiet double ring denotes an actionable area. */
+@media(pointer:fine){.site-cursor.is-active{width:36px!important;height:36px!important;left:-18px!important;top:-18px!important}.site-cursor.is-active::after{content:"";position:absolute;inset:9px;border:1px solid currentColor;border-radius:50%}}
+
+/* The requested opening remains visible on devices that have Reduce Motion
+   enabled; the global accessibility reset previously collapsed it to 0.01s. */
+@media(prefers-reduced-motion:reduce){
+  .intro-screen{animation:intro-in .6s linear 0s both!important}
+  .intro-screen.is-exiting{animation:intro-out .6s linear forwards!important}
+  .intro-screen__walker{animation:intro-walker-in .6s linear 0s both!important}
+  .intro-screen__walker-canvas{animation-duration:2.9s!important}
+}
+
+/* Mobile: retain the editorial order while restoring the intended image scale. */
+@media(max-width:47.9375rem){
+  body.home main #press .press-side-image{
+    width:79.2vw!important;
+    max-width:22rem!important;
+    aspect-ratio:auto!important;
+    overflow:visible!important;
+    align-self:center!important;
+    margin-inline:auto!important;
+  }
+  body.home main #press .press-side-image img{
+    height:auto!important;
+    object-fit:contain!important;
+  }
+  body.home main #press .press-list{
+    margin-top:var(--space-7)!important;
+  }
+  body.home #artist .artist-portrait{
+    width:75%!important;
+    max-width:75%!important;
+    margin-inline:auto!important;
+  }
+  body.home #artist .artist-portrait img{width:100%!important;height:auto!important}
+}
+
+/* The opening film is a white landing area; the pastel field starts below it. */
+body.home > .video-banner--ambient,
+body.home > .video-banner--ambient .video-banner__foreground{
+  background:#fff!important;
+  background-color:#fff!important;
+}
+body.home > .video-banner--ambient{margin-bottom:0!important}
+
+/* Keep the opening film and the first content field visually continuous white.
+   The pastel backdrop begins only after this introductory field. */
+body.home > main > .hero{
+  position:relative!important;
+  background:#fff!important;
+  background-color:#fff!important;
+}
+
+/* On desktop the colour field begins beneath the opening film, never in the
+   hand-off from the white intro animation to that film. */
+@media(min-width:48rem){
+  body.home{background:#fff!important}
+  body.home::before{
+    inset:auto 0 0!important;
+    top:calc(var(--site-header-height) + min(56.25vw,100svh))!important;
+  }
+}
+
+/* Shared image controls: the mirrored black key replaces every View more
+   label while retaining the original anchor target and compact scale feedback. */
+a.key-view-more{
+  display:inline-flex!important;
+  align-items:center!important;
+  width:clamp(3.4rem,4.25vw,4.5rem)!important;
+  height:auto!important;
+  padding:0!important;
+  border:0!important;
+  color:transparent!important;
+  font-size:0!important;
+  line-height:0!important;
+  vertical-align:middle!important;
+  transform-origin:center!important;
+  position:relative!important;
+  background:transparent!important;
+  transition:transform .35s var(--ease-soft)!important;
+}
+a.key-view-more .view-more-key-image{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-width:none!important;
+}
+a.key-view-more::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:url('/assets/media/ui/view-more-key-gold.png') center/contain no-repeat;
+  clip-path:inset(0 100% 0 0);
+}
+a.key-view-more:hover,a.key-view-more:focus-visible{
+  color:transparent!important;
+  transform:scale(1.06)!important;
+}
+@keyframes view-more-key-gold-in{
+  from{clip-path:inset(0 100% 0 0)}
+  to{clip-path:inset(0 0 0 0)}
+}
+@keyframes view-more-key-gold-out{
+  from{clip-path:inset(0 0 0 0)}
+  to{clip-path:inset(0 0 0 100%)}
+}
+a.key-view-more.is-gold::after{animation:view-more-key-gold-in .42s linear forwards}
+a.key-view-more.is-gold-out::after{animation:view-more-key-gold-out .42s linear forwards}
+
+/* The homepage background is intentionally white throughout; cards retain
+   their depth only through spacing and shadows, never pastel colour fields. */
+body.home{background:#fff!important}
+body.home::before,body.home::after{display:none!important;content:none!important;background:#fff!important}
+
+/* A slightly firmer lower shadow keeps the white panels legible on white. */
+@media(min-width:48rem){
+  body.home .hero,
+  body.home main > .side-section > .side-content,
+  body.home .donut-sequence__stage,
+  body.home .horizontal-image-ticker{
+    box-shadow:0 28px 60px rgba(44,58,72,.18)!important;
+  }
+}
+
+/* The dedicated homepage ticker owns its hit area and its double-ring cursor. */
+@media(pointer:fine){body.home #works,body.home #works a,body.home #works img{cursor:none!important}body.home #works .site-cursor{opacity:1!important}}
+body.home #works .work-stage.works-ticker-ready .home-ticker-card{pointer-events:auto!important;touch-action:manipulation!important}
+
+/* Lake-green and white are rendered as an oversized, shuffled canvas through
+   the whole page. The card surfaces remain clear and calm above the blur. */
+body.home{background:#f7fffd!important}
+body.home::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:-1!important;
+  pointer-events:none!important;
+  background:
+    radial-gradient(ellipse 52% 15% at var(--home-blob-1-position,18% 10%),var(--home-blob-1-colour),transparent 72%),
+    radial-gradient(ellipse 45% 16% at var(--home-blob-2-position,76% 22%),var(--home-blob-2-colour),transparent 72%),
+    radial-gradient(ellipse 54% 16% at var(--home-blob-3-position,28% 35%),var(--home-blob-3-colour),transparent 72%),
+    radial-gradient(ellipse 46% 15% at var(--home-blob-4-position,72% 47%),var(--home-blob-4-colour),transparent 72%),
+    radial-gradient(ellipse 53% 16% at var(--home-blob-5-position,22% 59%),var(--home-blob-5-colour),transparent 72%),
+    radial-gradient(ellipse 44% 15% at var(--home-blob-6-position,78% 70%),var(--home-blob-6-colour),transparent 72%),
+    radial-gradient(ellipse 52% 16% at var(--home-blob-7-position,32% 83%),var(--home-blob-7-colour),transparent 72%),
+    radial-gradient(ellipse 45% 15% at var(--home-blob-8-position,70% 94%),var(--home-blob-8-colour),transparent 72%),
+    #f7fffd!important;
+  filter:blur(58px) saturate(108%)!important;
+  opacity:.96!important;
+}
+body.home::after{display:none!important;content:none!important}
+
+/* Test mobile layout: a single white field with uniformly aligned content
+   cards. Each card is 94% of the viewport wide and grows only with its own
+   content; there is no alternating horizontal offset. */
+body.home{background:#fff!important}
+body.home::before,body.home::after{display:none!important;content:none!important;background:#fff!important}
+@media(max-width:47.9375rem){
+  body.home .hero,
+  body.home main > .side-section > .side-content,
+  body.home .donut-sequence__stage,
+  body.home .horizontal-image-ticker,
+  body.home footer#contact{
+    width:94vw!important;
+    max-width:none!important;
+    height:auto!important;
+    min-height:0!important;
+    margin-left:3vw!important;
+    margin-right:3vw!important;
+    padding:clamp(1.25rem,5vw,2rem)!important;
+    background:#fff!important;
+    border:0!important;
+    border-radius:12px!important;
+    box-shadow:0 18px 40px rgba(44,58,72,.15)!important;
+  }
+  body.home main > .side-section > .side-content{margin-top:var(--space-7)!important;margin-bottom:var(--space-7)!important}
+  body.home .hero{margin-top:var(--space-6)!important;margin-bottom:var(--space-7)!important}
+  body.home .horizontal-image-ticker,
+  body.home .donut-sequence__stage{margin-top:var(--space-7)!important;margin-bottom:var(--space-7)!important}
+  body.home footer#contact{margin-top:var(--space-7)!important;margin-bottom:var(--space-7)!important}
+}
+
+/* Use the entire clear Press panel for the portrait, preserving the uncropped
+   artwork while removing the undersized image sitting in a large white field. */
+@media(min-width:48rem){
+  body.home #press .press-layout{grid-template-columns:minmax(0,1fr) minmax(22rem,34rem)!important;align-items:stretch!important}
+  body.home #press .press-side-image{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;max-width:none!important;min-height:clamp(34rem,52vw,48rem)!important;margin:0!important}
+  body.home #press .press-side-image img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important}
+}
+
+/* Final mobile alignment pass: reset inherited scaled/grid offsets so every
+   content card starts and ends at the same 3vw screen inset. */
+@media(max-width:47.9375rem){
+  body.home{background:#f2f3f2!important}
+  body.home::before,body.home::after{display:none!important;content:none!important}
+  body.home main > .side-section,
+  body.home main > .side-section::before,
+  body.home main > .side-section::after,
+  body.home main > .horizontal-image-ticker,
+  body.home main > .horizontal-image-ticker::before,
+  body.home main > .horizontal-image-ticker::after,
+  body.home .donut-sequence,
+  body.home .donut-sequence::before,
+  body.home .donut-sequence::after{
+    border-top:0!important;
+    border-bottom:0!important;
+  }
+  body.home main{padding-left:0!important;padding-right:0!important}
+  body.home main > .side-section{
+    padding-left:0!important;
+    padding-right:0!important;
+    grid-template-columns:minmax(0,1fr)!important;
+  }
+  body.home main > .side-section > .side-content,
+  body.home main > #artist > .side-content,
+  body.home main > #series > .side-content,
+  body.home main > #works > .side-content,
+  body.home main > #news > .side-content,
+  body.home main > #press > .side-content{
+    zoom:1!important;
+    width:94vw!important;
+    max-width:none!important;
+    margin-left:3vw!important;
+    margin-right:3vw!important;
+    justify-self:auto!important;
+    grid-column:1!important;
+    grid-row:1!important;
+  }
+  body.home .hero,
+  body.home .donut-sequence__stage,
+  body.home .horizontal-image-ticker,
+  body.home footer#contact{
+    zoom:1!important;
+    width:94vw!important;
+    margin-left:3vw!important;
+    margin-right:3vw!important;
+  }
+  /* Footer is a direct body child, so compensate for the scrollbar's layout
+     width while keeping its visible edge equal to the 3vw card inset. */
+  body.home footer#contact{
+    margin-left:calc(3vw - (100vw - 100%) / 2)!important;
+    margin-right:calc(3vw - (100vw - 100%) / 2)!important;
+  }
+}
+
+/* The neutral grey canvas is shared by desktop and mobile; the content cards
+   remain white above it. */
+body.home{background:#f2f3f2!important}
+body.home::before,body.home::after{display:none!important;content:none!important}
+
+@media(max-width:47.9375rem){
+  /* Remove the three ID-specific dividers that survive the generic reset. */
+  body.home main > #artist,
+  body.home main > #works,
+  body.home main > #press,
+  body.home main > #artist::before,
+  body.home main > #artist::after,
+  body.home main > #works::before,
+  body.home main > #works::after,
+  body.home main > #press::before,
+  body.home main > #press::after{
+    border-top:0!important;
+    border-bottom:0!important;
+  }
+  /* Hero is the only mobile card still receiving the depth transform, which
+     made its visible side margins differ from the shared 3vw rail. */
+  body.home .hero{transform:none!important}
+
+  /* Preserve the full Series image and centre its actual artwork within the
+     card; the source's white breathing room is no longer magnified/cropped. */
+  body.home #series .series-entry{
+    grid-template-rows:minmax(0,1fr) auto!important;
+    height:clamp(16.25rem,72vw,20rem)!important;
+    min-height:clamp(16.25rem,72vw,20rem)!important;
+    background:#fff!important;
+  }
+  body.home #series .series-entry img{
+    width:100%!important;
+    height:100%!important;
+    max-width:100%!important;
+    object-fit:contain!important;
+    object-position:center center!important;
+    align-self:center!important;
+    justify-self:center!important;
+    background:#fff!important;
+  }
+
+  /* News and Press are reading lists, so their mobile type stays noticeably
+     quieter than the large homepage editorial titles. */
+  body.home #news h3,
+  body.home #press h3,
+  body.home #press .press-card h3{
+    font-size:clamp(.9rem,4vw,1.08rem)!important;
+    line-height:1.24!important;
+  }
+  body.home #news p,
+  body.home #press p,
+  body.home #press .press-card p{
+    font-size:.72rem!important;
+    line-height:1.55!important;
+  }
+  body.home #news time,
+  body.home #press time,
+  body.home #press .press-card time{font-size:.66rem!important}
+
+  /* Account for the View more row below the image grid, so the artwork's
+     visible centre aligns with the complete Series card centre. */
+  body.home #series .series-entry img{transform:translateY(22px)!important}
+
+  /* Contact ends the page as a free editorial field, not another card. Its
+     title follows the exact rail and display type used by the section labels. */
+  body.home footer#contact{
+    background:transparent!important;
+    box-shadow:none!important;
+    border-radius:0!important;
+  }
+  body.home footer .contact-title{
+    left:-3vw!important;
+    font-size:34px!important;
+    font-weight:800!important;
+    letter-spacing:-.02em!important;
+    line-height:1!important;
+  }
+}
