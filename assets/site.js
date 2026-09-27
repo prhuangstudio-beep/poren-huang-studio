@@ -221,10 +221,9 @@ if(hero){
   window.scrollTo(0,0);
   const intro=document.createElement('div');
   intro.className='intro-screen';
-  // The opening uses the compact 0.5 MB clip first. The former 9 MB source
-  // often could not deliver a frame before the three-and-a-half-second intro
-  // had ended, leaving the character invisible on a cold visit.
-  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><canvas class="intro-screen__walker-canvas"></canvas><video muted playsinline loop preload="auto"><source src="assets/media/intro-character-right-walk-stop-short.webm" type="video/webm"><source src="assets/media/scroll-character-right.mp4?v=20260923route" type="video/mp4"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
+  // Keep the originally approved walking source: its pose, scale and cadence
+  // define the opening animation. The large page films are deferred instead.
+  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><canvas class="intro-screen__walker-canvas"></canvas><video muted playsinline loop preload="auto"><source src="assets/media/scroll-character-right.mp4?v=20260923route" type="video/mp4"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
   const introWalkVideo=intro.querySelector('.intro-screen__walker video');
   const introWalkCanvas=intro.querySelector('.intro-screen__walker-canvas');
