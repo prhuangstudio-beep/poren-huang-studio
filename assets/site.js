@@ -223,11 +223,10 @@ if(hero){
   intro.className='intro-screen';
   // Keep the originally approved walking source: its pose, scale and cadence
   // define the opening animation. The large page films are deferred instead.
-  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><img class="intro-screen__walker-idle" src="assets/media/scroll-character-idle-intro.png" alt=""><canvas class="intro-screen__walker-canvas"></canvas><video muted playsinline loop preload="auto"><source src="assets/media/scroll-character-right.mp4?v=20260923route" type="video/mp4"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
+  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><canvas class="intro-screen__walker-canvas"></canvas><video muted playsinline loop preload="auto"><source src="assets/media/scroll-character-right-faststart.mp4" type="video/mp4"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
   const introWalkVideo=intro.querySelector('.intro-screen__walker video');
   const introWalkCanvas=intro.querySelector('.intro-screen__walker-canvas');
-  const introWalkIdle=intro.querySelector('.intro-screen__walker-idle');
   const introWalkContext=introWalkCanvas.getContext('2d',{willReadFrequently:true});
   let introWalkFrame=0,introExitTimer=0;
   const renderIntroWalk=()=>{
@@ -254,7 +253,6 @@ if(hero){
   const beginIntroExit=()=>intro.classList.add('is-exiting');
   introWalkVideo.addEventListener('playing',()=>{
     intro.classList.add('is-walking');
-    introWalkIdle.hidden=true;
     cancelAnimationFrame(introWalkFrame);
     renderIntroWalk();
     clearTimeout(introExitTimer);
@@ -268,12 +266,9 @@ if(hero){
   const alignIntroWalker=()=>{
     const gap=intro.querySelector('.intro-gap');
     const canvas=intro.querySelector('.intro-screen__walker-canvas');
-    const idle=intro.querySelector('.intro-screen__walker-idle');
     if(!gap||!canvas)return;
     const rect=gap.getBoundingClientRect();
-    const left=`${rect.left+(rect.width/2)}px`;
-    canvas.style.left=left;
-    if(idle)idle.style.left=left;
+    canvas.style.left=`${rect.left+(rect.width/2)}px`;
   };
   const realignIntro=()=>{alignIntroWalker();};
   requestAnimationFrame(()=>requestAnimationFrame(realignIntro));
