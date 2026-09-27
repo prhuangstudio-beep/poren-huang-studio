@@ -191,16 +191,21 @@ if(hero){
     heroVideo.playsInline=true;
     heroVideo.play().catch(()=>{});
   };
-  warmHeroVideo();
-  heroVideo?.addEventListener('loadeddata',warmHeroVideo,{once:true});
+  // Keep the opening route as the first network priority. The large hero film
+  // starts only after the overlay has finished, when it can actually be seen.
+  heroVideo?.removeAttribute('autoplay');
+  if(heroVideo)heroVideo.preload='metadata';
   // The ambient layer is decorative. Let the primary film, artwork images and
   // artist film establish first; only then download this duplicate desktop stream.
   heroVideo?.addEventListener('canplay',()=>setTimeout(()=>{if(introCleared)loadAmbientVideo();},12000),{once:true});
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden)warmHeroVideo();});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&introCleared)warmHeroVideo();});
   window.scrollTo(0,0);
   const intro=document.createElement('div');
   intro.className='intro-screen';
-  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><canvas class="intro-screen__walker-canvas"></canvas><video muted playsinline loop preload="auto"><source src="assets/media/scroll-character-right.mp4?v=20260923route" type="video/mp4"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
+  // The opening uses the compact 0.5 MB clip first. The former 9 MB source
+  // often could not deliver a frame before the three-and-a-half-second intro
+  // had ended, leaving the character invisible on a cold visit.
+  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><canvas class="intro-screen__walker-canvas"></canvas><video muted playsinline loop preload="auto"><source src="assets/media/intro-character-right-walk-stop-short.webm" type="video/webm"><source src="assets/media/scroll-character-right.mp4?v=20260923route" type="video/mp4"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
   const introWalkVideo=intro.querySelector('.intro-screen__walker video');
   const introWalkCanvas=intro.querySelector('.intro-screen__walker-canvas');
