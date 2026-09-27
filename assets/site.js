@@ -228,13 +228,19 @@ if(hero){
   const introWalkVideo=intro.querySelector('.intro-screen__walker video');
   const introWalkCanvas=intro.querySelector('.intro-screen__walker-canvas');
   const introWalkContext=introWalkCanvas.getContext('2d',{willReadFrequently:true});
-  let introWalkFrame=0,introExitTimer=0;
+  let introWalkFrame=0,introWalkVideoFrame=0,introExitTimer=0;
+  const scheduleIntroWalkFrame=()=>{
+    if('requestVideoFrameCallback' in introWalkVideo)introWalkVideoFrame=introWalkVideo.requestVideoFrameCallback(renderIntroWalk);
+    else introWalkFrame=requestAnimationFrame(renderIntroWalk);
+  };
   const renderIntroWalk=()=>{
     const width=introWalkVideo.videoWidth,height=introWalkVideo.videoHeight;
     if(width&&height){
-      // The opening canvas is viewed on high-density desktop displays.  Keep a
-      // substantially denser backing bitmap so the outline stays clean.
-      const canvasHeight=720,canvasWidth=Math.max(1,Math.round(canvasHeight*width/height));
+      // Render only the pixels the displayed character can use. This preserves
+      // its visual size while avoiding a full 720 px keying pass every refresh.
+      const shownHeight=innerHeight*(matchMedia('(max-width:47.9375rem)').matches ? .17 : .22);
+      const canvasHeight=Math.min(540,Math.max(360,Math.round(shownHeight*Math.min(2,devicePixelRatio||1))));
+      const canvasWidth=Math.max(1,Math.round(canvasHeight*width/height));
       if(introWalkCanvas.width!==canvasWidth||introWalkCanvas.height!==canvasHeight){introWalkCanvas.width=canvasWidth;introWalkCanvas.height=canvasHeight;}
       introWalkContext.imageSmoothingEnabled=true;
       introWalkContext.imageSmoothingQuality='high';
@@ -247,13 +253,14 @@ if(hero){
       }
       introWalkContext.putImageData(frame,0,0);
     }
-    introWalkFrame=requestAnimationFrame(renderIntroWalk);
+    scheduleIntroWalkFrame();
   };
   introWalkVideo.playbackRate=.72;
   const beginIntroExit=()=>intro.classList.add('is-exiting');
   introWalkVideo.addEventListener('playing',()=>{
     intro.classList.add('is-walking');
     cancelAnimationFrame(introWalkFrame);
+    introWalkVideo.cancelVideoFrameCallback?.(introWalkVideoFrame);
     renderIntroWalk();
     clearTimeout(introExitTimer);
     // Keep the complete opening (walk plus shared fade-out) below five seconds.
@@ -281,6 +288,7 @@ if(hero){
     window.removeEventListener('resize',realignIntro);
     clearTimeout(introExitTimer);
     cancelAnimationFrame(introWalkFrame);
+    introWalkVideo.cancelVideoFrameCallback?.(introWalkVideoFrame);
     introWalkVideo.pause();
     window.scrollTo(0,0);
     document.body.classList.remove('intro-active');
@@ -1253,7 +1261,12 @@ document.addEventListener('click',event=>{
   const context=canvas.getContext('2d',{willReadFrequently:true});
   const videos={right:walker.querySelector('.scroll-walker__walk--right'),left:walker.querySelector('.scroll-walker__walk--left')};
   const compact=matchMedia('(max-width:700px)');
-  let position=0,targetPosition=0,direction='',stopTimer=0,positionFrame=0,videoFrame=0,activeVideo=null,pageScrollRange=1;
+  let position=0,targetPosition=0,direction='',stopTimer=0,positionFrame=0,videoFrame=0,videoVideoFrame=0,activeVideo=null,pageScrollRange=1;
+  const scheduleWalkVideoFrame=()=>{
+    if(!activeVideo)return;
+    if('requestVideoFrameCallback' in activeVideo)videoVideoFrame=activeVideo.requestVideoFrameCallback(renderVideo);
+    else videoFrame=requestAnimationFrame(renderVideo);
+  };
   const characterWidth=()=>walker.getBoundingClientRect().width||innerHeight*.12;
   const travelBounds=()=>{
     // Use the complete viewport rather than clientWidth (which excludes the
@@ -1300,14 +1313,14 @@ document.addEventListener('click',event=>{
       }
       context.putImageData(frame,0,0);
     }
-    videoFrame=requestAnimationFrame(renderVideo);
+    scheduleWalkVideoFrame();
   };
   const stop=()=>{
     direction='';walker.classList.remove('is-walking','is-left','is-right');idle.hidden=false;
     cancelAnimationFrame(positionFrame);positionFrame=0;
     const bounds=travelBounds(),atEnd=Math.abs(targetPosition-bounds.start)<.25||Math.abs(targetPosition-bounds.end)<.25;
     if(atEnd)position=targetPosition;else targetPosition=position;
-    place();cancelAnimationFrame(videoFrame);activeVideo=null;
+    place();cancelAnimationFrame(videoFrame);activeVideo?.cancelVideoFrameCallback?.(videoVideoFrame);activeVideo=null;
     Object.values(videos).forEach(video=>{video.pause();video.currentTime=0;});
   };
   const walk=nextDirection=>{
@@ -1315,7 +1328,7 @@ document.addEventListener('click',event=>{
       direction=nextDirection;walker.classList.toggle('is-left',nextDirection==='left');walker.classList.toggle('is-right',nextDirection==='right');walker.classList.add('is-walking');idle.hidden=true;
       const current=videos[nextDirection],other=videos[nextDirection==='left'?'right':'left'];
       other.pause();other.currentTime=0;current.currentTime=0;current.playbackRate=.72;activeVideo=current;
-      cancelAnimationFrame(videoFrame);current.play().then(()=>{videoFrame=requestAnimationFrame(renderVideo);}).catch(()=>{});
+      cancelAnimationFrame(videoFrame);activeVideo?.cancelVideoFrameCallback?.(videoVideoFrame);current.play().then(()=>{scheduleWalkVideoFrame();}).catch(()=>{});
     }
     clearTimeout(stopTimer);stopTimer=setTimeout(stop,220);
   };
