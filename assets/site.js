@@ -223,45 +223,14 @@ if(hero){
   intro.className='intro-screen';
   // Keep the originally approved walking source: its pose, scale and cadence
   // define the opening animation. The large page films are deferred instead.
-  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><canvas class="intro-screen__walker-canvas"></canvas><video muted playsinline loop preload="auto"><source src="assets/media/scroll-character-right-faststart.mp4" type="video/mp4"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
+  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><video class="intro-screen__walker-canvas intro-screen__walker-video" muted playsinline loop preload="auto"><source src="assets/media/scroll-character-right-transparent.webm" type="video/webm"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
   const introWalkVideo=intro.querySelector('.intro-screen__walker video');
-  const introWalkCanvas=intro.querySelector('.intro-screen__walker-canvas');
-  const introWalkContext=introWalkCanvas.getContext('2d',{willReadFrequently:true});
-  let introWalkFrame=0,introWalkVideoFrame=0,introExitTimer=0;
-  const scheduleIntroWalkFrame=()=>{
-    if('requestVideoFrameCallback' in introWalkVideo)introWalkVideoFrame=introWalkVideo.requestVideoFrameCallback(renderIntroWalk);
-    else introWalkFrame=requestAnimationFrame(renderIntroWalk);
-  };
-  const renderIntroWalk=()=>{
-    const width=introWalkVideo.videoWidth,height=introWalkVideo.videoHeight;
-    if(width&&height){
-      // Render only the pixels the displayed character can use. This preserves
-      // its visual size while avoiding a full 720 px keying pass every refresh.
-      const shownHeight=innerHeight*(matchMedia('(max-width:47.9375rem)').matches ? .17 : .22);
-      const canvasHeight=Math.min(540,Math.max(360,Math.round(shownHeight*Math.min(2,devicePixelRatio||1))));
-      const canvasWidth=Math.max(1,Math.round(canvasHeight*width/height));
-      if(introWalkCanvas.width!==canvasWidth||introWalkCanvas.height!==canvasHeight){introWalkCanvas.width=canvasWidth;introWalkCanvas.height=canvasHeight;}
-      introWalkContext.imageSmoothingEnabled=true;
-      introWalkContext.imageSmoothingQuality='high';
-      introWalkContext.clearRect(0,0,canvasWidth,canvasHeight);
-      introWalkContext.drawImage(introWalkVideo,0,0,canvasWidth,canvasHeight);
-      const frame=introWalkContext.getImageData(0,0,canvasWidth,canvasHeight),pixels=frame.data;
-      for(let index=0;index<pixels.length;index+=4){
-        if(Math.min(pixels[index],pixels[index+1],pixels[index+2])>225){pixels[index+3]=0;continue;}
-        if(Math.max(pixels[index],pixels[index+1],pixels[index+2])>75){pixels[index]=198;pixels[index+1]=255;pixels[index+2]=52;}
-      }
-      introWalkContext.putImageData(frame,0,0);
-    }
-    scheduleIntroWalkFrame();
-  };
+  let introExitTimer=0;
   introWalkVideo.playbackRate=.72;
   const beginIntroExit=()=>intro.classList.add('is-exiting');
   introWalkVideo.addEventListener('playing',()=>{
     intro.classList.add('is-walking');
-    cancelAnimationFrame(introWalkFrame);
-    introWalkVideo.cancelVideoFrameCallback?.(introWalkVideoFrame);
-    renderIntroWalk();
     clearTimeout(introExitTimer);
     // Keep the complete opening (walk plus shared fade-out) below five seconds.
     // 2.9 seconds of walking plus the shared 0.6 second fade = 3.5 seconds.
@@ -272,7 +241,7 @@ if(hero){
   document.documentElement.classList.remove('home-preintro');
   const alignIntroWalker=()=>{
     const gap=intro.querySelector('.intro-gap');
-    const canvas=intro.querySelector('.intro-screen__walker-canvas');
+    const canvas=intro.querySelector('.intro-screen__walker-video');
     if(!gap||!canvas)return;
     const rect=gap.getBoundingClientRect();
     canvas.style.left=`${rect.left+(rect.width/2)}px`;
@@ -287,8 +256,6 @@ if(hero){
     introCleared=true;
     window.removeEventListener('resize',realignIntro);
     clearTimeout(introExitTimer);
-    cancelAnimationFrame(introWalkFrame);
-    introWalkVideo.cancelVideoFrameCallback?.(introWalkVideoFrame);
     introWalkVideo.pause();
     window.scrollTo(0,0);
     document.body.classList.remove('intro-active');
@@ -1244,7 +1211,7 @@ document.addEventListener('click',event=>{
   if(window.__porenScrollWalker)return;
   window.__porenScrollWalker=true;
   const walkerStyle=document.createElement('style');
-  walkerStyle.textContent='.scroll-walker{position:fixed!important;z-index:20001!important;left:0!important;bottom:max(24px,calc(env(safe-area-inset-bottom) + 16px))!important;width:12vh!important;height:12vh!important;min-width:72px!important;min-height:72px!important;max-width:168px!important;max-height:168px!important;pointer-events:none!important;will-change:transform!important;transition:opacity .3s ease,visibility 0s linear 0s!important}.intro-active .scroll-walker{opacity:0!important;visibility:hidden!important}.scroll-walker__idle,.scroll-walker__canvas{display:block;width:100%;height:100%;object-fit:contain}.scroll-walker__walk{display:none!important}.scroll-walker__canvas{display:none}.scroll-walker.is-walking .scroll-walker__canvas{display:block}.scroll-walker.is-walking .scroll-walker__idle{display:none}body.home #artist>.side-content{position:relative!important;left:var(--artist-screen-offset,0px)!important}@media(max-width:700px){.scroll-walker{width:10.8vh!important;height:10.8vh!important;max-width:151px!important;max-height:151px!important}body.home #press>.side-content{zoom:1!important}body.home #press .press-layout{display:flex!important;flex-direction:column!important;gap:4rem!important}body.home #press .press-side-image{display:block!important;position:static!important;width:100%!important;aspect-ratio:1 / 1!important;order:1!important;margin:0!important}body.home #press .press-list{display:block!important;order:2!important;margin:0!important}body.home #series .series-entry{height:clamp(16.25rem,72vw,20rem)!important;min-height:clamp(16.25rem,72vw,20rem)!important;grid-template-rows:calc(100% - 44px) 44px!important}body.home #series .series-entry img{height:calc(100% - 44px)!important}body.home #artist .artist-detail>div{padding-left:4.5rem!important}body.home #artist .artist-detail h2{font-size:clamp(1.4rem,6.3vw,1.72rem)!important;line-height:1.18!important}body.home #artist .artist-detail>div p{font-size:.82rem!important;line-height:1.65!important}}@media(prefers-reduced-motion:reduce){.scroll-walker__canvas{display:none!important}.scroll-walker__idle{display:block!important}}';
+  walkerStyle.textContent='.scroll-walker{position:fixed!important;z-index:20001!important;left:0!important;bottom:max(24px,calc(env(safe-area-inset-bottom) + 16px))!important;width:12vh!important;height:12vh!important;min-width:72px!important;min-height:72px!important;max-width:168px!important;max-height:168px!important;pointer-events:none!important;will-change:transform!important;transition:opacity .3s ease,visibility 0s linear 0s!important}.intro-active .scroll-walker{opacity:0!important;visibility:hidden!important}.scroll-walker__idle,.scroll-walker__walk{display:block;width:100%;height:100%;object-fit:contain}.scroll-walker__walk{display:none!important}.scroll-walker__canvas{display:none!important}.scroll-walker.is-walking .scroll-walker__walk.is-active{display:block!important}.scroll-walker.is-walking .scroll-walker__idle{display:none}body.home #artist>.side-content{position:relative!important;left:var(--artist-screen-offset,0px)!important}@media(max-width:700px){.scroll-walker{width:10.8vh!important;height:10.8vh!important;max-width:151px!important;max-height:151px!important}body.home #press>.side-content{zoom:1!important}body.home #press .press-layout{display:flex!important;flex-direction:column!important;gap:4rem!important}body.home #press .press-side-image{display:block!important;position:static!important;width:100%!important;aspect-ratio:1 / 1!important;order:1!important;margin:0!important}body.home #press .press-list{display:block!important;order:2!important;margin:0!important}body.home #series .series-entry{height:clamp(16.25rem,72vw,20rem)!important;min-height:clamp(16.25rem,72vw,20rem)!important;grid-template-rows:calc(100% - 44px) 44px!important}body.home #series .series-entry img{height:calc(100% - 44px)!important}body.home #artist .artist-detail>div{padding-left:4.5rem!important}body.home #artist .artist-detail h2{font-size:clamp(1.4rem,6.3vw,1.72rem)!important;line-height:1.18!important}body.home #artist .artist-detail>div p{font-size:.82rem!important;line-height:1.65!important}}@media(prefers-reduced-motion:reduce){.scroll-walker__canvas{display:none!important}.scroll-walker__idle{display:block!important}}';
   document.head.append(walkerStyle);
   // This runtime walker stylesheet is appended after the main stylesheet.
   // Keep its mobile Press fallback centred and reserve clear reading space below it.
@@ -1254,7 +1221,7 @@ document.addEventListener('click',event=>{
   const walker=document.createElement('div');
   walker.className='scroll-walker';
   walker.setAttribute('aria-hidden','true');
-  walker.innerHTML='<img class="scroll-walker__idle" src="assets/media/scroll-character-idle.png?v=20260923route" alt=""><canvas class="scroll-walker__canvas"></canvas><video class="scroll-walker__walk scroll-walker__walk--right" muted playsinline loop preload="metadata"><source src="assets/media/scroll-character-right.mp4?v=20260923route" type="video/mp4"></video><video class="scroll-walker__walk scroll-walker__walk--left" muted playsinline loop preload="metadata"><source src="assets/media/scroll-character-left.mp4?v=20260923route" type="video/mp4"></video>';
+  walker.innerHTML='<img class="scroll-walker__idle" src="assets/media/scroll-character-idle.png?v=20260923route" alt=""><canvas class="scroll-walker__canvas"></canvas><video class="scroll-walker__walk scroll-walker__walk--right" muted playsinline loop preload="metadata"><source src="assets/media/scroll-character-right-transparent.webm" type="video/webm"></video><video class="scroll-walker__walk scroll-walker__walk--left" muted playsinline loop preload="metadata"><source src="assets/media/scroll-character-left-transparent.webm" type="video/webm"></video>';
   document.body.append(walker);
   const idle=walker.querySelector('.scroll-walker__idle');
   const canvas=walker.querySelector('.scroll-walker__canvas');
@@ -1328,7 +1295,8 @@ document.addEventListener('click',event=>{
       direction=nextDirection;walker.classList.toggle('is-left',nextDirection==='left');walker.classList.toggle('is-right',nextDirection==='right');walker.classList.add('is-walking');idle.hidden=true;
       const current=videos[nextDirection],other=videos[nextDirection==='left'?'right':'left'];
       other.pause();other.currentTime=0;current.currentTime=0;current.playbackRate=.72;activeVideo=current;
-      cancelAnimationFrame(videoFrame);activeVideo?.cancelVideoFrameCallback?.(videoVideoFrame);current.play().then(()=>{scheduleWalkVideoFrame();}).catch(()=>{});
+      Object.values(videos).forEach(video=>video.classList.toggle('is-active',video===current));
+      cancelAnimationFrame(videoFrame);activeVideo?.cancelVideoFrameCallback?.(videoVideoFrame);current.play().catch(()=>{});
     }
     clearTimeout(stopTimer);stopTimer=setTimeout(stop,220);
   };
