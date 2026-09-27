@@ -178,6 +178,7 @@ if(hero){
   document.body.classList.add('intro-active');
   const heroVideo=document.querySelector('.video-banner__foreground');
   const ambientVideo=document.querySelector('.video-banner__ambient');
+  const artistFilmVideo=document.querySelector('.artist-film__foreground');
   let ambientStarted=false;
   let introCleared=false;
   // The homepage film now uses only its uncropped foreground source.
@@ -195,10 +196,28 @@ if(hero){
   // starts only after the overlay has finished, when it can actually be seen.
   heroVideo?.removeAttribute('autoplay');
   if(heroVideo)heroVideo.preload='metadata';
+  // The Artist film is below the banner. It used to start a 40 MB desktop
+  // download while the opening was still on screen; defer it until the visitor
+  // is close enough to see it.
+  artistFilmVideo?.removeAttribute('autoplay');
+  if(artistFilmVideo)artistFilmVideo.preload='none';
+  const warmArtistFilm=()=>{
+    if(!artistFilmVideo||!introCleared)return;
+    artistFilmVideo.preload='auto';
+    artistFilmVideo.muted=true;
+    artistFilmVideo.playsInline=true;
+    artistFilmVideo.play().catch(()=>{});
+  };
+  if(artistFilmVideo&&'IntersectionObserver' in window){
+    const artistFilmObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(entry.isIntersecting){warmArtistFilm();artistFilmObserver.disconnect();}
+    }),{rootMargin:'320px 0px'});
+    artistFilmObserver.observe(artistFilmVideo);
+  }else setTimeout(warmArtistFilm,4000);
   // The ambient layer is decorative. Let the primary film, artwork images and
   // artist film establish first; only then download this duplicate desktop stream.
   heroVideo?.addEventListener('canplay',()=>setTimeout(()=>{if(introCleared)loadAmbientVideo();},12000),{once:true});
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&introCleared)warmHeroVideo();});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&introCleared){warmHeroVideo();warmArtistFilm();}});
   window.scrollTo(0,0);
   const intro=document.createElement('div');
   intro.className='intro-screen';
@@ -268,6 +287,7 @@ if(hero){
     document.body.classList.remove('intro-active');
     intro.remove();
     warmHeroVideo();
+    warmArtistFilm();
     setTimeout(loadAmbientVideo,12000);
   };
   intro.addEventListener('animationend',e=>{
