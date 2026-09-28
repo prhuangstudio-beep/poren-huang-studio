@@ -4433,6 +4433,12 @@ body.home::before,body.home::after{display:none!important;content:none!important
   body.home .horizontal-image-ticker,
   body.home .donut-sequence__stage{margin-top:var(--space-7)!important;margin-bottom:var(--space-7)!important}
   body.home footer#contact{margin-top:var(--space-7)!important;margin-bottom:var(--space-7)!important}
+
+  /* The image ticker is a card in its own right, while the following Artist
+     card sits inside a padded section. Remove precisely that inherited
+     section padding from the ticker's lower margin so its upper and lower
+     visible card gaps are equal. */
+  body.home .horizontal-image-ticker{margin-bottom:calc(var(--space-7) - var(--home-section-space))!important}
 }
 
 /* Use the entire clear Press panel for the portrait, preserving the uncropped
