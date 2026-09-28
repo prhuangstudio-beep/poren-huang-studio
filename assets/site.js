@@ -231,6 +231,7 @@ if(hero){
   let introExitTimer=0,introFallbackTimer=0;
   const beginIntroExit=()=>intro.classList.add('is-exiting');
   const beginIntroWalk=()=>{
+    if(intro.classList.contains('is-walking'))return;
     clearTimeout(introFallbackTimer);
     intro.classList.add('is-walking');
     clearTimeout(introExitTimer);
@@ -285,9 +286,8 @@ if(hero){
       clearIntro();
     }
   });
-  // Desktop safety fallback. Mobile starts its clock only after the alpha
-  // animation has decoded, so it is never dismissed before becoming visible.
-  if(!useMobileIntroImage)setTimeout(beginIntroExit,3500);
+  // Both desktop and mobile are driven only by beginIntroWalk: lettering and
+  // character share one fixed 2.9 s walk plus 0.6 s fade timeline.
   const homeNav=document.createElement('div');
   homeNav.className='home-section-nav';
   homeNav.setAttribute('role','navigation');
