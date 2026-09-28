@@ -228,7 +228,7 @@ if(hero){
   intro.className='intro-screen';
   // Keep the originally approved walking source: its pose, scale and cadence
   // define the opening animation. The large page films are deferred instead.
-  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><video class="intro-screen__walker-canvas intro-screen__walker-video" muted playsinline loop preload="none" data-src="assets/media/scroll-character-right-transparent.webm"></video><img class="intro-screen__walker-canvas intro-screen__walker-image" src="assets/media/intro-character-mobile-transparent-small.webp" alt=""></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
+  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><video class="intro-screen__walker-canvas intro-screen__walker-video" muted playsinline loop preload="none" data-src="assets/media/scroll-character-right-transparent.webm"></video><img class="intro-screen__walker-canvas intro-screen__walker-image" src="assets/media/intro-character-mobile-alpha.webp" alt=""></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
   const introWalkVideo=intro.querySelector('.intro-screen__walker video');
   const introWalkImage=intro.querySelector('.intro-screen__walker-image');
