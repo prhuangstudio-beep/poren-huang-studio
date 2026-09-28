@@ -277,6 +277,7 @@ if(hero){
     window.scrollTo(0,0);
     document.body.classList.remove('intro-active');
     intro.remove();
+    window.dispatchEvent(new Event('poren:intro-complete'));
     warmHeroVideo();
     warmArtistFilm();
     setTimeout(loadAmbientVideo,12000);
@@ -1238,12 +1239,20 @@ document.addEventListener('click',event=>{
   const walker=document.createElement('div');
   walker.className='scroll-walker';
   walker.setAttribute('aria-hidden','true');
-  walker.innerHTML='<img class="scroll-walker__idle" src="assets/media/scroll-character-idle.png?v=20260923route" alt=""><canvas class="scroll-walker__canvas"></canvas><video class="scroll-walker__walk scroll-walker__walk--right" muted playsinline loop preload="metadata"><source src="assets/media/scroll-character-right-transparent.webm" type="video/webm"></video><video class="scroll-walker__walk scroll-walker__walk--left" muted playsinline loop preload="metadata"><source src="assets/media/scroll-character-left-transparent.webm" type="video/webm"></video>';
+  walker.innerHTML='<img class="scroll-walker__idle" data-src="assets/media/scroll-character-idle-512.webp" alt=""><canvas class="scroll-walker__canvas"></canvas><video class="scroll-walker__walk scroll-walker__walk--right" muted playsinline loop preload="none" data-src="assets/media/scroll-character-right-transparent.webm"></video><video class="scroll-walker__walk scroll-walker__walk--left" muted playsinline loop preload="none" data-src="assets/media/scroll-character-left-transparent.webm"></video>';
   document.body.append(walker);
   const idle=walker.querySelector('.scroll-walker__idle');
   const canvas=walker.querySelector('.scroll-walker__canvas');
   const context=canvas.getContext('2d',{willReadFrequently:true});
   const videos={right:walker.querySelector('.scroll-walker__walk--right'),left:walker.querySelector('.scroll-walker__walk--left')};
+  const warmWalkerMedia=()=>{
+    if(walker.dataset.mediaReady)return;
+    walker.dataset.mediaReady='true';
+    idle.src=idle.dataset.src;
+    Object.values(videos).forEach(video=>{video.innerHTML=`<source src="${video.dataset.src}" type="video/webm">`;video.preload='metadata';video.load();});
+  };
+  if(document.body.classList.contains('intro-active'))window.addEventListener('poren:intro-complete',warmWalkerMedia,{once:true});
+  else warmWalkerMedia();
   const compact=matchMedia('(max-width:700px)');
   let position=0,targetPosition=0,direction='',stopTimer=0,positionFrame=0,videoFrame=0,videoVideoFrame=0,activeVideo=null,pageScrollRange=1;
   const scheduleWalkVideoFrame=()=>{
@@ -1308,6 +1317,7 @@ document.addEventListener('click',event=>{
     Object.values(videos).forEach(video=>{video.pause();video.currentTime=0;});
   };
   const walk=nextDirection=>{
+    warmWalkerMedia();
     if(direction!==nextDirection){
       direction=nextDirection;walker.classList.toggle('is-left',nextDirection==='left');walker.classList.toggle('is-right',nextDirection==='right');walker.classList.add('is-walking');idle.hidden=true;
       const current=videos[nextDirection],other=videos[nextDirection==='left'?'right':'left'];
