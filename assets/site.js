@@ -177,19 +177,17 @@ if(hero){
   document.body.classList.add('home');
   document.body.classList.add('intro-active');
   const heroVideo=document.querySelector('.video-banner__foreground');
-  const ambientVideo=document.querySelector('.video-banner__ambient');
   const artistFilmVideo=document.querySelector('.artist-film__foreground');
-  let ambientStarted=false;
+  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let introCleared=false;
-  // The homepage film now uses only its uncropped foreground source.
-  // Do not load a second blurred background stream.
-  const loadAmbientVideo=()=>{};
+  let artistFilmVisible=false;
   const warmHeroVideo=()=>{
-    if(!heroVideo)return;
+    if(!heroVideo||reducedMotion)return;
     heroVideo.preload='auto';
     heroVideo.muted=true;
     heroVideo.autoplay=true;
     heroVideo.playsInline=true;
+    if(!heroVideo.dataset.loaded){heroVideo.dataset.loaded='true';heroVideo.load();}
     heroVideo.play().catch(()=>{});
   };
   // Keep the opening route as the first network priority. The large hero film
@@ -202,7 +200,15 @@ if(hero){
   artistFilmVideo?.removeAttribute('autoplay');
   if(artistFilmVideo)artistFilmVideo.preload='none';
   const warmArtistFilm=()=>{
-    if(!artistFilmVideo||!introCleared)return;
+    if(!artistFilmVideo||!introCleared||reducedMotion)return;
+    if(!artistFilmVideo.dataset.loaded){
+      const source=document.createElement('source');
+      source.src=matchMedia('(max-width: 900px)').matches?artistFilmVideo.dataset.mobileSrc:artistFilmVideo.dataset.desktopSrc;
+      source.type='video/mp4';
+      artistFilmVideo.append(source);
+      artistFilmVideo.dataset.loaded='true';
+      artistFilmVideo.load();
+    }
     artistFilmVideo.preload='auto';
     artistFilmVideo.muted=true;
     artistFilmVideo.playsInline=true;
@@ -210,14 +216,13 @@ if(hero){
   };
   if(artistFilmVideo&&'IntersectionObserver' in window){
     const artistFilmObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
-      if(entry.isIntersecting){warmArtistFilm();artistFilmObserver.disconnect();}
+      artistFilmVisible=entry.isIntersecting;
+      if(artistFilmVisible)warmArtistFilm();
+      else artistFilmVideo.pause();
     }),{rootMargin:'320px 0px'});
     artistFilmObserver.observe(artistFilmVideo);
   }else setTimeout(warmArtistFilm,4000);
-  // The ambient layer is decorative. Let the primary film, artwork images and
-  // artist film establish first; only then download this duplicate desktop stream.
-  heroVideo?.addEventListener('canplay',()=>setTimeout(()=>{if(introCleared)loadAmbientVideo();},12000),{once:true});
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&introCleared){warmHeroVideo();warmArtistFilm();}});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&introCleared){warmHeroVideo();if(artistFilmVisible)warmArtistFilm();}else artistFilmVideo?.pause();});
   window.scrollTo(0,0);
   const intro=document.createElement('div');
   intro.className='intro-screen';
@@ -279,8 +284,7 @@ if(hero){
     intro.remove();
     window.dispatchEvent(new Event('poren:intro-complete'));
     warmHeroVideo();
-    warmArtistFilm();
-    setTimeout(loadAmbientVideo,12000);
+    if(artistFilmVisible)warmArtistFilm();
   };
   intro.addEventListener('animationend',e=>{
     if(e.animationName==='intro-out'){
