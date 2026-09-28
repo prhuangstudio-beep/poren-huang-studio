@@ -223,25 +223,35 @@ if(hero){
   intro.className='intro-screen';
   // Keep the originally approved walking source: its pose, scale and cadence
   // define the opening animation. The large page films are deferred instead.
-  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><video class="intro-screen__walker-canvas intro-screen__walker-video" muted playsinline loop preload="auto"><source src="assets/media/scroll-character-right-transparent.webm" type="video/webm"></video></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
+  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><video class="intro-screen__walker-canvas intro-screen__walker-video" muted playsinline loop preload="none" data-src="assets/media/scroll-character-right-transparent.webm"></video><img class="intro-screen__walker-canvas intro-screen__walker-image" src="assets/media/intro-character-mobile-transparent.webp" alt=""></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
   const introWalkVideo=intro.querySelector('.intro-screen__walker video');
+  const introWalkImage=intro.querySelector('.intro-screen__walker-image');
+  const useMobileIntroImage=matchMedia('(max-width:47.9375rem)').matches;
   let introExitTimer=0;
-  introWalkVideo.playbackRate=.72;
   const beginIntroExit=()=>intro.classList.add('is-exiting');
-  introWalkVideo.addEventListener('playing',()=>{
+  const beginIntroWalk=()=>{
     intro.classList.add('is-walking');
     clearTimeout(introExitTimer);
     // Keep the complete opening (walk plus shared fade-out) below five seconds.
     // 2.9 seconds of walking plus the shared 0.6 second fade = 3.5 seconds.
     introExitTimer=setTimeout(beginIntroExit,2900);
-  },{once:true});
-  introWalkVideo.load();
-  introWalkVideo.play().catch(()=>{});
+  };
+  if(useMobileIntroImage){
+    // Animated WebP retains alpha on mobile browsers that flatten WebM alpha.
+    requestAnimationFrame(beginIntroWalk);
+  }else{
+    introWalkVideo.innerHTML=`<source src="${introWalkVideo.dataset.src}" type="video/webm">`;
+    introWalkVideo.preload='auto';
+    introWalkVideo.playbackRate=.72;
+    introWalkVideo.addEventListener('playing',beginIntroWalk,{once:true});
+    introWalkVideo.load();
+    introWalkVideo.play().catch(()=>{});
+  }
   document.documentElement.classList.remove('home-preintro');
   const alignIntroWalker=()=>{
     const gap=intro.querySelector('.intro-gap');
-    const canvas=intro.querySelector('.intro-screen__walker-video');
+    const canvas=useMobileIntroImage?introWalkImage:intro.querySelector('.intro-screen__walker-video');
     if(!gap||!canvas)return;
     const rect=gap.getBoundingClientRect();
     canvas.style.left=`${rect.left+(rect.width/2)}px`;
