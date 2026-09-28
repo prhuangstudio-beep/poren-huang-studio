@@ -3587,6 +3587,11 @@ body.home footer .contact-title{
 .intro-screen:not(.is-walking)>span{opacity:0!important}
 /* Preserve the previously approved mobile baseline after reducing the figure. */
 @media(max-width:47.9375rem){.intro-screen__walker-video{display:none!important}.intro-screen__walker-image{display:block!important}.intro-screen__walker-canvas{min-width:0;width:auto;height:17%;transform:translate(-50%,180%);border:0;outline:0;box-shadow:none;background:transparent;filter:none;clip-path:none}}
+/* Responsive image sources preserve the existing ticker and series geometry. */
+.horizontal-image-ticker__track picture{display:block;flex:0 0 100vw;width:100vw;line-height:0}
+.horizontal-image-ticker__track picture>img{width:100%;height:auto}
+.series-entry>picture{display:contents}
+
 @media(max-width:47.9375rem){
   body.home main{--home-section-space:clamp(2.5rem,8vw,3.5rem)!important}
 }
