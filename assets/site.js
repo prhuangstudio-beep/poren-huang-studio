@@ -753,6 +753,13 @@ if(homeImageTicker){
   syncHomeImageTickerSpeed();
   addEventListener('resize',syncHomeImageTickerSpeed);
 }
+// Infinite image strips need no compositor time while entirely off screen.
+if('IntersectionObserver'in window){
+  const animatedStripObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    entry.target.classList.toggle('is-offscreen',!entry.isIntersecting);
+  }),{threshold:0});
+  document.querySelectorAll('.horizontal-image-ticker,.artist-gallery-ticker').forEach(strip=>animatedStripObserver.observe(strip));
+}
 if(homeSeries){
   homeSeries.classList.remove('view-more-link');
   const seriesMore=homeSeries.closest('.side-content')?.querySelector('.series-more');
@@ -803,19 +810,25 @@ if(homeStage){
       if(scrollPosition<0)scrollPosition+=cycle;
       homeStage.scrollLeft=scrollPosition;
     };
-    const tick=()=>{
-      if(!dragging&&!document.hidden&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
-        // scrollLeft stores integer pixels; retain the fractional distance here
-        // so the slow continuous movement does not get rounded back to zero.
-        scrollPosition+=.34+velocity;
-        velocity*=.92;
-        if(Math.abs(velocity)<.01)velocity=0;
-        keepLooped();
-      }
+    let tickerVisible=false,tickerFrame=0,lastTickerTime=0,coverTimer=0;
+    const tick=time=>{
+      tickerFrame=0;
+      if(!tickerVisible||dragging||document.hidden||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      const steps=Math.min(4,Math.max(.25,(time-lastTickerTime)/16.667));
+      lastTickerTime=time;
+      // scrollLeft stores integer pixels; retain the fractional distance here
+      // so the slow continuous movement does not get rounded back to zero.
+      scrollPosition+=.34*steps+velocity;
+      velocity*=Math.pow(.92,steps);
+      if(Math.abs(velocity)<.01)velocity=0;
+      keepLooped();
+      tickerFrame=requestAnimationFrame(tick);
     };
-    // A timer keeps the ticker alive even when the browser throttles animation
-    // frames for a section that is temporarily outside the viewport.
-    setInterval(tick,16);
+    const startTicker=()=>{
+      if(!tickerVisible||tickerFrame||document.hidden||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      lastTickerTime=performance.now();
+      tickerFrame=requestAnimationFrame(tick);
+    };
     homeStage.addEventListener('wheel',event=>{
       const movement=Math.abs(event.deltaX)>Math.abs(event.deltaY)?event.deltaX:event.deltaY;
       if(!movement)return;
@@ -872,8 +885,9 @@ if(homeStage){
       preload.addEventListener('load',apply,{once:true});
       preload.addEventListener('error',()=>image.classList.remove('is-fading'),{once:true});
     };
-    setInterval(()=>{
-      if(document.hidden)return;
+    const cycleCovers=()=>{
+      coverTimer=0;
+      if(!tickerVisible||document.hidden)return;
       panelsByWork.forEach((matchingPanels,key)=>{
         const variants=JSON.parse(matchingPanels[0].dataset.variants||'[]');
         if(variants.length<2)return;
@@ -881,7 +895,16 @@ if(homeStage){
         coverIndexes.set(key,index);
         matchingPanels.forEach(panel=>changeCover(panel,variants[index]));
       });
-    },4800);
+      coverTimer=setTimeout(cycleCovers,4800);
+    };
+    if('IntersectionObserver'in window){
+      new IntersectionObserver(entries=>entries.forEach(entry=>{
+        tickerVisible=entry.isIntersecting;
+        if(tickerVisible){startTicker();clearTimeout(coverTimer);coverTimer=setTimeout(cycleCovers,4800);}
+        else {cancelAnimationFrame(tickerFrame);tickerFrame=0;clearTimeout(coverTimer);}
+      }),{threshold:.01}).observe(homeStage);
+    }else{tickerVisible=true;startTicker();coverTimer=setTimeout(cycleCovers,4800);}
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden&&tickerVisible){startTicker();if(!coverTimer)coverTimer=setTimeout(cycleCovers,4800);}});
   };
   fetch(homeWorksUrl).then(response=>response.ok?response.json():Promise.reject()).then(startHomeWorksTicker).catch(()=>{});
 }
@@ -1123,13 +1146,13 @@ document.addEventListener('click',event=>{
   series.insertAdjacentHTML('afterend','<section id="donut-scroll" class="donut-sequence" aria-label="Donut sculpture sequence"><a class="donut-sequence__link" href="works/power-food.html" aria-label="Open Power Food work detail"><div class="donut-sequence__stage"><canvas aria-label="Donut sculpture sequence"></canvas><div class="donut-sequence__loading">Loading 0%</div></div></a></section>');
   const section=document.querySelector('.donut-sequence'),stage=section.querySelector('.donut-sequence__stage'),canvas=stage.querySelector('canvas'),context=canvas.getContext('2d'),loading=section.querySelector('.donut-sequence__loading');
   const indexes=Array.from({length:45},(_,i)=>i+1),frames=[],paths=indexes.map(i=>'assets/catalog/donut/frames/'+String(i).padStart(3,'0')+'.webp?v=4');
-  let loaded=0,target=31,current=target,shown=-1,animationFrame=0;
+  let loaded=0,target=31,current=target,shown=-1,animationFrame=0,sequenceVisible=false;
   const render=force=>{const index=Math.max(0,Math.min(frames.length-1,Math.round(current))),image=frames[index];if(!image||(!force&&shown===index))return;shown=index;const w=canvas.width,h=canvas.height,scale=Math.min(w/image.naturalWidth,h/image.naturalHeight)*.936,dw=image.naturalWidth*scale,dh=image.naturalHeight*scale;context.clearRect(0,0,w,h);context.drawImage(image,(w-dw)/2,(h-dh)/2,dw,dh);};
   const resize=()=>{const ratio=Math.min(devicePixelRatio||1,2),box=stage.getBoundingClientRect();canvas.width=Math.max(1,Math.round(box.width*ratio));canvas.height=Math.max(1,Math.round(box.height*ratio));render(true);};
-  const requestAnimation=()=>{if(!animationFrame)animationFrame=requestAnimationFrame(animate);};
+  const requestAnimation=()=>{if(sequenceVisible&&!animationFrame)animationFrame=requestAnimationFrame(animate);};
   const followPage=()=>{const resting=section.offsetTop+section.offsetHeight/2-innerHeight/2,span=Math.max(innerHeight*.52,section.offsetHeight*.27),position=scrollY-resting;if(position<=-span)target=0;else if(position<-.18*span)target=(position+span)/(.82*span)*31;else if(position<.08*span)target=31;else if(position<.26*span)target=31+(position-.08*span)/(.18*span)*4;else if(position<1.46*span)target=35+(position-.26*span)/(1.2*span)*9;else target=frames.length-1;requestAnimation();};
   const animate=()=>{animationFrame=0;current+=(target-current)*.16;if(Math.abs(target-current)<.012)current=target;const momentum=Math.max(-1,Math.min(1,(target-current)*.22));stage.style.setProperty('--donut-tilt-y',(momentum*3.2).toFixed(2)+'deg');stage.style.setProperty('--donut-tilt-x',(Math.abs(momentum)*1.15).toFixed(2)+'deg');render();if(current!==target)requestAnimation();};
-  const begin=()=>{section.classList.add('is-ready');loading.remove();resize();followPage();addEventListener('resize',()=>{resize();followPage();},{passive:true});addEventListener('scroll',followPage,{passive:true});requestAnimation();};
+  const begin=()=>{section.classList.add('is-ready');loading.remove();resize();followPage();addEventListener('resize',()=>{resize();followPage();},{passive:true});addEventListener('scroll',followPage,{passive:true});if('IntersectionObserver'in window)new IntersectionObserver(entries=>entries.forEach(entry=>{sequenceVisible=entry.isIntersecting;if(sequenceVisible){followPage();requestAnimation();}else{cancelAnimationFrame(animationFrame);animationFrame=0;}}),{threshold:0}).observe(section);else{sequenceVisible=true;requestAnimation();}};
   const preload=()=>paths.forEach((source,index)=>{const image=new Image();image.decoding='async';const done=()=>{frames[index]=image;loaded+=1;loading.textContent='Loading '+Math.round(loaded/paths.length*100)+'%';if(loaded===paths.length)begin();};image.onload=done;image.onerror=done;image.src=source;});
   if('IntersectionObserver'in window){const preloadMargin=matchMedia('(max-width:700px)').matches?'420px 0px':'700px 0px',observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){observer.disconnect();preload();}}),{rootMargin:preloadMargin});observer.observe(section);}else preload();
 })();
@@ -1281,7 +1304,7 @@ document.addEventListener('click',event=>{
     document.documentElement.dataset.walkerScrollRange=String(pageScrollRange);
     return pageScrollRange;
   };
-  const pageProgress=()=>Math.max(0,Math.min(1,scrollY/measurePageRoute()));
+  const pageProgress=()=>Math.max(0,Math.min(1,scrollY/pageScrollRange));
   const place=()=>{position=clamp(position);targetPosition=clamp(targetPosition);walker.style.transform='translate3d('+position+'px,0,0)';};
   const easePosition=()=>{
     position+=(targetPosition-position)*.12;
@@ -1371,11 +1394,16 @@ document.addEventListener('click',event=>{
   addEventListener('wheel',event=>{
     if(!event.deltaY||event.target.closest?.('.work-stage,.horizontal-image-ticker'))return;
     const amount=event.deltaMode===1?event.deltaY*16:event.deltaMode===2?event.deltaY*innerHeight:event.deltaY;
-    const limit=measurePageRoute(),atBottom=amount>0&&scrollY>=limit-2,atTop=amount<0&&scrollY<=2;
+    const limit=pageScrollRange,atBottom=amount>0&&scrollY>=limit-2,atTop=amount<0&&scrollY<=2;
     if(atBottom||atTop){const bounds=travelBounds(),destination=atBottom?bounds.end:bounds.start;targetPosition=destination;if(Math.abs(position-destination)<.5){position=destination;place();}walk(atBottom?'right':'left');return;}
     walk(amount>0?'right':'left');
   },{passive:true,capture:true});
-  addEventListener('scroll',()=>{syncToPageProgress();recordSectionPositions();},{passive:true});
+  let walkerScrollFrame=0;
+  const queueWalkerScroll=()=>{
+    if(walkerScrollFrame)return;
+    walkerScrollFrame=requestAnimationFrame(()=>{walkerScrollFrame=0;syncToPageProgress();});
+  };
+  addEventListener('scroll',queueWalkerScroll,{passive:true});
   addEventListener('resize',()=>{place();recalibrateRoute();},{passive:true});
   addEventListener('poren:section-select',()=>{if(!compact.matches)recalibrateRoute();});
   measurePageRoute();position=travelBounds().start;targetPosition=position;place();centerArtistOnViewport();recordSectionPositions();

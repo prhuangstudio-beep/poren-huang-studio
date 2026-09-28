@@ -3591,6 +3591,8 @@ body.home footer .contact-title{
 .horizontal-image-ticker__track picture{display:block;flex:0 0 100vw;width:100vw;line-height:0}
 .horizontal-image-ticker__track picture>img{width:100%;height:auto}
 .series-entry>picture{display:contents}
+.horizontal-image-ticker{contain:paint}
+.horizontal-image-ticker.is-offscreen .horizontal-image-ticker__track,.artist-gallery-ticker.is-offscreen .artist-gallery-ticker__track{animation-play-state:paused!important}
 
 @media(max-width:47.9375rem){
   body.home main{--home-section-space:clamp(2.5rem,8vw,3.5rem)!important}
