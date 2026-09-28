@@ -240,9 +240,9 @@ if(hero){
     clearTimeout(introFallbackTimer);
     intro.classList.add('is-walking');
     clearTimeout(introExitTimer);
-    // Keep the complete opening (walk plus shared fade-out) below five seconds.
-    // 2.9 seconds of walking plus the shared 0.6 second fade = 3.5 seconds.
-    introExitTimer=setTimeout(beginIntroExit,2900);
+    // The approved opening is a single, uninterrupted three-second walk.
+    // The title and character then share the same 0.6 s exit fade.
+    introExitTimer=setTimeout(beginIntroExit,3000);
   };
   if(useMobileIntroImage){
     // Animated WebP retains alpha on mobile browsers that flatten WebM alpha.
@@ -292,7 +292,7 @@ if(hero){
     }
   });
   // Both desktop and mobile are driven only by beginIntroWalk: lettering and
-  // character share one fixed 2.9 s walk plus 0.6 s fade timeline.
+  // character share one fixed 3.0 s walk plus 0.6 s fade timeline.
   const homeNav=document.createElement('div');
   homeNav.className='home-section-nav';
   homeNav.setAttribute('role','navigation');

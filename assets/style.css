@@ -4234,6 +4234,15 @@ a.view-more-link,body.home .series-more{
 
 .intro-screen__walker-canvas{z-index:2}
 
+/* Approved opening timeline: do not reveal lettering before the walking
+   character is ready. The common screen opacity gives both elements exactly
+   the same 0.6 s entrance and exit, while the walk itself remains 3 seconds. */
+.intro-screen{opacity:0!important;animation:none!important}
+.intro-screen__walker{animation:none!important}
+.intro-screen.is-walking{opacity:1!important;animation:intro-in .6s linear both!important}
+.intro-screen.is-exiting{animation:intro-out .6s linear forwards!important}
+.intro-screen__walker-canvas{animation-duration:3s!important}
+
 /* The sculpture sequence is the link itself: no separate control competes
    with the artwork, while keyboard users still receive a clear focus state. */
 .donut-sequence__link{display:block;color:inherit;text-decoration:none;cursor:pointer}
@@ -4587,9 +4596,12 @@ body.home::before,body.home::after{display:none!important;content:none!important
 /* Move the mobile opening composition as one unit: the established gap
    between character and lettering is preserved while its centre shifts 10vh. */
 @media(max-width:47.9375rem){
-  .intro-screen>span{transform:translateY(18vh)!important}
+  /* Keep the approved character-to-title gap fixed, then shift the complete
+     composition together to the lower half of each mobile viewport. */
+  .intro-screen{--intro-mobile-composition-shift:10vh}
+  .intro-screen>span{transform:translateY(calc(8vh + var(--intro-mobile-composition-shift)))!important}
   @keyframes intro-walker-cross-mobile{
-    from{transform:translate(calc(-50% - 20vw),calc(180% + 10vh))}
-    to{transform:translate(calc(-50% + 20vw),calc(180% + 10vh))}
+    from{transform:translate(calc(-50% - 20vw),calc(180% + var(--intro-mobile-composition-shift)))}
+    to{transform:translate(calc(-50% + 20vw),calc(180% + var(--intro-mobile-composition-shift)))}
   }
 }
