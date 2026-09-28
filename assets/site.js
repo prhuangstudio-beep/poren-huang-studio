@@ -228,9 +228,10 @@ if(hero){
   const introWalkVideo=intro.querySelector('.intro-screen__walker video');
   const introWalkImage=intro.querySelector('.intro-screen__walker-image');
   const useMobileIntroImage=matchMedia('(max-width:47.9375rem)').matches;
-  let introExitTimer=0;
+  let introExitTimer=0,introFallbackTimer=0;
   const beginIntroExit=()=>intro.classList.add('is-exiting');
   const beginIntroWalk=()=>{
+    clearTimeout(introFallbackTimer);
     intro.classList.add('is-walking');
     clearTimeout(introExitTimer);
     // Keep the complete opening (walk plus shared fade-out) below five seconds.
@@ -239,7 +240,11 @@ if(hero){
   };
   if(useMobileIntroImage){
     // Animated WebP retains alpha on mobile browsers that flatten WebM alpha.
-    requestAnimationFrame(beginIntroWalk);
+    // Begin the shared timeline only after the first transparent frame is ready.
+    const beginWhenDecoded=()=>{const decoded=introWalkImage.decode?.();if(decoded?.then)decoded.catch(()=>{}).finally(beginIntroWalk);else beginIntroWalk();};
+    if(introWalkImage.complete&&introWalkImage.naturalWidth)beginWhenDecoded();
+    else introWalkImage.addEventListener('load',beginWhenDecoded,{once:true});
+    introFallbackTimer=setTimeout(beginIntroWalk,8000);
   }else{
     introWalkVideo.innerHTML=`<source src="${introWalkVideo.dataset.src}" type="video/webm">`;
     introWalkVideo.preload='auto';
@@ -266,6 +271,7 @@ if(hero){
     introCleared=true;
     window.removeEventListener('resize',realignIntro);
     clearTimeout(introExitTimer);
+    clearTimeout(introFallbackTimer);
     introWalkVideo.pause();
     window.scrollTo(0,0);
     document.body.classList.remove('intro-active');
@@ -279,9 +285,9 @@ if(hero){
       clearIntro();
     }
   });
-  // Never remove the opening before the video has had time to provide a
-  // visible frame. This is important for the 9 MB MP4 on mobile networks.
-  setTimeout(beginIntroExit,3500);
+  // Desktop safety fallback. Mobile starts its clock only after the alpha
+  // animation has decoded, so it is never dismissed before becoming visible.
+  if(!useMobileIntroImage)setTimeout(beginIntroExit,3500);
   const homeNav=document.createElement('div');
   homeNav.className='home-section-nav';
   homeNav.setAttribute('role','navigation');

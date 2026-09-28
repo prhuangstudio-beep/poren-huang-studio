@@ -3584,6 +3584,7 @@ body.home footer .contact-title{
 .intro-screen>span{position:relative;z-index:4}
 .intro-screen .intro-word,.intro-screen .intro-gap{font:inherit;font-style:normal}
 .intro-screen>span{animation:none!important;opacity:1}
+.intro-screen:not(.is-walking)>span{opacity:0!important}
 /* Preserve the previously approved mobile baseline after reducing the figure. */
 @media(max-width:47.9375rem){.intro-screen__walker-video{display:none!important}.intro-screen__walker-image{display:block!important}.intro-screen__walker-canvas{min-width:0;width:auto;height:17%;transform:translate(-50%,180%);border:0;outline:0;box-shadow:none;background:transparent;filter:none;clip-path:none}}
 @media(max-width:47.9375rem){
