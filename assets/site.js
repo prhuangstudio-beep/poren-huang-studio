@@ -914,6 +914,30 @@ if(homeStage){
   fetch(homeWorksUrl).then(response=>response.ok?response.json():Promise.reject()).then(startHomeWorksTicker).catch(()=>{});
 }
 
+// The Works and Series controls are moved while their homepage modules start.
+// Position every completed key from its actual card, not from a former wrapper,
+// so desktop and mobile use precisely the same left/bottom inset.
+const placeHomeCardKeys=()=>{
+  if(!document.body.classList.contains('home'))return;
+  ['artist','series','works','news','press'].forEach(id=>{
+    const section=document.getElementById(id);
+    const card=section?.querySelector(':scope > .side-content');
+    const key=card?.querySelector('a.key-view-more');
+    if(!card||!key)return;
+    card.style.setProperty('position','relative','important');
+    card.style.setProperty('padding-bottom','5rem','important');
+    key.style.setProperty('position','absolute','important');
+    key.style.setProperty('left','var(--space-6)','important');
+    key.style.setProperty('bottom','var(--space-6)','important');
+    key.style.setProperty('margin','0','important');
+    key.style.setProperty('z-index','3','important');
+  });
+};
+requestAnimationFrame(()=>{
+  initialiseViewMoreKeys();
+  placeHomeCardKeys();
+});
+
 if(hero){
   ['about','works','exhibitions','press'].forEach((destination,index)=>{
     const label=document.querySelectorAll('.side-title span')[index];
