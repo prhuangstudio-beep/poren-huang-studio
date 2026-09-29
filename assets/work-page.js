@@ -81,12 +81,10 @@
       if(!dragging)return;
       dragging=false;
       resetCard();
-      if(Math.abs(deltaX)<34)return;
+      if(Math.abs(deltaX)<48)return;
       const direction=deltaX<0?1:-1;
       const next=(currentIndex()+direction+thumbnails.length)%thumbnails.length;
-      thumbnails.forEach((button,index)=>button.classList.toggle('active',index===next));
-      thumbnails[next].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
-      window.setTimeout(()=>showImage(next),90);
+      showImage(next);
     };
     mainFigure.addEventListener('pointerup',finishSwipe);
     mainFigure.addEventListener('pointercancel',finishSwipe);

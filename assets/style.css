@@ -4605,3 +4605,51 @@ body.home::before,body.home::after{display:none!important;content:none!important
     to{transform:translate(calc(-50% + 20vw),calc(180% + var(--intro-mobile-composition-shift)))}
   }
 }
+
+/* 2026-09-29 layout corrections. */
+/* Every existing detail-page back control is normalised to the dog-bowl
+   control by site.js. Prevent legacy key styles from changing its footprint. */
+.work-detail-page .page-back.key-back .back-key-image{transform:none!important}
+.work-detail-page .work-main picture,
+.work-detail-page .work-main img{transform:none!important;transition:opacity .22s ease!important}
+
+/* Artist navigation sits closer to the panel it controls. */
+.about-page .artist-switch{margin-bottom:var(--space-2)!important}
+
+/* The secondary Works controls need a clearly separate row below its title. */
+.works-overview .works-tools{margin-top:var(--space-7)!important}
+
+/* The News image ticker uses the same calm rate on both desktop and mobile. */
+.exhibition-image-ticker .horizontal-image-ticker__track{animation-duration:52s!important}
+
+/* Remove the remaining generated dividers between the card panels. */
+body.home main > #works,
+body.home main > #news,
+body.home main > #works::before,
+body.home main > #works::after,
+body.home main > #news::before,
+body.home main > #news::after{border-top:0!important;border-bottom:0!important}
+body.home main > #works::before,
+body.home main > #works::after,
+body.home main > #news::before,
+body.home main > #news::after{content:none!important;display:none!important}
+
+/* The series artwork is centred by its visible artwork field—not the source
+   image's white breathing room. The same explicit picture box fixes the
+   mobile image disappearing through inherited grid overrides. */
+body.home #series .series-entry{grid-template-rows:minmax(0,1fr) 44px!important;overflow:hidden!important;background:#fff!important}
+body.home #series .series-entry picture{display:flex!important;min-width:0;min-height:0;align-items:center;justify-content:center;overflow:hidden;background:#fff}
+body.home #series .series-entry img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;object-fit:contain!important;object-position:center center!important;transform:translateY(28px)!important}
+@media(max-width:47.9375rem){
+  body.home #series .series-entry{height:clamp(16.25rem,72vw,20rem)!important;min-height:clamp(16.25rem,72vw,20rem)!important}
+  body.home #series .series-entry img{transform:translateY(22px)!important}
+
+  /* Reading material shares the centre line of each mobile card. */
+  body.home .side-content .artist-detail>div,
+  body.home #news .side-content,
+  body.home #press .side-content,
+  body.home #news article,
+  body.home #press .press-card{text-align:center!important}
+  body.home #news article>div,
+  body.home #press .press-card>div{margin-inline:auto!important}
+}
