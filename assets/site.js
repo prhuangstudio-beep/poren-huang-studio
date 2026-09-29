@@ -1059,9 +1059,9 @@ document.addEventListener('click',event=>{
   const baseTransforms=new WeakMap();
   const collectCards=()=>{
     cards=[...document.querySelectorAll(selector)].filter(card=>{
-      // News is a reading panel. Do not apply the global depth treatment to
-      // either the panel or its stories while the visitor is reading it.
-      if(homePage&&card.closest('#news'))return false;
+      // News copy is always individually clear. Its containing card gets a
+      // depth cue only once its bottom is almost leaving the viewport.
+      if(homePage&&card.matches('.home #news article,.home #news h3,.home #news p,.home #news time'))return false;
       // On the desktop home page the independent glass panel is the single
       // depth surface. Its children must not scale a second time. Mobile keeps
       // its existing, unmodified composition.
@@ -1109,11 +1109,16 @@ document.addEventListener('click',event=>{
       const visualCenter=rect.top+rect.height*.5+(window.scrollY-current);
       let t=0;
       if(homePage){
-        // News is intentionally calmer: its depth cue waits until the card is
-        // close to an edge instead of beginning across its long reading area.
-        const edge=innerHeight*(card.matches('.home #news > .side-content') ? .045 : settings.homeEdgeBand);
-        const lowerEdge=innerHeight-edge;
-        t=visualCenter<edge ? (edge-visualCenter)/edge : (visualCenter>lowerEdge ? (visualCenter-lowerEdge)/edge : 0);
+        if(card.matches('.home #news > .side-content')){
+          // Reading stays sharp from entry through the final item. The cue
+          // appears only as the card enters from below or leaves above.
+          const exitBand=innerHeight*.16;
+          t=rect.top>innerHeight-exitBand?(rect.top-(innerHeight-exitBand))/exitBand:(rect.bottom<exitBand?(exitBand-rect.bottom)/exitBand:0);
+        }else{
+          const edge=innerHeight*settings.homeEdgeBand;
+          const lowerEdge=innerHeight-edge;
+          t=visualCenter<edge ? (edge-visualCenter)/edge : (visualCenter>lowerEdge ? (visualCenter-lowerEdge)/edge : 0);
+        }
       }else{
         const center=innerHeight*.5;
         const range=innerHeight*settings.influence;
@@ -1360,7 +1365,8 @@ document.addEventListener('click',event=>{
       Object.values(videos).forEach(video=>video.classList.toggle('is-active',video===current));
       cancelAnimationFrame(videoFrame);activeVideo?.cancelVideoFrameCallback?.(videoVideoFrame);current.play().catch(()=>{});
     }
-    clearTimeout(stopTimer);stopTimer=setTimeout(stop,220);
+    clearTimeout(stopTimer);
+    stopTimer=setTimeout(stop,220);
   };
   const syncToPageProgress=()=>{
     const bounds=travelBounds(),destination=bounds.start+(bounds.end-bounds.start)*pageProgress();
