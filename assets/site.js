@@ -726,6 +726,13 @@ const homeStage=document.querySelector('body.home .work-stage');
 const homeSeries=document.querySelector('body.home #series .series-entry');
 const homeImageTicker=document.querySelector('body.home .horizontal-image-ticker__track');
 if(document.body.classList.contains('home')){
+  // The homepage is a concise preview: the full archive remains available on
+  // the News page, while this card never exceeds five readable entries.
+  document.querySelectorAll('body.home #news .side-content > article').forEach((article,index)=>{
+    article.hidden=index>=5;
+  });
+}
+if(document.body.classList.contains('home')){
   // A long, coloured canvas: eight soft pools are distributed through the
   // document height, while their colours shuffle at every page visit.
   // One chromatic family only: lake green over white, with positions shuffled
@@ -1059,6 +1066,9 @@ document.addEventListener('click',event=>{
         if(card.closest('.side-content')&&!card.matches('.home .side-content'))return false;
         if(card.closest('.hero')&&!card.matches('.home .hero'))return false;
       }
+      // News stays legible until its containing card itself approaches a
+      // viewport edge; individual stories never receive their own blur pass.
+      if(homePage&&card.matches('.home #news article,.home #news h3,.home #news p,.home #news time'))return false;
       return !(mobileHome&&card.matches('.home .side-content,.home .donut-sequence__stage,.home .horizontal-image-ticker'));
     });
     cards.forEach(card=>{
