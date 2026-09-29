@@ -774,6 +774,9 @@ if(homeSeries){
     homeSeries.insertAdjacentElement('afterend',link);
   }
 }
+// Series adds its control after the first key pass; run the idempotent pass
+// once more so it receives the same mirrored key and hover behaviour.
+queueMicrotask(initialiseViewMoreKeys);
 if(homeStage){
   document.querySelectorAll('.work-swipe-hint,.more-panel').forEach(item=>item.remove());
   const worksContent=homeStage.closest('.side-content');
@@ -1271,7 +1274,7 @@ document.addEventListener('click',event=>{
   if(window.__porenScrollWalker)return;
   window.__porenScrollWalker=true;
   const walkerStyle=document.createElement('style');
-  walkerStyle.textContent='.scroll-walker{position:fixed!important;z-index:20001!important;left:0!important;bottom:max(24px,calc(env(safe-area-inset-bottom) + 16px))!important;width:12vh!important;height:12vh!important;min-width:72px!important;min-height:72px!important;max-width:168px!important;max-height:168px!important;pointer-events:none!important;will-change:transform!important;transition:opacity .3s ease,visibility 0s linear 0s!important}.intro-active .scroll-walker{opacity:0!important;visibility:hidden!important}.scroll-walker__idle,.scroll-walker__walk{display:block;width:100%;height:100%;object-fit:contain}.scroll-walker__walk{display:none!important}.scroll-walker__canvas{display:none!important}.scroll-walker.is-walking .scroll-walker__walk.is-active{display:block!important}.scroll-walker.is-walking .scroll-walker__idle{display:none}body.home #artist>.side-content{position:relative!important;left:var(--artist-screen-offset,0px)!important}@media(max-width:700px){.scroll-walker{width:10.8vh!important;height:10.8vh!important;max-width:151px!important;max-height:151px!important}body.home #press>.side-content{zoom:1!important}body.home #press .press-layout{display:flex!important;flex-direction:column!important;gap:4rem!important}body.home #press .press-side-image{display:block!important;position:static!important;width:100%!important;aspect-ratio:1 / 1!important;order:1!important;margin:0!important}body.home #press .press-list{display:block!important;order:2!important;margin:0!important}body.home #artist .artist-detail>div{padding-left:0!important;padding-right:0!important;text-align:center!important}body.home #artist .artist-detail h2{font-size:clamp(1.4rem,6.3vw,1.72rem)!important;line-height:1.18!important;text-align:center!important}body.home #artist .artist-detail>div p{font-size:.82rem!important;line-height:1.65!important;text-align:center!important}}@media(prefers-reduced-motion:reduce){.scroll-walker__canvas{display:none!important}.scroll-walker__idle{display:block!important}}';
+  walkerStyle.textContent='.scroll-walker{position:fixed!important;z-index:20001!important;left:0!important;bottom:max(24px,calc(env(safe-area-inset-bottom) + 16px))!important;width:12vh!important;height:12vh!important;min-width:72px!important;min-height:72px!important;max-width:168px!important;max-height:168px!important;pointer-events:none!important;will-change:transform!important;transition:opacity .3s ease,visibility 0s linear 0s!important}.intro-active .scroll-walker{opacity:0!important;visibility:hidden!important}.scroll-walker__idle,.scroll-walker__walk,.scroll-walker__walk-image{display:block;width:100%;height:100%;object-fit:contain}.scroll-walker__walk,.scroll-walker__walk-image{display:none!important}.scroll-walker__canvas{display:none!important}.scroll-walker.is-walking .scroll-walker__walk.is-active{display:block!important}.scroll-walker.is-walking .scroll-walker__idle{display:none}.scroll-walker.is-alpha-walker .scroll-walker__walk{display:none!important}.scroll-walker.is-alpha-walker.is-walking .scroll-walker__walk-image{display:block!important}body.home #artist>.side-content{position:relative!important;left:var(--artist-screen-offset,0px)!important}@media(max-width:700px){.scroll-walker{width:10.8vh!important;height:10.8vh!important;max-width:151px!important;max-height:151px!important}body.home #press>.side-content{zoom:1!important}body.home #press .press-layout{display:flex!important;flex-direction:column!important;gap:4rem!important}body.home #press .press-side-image{display:block!important;position:static!important;width:100%!important;aspect-ratio:1 / 1!important;order:1!important;margin:0!important}body.home #press .press-list{display:block!important;order:2!important;margin:0!important}body.home #artist .artist-detail>div{padding-left:0!important;padding-right:0!important;text-align:center!important}body.home #artist .artist-detail h2{font-size:clamp(1.4rem,6.3vw,1.72rem)!important;line-height:1.18!important;text-align:center!important}body.home #artist .artist-detail>div p{font-size:.82rem!important;line-height:1.65!important;text-align:center!important}}@media(prefers-reduced-motion:reduce){.scroll-walker__canvas{display:none!important}.scroll-walker__idle{display:block!important}}';
   document.head.append(walkerStyle);
   // This runtime walker stylesheet is appended after the main stylesheet.
   // Keep its mobile Press fallback centred and reserve clear reading space below it.
@@ -1281,21 +1284,23 @@ document.addEventListener('click',event=>{
   const walker=document.createElement('div');
   walker.className='scroll-walker';
   walker.setAttribute('aria-hidden','true');
-  walker.innerHTML='<img class="scroll-walker__idle" data-src="assets/media/scroll-character-idle-512.webp" alt=""><canvas class="scroll-walker__canvas"></canvas><video class="scroll-walker__walk scroll-walker__walk--right" muted playsinline loop preload="none" data-src="assets/media/scroll-character-right-transparent.webm"></video><video class="scroll-walker__walk scroll-walker__walk--left" muted playsinline loop preload="none" data-src="assets/media/scroll-character-left-transparent.webm"></video>';
+  walker.innerHTML='<img class="scroll-walker__idle" data-src="assets/media/scroll-character-idle-512.webp" alt=""><img class="scroll-walker__walk-image" data-right-src="assets/media/scroll-character-right-alpha.webp" data-left-src="assets/media/scroll-character-left-alpha.webp" alt=""><canvas class="scroll-walker__canvas"></canvas><video class="scroll-walker__walk scroll-walker__walk--right" muted playsinline loop preload="none" data-src="assets/media/scroll-character-right-transparent.webm"></video><video class="scroll-walker__walk scroll-walker__walk--left" muted playsinline loop preload="none" data-src="assets/media/scroll-character-left-transparent.webm"></video>';
   document.body.append(walker);
   const idle=walker.querySelector('.scroll-walker__idle');
+  const walkImage=walker.querySelector('.scroll-walker__walk-image');
   const canvas=walker.querySelector('.scroll-walker__canvas');
   const context=canvas.getContext('2d',{willReadFrequently:true});
   const videos={right:walker.querySelector('.scroll-walker__walk--right'),left:walker.querySelector('.scroll-walker__walk--left')};
+  const compact=matchMedia('(max-width:700px)');
   const warmWalkerMedia=()=>{
     if(walker.dataset.mediaReady)return;
     walker.dataset.mediaReady='true';
     idle.src=idle.dataset.src;
-    Object.values(videos).forEach(video=>{video.innerHTML=`<source src="${video.dataset.src}" type="video/webm">`;video.preload='metadata';video.load();});
+    if(compact.matches)walkImage.src=walkImage.dataset.rightSrc;
+    else Object.values(videos).forEach(video=>{video.innerHTML=`<source src="${video.dataset.src}" type="video/webm">`;video.preload='metadata';video.load();});
   };
   if(document.body.classList.contains('intro-active'))window.addEventListener('poren:intro-complete',warmWalkerMedia,{once:true});
   else warmWalkerMedia();
-  const compact=matchMedia('(max-width:700px)');
   let position=0,targetPosition=0,direction='',stopTimer=0,positionFrame=0,videoFrame=0,videoVideoFrame=0,activeVideo=null,pageScrollRange=1;
   const scheduleWalkVideoFrame=()=>{
     if(!activeVideo)return;
@@ -1362,10 +1367,18 @@ document.addEventListener('click',event=>{
     warmWalkerMedia();
     if(direction!==nextDirection){
       direction=nextDirection;walker.classList.toggle('is-left',nextDirection==='left');walker.classList.toggle('is-right',nextDirection==='right');walker.classList.add('is-walking');idle.hidden=true;
-      const current=videos[nextDirection],other=videos[nextDirection==='left'?'right':'left'];
-      other.pause();other.currentTime=0;current.currentTime=0;current.playbackRate=.72;activeVideo=current;
-      Object.values(videos).forEach(video=>video.classList.toggle('is-active',video===current));
-      cancelAnimationFrame(videoFrame);activeVideo?.cancelVideoFrameCallback?.(videoVideoFrame);current.play().catch(()=>{});
+      const useAlphaWalker=compact.matches;
+      walker.classList.toggle('is-alpha-walker',useAlphaWalker);
+      if(useAlphaWalker){
+        walkImage.src=walkImage.dataset[nextDirection==='left'?'leftSrc':'rightSrc'];
+        activeVideo=null;
+        Object.values(videos).forEach(video=>{video.pause();video.currentTime=0;video.classList.remove('is-active');});
+      }else{
+        const current=videos[nextDirection],other=videos[nextDirection==='left'?'right':'left'];
+        other.pause();other.currentTime=0;current.currentTime=0;current.playbackRate=.72;activeVideo=current;
+        Object.values(videos).forEach(video=>video.classList.toggle('is-active',video===current));
+        cancelAnimationFrame(videoFrame);activeVideo?.cancelVideoFrameCallback?.(videoVideoFrame);current.play().catch(()=>{});
+      }
     }
     clearTimeout(stopTimer);
     stopTimer=setTimeout(stop,220);

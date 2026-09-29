@@ -4682,7 +4682,8 @@ body.home #series .series-entry img{display:block!important;width:100%!important
 body.home #artist .artist-detail>div,
 body.home #works>.side-content,
 body.home #news>.side-content,
-body.home #press>.side-content{position:relative!important;padding-bottom:5rem!important}
+body.home #press>.side-content,
+body.home #series>.side-content{position:relative!important;padding-bottom:5rem!important}
 body.home #artist .artist-detail>div>a.key-view-more,
 body.home #works>.side-content>.section-head>a.key-view-more,
 body.home #news>.side-content>.news-archive.key-view-more,
@@ -4693,9 +4694,7 @@ body.home #press>.side-content>.press-more.key-view-more{
   margin:0!important;
   z-index:3!important;
 }
-body.home #series .series-entry{position:relative!important}
-body.home #series .series-entry a.key-view-more,
-body.home #series .series-entry span a.key-view-more{
+body.home #series>.side-content>.series-more.key-view-more{
   position:absolute!important;
   left:var(--space-6)!important;
   bottom:var(--space-6)!important;
