@@ -1167,7 +1167,9 @@ document.addEventListener('click',event=>{
   const animate=()=>{animationFrame=0;current+=(target-current)*.16;if(Math.abs(target-current)<.012)current=target;const momentum=Math.max(-1,Math.min(1,(target-current)*.22));stage.style.setProperty('--donut-tilt-y',(momentum*3.2).toFixed(2)+'deg');stage.style.setProperty('--donut-tilt-x',(Math.abs(momentum)*1.15).toFixed(2)+'deg');render();if(current!==target)requestAnimation();};
   const begin=()=>{section.classList.add('is-ready');loading.remove();resize();followPage();addEventListener('resize',()=>{resize();followPage();},{passive:true});addEventListener('scroll',followPage,{passive:true});if('IntersectionObserver'in window)new IntersectionObserver(entries=>entries.forEach(entry=>{sequenceVisible=entry.isIntersecting;if(sequenceVisible){followPage();requestAnimation();}else{cancelAnimationFrame(animationFrame);animationFrame=0;}}),{threshold:0}).observe(section);else{sequenceVisible=true;requestAnimation();}};
   const preload=()=>paths.forEach((source,index)=>{const image=new Image();image.decoding='async';const done=()=>{frames[index]=image;loaded+=1;loading.textContent='Loading '+Math.round(loaded/paths.length*100)+'%';if(loaded===paths.length)begin();};image.onload=done;image.onerror=done;image.src=source;});
-  if('IntersectionObserver'in window){const preloadMargin=matchMedia('(max-width:700px)').matches?'420px 0px':'700px 0px',observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){observer.disconnect();preload();}}),{rootMargin:preloadMargin});observer.observe(section);}else preload();
+  // Start decoding when the visitor reaches Artist, so the sequence is ready
+  // before they arrive at the later Donut display.
+  if('IntersectionObserver'in window){const artist=document.querySelector('#artist'),observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){observer.disconnect();preload();}}),{threshold:0});observer.observe(artist||section);}else preload();
 })();
 
 // Full-site page transition. The animation remains absent from dedicated test
