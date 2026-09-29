@@ -1059,6 +1059,9 @@ document.addEventListener('click',event=>{
   const baseTransforms=new WeakMap();
   const collectCards=()=>{
     cards=[...document.querySelectorAll(selector)].filter(card=>{
+      // News is a reading panel. Do not apply the global depth treatment to
+      // either the panel or its stories while the visitor is reading it.
+      if(homePage&&card.closest('#news'))return false;
       // On the desktop home page the independent glass panel is the single
       // depth surface. Its children must not scale a second time. Mobile keeps
       // its existing, unmodified composition.

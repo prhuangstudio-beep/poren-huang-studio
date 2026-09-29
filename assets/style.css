@@ -4640,6 +4640,14 @@ body.home main > #news::after{content:none!important;display:none!important}
 body.home #series .series-entry{grid-template-rows:minmax(0,1fr) 44px!important;overflow:hidden!important;background:#fff!important}
 body.home #series .series-entry picture{display:flex!important;min-width:0;min-height:0;align-items:center;justify-content:center;overflow:hidden;background:#fff}
 body.home #series .series-entry img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;object-fit:contain!important;object-position:center center!important;transform:translateY(28px)!important}
+/* Press retains the fixed right image strip. Give the left editorial column
+   a more comfortable display size without competing with that gallery. */
+@media(min-width:48rem){
+  .press-page .press-page-layout{column-gap:clamp(2.5rem,5vw,5rem)!important}
+  .press-page .press-card h3,.press-page .press-list h3{font-size:clamp(1rem,1.25vw,1.3rem)!important;line-height:1.32!important}
+  .press-page .press-card p,.press-page .press-list p{font-size:clamp(.8rem,.9vw,.9rem)!important;line-height:1.6!important}
+  .press-page .press-card time,.press-page .press-list time{font-size:.75rem!important}
+}
 @media(max-width:47.9375rem){
   body.home #series .series-entry{height:clamp(16.25rem,72vw,20rem)!important;min-height:clamp(16.25rem,72vw,20rem)!important}
   body.home #series .series-entry img{transform:translateY(22px)!important}
