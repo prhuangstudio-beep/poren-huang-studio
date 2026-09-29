@@ -921,8 +921,11 @@ const placeHomeCardKeys=()=>{
   if(!document.body.classList.contains('home'))return;
   ['artist','series','works','news','press'].forEach(id=>{
     const section=document.getElementById(id);
-    const card=section?.querySelector(':scope > .side-content');
-    const key=card?.querySelector('a.key-view-more');
+    const outerCard=section?.querySelector(':scope > .side-content');
+    // Artist's white editorial card is its text panel, unlike the other
+    // homepage sections whose white panel is the side-content itself.
+    const card=id==='artist'?section?.querySelector('.artist-detail > div'):outerCard;
+    const key=card?.querySelector('a.key-view-more')||outerCard?.querySelector('a.key-view-more');
     if(!card||!key)return;
     card.style.setProperty('position','relative','important');
     card.style.setProperty('padding-bottom','5rem','important');
