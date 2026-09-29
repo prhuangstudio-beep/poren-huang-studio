@@ -4661,3 +4661,44 @@ body.home #series .series-entry img{display:block!important;width:100%!important
   body.home #news article>div,
   body.home #press .press-card>div{margin-inline:auto!important}
 }
+
+/* Mobile homepage card alignment and shared key placement. */
+@media(max-width:47.9375rem){
+  body.home #artist .artist-detail>div{
+    width:100%!important;
+    padding-left:0!important;
+    padding-right:0!important;
+    text-align:center!important;
+  }
+  body.home #artist .artist-detail h2,
+  body.home #artist .artist-detail p{text-align:center!important}
+  body.home #news .side-content,
+  body.home #news article,
+  body.home #news article>div{text-align:left!important}
+  body.home #news article>div{margin-inline:0!important}
+}
+
+/* Each homepage key belongs to the lower-left corner of its own white card. */
+body.home #artist .artist-detail>div,
+body.home #works>.side-content,
+body.home #news>.side-content,
+body.home #press>.side-content{position:relative!important;padding-bottom:5rem!important}
+body.home #artist .artist-detail>div>a.key-view-more,
+body.home #works>.side-content>.section-head>a.key-view-more,
+body.home #news>.side-content>.news-archive.key-view-more,
+body.home #press>.side-content>.press-more.key-view-more{
+  position:absolute!important;
+  left:var(--space-6)!important;
+  bottom:var(--space-6)!important;
+  margin:0!important;
+  z-index:3!important;
+}
+body.home #series .series-entry{position:relative!important}
+body.home #series .series-entry a.key-view-more,
+body.home #series .series-entry span a.key-view-more{
+  position:absolute!important;
+  left:var(--space-6)!important;
+  bottom:var(--space-6)!important;
+  margin:0!important;
+  z-index:3!important;
+}
