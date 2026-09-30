@@ -228,22 +228,41 @@ if(hero){
   intro.className='intro-screen';
   // Keep the originally approved walking source: its pose, scale and cadence
   // define the opening animation. The large page films are deferred instead.
-  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><video class="intro-screen__walker-canvas intro-screen__walker-video" muted playsinline loop preload="none" data-src="assets/media/scroll-character-right-transparent.webm"></video><img class="intro-screen__walker-canvas intro-screen__walker-image" src="assets/media/intro-character-mobile-alpha.webp" alt=""></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
+  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><video class="intro-screen__walker-canvas intro-screen__walker-video" muted playsinline loop preload="none" data-src="assets/media/scroll-character-right-transparent.webm"></video><img class="intro-screen__walker-canvas intro-screen__walker-image" src="assets/media/intro-character-continuous-alpha.webp" alt=""></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
   const introWalkVideo=intro.querySelector('.intro-screen__walker video');
   const introWalkImage=intro.querySelector('.intro-screen__walker-image');
-  const useMobileIntroImage=matchMedia('(max-width:47.9375rem)').matches;
+  // The approved alpha animation is used on every screen: it preserves the
+  // black outline and avoids browser-side green-screen processing.
+  const useMobileIntroImage=true;
   let introExitTimer=0,introFallbackTimer=0;
-  const beginIntroExit=()=>intro.classList.add('is-exiting');
+  const fadeIntroToHome=()=>{
+    if(intro.dataset.fading)return;
+    intro.dataset.fading='true';
+    document.body.classList.remove('intro-home-hidden');
+    intro.classList.add('is-revealing');
+    // Keep lettering and character fully present until the last 0.6 seconds.
+    setTimeout(()=>intro.classList.add('is-final'),1400);
+    setTimeout(clearIntro,2000);
+  };
+  const beginIntroExit=()=>{
+    // Start preparing the hero one second into the opening, then reveal it
+    // behind the uninterrupted walk. The fade never exposes a blank frame.
+    if(heroVideo&&heroVideo.readyState>=3&&!heroVideo.paused){fadeIntroToHome();return;}
+    heroVideo?.addEventListener('playing',fadeIntroToHome,{once:true});
+    warmHeroVideo();
+  };
   const beginIntroWalk=()=>{
     if(intro.classList.contains('is-walking'))return;
     clearTimeout(introFallbackTimer);
     intro.classList.add('is-walking');
     clearTimeout(introExitTimer);
-    // The approved opening is a single, uninterrupted three-second walk.
-    // The title and character then share the same 0.6 s exit fade.
-    introExitTimer=setTimeout(beginIntroExit,3000);
+    // The home begins a two-second reveal at 1.6 s. The character keeps
+    // walking for the full 3.6 s and shares its final 0.6 s fade with text.
+    introExitTimer=setTimeout(beginIntroExit,1600);
   };
+  document.body.classList.add('intro-home-hidden');
+  setTimeout(warmHeroVideo,1000);
   if(useMobileIntroImage){
     // Animated WebP retains alpha on mobile browsers that flatten WebM alpha.
     // Begin the shared timeline only after the first transparent frame is ready.

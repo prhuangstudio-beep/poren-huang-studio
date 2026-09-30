@@ -4243,6 +4243,20 @@ a.view-more-link,body.home .series-more{
 .intro-screen.is-exiting{animation:intro-out .6s linear forwards!important}
 .intro-screen__walker-canvas{animation-duration:3s!important}
 
+/* Approved opening: the page begins its two-second reveal behind the
+   unbroken walk. Character and lettering only fade together at the end. */
+body.intro-home-hidden>header,
+body.intro-home-hidden>main,
+body.intro-home-hidden>footer,
+body.intro-home-hidden>.home-section-nav{opacity:0!important;transition:opacity 2s linear!important}
+.intro-screen.is-walking,.intro-screen.is-revealing{opacity:1!important;animation:none!important;background:transparent!important}
+.intro-screen.is-walking::before,.intro-screen.is-revealing::before{content:"";position:absolute;inset:0;z-index:1;background:#fff;opacity:1;transition:opacity 2s linear}
+.intro-screen.is-revealing::before{opacity:0}
+.intro-screen.is-revealing.is-final .intro-screen__walker,.intro-screen.is-revealing.is-final>span{opacity:0!important;transition:opacity .6s linear!important}
+.intro-screen__walker-image{display:block!important}
+.intro-screen__walker-video{display:none!important}
+.intro-screen__walker-canvas{animation-duration:3.6s!important}
+
 /* The sculpture sequence is the link itself: no separate control competes
    with the artwork, while keyboard users still receive a clear focus state. */
 .donut-sequence__link{display:block;color:inherit;text-decoration:none;cursor:pointer}
