@@ -2693,9 +2693,9 @@ html.home-preintro body{
 
 /* During the opening sequence, keep the page clean white until the first
    homepage film has a playable frame. */
-body.home.intro-active header,
-body.home.intro-active main,
-body.home.intro-active footer{
+body.home.intro-active.intro-home-hidden header,
+body.home.intro-active.intro-home-hidden main,
+body.home.intro-active.intro-home-hidden footer{
   visibility:hidden!important;
 }
 body.home.intro-active.intro-home-hidden .video-banner{
@@ -4248,9 +4248,9 @@ a.view-more-link,body.home .series-more{
 body.intro-home-hidden>header,
 body.intro-home-hidden>main,
 body.intro-home-hidden>footer,
-body.intro-home-hidden>.home-section-nav{opacity:0!important;transition:opacity 2s linear!important}
+body.intro-home-hidden>.home-section-nav{opacity:0!important;transition:opacity .6s linear!important}
 .intro-screen.is-walking,.intro-screen.is-revealing{opacity:1!important;animation:none!important;background:transparent!important}
-.intro-screen.is-walking::before,.intro-screen.is-revealing::before{content:"";position:absolute;inset:0;z-index:1;background:#fff;opacity:1;transition:opacity 2s linear}
+.intro-screen.is-walking::before,.intro-screen.is-revealing::before{content:"";position:absolute;inset:0;z-index:1;background:#fff;opacity:1;transition:opacity .6s linear}
 .intro-screen.is-revealing::before{opacity:0}
 .intro-screen.is-revealing.is-final .intro-screen__walker,.intro-screen.is-revealing.is-final>span{opacity:0!important;transition:opacity .6s linear!important}
 .intro-screen__walker-image{display:block!important}

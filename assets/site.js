@@ -250,9 +250,9 @@ if(hero){
     intro.dataset.fading='true';
     document.body.classList.remove('intro-home-hidden');
     intro.classList.add('is-revealing');
-    // Keep lettering and character fully present until the last 0.6 seconds.
-    setTimeout(()=>intro.classList.add('is-final'),1400);
-    setTimeout(clearIntro,2000);
+    // White field, lettering and character share one final 0.6 s fade.
+    intro.classList.add('is-final');
+    setTimeout(clearIntro,600);
   };
   const beginIntroExit=()=>{
     // Start preparing the hero one second into the opening, then reveal it
@@ -266,9 +266,8 @@ if(hero){
     clearTimeout(introFallbackTimer);
     intro.classList.add('is-walking');
     clearTimeout(introExitTimer);
-    // The home begins a two-second reveal at 1.6 s. The character keeps
-    // walking for the full 3.6 s and shares its final 0.6 s fade with text.
-    introExitTimer=setTimeout(beginIntroExit,1600);
+    // The uninterrupted three-second walk ends in one shared 0.6 s fade.
+    introExitTimer=setTimeout(beginIntroExit,3000);
   };
   document.body.classList.add('intro-home-hidden');
   setTimeout(warmHeroVideo,1000);
