@@ -2698,10 +2698,11 @@ body.home.intro-active main,
 body.home.intro-active footer{
   visibility:hidden!important;
 }
-body.home.intro-active .video-banner{
+body.home.intro-active.intro-home-hidden .video-banner{
   opacity:0!important;
   pointer-events:none!important;
 }
+body.home .video-banner{transition:opacity 2s linear}
 body.home .video-banner--ambient{
   background:#fff!important;
 }
