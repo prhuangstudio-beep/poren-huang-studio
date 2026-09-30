@@ -181,37 +181,47 @@ if(hero){
   const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let introCleared=false;
   let artistFilmVisible=false;
+  const prepareArtistFilm=()=>{
+    if(!artistFilmVideo||reducedMotion||artistFilmVideo.dataset.loaded)return;
+    const source=document.createElement('source');
+    source.src=matchMedia('(max-width: 900px)').matches?artistFilmVideo.dataset.mobileSrc:artistFilmVideo.dataset.desktopSrc;
+    source.type='video/mp4';
+    artistFilmVideo.append(source);
+    artistFilmVideo.dataset.loaded='true';
+    artistFilmVideo.preload='auto';
+    artistFilmVideo.muted=true;
+    artistFilmVideo.playsInline=true;
+    artistFilmVideo.load();
+  };
+  artistFilmVideo?.addEventListener('canplaythrough',()=>{
+    document.body.dataset.artistFilmReady='true';
+    window.dispatchEvent(new Event('poren:artist-film-ready'));
+  },{once:true});
   const warmHeroVideo=()=>{
     if(!heroVideo||reducedMotion)return;
+    document.body.dataset.heroMediaStarted='true';
+    window.dispatchEvent(new Event('poren:hero-media-start'));
     heroVideo.preload='auto';
     heroVideo.muted=true;
     heroVideo.autoplay=true;
     heroVideo.playsInline=true;
     if(!heroVideo.dataset.loaded){heroVideo.dataset.loaded='true';heroVideo.load();}
     heroVideo.play().catch(()=>{});
+    // Download with the first film; playback remains visibility-gated below.
+    prepareArtistFilm();
   };
   // Keep the opening route as the first network priority. The large hero film
   // starts only after the overlay has finished, when it can actually be seen.
   heroVideo?.removeAttribute('autoplay');
   if(heroVideo)heroVideo.preload='metadata';
-  // The Artist film is below the banner. It used to start a 40 MB desktop
-  // download while the opening was still on screen; defer it until the visitor
-  // is close enough to see it.
+  // The Artist film shares the first-film download window, while playback
+  // remains gated by visibility so it does not compete for rendering work.
   artistFilmVideo?.removeAttribute('autoplay');
   if(artistFilmVideo)artistFilmVideo.preload='none';
   const warmArtistFilm=()=>{
-    if(!artistFilmVideo||!introCleared||reducedMotion)return;
-    if(!artistFilmVideo.dataset.loaded){
-      const source=document.createElement('source');
-      source.src=matchMedia('(max-width: 900px)').matches?artistFilmVideo.dataset.mobileSrc:artistFilmVideo.dataset.desktopSrc;
-      source.type='video/mp4';
-      artistFilmVideo.append(source);
-      artistFilmVideo.dataset.loaded='true';
-      artistFilmVideo.load();
-    }
-    artistFilmVideo.preload='auto';
-    artistFilmVideo.muted=true;
-    artistFilmVideo.playsInline=true;
+    if(!artistFilmVideo||reducedMotion)return;
+    prepareArtistFilm();
+    if(!introCleared||!artistFilmVisible)return;
     artistFilmVideo.play().catch(()=>{});
   };
   if(artistFilmVideo&&'IntersectionObserver' in window){
@@ -228,9 +238,8 @@ if(hero){
   intro.className='intro-screen';
   // Keep the originally approved walking source: its pose, scale and cadence
   // define the opening animation. The large page films are deferred instead.
-  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><video class="intro-screen__walker-canvas intro-screen__walker-video" muted playsinline loop preload="none" data-src="assets/media/scroll-character-right-transparent.webm"></video><img class="intro-screen__walker-canvas intro-screen__walker-image" src="assets/media/intro-character-continuous-alpha.webp" alt=""></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
+  intro.innerHTML='<div class="intro-screen__walker" aria-hidden="true"><img class="intro-screen__walker-canvas intro-screen__walker-image" src="assets/media/intro-character-continuous-alpha.webp" alt=""></div><span><strong class="intro-word">POREN</strong><em class="intro-gap" aria-hidden="true">&nbsp;</em><strong class="intro-word">HUANG</strong><small>SCULPTURE</small></span>';
   document.body.prepend(intro);
-  const introWalkVideo=intro.querySelector('.intro-screen__walker video');
   const introWalkImage=intro.querySelector('.intro-screen__walker-image');
   // The approved alpha animation is used on every screen: it preserves the
   // black outline and avoids browser-side green-screen processing.
@@ -270,18 +279,11 @@ if(hero){
     if(introWalkImage.complete&&introWalkImage.naturalWidth)beginWhenDecoded();
     else introWalkImage.addEventListener('load',beginWhenDecoded,{once:true});
     introFallbackTimer=setTimeout(beginIntroWalk,8000);
-  }else{
-    introWalkVideo.innerHTML=`<source src="${introWalkVideo.dataset.src}" type="video/webm">`;
-    introWalkVideo.preload='auto';
-    introWalkVideo.playbackRate=.72;
-    introWalkVideo.addEventListener('playing',beginIntroWalk,{once:true});
-    introWalkVideo.load();
-    introWalkVideo.play().catch(()=>{});
   }
   document.documentElement.classList.remove('home-preintro');
   const alignIntroWalker=()=>{
     const gap=intro.querySelector('.intro-gap');
-    const canvas=useMobileIntroImage?introWalkImage:intro.querySelector('.intro-screen__walker-video');
+    const canvas=introWalkImage;
     if(!gap||!canvas)return;
     const rect=gap.getBoundingClientRect();
     canvas.style.left=`${rect.left+(rect.width/2)}px`;
@@ -297,7 +299,6 @@ if(hero){
     window.removeEventListener('resize',realignIntro);
     clearTimeout(introExitTimer);
     clearTimeout(introFallbackTimer);
-    introWalkVideo.pause();
     window.scrollTo(0,0);
     document.body.classList.remove('intro-active');
     intro.remove();
@@ -1215,10 +1216,12 @@ document.addEventListener('click',event=>{
   const followPage=()=>{const resting=section.offsetTop+section.offsetHeight/2-innerHeight/2,span=Math.max(innerHeight*.52,section.offsetHeight*.27),position=scrollY-resting;if(position<=-span)target=0;else if(position<-.18*span)target=(position+span)/(.82*span)*31;else if(position<.08*span)target=31;else if(position<.26*span)target=31+(position-.08*span)/(.18*span)*4;else if(position<1.46*span)target=35+(position-.26*span)/(1.2*span)*9;else target=frames.length-1;requestAnimation();};
   const animate=()=>{animationFrame=0;current+=(target-current)*.16;if(Math.abs(target-current)<.012)current=target;const momentum=Math.max(-1,Math.min(1,(target-current)*.22));stage.style.setProperty('--donut-tilt-y',(momentum*3.2).toFixed(2)+'deg');stage.style.setProperty('--donut-tilt-x',(Math.abs(momentum)*1.15).toFixed(2)+'deg');render();if(current!==target)requestAnimation();};
   const begin=()=>{section.classList.add('is-ready');loading.remove();resize();followPage();addEventListener('resize',()=>{resize();followPage();},{passive:true});addEventListener('scroll',followPage,{passive:true});if('IntersectionObserver'in window)new IntersectionObserver(entries=>entries.forEach(entry=>{sequenceVisible=entry.isIntersecting;if(sequenceVisible){followPage();requestAnimation();}else{cancelAnimationFrame(animationFrame);animationFrame=0;}}),{threshold:0}).observe(section);else{sequenceVisible=true;requestAnimation();}};
-  const preload=()=>paths.forEach((source,index)=>{const image=new Image();image.decoding='async';const done=()=>{frames[index]=image;loaded+=1;loading.textContent='Loading '+Math.round(loaded/paths.length*100)+'%';if(loaded===paths.length)begin();};image.onload=done;image.onerror=done;image.src=source;});
-  // Start decoding when the visitor reaches Artist, so the sequence is ready
-  // before they arrive at the later Donut display.
-  if('IntersectionObserver'in window){const artist=document.querySelector('#artist'),observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){observer.disconnect();preload();}}),{threshold:0});observer.observe(artist||section);}else preload();
+  let preloadStarted=false;
+  const preload=()=>{if(preloadStarted)return;preloadStarted=true;paths.forEach((source,index)=>{const image=new Image();image.decoding='async';const done=()=>{frames[index]=image;loaded+=1;loading.textContent='Loading '+Math.round(loaded/paths.length*100)+'%';if(loaded===paths.length)begin();};image.onload=done;image.onerror=done;image.src=source;});};
+  // The Artist film owns the preceding download slot. Once it is ready to
+  // play, the Donut frames may download without competing with it.
+  if(document.body.dataset.artistFilmReady==='true')preload();
+  else window.addEventListener('poren:artist-film-ready',preload,{once:true});
 })();
 
 // Full-site page transition. The animation remains absent from dedicated test
@@ -1345,8 +1348,10 @@ document.addEventListener('click',event=>{
     if(compact.matches)walkImage.src=walkImage.dataset.rightSrc;
     else Object.values(videos).forEach(video=>{video.innerHTML=`<source src="${video.dataset.src}" type="video/webm">`;video.preload='metadata';video.load();});
   };
-  if(document.body.classList.contains('intro-active'))window.addEventListener('poren:intro-complete',warmWalkerMedia,{once:true});
-  else warmWalkerMedia();
+  // Fetch the lower walker alongside the first banner film. It remains hidden
+  // until the opening completes, so its visual behaviour does not change.
+  if(document.body.dataset.heroMediaStarted==='true')warmWalkerMedia();
+  else window.addEventListener('poren:hero-media-start',warmWalkerMedia,{once:true});
   let position=0,targetPosition=0,direction='',stopTimer=0,positionFrame=0,videoFrame=0,videoVideoFrame=0,activeVideo=null,pageScrollRange=1;
   const scheduleWalkVideoFrame=()=>{
     if(!activeVideo)return;
