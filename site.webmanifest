@@ -3,12 +3,12 @@
   "short_name": "Poren Huang",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png?v=20261003",
+      "src": "/android-chrome-192x192.png?v=20261005iconclean",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-512x512.png?v=20261003",
+      "src": "/android-chrome-512x512.png?v=20261005iconclean",
       "sizes": "512x512",
       "type": "image/png"
     }
