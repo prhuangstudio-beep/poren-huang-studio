@@ -4714,3 +4714,8 @@ body.home #series>.side-content>.series-more.key-view-more{
   margin:0!important;
   z-index:3!important;
 }
+
+/* Confirmed desktop cursor. Native cursor remains until this element initializes. */
+.site-cursor,.site-cursor.is-active{position:fixed!important;z-index:2147483647!important;display:block!important;width:31px!important;height:58px!important;left:0!important;top:0!important;border:0!important;border-radius:0!important;background:url('media/ui/outline-cursor-standard.png?v=20261006cursor8') left top/contain no-repeat!important;color:transparent!important;pointer-events:none!important;opacity:0;transition:opacity .12s ease!important}
+.site-cursor.is-visible{opacity:1!important}
+html.custom-cursor-ready,html.custom-cursor-ready *{cursor:none!important}
