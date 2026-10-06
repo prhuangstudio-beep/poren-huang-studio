@@ -4624,7 +4624,8 @@ body.home::before,body.home::after{display:none!important;content:none!important
    control by site.js. Prevent legacy key styles from changing its footprint. */
 .work-detail-page .page-back.key-back .back-key-image{transform:none!important}
 .work-detail-page .work-main picture,
-.work-detail-page .work-main img{transform:none!important;transition:opacity .22s ease!important}
+.work-detail-page .work-main img{transform:none!important;scale:1!important;transition:none!important;will-change:auto!important}
+.work-detail-page .work-main{transform:none!important;scale:1!important;transition:none!important;will-change:auto!important}
 
 /* Artist navigation sits closer to the panel it controls. */
 .about-page .artist-switch{margin-bottom:var(--space-2)!important}

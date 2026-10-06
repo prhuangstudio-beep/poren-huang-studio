@@ -28,26 +28,17 @@
       return;
     }
     switchingImage=true;
-    const currentPicture=mainFigure.querySelector('picture');
     const replacement=nextPicture.cloneNode(true);
     const replacementImage=replacement.querySelector('img');
     replacementImage.loading='eager';
-    replacement.style.cssText='position:absolute;inset:0;display:block;opacity:0;transition:opacity 220ms ease';
     const reveal=()=>{
-      requestAnimationFrame(()=>{
-        replacement.style.opacity='1';
-        if(currentPicture)currentPicture.style.opacity='0';
-        setTimeout(()=>{
-          mainFigure.replaceChildren(replacement);
-          replacement.style.cssText='';
-          main=replacement.querySelector('img');
-          thumbnails.forEach(item=>item.classList.toggle('active',item===button));
-          button.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
-          switchingImage=false;
-        },230);
-      });
+      mainFigure.replaceChildren(replacement);
+      replacement.style.cssText='';
+      main=replacement.querySelector('img');
+      thumbnails.forEach(item=>item.classList.toggle('active',item===button));
+      button.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+      switchingImage=false;
     };
-    mainFigure.append(replacement);
     if(replacementImage.complete)reveal();
     else {
       replacementImage.addEventListener('load',reveal,{once:true});
